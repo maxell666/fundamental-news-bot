@@ -23,10 +23,13 @@ def main():
         
         title_fr = translate_text(n["title"])
         
-        if score >= 4 and is_relevant(text):
-            print(f"[SEND] ({score}) {title_fr}")
-        else:
-            print(f"[IGNORE] ({score}) {title_fr}")
+        status = "SEND" if (score >= 4 and is_relevant(text)) else "IGNORE"
+
+        print("\n------------------------------")
+        print(f"Status : {status}")
+        print(f"Score  : {score}")
+        rint(f"Source : {n['source']}")
+        print(f"Titre  : {title_fr}")
             
     # 🔹 NewsAPI
     print("\n--- NewsAPI ---")
