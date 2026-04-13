@@ -20,7 +20,9 @@ def main():
         score = compute_score(text)
 
         # 🔥 condition PRO
+        
         title_fr = translate_text(n["title"])
+        
         if score >= 4 and is_relevant(text):
             print(f"[SEND] ({score}) {title_fr}")
         else:
