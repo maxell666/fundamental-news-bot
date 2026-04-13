@@ -13,18 +13,17 @@ def main():
     print("\n--- Reuters ---")
     reuters_news = fetch_reuters()
 
-    for n in reuters_news[:10]:
-        text = n["title"] + " " + n["desc"]
+    for n in reuters_news[:15]:
+        text = (n["title"] + " " + n["desc"]).lower()
 
         score = compute_score(text)
 
-        if score >= 4:
-            print(f"[HIGH] ({score}) {n['title']}")
-        elif score >= 2:
-            print(f"[MEDIUM] ({score}) {n['title']}")
+        # 🔥 condition PRO
+        if score >= 4 and is_relevant(text):
+            print(f"[SEND] ({score}) {n['title']}")
         else:
-            print(f"[LOW] ({score}) {n['title']}")
-
+            print(f"[IGNORE] ({score}) {n['title']}")
+            
     # 🔹 NewsAPI
     print("\n--- NewsAPI ---")
     newsapi_news = fetch_newsapi(NEWSAPI_KEY)
