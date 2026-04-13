@@ -4,7 +4,9 @@ import feedparser
 
 # 🔹 1. Reuters RSS
 def fetch_reuters():
-    url = "https://feeds.reuters.com/reuters/worldNews"
+    import feedparser
+
+    url = "http://feeds.bbci.co.uk/news/world/rss.xml"
     feed = feedparser.parse(url)
 
     news = []
@@ -14,7 +16,7 @@ def fetch_reuters():
             "title": entry.title,
             "desc": entry.summary,
             "url": entry.link,
-            "source": "Reuters"
+            "source": "BBC"
         })
 
     return news
