@@ -1,6 +1,7 @@
 TRANSLATIONS = {
     "war": "guerre",
     "attack": "attaque",
+    "attackers": "assaillants",
     "military": "militaire",
     "missile": "missile",
     "conflict": "conflit",
