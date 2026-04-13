@@ -28,7 +28,7 @@ def main():
         print("\n------------------------------")
         print(f"Status : {status}")
         print(f"Score  : {score}")
-        rint(f"Source : {n['source']}")
+        print(f"Source : {n['source']}")
         print(f"Titre  : {title_fr}")
             
     # 🔹 NewsAPI
