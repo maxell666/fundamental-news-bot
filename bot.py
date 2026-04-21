@@ -5,8 +5,8 @@ from translate import translate_text
 
 # 🔑 A REMPLACER plus tard
 NEWSAPI_KEY = "PUT_YOUR_KEY_HERE"
-BOT_TOKEN = "TON_BOT_TOKEN"
-CHAT_ID = "TON_CHAT_ID"
+BOT_TOKEN = "8669894437:AAGZqV3WGybOafbE48tPVGxqVsn3TkKNjAg"
+CHAT_ID = "6526554977"
 
 import requests
 
