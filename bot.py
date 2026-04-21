@@ -54,7 +54,7 @@ def main():
         print(f"Déjà vu: {already_seen}")
         print(f"Titre  : {title_fr}")
 
-        if status == "SEND":
+        if status == "SEND" and not already_seen:
             send_telegram(f"🚨 BREAKING – Fondamental\n\n{title_fr}\n\nScore: {score}\nSource: {n['source']}")
             
     # 🔹 NewsAPI
