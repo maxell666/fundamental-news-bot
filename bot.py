@@ -23,8 +23,7 @@ def send_telegram(message):
 
 
 def main():
-    send_telegram("TEST BOT NEWS OK")
-
+ 
     # 🔹 Reuters
     print("\n--- Reuters ---")
     reuters_news = fetch_reuters()
