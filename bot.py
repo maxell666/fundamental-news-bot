@@ -12,11 +12,14 @@ import requests
 
 def send_telegram(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    
-    requests.post(url, data={
+
+    response = requests.post(url, data={
         "chat_id": CHAT_ID,
         "text": message
     })
+
+    print("Telegram status code:", response.status_code)
+    print("Telegram response:", response.text)
 
 
 def main():
