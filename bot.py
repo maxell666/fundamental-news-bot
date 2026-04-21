@@ -45,6 +45,9 @@ def main():
         print(f"Score  : {score}")
         print(f"Source : {n['source']}")
         print(f"Titre  : {title_fr}")
+
+        if status == "SEND":
+            send_telegram(f"🚨 BREAKING – Fondamental\n\n{title_fr}\n\nScore: {score}\nSource: {n['source']}")
             
     # 🔹 NewsAPI
     print("\n--- NewsAPI ---")
