@@ -5,10 +5,23 @@ from translate import translate_text
 
 # 🔑 A REMPLACER plus tard
 NEWSAPI_KEY = "PUT_YOUR_KEY_HERE"
+BOT_TOKEN = "TON_BOT_TOKEN"
+CHAT_ID = "TON_CHAT_ID"
+
+import requests
+
+def send_telegram(message):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    
+    requests.post(url, data={
+        "chat_id": CHAT_ID,
+        "text": message
+    })
 
 
 def main():
     print("=== TEST NEWS BOT ===")
+    send_telegram("TEST BOT NEWS OK")
 
     # 🔹 Reuters
     print("\n--- Reuters ---")
