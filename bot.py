@@ -56,6 +56,7 @@ def main():
 
         if status == "SEND" and not already_seen:
             send_telegram(f"🚨 BREAKING – Fondamental\n\n{title_fr}\n\nScore: {score}\nSource: {n['source']}")
+            state["seen"].append(n["url"])
             
     # 🔹 NewsAPI
     print("\n--- NewsAPI ---")
