@@ -49,7 +49,7 @@ def main():
         title_fr = translate_text(n["title"])
         already_seen = n["url"] in state["seen"]
         
-        status = "SEND" if (score >= 4 and is_relevant(text)) else "IGNORE"
+        status = "SEND" if n == reuters_news[0] else "IGNORE"
 
         print("\n------------------------------")
         print(f"Status : {status}")
