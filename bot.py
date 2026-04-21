@@ -25,6 +25,10 @@ def send_telegram(message):
 def load_state():
     with open("state.json", "r", encoding="utf-8") as f:
         return json.load(f)
+
+def save_state(state):
+    with open("state.json", "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False)
         
 def main():
     print("=== TEST NEWS BOT ===")
@@ -64,6 +68,9 @@ def main():
 
     for n in newsapi_news[:5]:
         print(f"[NewsAPI] {n['title']}")
+
+    save_state(state)
+    print("State sauvegardé :", state)
 
 
 if __name__ == "__main__":
