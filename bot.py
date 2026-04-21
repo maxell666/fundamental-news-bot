@@ -9,6 +9,7 @@ BOT_TOKEN = "8669894437:AAGZqV3WGybOafbE48tPVGxqVsn3TkKNjAg"
 CHAT_ID = "6526554977"
 
 import requests
+import json
 
 def send_telegram(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -21,8 +22,14 @@ def send_telegram(message):
     print("Telegram status code:", response.status_code)
     print("Telegram response:", response.text)
 
-
+def load_state():
+    with open("state.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+        
 def main():
+    print("=== TEST NEWS BOT ===")
+    state = load_state()
+    print("State chargé :", state)
  
     # 🔹 Reuters
     print("\n--- Reuters ---")
