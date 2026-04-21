@@ -23,7 +23,6 @@ def send_telegram(message):
 
 
 def main():
-    print("=== TEST NEWS BOT ===")
     send_telegram("TEST BOT NEWS OK")
 
     # 🔹 Reuters
