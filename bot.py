@@ -43,6 +43,7 @@ def main():
         # 🔥 condition PRO
         
         title_fr = translate_text(n["title"])
+        already_seen = n["url"] in state["seen"]
         
         status = "SEND" if (score >= 4 and is_relevant(text)) else "IGNORE"
 
@@ -50,6 +51,7 @@ def main():
         print(f"Status : {status}")
         print(f"Score  : {score}")
         print(f"Source : {n['source']}")
+        print(f"Déjà vu: {already_seen}")
         print(f"Titre  : {title_fr}")
 
         if status == "SEND":
