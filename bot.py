@@ -62,7 +62,6 @@ def main():
         print(f"Source : {n['source']}")
         print(f"Déjà vu: {already_seen}")
         print(f"Titre  : {title_fr}")
-        print("DEBUG SEND CONDITION:", status, already_seen)
         
         if status == "SEND" and not already_seen:
             send_telegram(
