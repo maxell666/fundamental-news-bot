@@ -47,7 +47,11 @@ def main():
         score = compute_score(text)
         impacts, assets, bias, category = get_market_impact(text)
         impact_text = "\n".join(impacts)
-        assets_text = "\n".join([f"• {a}" for a in assets])
+        def format_asset(a):
+            if a == "USOIL":
+                return "US OIL"
+            return a
+        assets_text = "\n".join([f"• {format_asset(a)}" for a in assets])
         already_seen = n["url"] in state["seen"]
 
         status = "SEND" if (score >= 5 and is_relevant(text)) else "IGNORE"
