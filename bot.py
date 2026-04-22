@@ -4,9 +4,8 @@ from scoring import compute_score
 from translate import translate_text
 
 # 🔑 A REMPLACER plus tard
-NEWSAPI_KEY = "PUT_YOUR_KEY_HERE"
-BOT_TOKEN = "8669894437:AAGZqV3WGybOafbE48tPVGxqVsn3TkKNjAg"
-CHAT_ID = "6526554977"
+BOT_TOKEN = os.environ["BOT_TOKEN"]
+CHAT_ID = os.environ["CHAT_ID"]
 
 import requests
 import json
