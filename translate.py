@@ -17,8 +17,10 @@ def translate_text(text):
 
     response = requests.post(
         url,
+        headers={
+            "Authorization": f"DeepL-Auth-Key {DEEPL_API_KEY}"
+        },
         data={
-            "auth_key": DEEPL_API_KEY,
             "text": text,
             "source_lang": "EN",
             "target_lang": "FR"
