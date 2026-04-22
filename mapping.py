@@ -26,7 +26,7 @@
     
     
     def get_market_impact(text):
-    text = text.lower()
+        text = text.lower()
 
     impacts = []
     assets = []
