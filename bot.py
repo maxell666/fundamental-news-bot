@@ -64,11 +64,11 @@ def main():
             state["seen"].append(n["url"])
             
     # 🔹 NewsAPI
-    print("\n--- NewsAPI ---")
-    newsapi_news = fetch_newsapi(NEWSAPI_KEY)
+    #print("\n--- NewsAPI ---")
+    #newsapi_news = fetch_newsapi(NEWSAPI_KEY)
 
-    for n in newsapi_news[:5]:
-        print(f"[NewsAPI] {n['title']}")
+    #for n in newsapi_news[:5]:
+        #print(f"[NewsAPI] {n['title']}")
 
     save_state(state)
     print("State sauvegardé :", state)
