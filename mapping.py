@@ -2,43 +2,66 @@ def get_market_impact(text):
     text = text.lower()
 
     impacts = []
+    assets = []
     bias = "Neutre"
+    category = "FONDAMENTAL"
 
-    # Géopolitique / guerre
-    if any(k in text for k in ["iran", "war", "attack", "missile", "conflict"]):
-        impacts += [
-            "• XAUUSD ↑",
-            "• Indices (US30/SPX) ↓",
-            "• Volatilité ↑"
-        ]
+    # GEO / guerre / Iran / attaques / missiles
+    if any(k in text for k in ["iran", "war", "attack", "missile", "conflict", "military", "sanctions"]):
+        category = "GEO"
         bias = "Risk-off"
 
-    # Pétrole
-    if any(k in text for k in ["oil", "hormuz", "strait", "opec"]):
         impacts += [
-            "• Pétrole ↑ / volatil",
-            "• XAUUSD soutien"
+            "• Or : haussier",
+            "• Indices US : prudence",
+            "• Volatilité : en hausse"
         ]
 
-    # Fed / inflation / taux
-    if any(k in text for k in ["fed", "interest rate", "inflation", "cpi"]):
+        assets += ["XAUUSD", "US30", "NQ", "SP500"]
+
+    # Energie / pétrole / Hormuz / OPEC
+    if any(k in text for k in ["oil", "hormuz", "strait", "opec", "fuel"]):
+        category = "ENERGY"
+        bias = "Risk-off"
+
         impacts += [
-            "• USD volatil",
-            "• Indices US réaction",
-            "• XAUUSD sensible"
+            "• Pétrole : haussier",
+            "• Volatilité énergie : en hausse",
+            "• Or : soutien possible"
         ]
 
-    # ECB
+        assets += ["XAUUSD", "US30", "NQ", "SP500"]
+
+    # Fed / inflation / CPI / taux
+    if any(k in text for k in ["fed", "interest rate", "inflation", "cpi", "rate cut", "rate hike", "central bank"]):
+        if category == "FONDAMENTAL":
+            category = "MACRO"
+
+        impacts += [
+            "• USD : volatilité possible",
+            "• Indices US : réaction probable",
+            "• Or : sensible aux taux"
+        ]
+
+        assets += ["EURUSD", "GBPUSD", "XAUUSD", "US30", "NQ", "SP500"]
+
+    # ECB / Europe
     if any(k in text for k in ["ecb", "european central bank"]):
+        if category == "FONDAMENTAL":
+            category = "MACRO"
+
         impacts += [
-            "• EUR volatil",
-            "• Indices EU réaction"
+            "• EUR : volatilité possible",
+            "• Indices européens : réaction probable"
         ]
+
+        assets += ["EURUSD", "GER40"]
 
     if not impacts:
         impacts = ["• Impact à confirmer"]
 
-    # remove duplicates
+    # supprime doublons en gardant l'ordre
     impacts = list(dict.fromkeys(impacts))
+    assets = list(dict.fromkeys(assets))
 
-    return impacts, bias
+    return impacts, assets, bias, category
