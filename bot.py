@@ -5,6 +5,7 @@ from sources import fetch_reuters, fetch_newsapi
 from filter import is_relevant
 from scoring import compute_score
 from translate import translate_text
+from mapping import get_market_impact
 
 # 🔑 A REMPLACER plus tard
 BOT_TOKEN = os.environ["BOT_TOKEN"]
@@ -48,6 +49,8 @@ def main():
         # 🔥 condition PRO
         
         title_fr = translate_text(n["title"])
+        impacts = get_market_impact(text)
+        impact_text = "\n".join(impacts)
         already_seen = n["url"] in state["seen"]
         
         status = "SEND" if (score >= 4 and is_relevant(text)) else "IGNORE"
@@ -60,7 +63,13 @@ def main():
         print(f"Titre  : {title_fr}")
 
         if status == "SEND" and not already_seen:
-            send_telegram(f"🚨 BREAKING – Fondamental\n\n{title_fr}\n\nScore: {score}\nSource: {n['source']}")
+            send_telegram(
+                f"🚨 BREAKING – Fondamental\n\n"
+                f"{title_fr}\n\n"
+                f"🎯 Impact probable :\n{impact_text}\n\n"
+                f"Source : {n['source']}\n"
+                f"Score : {score}"
+            )
             state["seen"].append(n["url"])
             
     # 🔹 NewsAPI
