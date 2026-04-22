@@ -54,7 +54,7 @@ def get_market_impact(text):
         impacts += [
             "• Pétrole : haussier",
             "• Volatilité énergie : en hausse",
-            "• Or : soutien possible"
+            "• Or : haussier modéré"
         ]
 
         assets += ["XAUUSD", "US30", "NQ", "SP500"]
@@ -65,9 +65,9 @@ def get_market_impact(text):
             category = "MACRO"
 
         impacts += [
-            "• USD : volatilité possible",
-            "• Indices US : réaction probable",
-            "• Or : sensible aux taux"
+            "• USD : volatilité en hausse",
+            "• Indices US : à surveiller",
+            "• Or : sensible"
         ]
 
         assets += ["EURUSD", "GBPUSD", "XAUUSD", "US30", "NQ", "SP500"]
@@ -78,8 +78,8 @@ def get_market_impact(text):
             category = "MACRO"
 
         impacts += [
-            "• EUR : volatilité possible",
-            "• Indices européens : réaction probable"
+            "• EUR : volatilité en hausse",
+            "• Indices européens : à surveiller"
         ]
 
         assets += ["EURUSD", "GER40"]
