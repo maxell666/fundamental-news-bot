@@ -1,4 +1,31 @@
-def get_market_impact(text):
+def merge_impacts(impacts):
+    merged = {}
+
+    for imp in impacts:
+        imp = imp.replace("• ", "").strip()
+
+        parts = imp.split(" : ")
+        key = parts[0]  # ex: Or, Pétrole, USD
+
+        value = parts[1] if len(parts) > 1 else ""
+
+        if key not in merged:
+            merged[key] = []
+
+        if value and value not in merged[key]:
+            merged[key].append(value)
+
+    out = []
+    for key, values in merged.items():
+        if values:
+            out.append(f"• {key} : " + " | ".join(values))
+        else:
+            out.append(f"• {key}")
+
+    return out
+    
+    
+    def get_market_impact(text):
     text = text.lower()
 
     impacts = []
@@ -60,8 +87,8 @@ def get_market_impact(text):
     if not impacts:
         impacts = ["• Impact à confirmer"]
 
-    # supprime doublons en gardant l'ordre
-    impacts = list(dict.fromkeys(impacts))
+    # nettoyage final
+    impacts = merge_impacts(impacts)
     assets = list(dict.fromkeys(assets))
 
     return impacts, assets, bias, category
