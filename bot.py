@@ -49,7 +49,7 @@ def main():
         impact_text = "\n".join(impacts)
         already_seen = n["url"] in state["seen"]
 
-        status = "SEND" if (score >= 4 and is_relevant(text)) else "IGNORE"
+        status = "SEND" if (score >= 5 and is_relevant(text)) else "IGNORE"
 
         if status == "SEND":
             title_fr = translate_text(n["title"])
