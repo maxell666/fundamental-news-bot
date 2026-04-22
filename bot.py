@@ -49,7 +49,7 @@ def main():
         # 🔥 condition PRO
         
         title_fr = translate_text(n["title"])
-        impacts = get_market_impact(text)
+        impacts, bias = get_market_impact(text)
         impact_text = "\n".join(impacts)
         already_seen = n["url"] in state["seen"]
         
@@ -64,11 +64,12 @@ def main():
 
         if status == "SEND" and not already_seen:
             send_telegram(
-                f"🚨 BREAKING – Fondamental\n\n"
+                f"🚨 GEO | HIGH\n\n"
                 f"{title_fr}\n\n"
-                f"🎯 Impact probable :\n{impact_text}\n\n"
-                f"Source : {n['source']}\n"
-                f"Score : {score}"
+                f"🎯 Impact :\n{impact_text}\n\n"
+                f"🧭 Bias : {bias}\n"
+                f"📊 Score : {score}\n"
+                f"📰 Source : {n['source']}"
             )
             state["seen"].append(n["url"])
             
