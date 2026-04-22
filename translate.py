@@ -28,9 +28,6 @@ def translate_text(text):
         timeout=20
     )
 
-    print("DeepL status code:", response.status_code)
-    print("DeepL response:", response.text)
-
     if response.status_code != 200:
         return text
 
