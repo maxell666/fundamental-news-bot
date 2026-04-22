@@ -45,15 +45,16 @@ def main():
         text = (n["title"] + " " + n["desc"]).lower()
 
         score = compute_score(text)
-
-        # 🔥 condition PRO
-        
-        title_fr = translate_text(n["title"])
         impacts, bias = get_market_impact(text)
         impact_text = "\n".join(impacts)
         already_seen = n["url"] in state["seen"]
-        
+
         status = "SEND" if (score >= 4 and is_relevant(text)) else "IGNORE"
+
+        if status == "SEND":
+            title_fr = translate_text(n["title"])
+        else:
+            title_fr = n["title"]
 
         print("\n------------------------------")
         print(f"Status : {status}")
