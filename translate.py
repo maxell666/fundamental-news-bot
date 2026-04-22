@@ -10,6 +10,7 @@ def translate_text(text):
 
     # Si pas de clé DeepL, on renvoie le texte original
     if not DEEPL_API_KEY:
+        print("DeepL: aucune clé API trouvée")
         return text
 
     url = "https://api-free.deepl.com/v2/translate"
@@ -25,6 +26,15 @@ def translate_text(text):
         timeout=20
     )
 
+    print("DeepL status code:", response.status_code)
+    print("DeepL response:", response.text)
+
+    if response.status_code != 200:
+        return text
+
     data = response.json()
+
+    if "translations" not in data:
+        return text
 
     return data["translations"][0]["text"]
