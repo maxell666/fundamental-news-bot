@@ -2,36 +2,43 @@ def get_market_impact(text):
     text = text.lower()
 
     impacts = []
+    bias = "Neutre"
 
-    # Géopolitique Iran / guerre / attaques
-    if "iran" in text or "war" in text or "attack" in text or "missile" in text:
-        impacts.append("• Or : haussier")
-        impacts.append("• Indices : prudence")
-        impacts.append("• Volatilité : en hausse")
+    # Géopolitique / guerre
+    if any(k in text for k in ["iran", "war", "attack", "missile", "conflict"]):
+        impacts += [
+            "• XAUUSD ↑",
+            "• Indices (US30/SPX) ↓",
+            "• Volatilité ↑"
+        ]
+        bias = "Risk-off"
 
-    # Pétrole / énergie
-    if "oil" in text or "hormuz" in text or "strait" in text:
-        impacts.append("• Pétrole : haussier / volatil")
-        impacts.append("• Or : soutien possible")
+    # Pétrole
+    if any(k in text for k in ["oil", "hormuz", "strait", "opec"]):
+        impacts += [
+            "• Pétrole ↑ / volatil",
+            "• XAUUSD soutien"
+        ]
 
-    # Fed / taux / inflation
-    if "fed" in text or "interest rate" in text or "inflation" in text:
-        impacts.append("• USD : volatilité possible")
-        impacts.append("• Indices US : réaction probable")
-        impacts.append("• Or : sensible aux taux")
+    # Fed / inflation / taux
+    if any(k in text for k in ["fed", "interest rate", "inflation", "cpi"]):
+        impacts += [
+            "• USD volatil",
+            "• Indices US réaction",
+            "• XAUUSD sensible"
+        ]
 
-    # BCE / Europe
-    if "ecb" in text or "european central bank" in text:
-        impacts.append("• EUR : volatilité possible")
-        impacts.append("• Indices européens : réaction probable")
+    # ECB
+    if any(k in text for k in ["ecb", "european central bank"]):
+        impacts += [
+            "• EUR volatil",
+            "• Indices EU réaction"
+        ]
 
     if not impacts:
-        impacts.append("• Impact marché à confirmer")
+        impacts = ["• Impact à confirmer"]
 
-    # Supprime doublons en gardant l'ordre
-    unique_impacts = []
-    for item in impacts:
-        if item not in unique_impacts:
-            unique_impacts.append(item)
+    # remove duplicates
+    impacts = list(dict.fromkeys(impacts))
 
-    return unique_impacts
+    return impacts, bias
