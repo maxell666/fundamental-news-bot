@@ -45,8 +45,9 @@ def main():
         text = (n["title"] + " " + n["desc"]).lower()
 
         score = compute_score(text)
-        impacts, bias = get_market_impact(text)
+        impacts, assets, bias, category = get_market_impact(text)
         impact_text = "\n".join(impacts)
+        assets_text = "\n".join([f"• {a}" for a in assets])
         already_seen = n["url"] in state["seen"]
 
         status = "SEND" if (score >= 5 and is_relevant(text)) else "IGNORE"
@@ -65,9 +66,10 @@ def main():
         
         if status == "SEND" and not already_seen:
             send_telegram(
-                f"🚨 GEO | HIGH\n\n"
+                f"🚨 {category} | HIGH\n\n"
                 f"{title_fr}\n\n"
-                f"🎯 Impact :\n{impact_text}\n\n"
+                f"🎯 Impacts :\n{impact_text}\n\n"
+                f"📈 Actifs à surveiller :\n{assets_text}\n\n"
                 f"🧭 Bias : {bias}\n"
                 f"📊 Score : {score}\n"
                 f"📰 Source : {n['source']}"
