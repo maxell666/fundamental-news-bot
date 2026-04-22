@@ -1,3 +1,6 @@
+import os
+import requests
+import json
 from sources import fetch_reuters, fetch_newsapi
 from filter import is_relevant
 from scoring import compute_score
@@ -7,8 +10,7 @@ from translate import translate_text
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
 
-import requests
-import json
+
 
 def send_telegram(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
