@@ -4,7 +4,7 @@ import json
 from sources import fetch_reuters, fetch_newsapi
 from filter import is_relevant
 from scoring import compute_score
-from translate import translate_text
+from translate import translate_text, debug_deepl_usage
 from mapping import get_market_impact
 
 # 🔑 A REMPLACER plus tard
@@ -34,6 +34,9 @@ def save_state(state):
         
 def main():
     print("=== TEST NEWS BOT ===")
+    
+    debug_deepl_usage()
+
     state = load_state()
     print("State chargé :", state)
  
