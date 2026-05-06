@@ -56,7 +56,7 @@ def main():
 
         status = "SEND" if (score >= 5 and is_relevant(text)) else "IGNORE"
 
-        if status == "SEND":
+        if status == "SEND" and not already_seen:
             title_fr = translate_text(n["title"])
         else:
             title_fr = n["title"]
