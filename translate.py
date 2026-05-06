@@ -50,3 +50,21 @@ def translate_text(text):
     except Exception as e:
         print("DeepL exception:", str(e))
         return text
+
+def debug_deepl_usage():
+    if not DEEPL_API_KEY:
+        print("DeepL usage: aucune clé API trouvée")
+        return
+
+    url = "https://api-free.deepl.com/v2/usage"
+
+    response = requests.get(
+        url,
+        headers={
+            "Authorization": f"DeepL-Auth-Key {DEEPL_API_KEY}"
+        },
+        timeout=20
+    )
+
+    print("DeepL usage status:", response.status_code)
+    print("DeepL usage body:", response.text)
