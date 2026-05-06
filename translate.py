@@ -15,25 +15,38 @@ def translate_text(text):
 
     url = "https://api-free.deepl.com/v2/translate"
 
-    response = requests.post(
-        url,
-        headers={
-            "Authorization": f"DeepL-Auth-Key {DEEPL_API_KEY}"
-        },
-        data={
-            "text": text,
-            "source_lang": "EN",
-            "target_lang": "FR"
-        },
-        timeout=20
-    )
+    try:
+        response = requests.post(
+            url,
+            headers={
+                "Authorization": f"DeepL-Auth-Key {DEEPL_API_KEY}"
+            },
+            data={
+                "text": text,
+                "source_lang": "EN",
+                "target_lang": "FR"
+            },
+            timeout=20
+        )
 
-    if response.status_code != 200:
+        print("DeepL status:", response.status_code)
+        print("DeepL body:", response.text)
+
+        if response.status_code != 200:
+            return text
+
+        data = response.json()
+
+        if "translations" not in data:
+            print("DeepL: champ 'translations' absent")
+            return text
+
+        translated = data["translations"][0]["text"]
+        print("DeepL original :", text)
+        print("DeepL traduit  :", translated)
+
+        return translated
+
+    except Exception as e:
+        print("DeepL exception:", str(e))
         return text
-
-    data = response.json()
-
-    if "translations" not in data:
-        return text
-
-    return data["translations"][0]["text"]
