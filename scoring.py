@@ -1,5 +1,14 @@
+from filter import is_noise_story
+
+
 def compute_score(text):
     text = (text or "").lower()
+
+    # Les faits divers / récits humains doivent rester sous le seuil d'envoi,
+    # même s'ils contiennent "attack", "missile" ou "Hormuz".
+    if is_noise_story(text):
+        return 0
+
     score = 0
 
     # Géopolitique tradable
@@ -31,6 +40,8 @@ def compute_score(text):
         score += 4
     if "opec" in text:
         score += 4
+    if any(k in text for k in ["tanker", "shipping", "vessel", "trade route", "supply disruption"]):
+        score += 3
 
     # Macro / banques centrales
     if "inflation" in text:
