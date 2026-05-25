@@ -3,14 +3,11 @@ def merge_impacts(impacts):
 
     for imp in impacts:
         imp = imp.replace("• ", "").strip()
-
         parts = imp.split(" : ")
-        key = parts[0]  # ex: Or, Pétrole, USD
-
+        key = parts[0]
         value = parts[1] if len(parts) > 1 else ""
 
-        if key not in merged:
-            merged[key] = []
+        merged.setdefault(key, [])
 
         if value and value not in merged[key]:
             merged[key].append(value)
@@ -26,7 +23,7 @@ def merge_impacts(impacts):
 
 
 def get_market_impact(text):
-    text = text.lower()
+    text = (text or "").lower()
 
     impacts = []
     assets = []
@@ -34,7 +31,11 @@ def get_market_impact(text):
     category = "FONDAMENTAL"
 
     # GEO / guerre / Iran / attaques / missiles
-    if any(k in text for k in ["iran", "war", "attack", "missile", "conflict", "military", "sanctions"]):
+    if any(k in text for k in [
+        "iran", "israel", "ukraine", "russia", "china", "taiwan",
+        "war", "attack", "missile", "drone", "conflict", "military",
+        "sanctions", "nuclear", "escalation"
+    ]):
         category = "GEO"
         bias = "Risk-off"
 
@@ -43,37 +44,43 @@ def get_market_impact(text):
             "• Indices US : prudence",
             "• Volatilité : en hausse"
         ]
-
-        assets += ["XAUUSD", "US30", "NQ", "SP500"]
+        assets += ["XAUUSD", "US30", "NAS100", "SPX500"]
 
     # Energie / pétrole / Hormuz / OPEC
-    if any(k in text for k in ["oil", "hormuz", "strait", "opec", "fuel"]):
+    if any(k in text for k in [
+        "oil", "crude", "brent", "wti", "hormuz", "strait",
+        "opec", "fuel", "gas", "lng", "pipeline", "red sea", "suez"
+    ]):
         category = "ENERGY"
         bias = "Risk-off"
 
         impacts += [
             "• Pétrole : haussier",
             "• Volatilité énergie : en hausse",
-            "• Or : haussier modéré"
+            "• Or : haussier modéré",
+            "• Indices : pression possible si choc énergétique"
         ]
+        assets += ["USOIL", "UKOIL", "XAUUSD", "US30", "NAS100", "SPX500"]
 
-        assets += ["XAUUSD", "US30", "NQ", "SP500"]
-
-    # Fed / inflation / CPI / taux
-    if any(k in text for k in ["fed", "interest rate", "inflation", "cpi", "rate cut", "rate hike", "central bank"]):
+    # Fed / inflation / CPI / taux / USD
+    if any(k in text for k in [
+        "fed", "fomc", "powell", "federal reserve", "interest rate",
+        "rates", "inflation", "cpi", "ppi", "pce", "rate cut",
+        "rate hike", "central bank", "treasury", "yields", "dollar",
+        "nonfarm payrolls", "nfp", "jobs report"
+    ]):
         if category == "FONDAMENTAL":
             category = "MACRO"
 
         impacts += [
             "• USD : volatilité en hausse",
             "• Indices US : à surveiller",
-            "• Or : sensible"
+            "• Or : très sensible aux taux/rendements"
         ]
-
-        assets += ["EURUSD", "GBPUSD", "XAUUSD", "US30", "NQ", "SP500"]
+        assets += ["DXY", "EURUSD", "GBPUSD", "XAUUSD", "US30", "NAS100", "SPX500"]
 
     # ECB / Europe
-    if any(k in text for k in ["ecb", "european central bank"]):
+    if any(k in text for k in ["ecb", "lagarde", "european central bank", "eurozone"]):
         if category == "FONDAMENTAL":
             category = "MACRO"
 
@@ -81,14 +88,31 @@ def get_market_impact(text):
             "• EUR : volatilité en hausse",
             "• Indices européens : à surveiller"
         ]
-
         assets += ["EURUSD", "GER40"]
+
+    # BoE / UK
+    if any(k in text for k in ["boe", "bailey", "bank of england", "pound", "sterling", "uk inflation"]):
+        if category == "FONDAMENTAL":
+            category = "MACRO"
+
+        impacts += [
+            "• GBP : volatilité en hausse",
+            "• GBPUSD : à surveiller"
+        ]
+        assets += ["GBPUSD"]
 
     if not impacts:
         impacts = ["• Impact à confirmer"]
 
-    # nettoyage final
     impacts = merge_impacts(impacts)
     assets = list(dict.fromkeys(assets))
 
     return impacts, assets, bias, category
+
+
+def priority_label(score):
+    if score >= 9:
+        return "CRITICAL"
+    if score >= 5:
+        return "HIGH"
+    return "WATCH"
