@@ -4,6 +4,10 @@ import requests
 DEEPL_API_KEY = os.environ.get("DEEPL_API_KEY", "")
 
 
+def has_deepl_key():
+    return bool(DEEPL_API_KEY)
+
+
 def translate_text(text):
     if not text:
         return ""
@@ -50,6 +54,7 @@ def translate_text(text):
     except Exception as e:
         print("DeepL exception:", str(e))
         return text
+
 
 def debug_deepl_usage():
     if not DEEPL_API_KEY:
