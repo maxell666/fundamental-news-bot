@@ -6,10 +6,81 @@ Bot Telegram de news fondamentales pour le trading.
 
 - Récupère des news via RSS BBC.
 - Peut utiliser NewsAPI si `USE_NEWSAPI=1`.
-- Filtre les news macro/géo/énergie importantes.
-- Calcule un score d'importance.
+- Sélectionne les événements macro/géo/énergie concrets à partir du titre et du résumé.
+- Attribue une priorité à l'événement reconnu, sans additionner des mots-clés.
 - Envoie une alerte Telegram avec les actifs à surveiller.
 - Traduit les titres anglais en français via DeepL.
+
+## Sélection des alertes
+
+Le titre doit contenir un événement identifiable : décision de taux, publication
+macroéconomique, orientation monétaire explicite, décision de production OPEP,
+interruption ou reprise d'un approvisionnement stratégique, sanctions ou tarifs
+douaniers, accord ou rupture de cessez-le-feu, attaque stratégique, mouvement
+explicite d'un marché de référence.
+
+Les témoignages individuels, difficultés de chauffage, faits divers, déclarations
+générales de préparation à une crise et scénarios hypothétiques sont rejetés.
+La présence d'Iran, de pétrole ou de missiles dans le résumé ne les réhabilite pas.
+Les mots sont reconnus entièrement : `war` ne correspond plus à `award`, ni `gas`
+à `Gaza`. Les règles s'appliquent aux titres anglais, avant traduction.
+
+Version `pertinence-v2` : une pollution côtière ou une collision de pétrolier ne
+suffit pas à déclencher une alerte. Il faut un effet explicite sur un flux, une
+infrastructure stratégique ou un marché. Une plage fermée près d'un terminal
+pétrolier ne signifie pas que le terminal est fermé. Le verbe `hits` ne suffit
+plus à identifier une attaque militaire ; son caractère offensif doit être
+présent dans le titre, sans être inventé à partir du résumé.
+
+Exemples :
+
+| Titre | Décision |
+| --- | --- |
+| UK needs to be ready for emergencies and hostile acts, warns Streeting | Rejeté |
+| Woman 'scared to turn heating on' due to oil cost | Rejeté |
+| Fed expected to cut interest rates | Rejeté : anticipation |
+| Fed cuts interest rates | Retenu : décision de taux |
+| Iran and Israel agree ceasefire | Retenu : accord de cessez-le-feu |
+| Russia halts gas exports to Europe | Retenu : approvisionnement |
+| Oil spill hits UAE beaches after tanker collision | Rejeté : pollution locale |
+| Oil spill halts oil exports from UAE | Retenu : interruption des exportations |
+
+Priorités : 9 pour les décisions monétaires, événements stratégiques et accords
+de cessez-le-feu ; 8 pour les données macro et décisions commerciales ; 7 pour
+l'orientation monétaire ; 6 pour les mouvements de marché. Un rejet vaut 0.
+`MIN_SCORE_SEND` reste le seuil final. Ces scores expriment une priorité de règle,
+pas une mesure de réaction du marché.
+
+Chaque décision est expliquée dans les logs (`Motif`). La limite
+`MAX_ARTICLES_PER_RUN` s'applique après le filtrage des articles non pertinents
+et des URL déjà envoyées. Le format de `state.json` reste compatible.
+Le début du run affiche aussi `Version du filtre : pertinence-v2` et le chemin
+du fichier importé, pour vérifier quelle copie s'exécute réellement.
+
+Ce filtre privilégie la précision : une annonce importante formulée autrement
+peut être écartée. Il ne lit pas l'article complet et ne vérifie pas la fraîcheur
+de l'événement. Les impacts directionnels de `mapping.py` restent des associations
+génériques ; cette modification ne les transforme pas en analyse du sens de la nouvelle.
+
+## Vérification locale
+
+Après installation des dépendances, lancer :
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Les tests couvrent les deux exemples rejetés, les faux positifs de mots-clés,
+les annonces à conserver et le parcours de sélection jusqu'à l'envoi simulé.
+Ils n'appellent ni Telegram, ni DeepL, ni les sources d'actualités et ne modifient
+pas l'état réel.
+
+## Mise à jour d'une installation existante
+
+Remplacer ensemble `bot.py`, `filter.py`, `scoring.py` et `mapping.py`.
+Conserver le `state.json` de l'installation ainsi que ses variables d'environnement.
+L'archive de mise à jour ne contient ni historique à restaurer, ni clés API.
+Les dépendances et la commande de lancement restent identiques.
 
 ## Cache DeepL
 

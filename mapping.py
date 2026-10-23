@@ -1,3 +1,6 @@
+from filter import contains_any
+
+
 def merge_impacts(impacts):
     merged = {}
 
@@ -31,7 +34,7 @@ def get_market_impact(text):
     category = "FONDAMENTAL"
 
     # GEO / guerre / Iran / attaques / missiles
-    if any(k in text for k in [
+    if contains_any(text, [
         "iran", "israel", "ukraine", "russia", "china", "taiwan",
         "war", "attack", "missile", "drone", "conflict", "military",
         "sanctions", "nuclear", "escalation"
@@ -47,7 +50,7 @@ def get_market_impact(text):
         assets += ["XAUUSD", "US30", "NAS100", "SPX500"]
 
     # Energie / pétrole / Hormuz / OPEC
-    if any(k in text for k in [
+    if contains_any(text, [
         "oil", "crude", "brent", "wti", "hormuz", "strait",
         "opec", "fuel", "gas", "lng", "pipeline", "red sea", "suez"
     ]):
@@ -63,7 +66,7 @@ def get_market_impact(text):
         assets += ["USOIL", "UKOIL", "XAUUSD", "US30", "NAS100", "SPX500"]
 
     # Fed / inflation / CPI / taux / USD
-    if any(k in text for k in [
+    if contains_any(text, [
         "fed", "fomc", "powell", "federal reserve", "interest rate",
         "rates", "inflation", "cpi", "ppi", "pce", "rate cut",
         "rate hike", "central bank", "treasury", "yields", "dollar",
@@ -80,7 +83,7 @@ def get_market_impact(text):
         assets += ["DXY", "EURUSD", "GBPUSD", "XAUUSD", "US30", "NAS100", "SPX500"]
 
     # ECB / Europe
-    if any(k in text for k in ["ecb", "lagarde", "european central bank", "eurozone"]):
+    if contains_any(text, ["ecb", "lagarde", "european central bank", "eurozone"]):
         if category == "FONDAMENTAL":
             category = "MACRO"
 
@@ -91,7 +94,7 @@ def get_market_impact(text):
         assets += ["EURUSD", "GER40"]
 
     # BoE / UK
-    if any(k in text for k in ["boe", "bailey", "bank of england", "pound", "sterling", "uk inflation"]):
+    if contains_any(text, ["boe", "bailey", "bank of england", "pound", "sterling", "uk inflation"]):
         if category == "FONDAMENTAL":
             category = "MACRO"
 
