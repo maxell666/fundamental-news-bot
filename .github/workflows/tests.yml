@@ -18,3 +18,9 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements.txt
       - run: python -m unittest discover -s tests -v
+      - name: Vérifier l'authentification Telegram sans envoi
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: "0"
+        run: python -c "from bot import verify_telegram_token; verify_telegram_token()"
