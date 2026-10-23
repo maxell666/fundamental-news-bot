@@ -130,17 +130,29 @@ USE_NEWSAPI=0
 NEWSAPI_KEY=...
 ```
 
+## Secrets GitHub Actions
+
+Dans ce dépôt, créer le secret de dépôt `TELEGRAM_BOT_TOKEN` avec le token
+actuel de BotFather, ainsi que `CHAT_ID` et `DEEPL_API_KEY`. Les workflows
+transmettent `TELEGRAM_BOT_TOKEN` à Python sous le nom d'environnement
+`BOT_TOKEN` ; le lancement local conserve donc ses variables habituelles.
+Le secret de dépôt historique `BOT_TOKEN` n'est plus utilisé par les workflows.
+
+Le jeton GitHub placé dans l'en-tête `Authorization` de cron-job sert uniquement
+à déclencher le workflow `news-bot.yml` avec `{"ref":"main"}`. Il est distinct
+du token Telegram et n'a pas à être remplacé lors d'une rotation dans BotFather.
+
 ## Lancement
 
 ```bash
 python bot.py
 ```
 
-Chaque lancement vérifie le secret `BOT_TOKEN` avec la méthode Telegram `getMe`,
+Chaque lancement vérifie la variable `BOT_TOKEN` avec la méthode Telegram `getMe`,
 même si aucun article n'est envoyé. Le log `Telegram authentifié : @...` permet
 de confirmer le bot associé au token, sans afficher le secret ni envoyer de
 message de test. Un refus de Telegram interrompt le run avant la collecte.
-Après une rotation dans BotFather, remplacer le secret `BOT_TOKEN` dans GitHub
+Après une rotation dans BotFather, remplacer le secret `TELEGRAM_BOT_TOKEN` dans GitHub
 Actions pour les tâches qui exécutent ce workflow, même si leur déclenchement
 est assuré par cron-job.
 Le workflow de tests effectue aussi ce contrôle en lecture seule après un push
