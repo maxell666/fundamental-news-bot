@@ -145,3 +145,6 @@ Actions pour les tâches qui exécutent ce workflow, même si leur déclenchemen
 est assuré par cron-job.
 Le workflow de tests effectue aussi ce contrôle en lecture seule après un push
 sur `main` ; les pull requests exécutent uniquement les tests simulés.
+Les espaces en début et fin du secret sont retirés. Le contrôle distingue un
+secret vide, un format incompatible et un refus d'authentification par Telegram,
+sans afficher la valeur du secret ni l'URL d'authentification.
