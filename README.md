@@ -25,12 +25,19 @@ La présence d'Iran, de pétrole ou de missiles dans le résumé ne les réhabil
 Les mots sont reconnus entièrement : `war` ne correspond plus à `award`, ni `gas`
 à `Gaza`. Les règles s'appliquent aux titres anglais, avant traduction.
 
-Version `pertinence-v2` : une pollution côtière ou une collision de pétrolier ne
+Version `pertinence-v2.1` : une pollution côtière ou une collision de pétrolier ne
 suffit pas à déclencher une alerte. Il faut un effet explicite sur un flux, une
 infrastructure stratégique ou un marché. Une plage fermée près d'un terminal
 pétrolier ne signifie pas que le terminal est fermé. Le verbe `hits` ne suffit
 plus à identifier une attaque militaire ; son caractère offensif doit être
 présent dans le titre, sans être inventé à partir du résumé.
+
+Les publications macro doivent concerner une économie de référence identifiable
+dans le titre ou le résumé (États-Unis, Royaume-Uni, zone euro et principales
+économies européennes, Chine, Japon, Canada, Australie, Nouvelle-Zélande, Suisse,
+Inde). Les indicateurs américains spécifiques comme le PCE ou les NFP sont
+reconnus sans nom de pays. Les statistiques locales des îles, comtés et conseils
+locaux sont rejetées même si elles sont comparées à l'inflation britannique.
 
 Exemples :
 
@@ -54,7 +61,7 @@ pas une mesure de réaction du marché.
 Chaque décision est expliquée dans les logs (`Motif`). La limite
 `MAX_ARTICLES_PER_RUN` s'applique après le filtrage des articles non pertinents
 et des URL déjà envoyées. Le format de `state.json` reste compatible.
-Le début du run affiche aussi `Version du filtre : pertinence-v2` et le chemin
+Le début du run affiche aussi `Version du filtre : pertinence-v2.1` et le chemin
 du fichier importé, pour vérifier quelle copie s'exécute réellement.
 
 Ce filtre privilégie la précision : une annonce importante formulée autrement

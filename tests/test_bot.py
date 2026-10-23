@@ -70,7 +70,16 @@ class SelectionPipelineTests(unittest.TestCase):
 
     def test_filter_version_is_visible_in_logs(self):
         _, _, _, output = self.run_bot([])
-        self.assertIn("pertinence-v2", output)
+        self.assertIn("pertinence-v2.1", output)
+
+    def test_local_inflation_is_not_translated_or_sent(self):
+        _, translated, sent, output = self.run_bot([
+            article("Island inflation rate rises to 3%, figures show", "https://test/local-cpi",
+                    "The island's latest figure is compared with UK inflation."),
+        ])
+        translated.assert_not_called()
+        sent.assert_not_called()
+        self.assertIn("Statistique économique locale", output)
 
     def test_deduplication_and_priority(self):
         news = article("Fed cuts interest rates", "https://test/fed")

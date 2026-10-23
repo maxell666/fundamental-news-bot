@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 
-FILTER_VERSION = "pertinence-v2"
+FILTER_VERSION = "pertinence-v2.1"
 
 
 def normalize_text(text):
@@ -83,6 +83,18 @@ INDICATORS = (
     "nfp", "jobs report", "payrolls", "unemployment", "gdp", "pmi",
     "retail sales", "jobless claims",
 )
+MACRO_ECONOMIES = (
+    "us", "u.s.", "united states", "american", "uk", "united kingdom",
+    "britain", "british", "england", "eurozone", "euro area", "european union",
+    "germany", "german", "france", "french", "italy", "spain", "china",
+    "chinese", "japan", "japanese", "canada", "canadian", "australia",
+    "australian", "new zealand", "switzerland", "swiss", "india", "indian",
+)
+LOCAL_MACRO = (
+    "island", "isle of man", "jersey", "guernsey", "channel islands",
+    "local inflation", "regional inflation", "county", "counties", "council",
+)
+US_INDICATORS = ("pce", "nonfarm payrolls", "non-farm payrolls", "nfp", "jobless claims")
 STRATEGIC = (
     "strait of hormuz", "hormuz", "red sea", "suez", "oil tanker",
     "oil tankers", "tanker", "tankers", "shipping", "trade route",
@@ -195,6 +207,10 @@ def assess_news(title, description=""):
                          r"\b(?:rises?|rose|falls?|fell|slows?|slowed|cools?|cooled|eases?|eased|"
                          r"accelerates?|accelerated|jumps?|jumped|drops?|dropped|contracts?|"
                          r"expands?|beats?|misses?|higher|lower|highest|lowest|unchanged|released)\b")):
+        if contains_any(title, LOCAL_MACRO):
+            return Assessment(0, "Statistique économique locale hors périmètre macro")
+        if not (contains_any(context, MACRO_ECONOMIES) or contains_any(title, US_INDICATORS)):
+            return Assessment(0, "Portée nationale ou économie de référence non identifiée")
         return Assessment(8, "Publication ou variation d'un indicateur macroéconomique")
 
     if _matches(title, r"\b(?:us|u\.s\.|american)\b.{0,30}\b(?:adds?|added|loses?|lost)\b"
