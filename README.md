@@ -135,3 +135,13 @@ NEWSAPI_KEY=...
 ```bash
 python bot.py
 ```
+
+Chaque lancement vérifie le secret `BOT_TOKEN` avec la méthode Telegram `getMe`,
+même si aucun article n'est envoyé. Le log `Telegram authentifié : @...` permet
+de confirmer le bot associé au token, sans afficher le secret ni envoyer de
+message de test. Un refus de Telegram interrompt le run avant la collecte.
+Après une rotation dans BotFather, remplacer le secret `BOT_TOKEN` dans GitHub
+Actions pour les tâches qui exécutent ce workflow, même si leur déclenchement
+est assuré par cron-job.
+Le workflow de tests effectue aussi ce contrôle en lecture seule après un push
+sur `main` ; les pull requests exécutent uniquement les tests simulés.

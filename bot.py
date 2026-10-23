@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import re
 from pathlib import Path
 
 from sources import fetch_reuters, fetch_newsapi
@@ -16,6 +17,36 @@ STATE_FILE = Path("state.json")
 MIN_SCORE_SEND = int(os.environ.get("MIN_SCORE_SEND", "5"))
 MAX_ARTICLES_PER_RUN = int(os.environ.get("MAX_ARTICLES_PER_RUN", "60"))
 USE_NEWSAPI = os.environ.get("USE_NEWSAPI", "0") == "1"
+
+
+def verify_telegram_token():
+    """Valide le token avec getMe, sans envoyer de message ni journaliser le secret."""
+    try:
+        response = requests.get(
+            f"https://api.telegram.org/bot{BOT_TOKEN}/getMe", timeout=20
+        )
+    except requests.RequestException:
+        # Les erreurs requests peuvent inclure l'URL, donc le token.
+        raise RuntimeError("Connexion Telegram impossible pendant la validation du token") from None
+
+    if response.status_code != 200:
+        raise RuntimeError(
+            f"Validation Telegram refusée (HTTP {response.status_code}) : vérifier le secret BOT_TOKEN"
+        )
+    try:
+        payload = response.json()
+    except ValueError:
+        raise RuntimeError("Réponse Telegram illisible pendant la validation du token") from None
+
+    identity = payload.get("result") if isinstance(payload, dict) else None
+    if not isinstance(identity, dict) or payload.get("ok") is not True or identity.get("is_bot") is not True:
+        raise RuntimeError("Telegram n'a pas confirmé l'identité du bot")
+    username = identity.get("username")
+    if not isinstance(username, str) or not re.fullmatch(r"[A-Za-z0-9_]{5,32}", username):
+        raise RuntimeError("Telegram n'a pas retourné un identifiant de bot valide")
+
+    print("Telegram authentifié :", f"@{username}")
+    return identity
 
 
 def send_telegram(message):
@@ -159,6 +190,7 @@ def main():
     print("Version du filtre :", FILTER_VERSION)
     print("Fichier du filtre :", Path(assess_news.__code__.co_filename).resolve())
 
+    verify_telegram_token()
     debug_deepl_usage()
 
     state = load_state()
