@@ -4,7 +4,7 @@ import os
 import unittest
 from unittest.mock import Mock, patch
 
-with patch.dict(os.environ, {"BOT_TOKEN": "test-token", "CHAT_ID": "test-chat"}):
+with patch.dict(os.environ, {"BOT_TOKEN": "12345:test_token_for_unit_tests_only", "CHAT_ID": "test-chat"}):
     import bot
 
 
@@ -13,6 +13,16 @@ def article(title, url, desc=""):
 
 
 class TelegramTokenTests(unittest.TestCase):
+    def test_invalid_secret_format_stops_before_any_request(self):
+        for token in ("", "bot12345:fake_token", "12345:token with spaces", "ghp_unit_test_value"):
+            with self.subTest(case="vide" if not token else "format incorrect"), \
+                    patch.object(bot, "BOT_TOKEN", token), patch.object(bot.requests, "get") as get, \
+                    self.assertRaises(RuntimeError) as error:
+                bot.verify_telegram_token()
+            get.assert_not_called()
+            if token:
+                self.assertNotIn(token, str(error.exception))
+
     def test_valid_token_identifies_bot_without_sending_message(self):
         identity = {"id": 12345, "is_bot": True, "username": "test_news_bot"}
         response = Mock(status_code=200)
@@ -30,9 +40,12 @@ class TelegramTokenTests(unittest.TestCase):
         response = Mock(status_code=401)
         response.text = "Sensitive response containing " + bot.BOT_TOKEN
         with patch.object(bot.requests, "get", return_value=response), \
+                contextlib.redirect_stdout(io.StringIO()) as output, \
                 self.assertRaisesRegex(RuntimeError, "HTTP 401") as error:
             bot.verify_telegram_token()
         self.assertNotIn(bot.BOT_TOKEN, str(error.exception))
+        self.assertNotIn(bot.BOT_TOKEN, output.getvalue())
+        self.assertIn("format Telegram valide", output.getvalue())
         response.json.assert_not_called()
 
     def test_network_error_does_not_expose_token_in_url(self):

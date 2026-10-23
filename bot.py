@@ -10,7 +10,7 @@ from translate import translate_text, debug_deepl_usage, has_deepl_key
 from mapping import get_market_impact, priority_label
 
 
-BOT_TOKEN = os.environ["BOT_TOKEN"]
+BOT_TOKEN = os.environ["BOT_TOKEN"].strip()
 CHAT_ID = os.environ["CHAT_ID"]
 
 STATE_FILE = Path("state.json")
@@ -21,6 +21,13 @@ USE_NEWSAPI = os.environ.get("USE_NEWSAPI", "0") == "1"
 
 def verify_telegram_token():
     """Valide le token avec getMe, sans envoyer de message ni journaliser le secret."""
+    if not BOT_TOKEN:
+        raise RuntimeError("Le secret BOT_TOKEN est absent ou vide dans ce run GitHub")
+    if BOT_TOKEN.startswith(("ghp_", "github_pat_", "ghs_")):
+        raise RuntimeError("BOT_TOKEN contient un jeton GitHub ; un token Telegram de BotFather est requis")
+    if not re.fullmatch(r"[0-9]+:[A-Za-z0-9_-]+", BOT_TOKEN):
+        raise RuntimeError("Format BOT_TOKEN incorrect : attendu chiffres:caractères, sans texte ni espaces internes")
+    print("Secret BOT_TOKEN présent, format Telegram valide")
     try:
         response = requests.get(
             f"https://api.telegram.org/bot{BOT_TOKEN}/getMe", timeout=20
