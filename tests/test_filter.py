@@ -96,6 +96,21 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_local_inflation_is_not_a_macro_alert(self):
+        for title in (
+            "Island inflation rate rises to 3%, figures show",
+            "Jersey inflation rises to 3%",
+            "Isle of Man inflation falls to 2%",
+            "Regional inflation rises sharply",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title, "The local figure is compared with UK inflation."))
+
+    def test_macro_geography_can_come_from_summary(self):
+        title = "Inflation and government borrowing highest for a year ahead of next week's Budget"
+        self.assertFalse(is_relevant(title))
+        self.assertTrue(is_relevant(title, "New UK figures show prices and public borrowing rose."))
+
     def test_local_pollution_is_not_a_strategic_attack(self):
         titles = (
             "Oil spill washes up on UAE beaches after tanker strike",
