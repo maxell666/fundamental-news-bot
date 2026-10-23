@@ -4,8 +4,7 @@ import json
 from pathlib import Path
 
 from sources import fetch_reuters, fetch_newsapi
-from filter import is_relevant
-from scoring import compute_score
+from filter import FILTER_VERSION, assess_news
 from translate import translate_text, debug_deepl_usage, has_deepl_key
 from mapping import get_market_impact, priority_label
 
@@ -151,12 +150,14 @@ def build_message(n, title_fr, score, impacts, assets, bias, category):
     )
 
 
-def should_send(text, score):
-    return score >= MIN_SCORE_SEND and is_relevant(text)
+def should_send(title, score, description=""):
+    return score >= MIN_SCORE_SEND and assess_news(title, description).relevant
 
 
 def main():
     print("=== FUNDAMENTAL NEWS BOT ===")
+    print("Version du filtre :", FILTER_VERSION)
+    print("Fichier du filtre :", Path(assess_news.__code__.co_filename).resolve())
 
     debug_deepl_usage()
 
@@ -190,42 +191,47 @@ def main():
 
     print("Articles récupérés :", len(unique_news))
 
-    # Score d’abord, puis tri par importance décroissante
+    # Le titre et le résumé restent distincts pour qu'un contexte géopolitique
+    # dans le résumé ne transforme pas un témoignage en alerte de marché.
     ranked = []
 
     for n in unique_news:
-        text = f"{n.get('title', '')} {n.get('desc', '')}".lower()
-        score = compute_score(text)
-        ranked.append((score, n, text))
+        assessment = assess_news(n.get("title", ""), n.get("desc", ""))
+        already_seen = n["url"] in state["seen"]
+        eligible = assessment.relevant and assessment.score >= MIN_SCORE_SEND
+        print(
+            "SELECT" if eligible and not already_seen else "IGNORE",
+            "| Score :", assessment.score,
+            "| Déjà vu :", already_seen,
+            "| Motif :", assessment.reason,
+            "| Titre :", n.get("title", ""),
+        )
+        if eligible and not already_seen:
+            ranked.append((assessment.score, n, assessment.reason))
 
     ranked.sort(key=lambda x: x[0], reverse=True)
 
     sent_count = 0
 
-    for score, n, text in ranked[:MAX_ARTICLES_PER_RUN]:
-        already_seen = n["url"] in state["seen"]
-        status = "SEND" if should_send(text, score) else "IGNORE"
-
+    # La limite porte sur les nouvelles alertes admissibles, pas sur les anciens
+    # articles déjà envoyés ni sur les sujets rejetés.
+    for score, n, reason in ranked[:MAX_ARTICLES_PER_RUN]:
+        text = f"{n.get('title', '')} {n.get('desc', '')}"
         impacts, assets, bias, category = get_market_impact(text)
-
-        if status == "SEND" and not already_seen:
-            title_fr = get_cached_translation(n["title"], state)
-        else:
-            title_fr = n["title"]
+        title_fr = get_cached_translation(n["title"], state)
 
         print("\n------------------------------")
-        print(f"Status : {status}")
+        print("Status : SEND")
         print(f"Score  : {score}")
+        print(f"Motif  : {reason}")
         print(f"Source : {n['source']}")
-        print(f"Déjà vu: {already_seen}")
         print(f"Titre  : {title_fr}")
 
-        if status == "SEND" and not already_seen:
-            send_telegram(
-                build_message(n, title_fr, score, impacts, assets, bias, category)
-            )
-            state["seen"].append(n["url"])
-            sent_count += 1
+        send_telegram(
+            build_message(n, title_fr, score, impacts, assets, bias, category)
+        )
+        state["seen"].append(n["url"])
+        sent_count += 1
 
     save_state(state)
     print(
