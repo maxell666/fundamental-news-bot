@@ -39,6 +39,29 @@ Inde). Les indicateurs américains spécifiques comme le PCE ou les NFP sont
 reconnus sans nom de pays. Les statistiques locales des îles, comtés et conseils
 locaux sont rejetées même si elles sont comparées à l'inflation britannique.
 
+Version `pertinence-v2.2` : les décisions commerciales reconnaissent aussi leurs
+acteurs institutionnels (`White House`, Commission européenne, Ottawa) et les
+économies de référence, dont le Canada. Les levées, réductions et extensions de
+droits de douane, sanctions et restrictions d'exportation sont reconnues.
+
+L'analyse porte sur la proposition principale : `US imposes tariffs after
+trade talks fail` décrit une décision effective. Les mots `talks`, `could` ou
+`weighs` dans le contexte suivant `after`, `as` ou `but` n'annulent plus cette
+décision. Une annonce conditionnelle (`if`), attendue ou seulement envisagée
+reste rejetée. Le résumé ne peut toujours pas créer un événement absent du titre.
+
+Les amendes confirmées d'au moins 5 milliards de dollars, d'euros ou de livres
+concernant Apple, Microsoft, Nvidia, Alphabet/Google, Amazon, Meta ou Tesla
+sont retenues, ainsi que leurs annulations confirmées. Les amendes potentielles,
+petits litiges et faits divers d'entreprise restent écartés. Les banques centrales
+du Canada, d'Australie, de Nouvelle-Zélande, de Suisse et d'Inde sont reconnues
+lors d'une décision de taux explicite.
+
+Les alertes commerciales et sanctions financières exceptionnelles affichent
+respectivement `TRADE` et `EQUITIES`, avec les actifs à surveiller et un biais
+`À confirmer`. Elles ne déclenchent pas une prévision haussière automatique pour
+l'or ou une prévision uniforme sur les indices.
+
 Exemples :
 
 | Titre | Décision |
@@ -51,23 +74,29 @@ Exemples :
 | Russia halts gas exports to Europe | Retenu : approvisionnement |
 | Oil spill hits UAE beaches after tanker collision | Rejeté : pollution locale |
 | Oil spill halts oil exports from UAE | Retenu : interruption des exportations |
+| White House lifts tariffs on some Canadian goods as midterm elections loom | Retenu : décision commerciale |
+| US imposes tariffs after trade talks fail | Retenu : décision effective malgré le contexte de négociations |
+| Meta fined $25bn for privacy violations | Retenu : sanction financière exceptionnelle |
+| Meta may be fined $25bn | Rejeté : sanction hypothétique |
 
 Priorités : 9 pour les décisions monétaires, événements stratégiques et accords
 de cessez-le-feu ; 8 pour les données macro et décisions commerciales ; 7 pour
-l'orientation monétaire ; 6 pour les mouvements de marché. Un rejet vaut 0.
+l'orientation monétaire et les sanctions financières exceptionnelles sur les
+mégacapitalisations US ; 6 pour les mouvements de marché. Un rejet vaut 0.
 `MIN_SCORE_SEND` reste le seuil final. Ces scores expriment une priorité de règle,
 pas une mesure de réaction du marché.
 
 Chaque décision est expliquée dans les logs (`Motif`). La limite
 `MAX_ARTICLES_PER_RUN` s'applique après le filtrage des articles non pertinents
 et des URL déjà envoyées. Le format de `state.json` reste compatible.
-Le début du run affiche aussi `Version du filtre : pertinence-v2.1` et le chemin
+Le début du run affiche aussi `Version du filtre : pertinence-v2.2` et le chemin
 du fichier importé, pour vérifier quelle copie s'exécute réellement.
 
 Ce filtre privilégie la précision : une annonce importante formulée autrement
 peut être écartée. Il ne lit pas l'article complet et ne vérifie pas la fraîcheur
 de l'événement. Les impacts directionnels de `mapping.py` restent des associations
-génériques ; cette modification ne les transforme pas en analyse du sens de la nouvelle.
+génériques pour les anciennes catégories. Les catégories `TRADE` et `EQUITIES`
+signalent explicitement que la réaction directionnelle reste à confirmer.
 
 ## Vérification locale
 
@@ -160,3 +189,7 @@ sur `main` ; les pull requests exécutent uniquement les tests simulés.
 Les espaces en début et fin du secret sont retirés. Le contrôle distingue un
 secret vide, un format incompatible et un refus d'authentification par Telegram,
 sans afficher la valeur du secret ni l'URL d'authentification.
+L'envoi vérifie aussi la confirmation de l'API Telegram. Les journaux affichent
+le statut et la confirmation d'envoi, sans le corps de réponse contenant les
+informations privées du destinataire. Une interruption n'entraîne pas de nouvel
+essai automatique dans le même lancement.

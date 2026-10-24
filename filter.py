@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 
-FILTER_VERSION = "pertinence-v2.1"
+FILTER_VERSION = "pertinence-v2.2"
 
 
 def normalize_text(text):
@@ -46,7 +46,7 @@ PERSONAL_STORIES = (
     "my wife", "my husband", "my family", "my friend", "i survived",
     "survivor", "survivors", "tells her story", "tells his story",
     "scared to", "afraid to", "fear for", "childminder", "shark",
-    "crocodile", "footballer", "celebrity", "singer", "film", "movie", "chess",
+    "crocodile", "footballer", "celebrity", "singer", "chess",
     "heating bills", "heating oil customers", "home heating oil",
 )
 PERSONAL_PATTERN = re.compile(
@@ -76,7 +76,9 @@ EDITORIAL = re.compile(
 CENTRAL_BANKS = (
     "fed", "fomc", "federal reserve", "ecb", "european central bank",
     "boe", "bank of england", "bank of japan", "boj", "central bank",
-    "powell", "lagarde",
+    "powell", "lagarde", "bank of canada", "boc", "reserve bank of australia",
+    "rba", "reserve bank of new zealand", "rbnz", "swiss national bank", "snb",
+    "reserve bank of india", "rbi",
 )
 INDICATORS = (
     "cpi", "pce", "ppi", "inflation", "nonfarm payrolls", "non-farm payrolls",
@@ -117,6 +119,75 @@ COUNTRY_GROUPS = (
     ("north korea",), ("south korea",), ("india",), ("pakistan",),
 )
 
+TRADE_ACTORS = COUNTRIES + MACRO_ECONOMIES + (
+    "white house", "trump", "european commission", "downing street",
+    "beijing", "kremlin", "ottawa", "washington", "mexico", "mexican",
+)
+US_MEGACAPS = ("apple", "microsoft", "nvidia", "alphabet", "google", "amazon", "meta", "tesla")
+
+
+def _event_clause(title):
+    """Évaluer l'annonce avant son contexte causal, sans supprimer un 'if'."""
+    if re.match(r"^(?:after|as|amid|despite|following|while|although)\b", title) and "," in title:
+        title = title.split(",", 1)[1].strip()
+    return re.split(
+        r"\b(?:after|as|amid|while|despite|but|although|following|because|"
+        r"on (?:hopes|expectations|fears|reports))\b", title, maxsplit=1
+    )[0].strip(" ,;:-")
+
+
+def is_trade_decision(title, description=""):
+    context = normalize_text(f"{title} {description}")
+    title = _event_clause(normalize_text(title))
+    if EDITORIAL.search(title):
+        return False
+    # 'Raises concerns over tariffs' ne signifie pas 'raises tariffs'.
+    action_text = re.sub(
+        r"\b(?:raises?|raised|increases?|increased)\s+(?:concerns?|fears?|questions?|doubts?)\b",
+        "", title,
+    )
+    return (
+        contains_any(title, ("tariff", "tariffs", "sanction", "sanctions", "embargo",
+                             "import duties", "export ban", "export bans", "export controls"))
+        and contains_any(context, TRADE_ACTORS)
+        and _matches(action_text, r"\b(?:imposes?|imposed|announces?|announced|approves?|"
+                     r"approved|enacts?|enacted|lifts?|lifted|removes?|removed|"
+                     r"suspends?|suspended|raises?|raised|increases?|increased|"
+                     r"cuts?|extends?|extended|ends?|ended|scraps?|scrapped|"
+                     r"slashes?|slashed|reduces?|reduced|eases?|eased|tightens?|tightened|"
+                     r"doubles?|doubled|introduces?|introduced|takes? effect|comes? into force)\b")
+    )
+
+
+def is_major_company_penalty(title):
+    """Amende confirmée d'au moins 5 milliards sur une mégacapitalisation US."""
+    original_title = normalize_text(title)
+    title = _event_clause(original_title)
+    if (EDITORIAL.search(title) or _matches(title, r"\bmay\s+(?:be\s+)?fined\b")
+            or not contains_any(title, US_MEGACAPS)):
+        return False
+    penalty = _matches(title, r"\b(?:fined|ordered to pay|(?:hit with|handed|receives?|received)\b.{0,30}\bfine|"
+                             r"fine\b.{0,30}\b(?:overturned|cancelled|scrapped))\b")
+    appeal = _matches(title, r"\bwins? (?:court )?appeal\b") and contains_any(original_title, ("fine", "penalty"))
+    if not (penalty or appeal):
+        return False
+    magnitude_text = original_title if appeal else title
+    money = (r"[$€£]\s*(\d+(?:[.,]\d+)?)\s*(?:bn|billion)\b|"
+             r"(\d+(?:[.,]\d+)?)\s*billion\s+(?:dollars?|euros?|pounds?)\b")
+    for match in re.finditer(money, magnitude_text):
+        amount = next(group for group in match.groups() if group is not None)
+        if float(amount.replace(",", ".")) < 5:
+            continue
+        before = magnitude_text[max(0, match.start() - 50):match.start()]
+        after = magnitude_text[match.end():]
+        # Le montant doit concerner la sanction, pas un investissement cité à côté.
+        if (re.search(r"\b(?:fined|ordered to pay|hit with|handed|fine of|penalty of)\s+"
+                      r"(?:(?:an?|record|antitrust|privacy)\s+){0,3}$", before)
+                or re.match(r"\s+(?:(?:antitrust|privacy|data-protection|record)\s+){0,3}"
+                            r"(?:fine|penalty)\b", after)):
+            return True
+    return False
+
 
 def _matches(text, pattern):
     return bool(re.search(pattern, text))
@@ -151,7 +222,8 @@ def _supply_effect(title):
 def _market_move(title):
     benchmarks = ("oil prices", "crude prices", "brent", "wti", "gold", "dollar",
                   "treasury yields", "bond yields", "wall street", "nasdaq", "s&p 500",
-                  "natural gas prices", "stock markets", "global stocks")
+                  "natural gas prices", "stock markets", "global stocks", "us stocks",
+                  "u.s. stocks", "us stock futures", "dow jones", "dow", "s&p500")
     benchmark_leads = any(
         match and match.start() <= 15
         for match in (_term_pattern(term).search(title) for term in benchmarks)
@@ -159,7 +231,8 @@ def _market_move(title):
     return benchmark_leads and _matches(
         title, r"\b(?:surges?|surged|plunges?|plunged|soars?|soared|tumbles?|tumbled|"
                r"jumps?|jumped|slumps?|slumped|rallies|rallied|slides?|slid|rises?|rose|"
-               r"falls?|fell|hits?|hit)\b"
+               r"falls?|fell|hits?|hit|drops?|dropped|sinks?|sank|rebounds?|rebounded|"
+               r"gains?|gained|weakens?|weakened|strengthens?|strengthened)\b"
     )
 
 
@@ -178,6 +251,8 @@ def assess_news(title, description=""):
         return Assessment(0, "Témoignage, fait divers ou sujet de consommation locale")
     if GENERAL_WARNINGS.search(title):
         return Assessment(0, "Avertissement général ou préparation hypothétique")
+    original_title = title
+    title = _event_clause(title)
     if EDITORIAL.search(title):
         return Assessment(0, "Analyse, question ou scénario hypothétique")
 
@@ -193,7 +268,8 @@ def assess_news(title, description=""):
     # Décision de taux, y compris maintien : ne pas exiger des mots 'hawkish'.
     rate_action = _matches(title, r"\b(?:cuts?|raises?|raised|hikes?|hiked|holds?|held|keeps?|"
                            r"kept|leaves?|left|lowers?|lowered|maintains?|maintained|"
-                           r"reduces?|reduced|increases?|increased|cutting|raising|unchanged)\b")
+                           r"reduces?|reduced|increases?|increased|slashes?|slashed|"
+                           r"cutting|raising|unchanged)\b")
     rate_action = rate_action or _matches(
         title, r"\b(?:announces?|announced|approves?|approved|delivers?|delivered)\b"
                r".{0,30}\brate (?:cuts?|hikes?|increase|reduction)\b"
@@ -232,13 +308,11 @@ def assess_news(title, description=""):
     if supply_effect:
         return Assessment(9, "Interruption ou reprise d'un approvisionnement stratégique")
 
-    if (contains_any(title, ("sanctions", "tariffs", "embargo"))
-            and contains_any(context, COUNTRIES)
-            and _matches(title, r"\b(?:imposes?|imposed|announces?|announced|approves?|"
-                         r"approved|enacts?|enacted|lifts?|lifted|removes?|removed|"
-                         r"suspends?|suspended|raises?|raised|increases?|increased|"
-                         r"cuts?|extends?|extended|takes? effect|come into force)\b")):
+    if is_trade_decision(title, context):
         return Assessment(8, "Décision de sanctions ou de politique commerciale")
+
+    if is_major_company_penalty(original_title):
+        return Assessment(7, "Sanction financière exceptionnelle sur une mégacapitalisation US")
 
     if (contains_any(title, ("ceasefire", "peace deal", "peace agreement"))
             and contains_any(context, COUNTRIES)

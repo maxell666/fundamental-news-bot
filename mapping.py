@@ -1,4 +1,4 @@
-from filter import contains_any
+from filter import contains_any, is_major_company_penalty, is_trade_decision
 
 
 def merge_impacts(impacts):
@@ -25,8 +25,24 @@ def merge_impacts(impacts):
     return out
 
 
-def get_market_impact(text):
+def get_market_impact(text, title=None):
     text = (text or "").lower()
+    headline = title if title is not None else text
+
+    if is_trade_decision(headline, text):
+        assets = ["US30", "NAS100", "SPX500", "DXY", "XAUUSD"]
+        if contains_any(headline, ("oil", "crude", "gas", "lng")):
+            assets += ["USOIL", "UKOIL"]
+        return [
+            "• Indices US : sensibles aux nouvelles mesures commerciales",
+            "• USD et or : réaction à confirmer selon les mesures annoncées",
+        ], assets, "À confirmer", "TRADE"
+
+    if is_major_company_penalty(headline):
+        return [
+            "• Indices US : surveiller la réaction de la valeur concernée",
+            "• Volatilité du titre : hausse possible",
+        ], ["NAS100", "SPX500"], "À confirmer", "EQUITIES"
 
     impacts = []
     assets = []

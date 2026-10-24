@@ -22,12 +22,12 @@ USE_NEWSAPI = os.environ.get("USE_NEWSAPI", "0") == "1"
 def verify_telegram_token():
     """Valide le token avec getMe, sans envoyer de message ni journaliser le secret."""
     if not BOT_TOKEN:
-        raise RuntimeError("Le secret BOT_TOKEN est absent ou vide dans ce run GitHub")
+        raise RuntimeError("La variable BOT_TOKEN est absente ou vide dans ce run GitHub")
     if BOT_TOKEN.startswith(("ghp_", "github_pat_", "ghs_")):
         raise RuntimeError("BOT_TOKEN contient un jeton GitHub ; un token Telegram de BotFather est requis")
     if not re.fullmatch(r"[0-9]+:[A-Za-z0-9_-]+", BOT_TOKEN):
         raise RuntimeError("Format BOT_TOKEN incorrect : attendu chiffres:caractères, sans texte ni espaces internes")
-    print("Secret BOT_TOKEN présent, format Telegram valide")
+    print("Token Telegram présent, format Telegram valide")
     try:
         response = requests.get(
             f"https://api.telegram.org/bot{BOT_TOKEN}/getMe", timeout=20
@@ -38,7 +38,7 @@ def verify_telegram_token():
 
     if response.status_code != 200:
         raise RuntimeError(
-            f"Validation Telegram refusée (HTTP {response.status_code}) : vérifier le secret BOT_TOKEN"
+            f"Validation Telegram refusée (HTTP {response.status_code}) : vérifier le token Telegram configuré"
         )
     try:
         payload = response.json()
@@ -59,19 +59,31 @@ def verify_telegram_token():
 def send_telegram(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-    response = requests.post(
-        url,
-        data={
-            "chat_id": CHAT_ID,
-            "text": message,
-            "disable_web_page_preview": True,
-        },
-        timeout=20,
-    )
+    try:
+        response = requests.post(
+            url,
+            data={
+                "chat_id": CHAT_ID,
+                "text": message,
+                "disable_web_page_preview": True,
+            },
+            timeout=20,
+        )
+    except requests.RequestException:
+        raise RuntimeError("Envoi Telegram non confirmé : connexion interrompue") from None
 
     print("Telegram status code:", response.status_code)
-    print("Telegram response:", response.text)
-    response.raise_for_status()
+    if response.status_code != 200:
+        raise RuntimeError(f"Envoi Telegram refusé (HTTP {response.status_code})")
+    try:
+        payload = response.json()
+    except ValueError:
+        raise RuntimeError("Envoi Telegram non confirmé : réponse illisible") from None
+    if (not isinstance(payload, dict) or payload.get("ok") is not True
+            or not isinstance(payload.get("result"), dict)
+            or not isinstance(payload["result"].get("message_id"), int)):
+        raise RuntimeError("Envoi Telegram non confirmé par l'API")
+    print("Telegram : envoi confirmé")
 
 
 def default_state():
@@ -256,7 +268,7 @@ def main():
     # articles déjà envoyés ni sur les sujets rejetés.
     for score, n, reason in ranked[:MAX_ARTICLES_PER_RUN]:
         text = f"{n.get('title', '')} {n.get('desc', '')}"
-        impacts, assets, bias, category = get_market_impact(text)
+        impacts, assets, bias, category = get_market_impact(text, title=n.get("title", ""))
         title_fr = get_cached_translation(n["title"], state)
 
         print("\n------------------------------")

@@ -96,6 +96,110 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_trade_actors_and_confirmed_policy_variants(self):
+        for title in (
+            "White House lifts tariffs on some Canadian goods as midterm elections loom",
+            "Canada lifts tariffs on US imports",
+            "Ottawa scraps import duties on US goods",
+            "Trump slashes tariffs on Chinese imports after trade talks fail",
+            "European Commission doubles tariffs on Chinese electric vehicles",
+            "US imposes tariffs on foreign film imports",
+            "China introduces export controls on rare earths",
+            "EU import duties on Chinese goods come into force",
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), 8, assess_news(title))
+
+    def test_confirmed_events_survive_speculation_in_the_background_clause(self):
+        cases = (
+            ("US imposes tariffs on China after negotiations fail", 8),
+            ("US lifts tariffs while trade talks continue", 8),
+            ("After trade talks fail, US imposes tariffs on China", 8),
+            ("Fed cuts interest rates but warns it may hold next month", 9),
+            ("Oil prices plunge as traders weigh OPEC production cuts", 6),
+            ("US stocks drop after trade talks fail", 6),
+            ("Dow sinks as investors weigh possible Fed rate cuts", 6),
+            ("Dollar strengthens as traders weigh interest rate cuts", 6),
+        )
+        for title, score in cases:
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), score, assess_news(title))
+
+    def test_background_cannot_supply_the_main_announcement(self):
+        for title in (
+            "US discusses tariffs after China lifts sanctions",
+            "White House considers lifting tariffs on Canadian goods",
+            "White House raises concerns over tariffs on Canadian goods",
+            "Trump threatens to impose tariffs if trade talks fail",
+            "US imposes tariffs if negotiations fail",
+            "Minister speaks after Fed cuts interest rates",
+            "How US stocks could rise after a trade deal",
+            "Oil prices could plunge as trade talks fail",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_other_major_central_banks_are_recognized(self):
+        for title in (
+            "Bank of Canada cuts interest rates by 25 basis points",
+            "Reserve Bank of Australia holds rates steady",
+            "Swiss National Bank slashes interest rates to 0%",
+            "RBI raises interest rates",
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), 9, assess_news(title))
+
+    def test_exceptional_confirmed_megacap_penalties(self):
+        for title in (
+            "Meta fined $25bn for 'lies' over user data privacy",
+            "Apple fined €5.5 billion after regulator talks fail",
+            "Google ordered to pay $10 billion in antitrust case",
+            "Microsoft hit with $8bn fine",
+            "Meta handed a record $25bn privacy fine",
+            "Apple fined 6 billion euros over privacy",
+            "Meta wins appeal as $25bn fine overturned",
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), 7, assess_news(title))
+        self.assertEqual(compute_score("Meta $25bn fine overturned by court"), 7)
+
+    def test_routine_or_hypothetical_company_stories_stay_blocked(self):
+        for title in (
+            "Meta faces $25bn fine over privacy",
+            "Meta may be fined $25bn over privacy",
+            "Meta could be fined $25bn over privacy",
+            "Meta fined $500m over privacy",
+            "Meta fined $500m after a $25bn investment",
+            "Meta fined $500m and announces $25bn investment",
+            "Meta fined $3bn over privacy",
+            "Local retailer fined $25bn",
+            "Meta announces $25bn investment in data centres",
+            "Barclays cutting 5,000 jobs as it increases reliance on AI",
+            "White House says Melania Trump brokered truce for Ukraine city",
+            "Websites taken down worldwide as critical cyber-security update issued",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_new_alerts_have_assets_without_an_automatic_direction(self):
+        for title, category, required in (
+            ("White House lifts tariffs on some Canadian goods", "TRADE", "NAS100"),
+            ("US imposes new sanctions on Russian oil exports", "TRADE", "USOIL"),
+            ("Meta fined $25bn for privacy violations", "EQUITIES", "NAS100"),
+        ):
+            with self.subTest(title=title):
+                impacts, assets, bias, actual = get_market_impact(title, title=title)
+                self.assertEqual(actual, category)
+                self.assertIn(required, assets)
+                self.assertEqual(bias, "À confirmer")
+                self.assertFalse(any("haussier" in impact for impact in impacts))
+
+    def test_context_does_not_reclassify_a_macro_headline_as_equities(self):
+        title = "Fed cuts interest rates"
+        context = title + " Meta fined $25bn in an unrelated case."
+        _, _, _, category = get_market_impact(context, title=title)
+        self.assertEqual(category, "MACRO")
+
     def test_local_inflation_is_not_a_macro_alert(self):
         for title in (
             "Island inflation rate rises to 3%, figures show",
