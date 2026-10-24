@@ -80,6 +80,56 @@ class TelegramTokenTests(unittest.TestCase):
         send.assert_not_called()
 
 
+class TelegramSendTests(unittest.TestCase):
+    def test_confirmed_send_does_not_log_private_response(self):
+        response = Mock(status_code=200)
+        response.text = "PRIVATE RESPONSE " + bot.BOT_TOKEN + " " + bot.CHAT_ID
+        response.json.return_value = {"ok": True, "result": {"message_id": 42, "chat": {"id": bot.CHAT_ID}}}
+        with patch.object(bot.requests, "post", return_value=response) as post, \
+                contextlib.redirect_stdout(io.StringIO()) as output:
+            bot.send_telegram("Test unitaire sans envoi réel")
+        post.assert_called_once()
+        self.assertEqual(post.call_args.kwargs["data"]["chat_id"], bot.CHAT_ID)
+        self.assertIn("envoi confirmé", output.getvalue())
+        self.assertNotIn(bot.BOT_TOKEN, output.getvalue())
+        self.assertNotIn(bot.CHAT_ID, output.getvalue())
+        self.assertNotIn("PRIVATE RESPONSE", output.getvalue())
+
+    def test_refused_send_does_not_expose_response_or_authentication_url(self):
+        response = Mock(status_code=403)
+        response.text = bot.BOT_TOKEN + " " + bot.CHAT_ID
+        with patch.object(bot.requests, "post", return_value=response), \
+                contextlib.redirect_stdout(io.StringIO()) as output, \
+                self.assertRaisesRegex(RuntimeError, "HTTP 403") as error:
+            bot.send_telegram("Test")
+        response.json.assert_not_called()
+        for private in (bot.BOT_TOKEN, bot.CHAT_ID):
+            self.assertNotIn(private, output.getvalue() + str(error.exception))
+
+    def test_interrupted_send_has_no_automatic_retry_or_secret_in_error(self):
+        url = f"https://api.telegram.org/bot{bot.BOT_TOKEN}/sendMessage"
+        with patch.object(bot.requests, "post", side_effect=bot.requests.ConnectionError(url)) as post, \
+                self.assertRaisesRegex(RuntimeError, "connexion interrompue") as error:
+            bot.send_telegram("Test")
+        post.assert_called_once()
+        self.assertNotIn(bot.BOT_TOKEN, str(error.exception))
+        self.assertTrue(error.exception.__suppress_context__)
+
+    def test_http_success_alone_does_not_confirm_a_send(self):
+        for payload in ({"ok": False}, [], {"ok": True}, {"ok": True, "result": {}}):
+            response = Mock(status_code=200)
+            response.json.return_value = payload
+            with self.subTest(payload=payload), patch.object(bot.requests, "post", return_value=response), \
+                    contextlib.redirect_stdout(io.StringIO()), self.assertRaisesRegex(RuntimeError, "non confirmé"):
+                bot.send_telegram("Test")
+        response.json.side_effect = ValueError(bot.BOT_TOKEN)
+        with patch.object(bot.requests, "post", return_value=response), \
+                contextlib.redirect_stdout(io.StringIO()), self.assertRaisesRegex(RuntimeError, "illisible") as error:
+            bot.send_telegram("Test")
+        self.assertNotIn(bot.BOT_TOKEN, str(error.exception))
+        self.assertTrue(error.exception.__suppress_context__)
+
+
 class SelectionPipelineTests(unittest.TestCase):
     def run_bot(self, articles, seen=(), limit=60, threshold=5):
         state = {"seen": list(seen), "translations": {}}
@@ -139,7 +189,27 @@ class SelectionPipelineTests(unittest.TestCase):
 
     def test_filter_version_is_visible_in_logs(self):
         _, _, _, output = self.run_bot([])
-        self.assertIn("pertinence-v2.1", output)
+        self.assertIn("pertinence-v2.2", output)
+
+    def test_recovered_real_headlines_are_sent_once_with_the_original_noise_blocked(self):
+        tariff = article(
+            "White House lifts tariffs on some Canadian goods as midterm elections loom",
+            "https://test/white-house-tariffs",
+        )
+        penalty = article("Meta fined $25bn for 'lies' over user data privacy", "https://test/meta-fine")
+        news = [tariff, penalty, tariff,
+                article("Oil spill washes up on UAE beaches after tanker strike", "https://test/spill"),
+                article("Woman 'scared to turn heating on' due to oil cost", "https://test/woman"),
+                article("UK needs to be ready for emergencies and hostile acts, warns Streeting", "https://test/uk")]
+        state, translated, sent, _ = self.run_bot(news)
+        self.assertEqual(sent.call_count, 2)
+        self.assertEqual(translated.call_count, 2)
+        self.assertEqual(state["seen"], [tariff["url"], penalty["url"]])
+        self.assertIn("TRADE", sent.call_args_list[0].args[0])
+        self.assertIn("EQUITIES", sent.call_args_list[1].args[0])
+        _, translated, sent, _ = self.run_bot(news, seen=state["seen"])
+        translated.assert_not_called()
+        sent.assert_not_called()
 
     def test_local_inflation_is_not_translated_or_sent(self):
         _, translated, sent, output = self.run_bot([
