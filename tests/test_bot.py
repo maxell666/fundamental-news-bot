@@ -189,7 +189,19 @@ class SelectionPipelineTests(unittest.TestCase):
 
     def test_filter_version_is_visible_in_logs(self):
         _, _, _, output = self.run_bot([])
-        self.assertIn("pertinence-v2.2", output)
+        self.assertIn("pertinence-v2.3", output)
+
+    def test_olympic_event_with_historical_war_context_is_not_sent(self):
+        state, translated, sent, _ = self.run_bot([
+            article(
+                "Russia to host first Olympic federation world event since Ukraine invasion",
+                "https://test/olympic-event",
+                "The first sporting event since Russia launched its invasion of Ukraine.",
+            ),
+        ])
+        translated.assert_not_called()
+        sent.assert_not_called()
+        self.assertEqual(state["seen"], [])
 
     def test_recovered_real_headlines_are_sent_once_with_the_original_noise_blocked(self):
         tariff = article(
