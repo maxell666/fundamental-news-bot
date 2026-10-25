@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 
-FILTER_VERSION = "pertinence-v2.2"
+FILTER_VERSION = "pertinence-v2.3"
 
 
 def normalize_text(text):
@@ -66,7 +66,7 @@ EDITORIAL = re.compile(
     r"(?:^|:\s*)(?:why|how|what|could|will|should|can|would|is|are)\b"
     r"|^(?:watch|listen|analysis|opinion):"
     r"|\b(?:explained|explainer|opinion|what we know|what to expect|"
-    r"could|might|may (?:cut|hold|raise|close|attack|impose|reopen|resume|halt|increase|reduce)|"
+    r"could|might|may (?:cut|hold|raise|close|attack|impose|reopen|resume|halt|increase|reduce|begin|start|launch|invade)|"
     r"expected to|hold expected|likely to|threatens? to|considers?|"
     r"considering|weighs?|discusses?|discussing|debates?|plans? to|"
     r"talks|negotiations|offers?|wants?|urges?|warns? .{0,30}(?:will|if)|"
@@ -128,10 +128,10 @@ US_MEGACAPS = ("apple", "microsoft", "nvidia", "alphabet", "google", "amazon", "
 
 def _event_clause(title):
     """Évaluer l'annonce avant son contexte causal, sans supprimer un 'if'."""
-    if re.match(r"^(?:after|as|amid|despite|following|while|although)\b", title) and "," in title:
+    if re.match(r"^(?:after|as|amid|despite|following|while|although|since|during)\b", title) and "," in title:
         title = title.split(",", 1)[1].strip()
     return re.split(
-        r"\b(?:after|as|amid|while|despite|but|although|following|because|"
+        r"\b(?:after|as|amid|while|despite|but|although|following|because|since|during|"
         r"on (?:hopes|expectations|fears|reports))\b", title, maxsplit=1
     )[0].strip(" ,;:-")
 
@@ -322,8 +322,24 @@ def assess_news(title, description=""):
         return Assessment(9, "Accord ou rupture de cessez-le-feu")
 
     attack = _matches(title, r"\b(?:attacks?|attacked|strikes?|struck|hits?|hit|"
-                      r"bombs?|bombed|bombing|invades?|invaded|invasion|launches?|launched|"
+                      r"bombs?|bombed|bombing|invades?|invaded|"
                       r"declares? war|declared war)\b")
+    # 'Launches an exhibition' n'est pas 'launches missiles'.
+    attack = attack or _matches(
+        title, r"\b(?:launches?|launched|fires?|fired)\s+"
+               r"(?:(?:a|an|the|new|fresh|another|major|massive|full-scale|first|second|"
+               r"wave|barrage|salvo|of|more|than|ballistic|cruise|hypersonic|long-range|\d+)\s+){0,8}"
+               r"(?:missiles?|drones?|airstrikes?|air strikes?|attacks?|assault|offensive|invasion)\b"
+    )
+    # Le nom 'invasion' seul peut désigner un souvenir historique. Il faut
+    # un acte militaire ou un début d'invasion explicitement annoncé.
+    invasion_targets = "|".join(re.escape(country) for country in COUNTRIES)
+    attack = attack or _matches(
+        title, r"\b(?:begins?|began|starts?|started)\s+"
+               r"(?:(?:a|an|the|new|fresh|full-scale|military)\s+){0,3}invasion\b"
+               rf"|\binvasion(?:\s+of\s+(?:{invasion_targets}))?\s+"
+               r"(?:begins?|began|starts?|started)\b"
+    )
     strategic_attack = contains_any(title, STRATEGIC)
     interstate = sum(contains_any(title, group) for group in COUNTRY_GROUPS) >= 2
     major_action = contains_any(title, (

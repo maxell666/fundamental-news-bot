@@ -96,6 +96,40 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_historical_invasions_do_not_turn_sport_or_culture_into_alerts(self):
+        for title in (
+            "Russia to host first Olympic federation world event since Ukraine invasion",
+            "Russia hosts first world sporting event during Ukraine invasion",
+            "Russia's first Olympic event since it invaded Ukraine",
+            "Russia to host world event since the invasion of Ukraine",
+            "Museum opens exhibition about Russia's invasion of Ukraine",
+            "Russia opens Ukraine invasion exhibition",
+            "Russia launches exhibition about Ukraine invasion",
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title, "Russian missiles hit Ukraine and oil prices surge."), 0)
+
+    def test_real_events_are_preserved_with_historical_or_sporting_background(self):
+        for title, score in (
+            ("Russia invades Ukraine for the first time since 2022", 9),
+            ("Russia begins a new invasion of Ukraine", 9),
+            ("Russia launches a new invasion of Ukraine", 9),
+            ("Russian invasion of Ukraine begins", 9),
+            ("Iran fires ballistic missiles at US military base", 9),
+            ("Iran launches missile attack on US military base during Olympic Games", 9),
+            ("Fed cuts interest rates for first time since 2020", 9),
+            ("White House cuts tariffs on Canadian goods for first time since 2020", 8),
+            ("Gold hits highest level since Ukraine invasion", 6),
+            ("Since Russia invaded Ukraine, US imposes new sanctions on Russian banks", 8),
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), score, assess_news(title))
+
+    def test_a_possible_new_invasion_is_not_confirmed(self):
+        for title in ("Russia may begin an invasion of Ukraine", "Russia might start an invasion of Ukraine"):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
     def test_trade_actors_and_confirmed_policy_variants(self):
         for title in (
             "White House lifts tariffs on some Canadian goods as midterm elections loom",

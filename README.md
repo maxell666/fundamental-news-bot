@@ -62,6 +62,14 @@ respectivement `TRADE` et `EQUITIES`, avec les actifs à surveiller et un biais
 `À confirmer`. Elles ne déclenchent pas une prévision haussière automatique pour
 l'or ou une prévision uniforme sur les indices.
 
+Version `pertinence-v2.3` : les contextes historiques introduits par `since`
+ou `during` sont séparés de l'événement principal. Une compétition sportive
+organisée « depuis l'invasion de l'Ukraine » n'annonce pas une nouvelle invasion.
+Le nom `invasion` seul ne suffit plus à identifier une offensive : un acte
+militaire ou un début d'invasion explicite doit être présent. Les décisions de
+taux, commerciales et mouvements de marché conservent leur priorité lorsqu'ils
+constituent l'événement principal, même avec un rappel historique ensuite.
+
 Exemples :
 
 | Titre | Décision |
@@ -78,6 +86,8 @@ Exemples :
 | US imposes tariffs after trade talks fail | Retenu : décision effective malgré le contexte de négociations |
 | Meta fined $25bn for privacy violations | Retenu : sanction financière exceptionnelle |
 | Meta may be fined $25bn | Rejeté : sanction hypothétique |
+| Russia to host first Olympic federation world event since Ukraine invasion | Rejeté : compétition sportive, contexte historique |
+| Russia begins a new invasion of Ukraine | Retenu : nouvelle offensive explicite |
 
 Priorités : 9 pour les décisions monétaires, événements stratégiques et accords
 de cessez-le-feu ; 8 pour les données macro et décisions commerciales ; 7 pour
@@ -89,7 +99,7 @@ pas une mesure de réaction du marché.
 Chaque décision est expliquée dans les logs (`Motif`). La limite
 `MAX_ARTICLES_PER_RUN` s'applique après le filtrage des articles non pertinents
 et des URL déjà envoyées. Le format de `state.json` reste compatible.
-Le début du run affiche aussi `Version du filtre : pertinence-v2.2` et le chemin
+Le début du run affiche aussi `Version du filtre : pertinence-v2.3` et le chemin
 du fichier importé, pour vérifier quelle copie s'exécute réellement.
 
 Ce filtre privilégie la précision : une annonce importante formulée autrement
