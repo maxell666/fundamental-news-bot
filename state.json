@@ -511,7 +511,8 @@
     "https://www.investing.com/news/economy-news/wall-street-slides-as-alphabet-revenue-miss-revives-ai-capex-jitters-4984885",
     "https://www.bbc.co.uk/news/articles/cr15jxzv4w24o",
     "https://www.investing.com/news/stock-market-news/amazon-projects-fourth-quarter-sales-below-estimates-4984966",
-    "https://www.cnbc.com/2026/10/29/intel-intc-q3-earnings-report-2026-.html"
+    "https://www.cnbc.com/2026/10/29/intel-intc-q3-earnings-report-2026-.html",
+    "https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -951,7 +952,8 @@
     "wall street slides as alphabet revenue miss revives ai capex jitters": "Wall Street recule alors que les résultats d'Alphabet, inférieurs aux attentes, ravivent les craintes concernant les dépenses d'investissement dans l'IA",
     "us interest rates held steady and economy grows - what it means for you": "Les taux d'intérêt américains restent stables et l'économie progresse : ce que cela signifie pour vous",
     "amazon projects fourth quarter sales below estimates": "Amazon prévoit un chiffre d'affaires inférieur aux prévisions pour le quatrième trimestre",
-    "intel stock plunges 20% as chipmaker blames pc slowdown for weak guidance": "Le titre Intel s'effondre de 20 % alors que le fabricant de puces attribue ses prévisions décevantes au ralentissement du marché des PC"
+    "intel stock plunges 20% as chipmaker blames pc slowdown for weak guidance": "Le titre Intel s'effondre de 20 % alors que le fabricant de puces attribue ses prévisions décevantes au ralentissement du marché des PC",
+    "amazon misses on earnings and holds capex steady, adding to ai spending jitters": "Amazon affiche des résultats inférieurs aux attentes et maintient ses dépenses d'investissement à un niveau stable, ce qui accentue les inquiétudes concernant les dépenses en IA"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -983,7 +985,8 @@
     "bb0fa56825937f7e9cfa55df911c1ed6373d7362b33b284dc779f0ab188dfe6c": "2026-10-29T18:50:42.606025Z",
     "6cc5cfb5890107f012c238363963461def7a584690def99a74147eea8c4cc168": "2026-10-29T19:20:44.567546Z",
     "c544c057551d6bbce343b9800ab10c4d22f99b1d95e0249031234731b9d3acad": "2026-10-29T20:10:43.200300Z",
-    "b247f6dbcaa7a55e82f564b6ca27a85e26d204c27e4a81f932b9f6cc39ccd47b": "2026-10-29T20:10:44.113659Z"
+    "b247f6dbcaa7a55e82f564b6ca27a85e26d204c27e4a81f932b9f6cc39ccd47b": "2026-10-29T20:10:44.113659Z",
+    "dec1fa769129fedfeb5d4567e3f345a76ec434a4abd9d93377588e4e19c00113": "2026-10-29T20:15:42.738247Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
