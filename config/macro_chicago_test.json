@@ -1,0 +1,12 @@
+{
+  "event_id": "chicago-pmi-2026-10",
+  "title": "Chicago PMI",
+  "country": "USD",
+  "period": "2026-10",
+  "scheduled_at": "2026-10-30T13:45:00Z",
+  "source_url": "https://chicago.ismworld.org/news-publications/reports/research-survey/",
+  "calendar_url": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
+  "poll_seconds": 10,
+  "max_poll_seconds": 180,
+  "warmup_seconds": 600
+}
