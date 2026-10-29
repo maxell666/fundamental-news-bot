@@ -13,6 +13,7 @@ ECI_URLS = (
     "https://www.bls.gov/news.release/eci.htm",
 )
 CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
+ECI_API_URL = "https://api.bls.gov/publicAPI/v1/timeseries/data/CIS1010000000000Q?startyear=2026&endyear=2026"
 HEADERS = {
     "User-Agent": "fundamental-news-bot/3.0 macro-test (https://github.com/maxell666/fundamental-news-bot)",
     "Accept": "text/html,application/json;q=0.9,text/plain;q=0.8",
@@ -72,7 +73,22 @@ def main():
     except (requests.RequestException, ValueError, RuntimeError):
         report["calendar"] = {"error": "Calendrier indisponible"}
         matches = []
-    report["ready"] = usable and len(matches) == 1 and bool(matches[0].get("forecast"))
+    try:
+        status, body, timing = get_public(ECI_API_URL)
+        payload = json.loads(body) if status == 200 else {}
+        series = payload.get("Results", {}).get("series", [])
+        valid_api = (payload.get("status") == "REQUEST_SUCCEEDED" and len(series) == 1
+                     and series[0].get("seriesID") == "CIS1010000000000Q"
+                     and bool(series[0].get("data")))
+        report["api"] = {"http_status": status, "valid_series": valid_api,
+                         "payload": payload, **timing}
+        print("MACRO_API", json.dumps(report["api"], ensure_ascii=False))
+        if valid_api:
+            (directory / "eci_api.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    except (requests.RequestException, ValueError, RuntimeError):
+        valid_api = False
+        report["api"] = {"error": "API officielle indisponible"}
+    report["ready"] = (usable or valid_api) and len(matches) == 1 and bool(matches[0].get("forecast"))
     (directory / "source_probe.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0 if report["ready"] else 1
 
