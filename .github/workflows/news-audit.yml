@@ -1,0 +1,37 @@
+name: Audit des sources et du tri
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/refonte-news-marches]
+    paths:
+      - sources.py
+      - filter.py
+      - bot.py
+      - news_pipeline.py
+      - scripts/**
+      - .github/workflows/news-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Vérifier les flux réels sans envoi Telegram
+        run: python scripts/check_sources.py --probe-investinglive --max-items 50
+      - name: Conserver le relevé des sources
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-audit-${{ github.run_id }}
+          path: audit/
+          retention-days: 7
+          if-no-files-found: warn
