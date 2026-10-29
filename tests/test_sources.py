@@ -5,6 +5,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -204,9 +205,42 @@ class SourceCheckTests(unittest.TestCase):
             data = json.loads(path.read_text())
         self.assertTrue(data['read_only'])
         self.assertEqual(data['max_items_per_source'], 20)
-        self.assertEqual(len(collect.call_args.args[0]), len(original_specs) + 2)
+        self.assertEqual(len(collect.call_args.args[0]), len(original_specs))
+        self.assertFalse(any(name.startswith('PROBE ') for name, _ in collect.call_args.args[0]))
         self.assertEqual(sources.RSS_SOURCES, original_specs)
         self.assertIn('AUDIT_ITEM ', stdout.getvalue())
+
+    def test_freshness_summary_does_not_confuse_stale_or_future_data_with_live_news(self):
+        names = [name for name, _ in sources.RSS_SOURCES[:4]]
+        now = datetime.now(timezone.utc)
+        dates = [(now - timedelta(hours=1)).isoformat(), (now - timedelta(hours=25)).isoformat(),
+                 (now + timedelta(hours=2)).isoformat(), None]
+        articles = [{'source': name, 'title': 'Test ' + str(index), 'published_at': date}
+                    for index, (name, date) in enumerate(zip(names, dates))]
+        health = [{'source': name, 'status': 'ok', 'primary': True, 'article_count': 1, 'newest_at': date}
+                  for name, date in zip(names, dates)]
+        with tempfile.TemporaryDirectory() as directory, \
+                patch.object(sources, 'collect_news', return_value=(articles, health)), \
+                contextlib.redirect_stdout(io.StringIO()):
+            path = Path(directory) / 'freshness.json'
+            self.assertEqual(self.check.main(['--output', str(path)]), 0)
+            data = json.loads(path.read_text())
+        self.assertEqual(data['summary']['usable_market_sources'], 4)
+        self.assertEqual(data['summary']['fresh_market_sources'], 1)
+        self.assertEqual(data['summary']['fresh_articles_24h'], 1)
+
+    def test_investinglive_probes_are_added_only_if_not_already_active(self):
+        active = [(name, url) for name, url in sources.RSS_SOURCES if not name.startswith('InvestingLive ')]
+        article = {'source': active[0][0], 'title': 'A news', 'published_at': None}
+        row = {'source': active[0][0], 'status': 'ok', 'article_count': 1, 'newest_at': None}
+        with tempfile.TemporaryDirectory() as directory, patch.object(sources, 'RSS_SOURCES', active), \
+                patch.object(sources, 'collect_news', return_value=([article], [row])) as collect, \
+                contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(self.check.main(['--output', str(Path(directory) / 'probe.json'),
+                                             '--probe-investinglive']), 0)
+        requested = collect.call_args.args[0]
+        self.assertEqual(len(requested), len(active) + 2)
+        self.assertEqual(len({url.rstrip('/') for _, url in requested}), len(requested))
 
     def test_total_failure_still_persists_source_diagnostics(self):
         diagnostic = {'source': 'Broken source', 'status': 'error', 'article_count': 0, 'newest_at': None}

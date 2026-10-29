@@ -18,12 +18,13 @@ REUTERS_AGGREGATE_URL = "https://news.google.com/rss/search?" + urlencode({
 # Reuters est agrégé par Google News, pas un flux officiel Reuters.
 RSS_SOURCES = [
     (REUTERS_AGGREGATE_LABEL, REUTERS_AGGREGATE_URL),
+    ("InvestingLive News", "https://investinglive.com/feed/news/"),
+    ("InvestingLive Central Banks", "https://investinglive.com/feed/centralbank/"),
     ("Investing.com Stock Markets", "https://www.investing.com/rss/news_25.rss"),
     ("Investing.com Commodities", "https://www.investing.com/rss/news_11.rss"),
     ("Investing.com Economy", "https://www.investing.com/rss/news_14.rss"),
     ("Investing.com Earnings", "https://www.investing.com/rss/news_1062.rss"),
     ("CNBC Top News", "https://www.cnbc.com/id/100003114/device/rss/rss.html"),
-    ("CNBC Market Insider", "https://www.cnbc.com/id/20409666/device/rss/rss.html"),
     ("The Guardian Business", "https://www.theguardian.com/business/rss"),
     ("BBC Business", "https://feeds.bbci.co.uk/news/business/rss.xml"),
     ("BBC World", "https://feeds.bbci.co.uk/news/world/rss.xml"),

@@ -96,6 +96,176 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_real_feed_previews_and_discussions_are_not_decisions(self):
+        for title in (
+            "Economic data spotlight: Fed rate hike bets survived Warsh, but can they survive US PCE inflation?",
+            "The market is pricing in a 78% chance of a Bank of Canada rate hike",
+            "Kremlin aide says discussions underway with US to lift sanctions on Russian investment fund",
+            "Germany's trade struggles with China set to put Asia-Pacific deficit on course for record high",
+            "investingLive Americas FX news wrap 28 Oct: Fed holds rates, yield curve steepens",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_rate_decision_requires_a_policy_predicate_in_a_reference_economy(self):
+        cases = (
+            ("Australia’s inflation rate rises to 4.3%, fuelling fears of fifth interest rate hike this year",
+             "The CPI release comes ahead of the Reserve Bank of Australia decision next week.", 8),
+            ("European Central Bank keeps key interest rate on hold at 2.5%", "", 9),
+            ("FOMC decision Oct 28: Rates left unchanged", "", 9),
+            ("Bank of Canada rate decision: Hike to 2.50%", "", 9),
+            ("The full statement from the Bank of Canada rate decision for October 2026. Hikes by 25 basis points", "", 9),
+            ("Egypt’s central bank raises key interest rates by 100 basis points", "The Fed left US rates unchanged.", 0),
+            ("Bank of Egypt raises key interest rates", "The Fed held rates unchanged.", 0),
+        )
+        for title, description, score in cases:
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title, description), score, assess_news(title, description))
+
+    def test_sanctions_need_a_strategic_target_or_financial_channel(self):
+        for title in (
+            "US imposes sanctions on Rwanda's defense ministry over Congo conflict",
+            "US sanctions Rwanda's defence ministry over DR Congo conflict",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title, "Congo accuses Rwanda of backing rebels and plundering minerals."))
+        for title in (
+            "US sanctions Russian oil companies",
+            "EU lifts sanctions on Iran",
+            "US imposes sanctions on Russian investment fund",
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), 8, assess_news(title))
+
+    def test_real_major_company_and_sector_headlines_are_not_missed(self):
+        for title, score in (
+            ("Caterpillar tops quarterly profit view, but unchanged growth target dents shares", 8),
+            ("ServiceNow shares plunge 25% after earnings revive AI disruption fears", 7),
+            ("Fortinet profits beat analyst estimates", 8),
+            ("Alphabet falls 13%, putting it on course for its biggest ever post-earnings drop", 7),
+            ("Software stocks slide as Fortinet, ServiceNow fail to meet lofty investor expectations", 6),
+            ("Robust consumer spending, AI-related investment power US economy in third quarter", 7),
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), score, assess_news(title))
+
+    def test_actual_missed_earnings_and_acquisition_headlines(self):
+        cases = (
+            ("Microsoft profits soar days after announcing thousands of layoffs", 8),
+            ("Doordash to buy Instacart in $17bn deal it says will expand customer options", 7),
+        )
+        for title, score in cases:
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual(result.score, score)
+                self.assertEqual(result.category, "EQUITIES")
+
+    def test_official_monetary_guidance_is_news_despite_conditional_wording(self):
+        for title in (
+            "Powell says Fed could hold rates higher for longer",
+            "Fed chair Powell says interest rates may stay high",
+            "Lagarde warns inflation could remain above target",
+            "Bank of England governor says rate cuts are not guaranteed",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual(result.score, 7, result)
+                self.assertEqual(result.category, "MACRO")
+        for title in (
+            "Analysts expect Fed to cut interest rates next month",
+            "Investors bet Fed could cut interest rates",
+            "Will Powell signal a rate cut?",
+            "Powell to speak at conference",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_material_company_results_guidance_and_prices(self):
+        for title, score in (
+            ("Apple sales beat estimates", 8),
+            ("Broadcom posts record quarterly revenue", 8),
+            ("JPMorgan reports higher profits", 8),
+            ("Nvidia cuts revenue forecast", 7),
+            ("AMD raises outlook", 7),
+            ("Amazon warns profits may fall", 7),
+            ("Meta shares plunge 12% after a $500m fine", 7),
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual(result.score, score, result)
+                self.assertEqual(result.category, "EQUITIES")
+        for title in (
+            "Microsoft profits could rise next year",
+            "Analysts expect Microsoft profits to rise next year",
+            "How Nvidia could boost its sales",
+            "Analysts expect US to cut tariffs on Canada",
+            "Apple buys a small startup for $20m",
+            "DoorDash in preliminary talks to buy Instacart in $17bn deal",
+            "DoorDash could buy Instacart in $17bn deal",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_national_fiscal_events_use_summary_for_scope(self):
+        title = "Healey unveils £100 for energy bills and bank tax in first Budget"
+        self.assertFalse(is_relevant(title))
+        result = assess_news(title, "The UK chancellor announced a new bank tax in his national Budget.")
+        self.assertEqual(result.score, 7)
+        self.assertEqual(result.category, "FISCAL")
+        result = assess_news(
+            "Budget 2026: Key points at a glance",
+            "The UK chancellor unveiled a new bank tax and public spending measures.",
+        )
+        self.assertEqual(result.score, 7)
+        self.assertEqual(result.category, "FISCAL")
+        self.assertFalse(is_relevant(
+            "Chancellor begins to deliver his first Budget",
+            "The UK speech will discuss tax and public spending.",
+        ))
+        for title in (
+            "Council unveils new tax in its Budget",
+            "UK mayor raises local taxes in city Budget",
+            "Ed Davey: It's a £76bn stealth tax rise",
+            "Will I get the £100 energy payment?",
+            "What does the UK Budget mean for your family?",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title, "The UK chancellor announced tax measures."))
+
+    def test_family_context_does_not_block_actual_national_policy(self):
+        result = assess_news("Chancellor cuts income tax to help families with heating bills")
+        self.assertEqual(result.score, 7, result)
+        self.assertEqual(result.category, "FISCAL")
+        result = assess_news(
+            "Chancellor to cut tariffs on some food and freeze fuel duty to give families 'breathing space'"
+        )
+        self.assertEqual(result.score, 8, result)
+        self.assertEqual(result.category, "TRADE")
+
+    def test_national_growth_data_without_gdp_abbreviation(self):
+        result = assess_news("US economy grew 3% last quarter")
+        self.assertEqual(result.score, 8, result)
+        self.assertEqual(result.category, "MACRO")
+
+    def test_market_movement_is_linked_to_the_asset(self):
+        for title in (
+            "European stocks edge lower after weak earnings",
+            "UK gilt yields jump after national Budget",
+            "Oil jumps as supply concerns intensify",
+            "Markets: Gold futures surge after data release",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual(result.score, 6, result)
+                self.assertEqual(result.category, "MARKET")
+        for title in (
+            "Oil spill hits UAE beaches",
+            "Gold mining company shares jump",
+            "Gas bills rise for families",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
     def test_historical_invasions_do_not_turn_sport_or_culture_into_alerts(self):
         for title in (
             "Russia to host first Olympic federation world event since Ukraine invasion",

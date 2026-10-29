@@ -1,15 +1,20 @@
 import contextlib
 import io
 import os
+import json
+import tempfile
 import unittest
+from datetime import datetime, timezone
+from pathlib import Path
 from unittest.mock import Mock, patch
 
 with patch.dict(os.environ, {"BOT_TOKEN": "12345:test_token_for_unit_tests_only", "CHAT_ID": "test-chat"}):
     import bot
 
 
-def article(title, url, desc=""):
-    return {"title": title, "url": url, "desc": desc, "source": "Test RSS"}
+def article(title, url, desc="", published="now"):
+    return {"title": title, "url": url, "desc": desc, "source": "Test RSS",
+            "published_at": datetime.now(timezone.utc).isoformat() if published == "now" else published}
 
 
 class TelegramTokenTests(unittest.TestCase):
@@ -72,7 +77,7 @@ class TelegramTokenTests(unittest.TestCase):
 
     def test_invalid_token_stops_before_news_fetch_or_send(self):
         with patch.object(bot, "verify_telegram_token", side_effect=RuntimeError("Token refusé")), \
-                patch.object(bot, "fetch_reuters") as fetch, \
+                patch.object(bot, "collect_news") as fetch, \
                 patch.object(bot, "send_telegram") as send, \
                 contextlib.redirect_stdout(io.StringIO()), self.assertRaises(RuntimeError):
             bot.main()
@@ -131,27 +136,121 @@ class TelegramSendTests(unittest.TestCase):
 
 
 class SelectionPipelineTests(unittest.TestCase):
-    def run_bot(self, articles, seen=(), limit=60, threshold=5):
-        state = {"seen": list(seen), "translations": {}}
+    def run_bot(self, articles, seen=(), limit=60, threshold=5, dry_run=False,
+                send_effect=None, expected_error=False, use_newsapi=False, state_data=None):
+        state = state_data if state_data is not None else {"seen": list(seen), "translations": {}}
+        self.saved_snapshots = []
         with contextlib.ExitStack() as stack:
+            directory = stack.enter_context(tempfile.TemporaryDirectory())
+            stack.enter_context(patch.object(bot, "AUDIT_DIR", directory))
             # Une régression ne doit jamais déclencher un appel réel.
             stack.enter_context(patch("requests.sessions.Session.request",
                                       side_effect=AssertionError("Accès réseau interdit dans les tests")))
-            stack.enter_context(patch.object(bot, "verify_telegram_token"))
-            stack.enter_context(patch.object(bot, "debug_deepl_usage"))
+            verify = stack.enter_context(patch.object(bot, "verify_telegram_token"))
+            usage = stack.enter_context(patch.object(bot, "debug_deepl_usage"))
             stack.enter_context(patch.object(bot, "load_state", return_value=state))
-            saved = stack.enter_context(patch.object(bot, "save_state"))
-            stack.enter_context(patch.object(bot, "fetch_reuters", return_value=articles))
-            stack.enter_context(patch.object(bot, "USE_NEWSAPI", False))
+            saved = stack.enter_context(patch.object(bot, "save_state", side_effect=lambda state:
+                self.saved_snapshots.append(json.loads(json.dumps(state)))))
+            stack.enter_context(patch.object(bot, "collect_news", return_value=(articles, [])))
+            stack.enter_context(patch.object(bot, "USE_NEWSAPI", use_newsapi))
             stack.enter_context(patch.object(bot, "MAX_ARTICLES_PER_RUN", limit))
             stack.enter_context(patch.object(bot, "MIN_SCORE_SEND", threshold))
             stack.enter_context(patch.object(bot, "has_deepl_key", return_value=True))
             translated = stack.enter_context(patch.object(bot, "translate_text", side_effect=lambda t: "FR " + t))
-            sent = stack.enter_context(patch.object(bot, "send_telegram"))
+            sent = stack.enter_context(patch.object(bot, "send_telegram", side_effect=send_effect))
             output = stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
-            bot.main()
-            saved.assert_called_once_with(state)
+            if expected_error:
+                with self.assertRaises(RuntimeError):
+                    bot.main(dry_run=dry_run)
+            else:
+                bot.main(dry_run=dry_run)
+            if dry_run:
+                saved.assert_not_called()
+                verify.assert_not_called()
+                usage.assert_not_called()
+                translated.assert_not_called()
+                sent.assert_not_called()
+            elif not expected_error:
+                saved.assert_called_with(state)
+            self.last_audit = json.loads((Path(directory) / "news_audit.json").read_text())
             return state, translated, sent, output.getvalue()
+
+    def test_dry_run_without_credentials_audits_but_never_translates_sends_or_saves(self):
+        with patch.object(bot, "BOT_TOKEN", ""), patch.object(bot, "CHAT_ID", ""), \
+                patch.object(bot, "fetch_newsapi") as keyed_api:
+            state, _, _, _ = self.run_bot([
+                article("Fed cuts interest rates", "https://test/fed"),
+                article("Woman scared to turn heating on due to oil cost", "https://test/noise"),
+            ], dry_run=True, use_newsapi=True)
+        keyed_api.assert_not_called()
+        self.assertEqual(state["seen"], [])
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"dry_run_selected": 1, "rejected": 1})
+        self.assertTrue(self.last_audit["dry_run"])
+
+    def test_old_and_undated_articles_are_reported_without_being_sent(self):
+        _, translated, sent, _ = self.run_bot([
+            article("Fed cuts interest rates", "https://test/old", published="2020-01-01T00:00:00Z"),
+            article("ECB cuts interest rates", "https://test/undated", published=None),
+        ])
+        translated.assert_not_called()
+        sent.assert_not_called()
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"stale": 1, "undated": 1})
+
+    def test_an_interrupted_batch_keeps_each_previously_confirmed_send(self):
+        state, _, sent, _ = self.run_bot([
+            article("Fed cuts interest rates", "https://test/fed"),
+            article("Oil prices plunge 5%", "https://test/oil"),
+        ], send_effect=[None, RuntimeError("Envoi interrompu")], expected_error=True)
+        self.assertEqual(sent.call_count, 2)
+        self.assertEqual(state["seen"], ["https://test/fed"])
+        self.assertEqual(self.saved_snapshots[-1]["seen"], ["https://test/fed"])
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"sent": 1, "send_failed": 1})
+
+    def test_limit_is_audited_without_marking_waiting_news_as_sent(self):
+        state, _, sent, _ = self.run_bot([
+            article("Fed cuts interest rates", "https://test/fed"),
+            article("Oil prices plunge 5%", "https://test/oil"),
+        ], limit=1)
+        sent.assert_called_once()
+        self.assertEqual(state["seen"], ["https://test/fed"])
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"sent": 1, "queued": 1})
+
+    def test_same_rate_decision_is_not_sent_again_from_another_provider(self):
+        state, _, sent, _ = self.run_bot([
+            article("ECB keeps interest rates at 2.5%", "https://test/ecb-first"),
+        ])
+        sent.assert_called_once()
+        self.assertTrue(state["seen_events"])
+        state, translated, sent, _ = self.run_bot([
+            article("European Central Bank holds rates steady", "https://other.test/ecb"),
+        ], state_data=state)
+        translated.assert_not_called()
+        sent.assert_not_called()
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"duplicate_event": 1})
+        _, _, sent, _ = self.run_bot([
+            article("ECB raises interest rates to 2.75%", "https://test/ecb-new"),
+        ], state_data=state)
+        sent.assert_called_once()
+
+    def test_total_source_failure_keeps_a_diagnostic_instead_of_silent_success(self):
+        diagnostics = [{"source": "Markets", "status": "error", "detail": "HTTP 503"}]
+        with tempfile.TemporaryDirectory() as directory, \
+                patch.object(bot, "AUDIT_DIR", directory), \
+                patch.object(bot, "verify_telegram_token"), \
+                patch.object(bot, "load_state", return_value=bot.default_state()), \
+                patch.object(bot, "USE_NEWSAPI", False), \
+                patch.object(bot, "collect_news", side_effect=bot.SourceCollectionError(diagnostics)), \
+                patch.object(bot, "send_telegram") as send, \
+                patch.object(bot, "save_state") as save, \
+                contextlib.redirect_stdout(io.StringIO()), self.assertRaises(bot.SourceCollectionError):
+            try:
+                bot.main(dry_run=False)
+            finally:
+                report = json.loads((Path(directory) / "news_audit.json").read_text())
+                self.assertEqual(report["sources"], diagnostics)
+                self.assertEqual(report["error"], "SourceCollectionError")
+                send.assert_not_called()
+                save.assert_not_called()
 
     def test_user_examples_never_translated_or_sent(self):
         state, translated, sent, output = self.run_bot([
@@ -189,7 +288,7 @@ class SelectionPipelineTests(unittest.TestCase):
 
     def test_filter_version_is_visible_in_logs(self):
         _, _, _, output = self.run_bot([])
-        self.assertIn("pertinence-v2.3", output)
+        self.assertIn("pertinence-v3.0", output)
 
     def test_olympic_event_with_historical_war_context_is_not_sent(self):
         state, translated, sent, _ = self.run_bot([

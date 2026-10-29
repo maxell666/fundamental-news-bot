@@ -27,6 +27,12 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Vérifier les flux réels sans envoi Telegram
         run: python scripts/check_sources.py --probe-investinglive --max-items 50
+      - name: Classer les articles du relevé sans secrets ni envoi
+        env:
+          NEWS_DRY_RUN: "1"
+        run: python bot.py --dry-run --replay audit/source_check.json
+      - name: Vérifier la fraîcheur et les annonces retrouvées
+        run: python scripts/validate_audit.py --require-candidates
       - name: Conserver le relevé des sources
         if: always()
         uses: actions/upload-artifact@v4
