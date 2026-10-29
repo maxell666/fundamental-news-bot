@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 
-FILTER_VERSION = "pertinence-v2.3"
+FILTER_VERSION = "pertinence-v3.0"
 
 
 def normalize_text(text):
@@ -34,6 +34,7 @@ def contains_any(text, terms):
 class Assessment:
     score: int
     reason: str
+    category: str = "FONDAMENTAL"
 
     @property
     def relevant(self):
@@ -122,8 +123,42 @@ COUNTRY_GROUPS = (
 TRADE_ACTORS = COUNTRIES + MACRO_ECONOMIES + (
     "white house", "trump", "european commission", "downing street",
     "beijing", "kremlin", "ottawa", "washington", "mexico", "mexican",
+    "chancellor", "treasury", "finance minister",
 )
 US_MEGACAPS = ("apple", "microsoft", "nvidia", "alphabet", "google", "amazon", "meta", "tesla")
+US_INDEX_COMPANIES = US_MEGACAPS + (
+    "broadcom", "amd", "advanced micro devices", "micron", "intel", "qualcomm",
+    "oracle", "salesforce", "cisco", "adobe", "netflix", "jpmorgan", "jp morgan",
+    "goldman sachs", "bank of america", "wells fargo", "citigroup", "morgan stanley",
+    "berkshire hathaway", "walmart", "exxon", "exxonmobil", "chevron", "eli lilly",
+    "unitedhealth", "visa", "mastercard", "doordash", "instacart", "boeing",
+    "caterpillar", "servicenow", "service now", "fortinet", "palantir", "ibm",
+    "honeywell", "johnson & johnson", "procter & gamble", "costco", "home depot",
+    "mcdonald's", "coca-cola", "pepsico", "abbvie", "merck", "applied materials",
+    "lam research", "intuitive surgical",
+)
+RATE_TOPICS = (
+    "rate", "rates", "borrowing costs", "inflation", "monetary policy",
+    "easing", "tightening", "recession", "employment", "unemployment",
+)
+FISCAL_MEASURES = (
+    "tax", "taxes", "bank tax", "bank levy", "tax thresholds", "fuel duty",
+    "spending", "public borrowing", "borrowing", "deficit", "debt ceiling",
+    "income tax", "capital gains", "corporation tax", "national insurance",
+    "fiscal stimulus", "stimulus package", "shutdown", "spending cuts",
+)
+EDITORIAL_FORMAT = re.compile(
+    r"(?:^|:\s*)(?:why|how|what|could|will|should|can|would|is|are)\b"
+    r"|^(?:watch|listen|analysis|opinion):|\b(?:explainer|explained|anniversary)\b"
+)
+SPECULATION = re.compile(
+    r"\b(?:could|might|would|expected to|likely to|forecast to|considering|considers?|"
+    r"weighs?|mulls?|rumou?rs?|preliminary|in talks|talks to|plans? to|"
+    r"may (?:be|buy|acquire|cut|hold|raise|close|attack|impose|reopen|resume|halt|"
+    r"increase|reduce|begin|start|launch|invade)|if|"
+    r"(?:analysts?|economists?|traders?|investors?|markets?)\b.{0,45}\b"
+    r"(?:expect|forecast|bet|hope|predict))\b"
+)
 
 
 def _event_clause(title):
@@ -139,8 +174,23 @@ def _event_clause(title):
 def is_trade_decision(title, description=""):
     context = normalize_text(f"{title} {description}")
     title = _event_clause(normalize_text(title))
-    if EDITORIAL.search(title):
+    if (EDITORIAL.search(title) or SPECULATION.search(title)
+            or _matches(title, r"\b(?:discussions?|talks?|negotiations?)\b.{0,60}\b(?:to|about|over)\b")):
         return False
+    if (contains_any(title, ("sanction", "sanctions"))
+            and not contains_any(title, ("tariff", "tariffs", "embargo", "import duties", "export ban", "export controls"))):
+        target = re.split(r"\bsanctions?\b", title, maxsplit=1)[-1]
+        strategic_target = contains_any(target, (
+            "iran", "iranian", "russia", "russian", "china", "chinese", "taiwan", "taiwanese",
+            "north korea", "saudi arabia", "venezuela",
+        ))
+        financial_channel = contains_any(title, (
+            "oil", "gas", "crude", "lng", "bank", "banks", "banking", "financial",
+            "finance", "investment", "exports", "imports", "semiconductors", "chips",
+            "energy", "shipping", "payments", "assets", "debt",
+        ))
+        if not (strategic_target or financial_channel):
+            return False
     # 'Raises concerns over tariffs' ne signifie pas 'raises tariffs'.
     action_text = re.sub(
         r"\b(?:raises?|raised|increases?|increased)\s+(?:concerns?|fears?|questions?|doubts?)\b",
@@ -150,12 +200,14 @@ def is_trade_decision(title, description=""):
         contains_any(title, ("tariff", "tariffs", "sanction", "sanctions", "embargo",
                              "import duties", "export ban", "export bans", "export controls"))
         and contains_any(context, TRADE_ACTORS)
-        and _matches(action_text, r"\b(?:imposes?|imposed|announces?|announced|approves?|"
+        and (_matches(action_text, r"\b(?:imposes?|imposed|announces?|announced|approves?|"
                      r"approved|enacts?|enacted|lifts?|lifted|removes?|removed|"
                      r"suspends?|suspended|raises?|raised|increases?|increased|"
                      r"cuts?|extends?|extended|ends?|ended|scraps?|scrapped|"
                      r"slashes?|slashed|reduces?|reduced|eases?|eased|tightens?|tightened|"
                      r"doubles?|doubled|introduces?|introduced|takes? effect|comes? into force)\b")
+             or _matches(action_text, r"^(?:us|u\.s\.|eu|uk|britain|united states|us treasury)\s+"
+                                      r"sanctions\s+(?!on\b|against\b)\w"))
     )
 
 
@@ -195,7 +247,23 @@ def _matches(text, pattern):
 
 def is_noise_story(text):
     text = normalize_text(text)
-    return contains_any(text, PERSONAL_STORIES) or bool(PERSONAL_PATTERN.search(text))
+    # Un mot comme 'families' dans une décision fiscale nationale ne transforme
+    # pas cette décision en témoignage. Le récit personnel doit être le sujet.
+    personal_lead = _matches(
+        text, r"^[\"']?(?:i\b|my\b|we\b|woman\b|man\b|famil(?:y|ies)\b|"
+              r"households?\b|pensioners?\b|residents?\b|mother\b|father\b|"
+              r"tourists?\b|sailors\b|survivors?\b|childminder\b|"
+              r"home heating oil\b|heating oil customers\b)"
+    )
+    unmistakable_story = contains_any(text, (
+        "i survived", "my wife", "my husband", "my family", "tells her story",
+        "tells his story", "chess", "footballer", "celebrity", "shark", "crocodile",
+    ))
+    return unmistakable_story or (personal_lead and (
+        bool(PERSONAL_PATTERN.search(text))
+        or contains_any(text, PERSONAL_STORIES)
+        or contains_any(text, ("heating", "bills", "afford", "killed", "survived"))
+    ))
 
 
 def _supply_effect(title):
@@ -220,20 +288,199 @@ def _supply_effect(title):
 
 
 def _market_move(title):
-    benchmarks = ("oil prices", "crude prices", "brent", "wti", "gold", "dollar",
-                  "treasury yields", "bond yields", "wall street", "nasdaq", "s&p 500",
-                  "natural gas prices", "stock markets", "global stocks", "us stocks",
-                  "u.s. stocks", "us stock futures", "dow jones", "dow", "s&p500")
-    benchmark_leads = any(
-        match and match.start() <= 15
-        for match in (_term_pattern(term).search(title) for term in benchmarks)
+    benchmarks = (
+        "oil prices", "crude prices", "brent", "wti", "oil", "gold", "dollar",
+        "treasury yields", "us treasury yields", "bond yields", "gilt yields", "uk gilt yields",
+        "bund yields", "wall street", "nasdaq", "s&p 500", "s&p500", "dow jones", "dow",
+        "natural gas prices", "stock markets", "global stocks", "us stocks", "u.s. stocks",
+        "european stocks", "asian stocks", "software stocks", "tech stocks", "bank stocks",
+        "semiconductor stocks", "chip stocks", "stocks", "equities", "stock futures",
+        "us stock futures", "sterling", "pound", "euro", "yen",
     )
-    return benchmark_leads and _matches(
-        title, r"\b(?:surges?|surged|plunges?|plunged|soars?|soared|tumbles?|tumbled|"
-               r"jumps?|jumped|slumps?|slumped|rallies|rallied|slides?|slid|rises?|rose|"
-               r"falls?|fell|hits?|hit|drops?|dropped|sinks?|sank|rebounds?|rebounded|"
-               r"gains?|gained|weakens?|weakened|strengthens?|strengthened)\b"
+    subject = "|".join(re.escape(term) for term in sorted(benchmarks, key=len, reverse=True))
+    # Lier le mouvement à l'actif: 'oil spill hits beaches' et 'gold mining
+    # company shares jump' ne décrivent pas le cours du pétrole ou de l'or.
+    bridge = (r"(?:(?:prices?|crude|oil|futures?|index|indices|yields?|are|is|has|have|"
+              r"now|sharply|slightly|strongly|again|further)\s+){0,5}")
+    movement = (r"(?:surges?|surged|plunges?|plunged|soars?|soared|tumbles?|tumbled|"
+                r"jumps?|jumped|slumps?|slumped|rallies|rallied|slides?|slid|rises?|rose|"
+                r"falls?|fell|hits?|hit|drops?|dropped|sinks?|sank|rebounds?|rebounded|"
+                r"gains?|gained|weakens?|weakened|strengthens?|strengthened|"
+                r"(?:edges?|ticks?|opens?|closes?|ends?|turns?)\s+(?:up|down|higher|lower))")
+    return _matches(
+        title, rf"^(?:(?:global markets|markets|market update|live updates):\s*)?"
+               rf"(?:{subject})\b\s+{bridge}{movement}\b"
     )
+
+
+def _direct_statement(title, actors, verbs):
+    """Une déclaration de l'acteur, distincte d'une anticipation d'analyste."""
+    for actor in actors:
+        match = _term_pattern(actor).search(title)
+        if not match or match.start() > 30:
+            continue
+        if contains_any(title[:match.start()], ("analyst", "analysts", "economist", "economists", "traders")):
+            continue
+        tail = title[match.end():]
+        statement = re.match(rf"(?:'s)?\s+(.*?)\b(?:{verbs})\b", tail)
+        if not statement:
+            continue
+        between = statement.group(1).strip()
+        if len(between.split()) <= 4 and not contains_any(between, (
+            "analysts", "profits", "earnings", "revenue", "sales", "shares",
+            "could", "might", "may", "expected", "to",
+        )):
+            return True
+    return False
+
+
+def _official_monetary_guidance(title, context):
+    if not (_reference_bank_in_scope(title, context) and contains_any(title, RATE_TOPICS)):
+        return False
+    return _direct_statement(
+        title, CENTRAL_BANKS,
+        r"says?|said|signals?|warns?|rules? out|opens? (?:the )?door|pledges?|"
+        r"sees?|expects?|indicates?|hints?|cautions?",
+    )
+
+
+def _reference_bank_in_scope(title, context):
+    named = tuple(bank for bank in CENTRAL_BANKS if bank != "central bank")
+    if contains_any(title, named):
+        return True
+    if contains_any(title, ("central bank",)):
+        return contains_any(title, MACRO_ECONOMIES)
+    if _matches(title, r"\bbank of\b|\bbanks?\b"):
+        return False
+    # Un titre elliptique ('Interest rates held') peut être précisé par le
+    # résumé. Le résumé ne remplace pas un pays explicitement hors périmètre.
+    return contains_any(context, named)
+
+
+def _monetary_decision(title, context):
+    if not _reference_bank_in_scope(title, context):
+        return False
+    instrument = (r"(?:(?:interest|key|policy|cash|deposit|funds|overnight|lending|"
+                  r"benchmark|main|bank)\s+){0,3}rates?|borrowing costs")
+    modifiers = r"(?:(?:the|a|its|their|all|benchmark|main|key|policy)\s+){0,4}"
+    verb = (r"(?:cuts?|raised?|raises|hikes?|hiked|slashes?|slashed|lowers?|lowered|"
+            r"holds?|held|keeps?|kept|maintains?|maintained|leaves?|left|increases?|"
+            r"increased|reduces?|reduced)")
+    direct = _matches(title, rf"\b{verb}\s+{modifiers}(?:{instrument})\b")
+    passive = _matches(
+        title, rf"\b(?:{instrument})\b\s+"
+               r"(?:(?:is|are|was|were|has|have|been|left|kept|remain|remains)\s+){0,4}"
+               r"(?:cut|raised|hiked|lowered|held|maintained|unchanged|on hold)\b"
+    )
+    announced = _matches(
+        title, r"\b(?:announces?|announced|approves?|approved|delivers?|delivered)\b"
+               r".{0,35}\brate (?:cuts?|hikes?|increase|reduction)\b"
+    )
+    labelled = (contains_any(title, ("rate decision", "decision"))
+                and _matches(title, r"\b(?:hikes?|cuts?|increase|reduction)\s+(?:to|by)\s+\d"))
+    return direct or passive or announced or labelled
+
+
+def _billion_amounts(text):
+    pattern = (r"[$€£]\s*(\d+(?:[.,]\d+)?)\s*(?:bn|billion)\b|"
+               r"(\d+(?:[.,]\d+)?)\s*billion\s+(?:dollars?|euros?|pounds?)\b")
+    return [float(next(value for value in match.groups() if value is not None).replace(",", "."))
+            for match in re.finditer(pattern, text)]
+
+
+def _corporate_event(title, context):
+    known_company = contains_any(title, US_INDEX_COMPANIES)
+    financial_topic = contains_any(title, (
+        "earnings", "profit", "profits", "revenue", "revenues", "sales", "eps",
+        "guidance", "outlook", "forecast", "forecasts", "margin", "margins", "results",
+    ))
+    direct_guidance = known_company and financial_topic and _direct_statement(
+        title, US_INDEX_COMPANIES,
+        r"warns?|says?|said|sees?|expects?|forecasts?|raises?|cuts?|lowers?|"
+        r"reduces?|boosts?|withdraws?|reaffirms?|maintains?",
+    )
+    scheduled_report = _matches(
+        title, r"\b(?:to|due to|set to|scheduled to|will)\s+report\b"
+    )
+    already_published = _matches(title, r"\b(?:reports|reported|posts|posted|releases|released)\b")
+    guidance_detail = _matches(
+        title, r"[$€£]\s*\d|\d[\d.,]*\s*(?:%|(?:billion|bn)\b)|"
+               r"\b(?:higher|lower|stronger|weaker)\s+(?:revenue|sales|earnings|profits|eps)\b|"
+               r"\b(?:revenue|sales|earnings|profits|eps)\b.{0,15}\b(?:higher|lower|grow|fall|rise|decline)\b"
+    )
+    if known_company and financial_topic and scheduled_report and not (
+            already_published or (direct_guidance and guidance_detail)):
+        return Assessment(0, "Calendrier de résultats sans nouveau chiffre ni guidance annoncée")
+    if direct_guidance:
+        return Assessment(7, "Résultats attendus ou guidance annoncés par une grande valeur US", "EQUITIES")
+
+    if SPECULATION.search(title):
+        return None
+    price_action = r"(?:surges?|plunges?|soars?|tumbles?|jumps?|slumps?|rallies|slides?|drops?|sinks?|rebounds?|falls?|rises?)"
+    company_names = "|".join(re.escape(company) for company in sorted(US_INDEX_COMPANIES, key=len, reverse=True))
+    direct_price = (_matches(title, rf"^(?:{company_names})\b\s+{price_action}\b")
+                    and _matches(title, r"\d[\d.,]*\s*%"))
+    if (known_company and (contains_any(title, ("shares", "stock")) or direct_price)
+            and _matches(title, rf"\b{price_action}\b")):
+        return Assessment(7, "Mouvement explicite du cours d'une grande valeur US", "EQUITIES")
+    earnings_preview = _matches(title, r"\b(?:earnings preview|ahead of (?:its )?(?:q[1-4] )?earnings)\b")
+    if (known_company and financial_topic and (not earnings_preview or already_published) and _matches(
+            title, r"\b(?:reports|reported|posts|posted|beats?|beat|misses?|missed|tops?|topped|"
+                   r"surges?|surged|soars?|soared|rises?|rose|falls?|fell|doubles?|doubled|"
+                   r"triples?|tripled|jumps?|jumped|drops?|dropped|declines?|declined|"
+                   r"climbs?|climbed|above|below|record|higher|lower)\b")):
+        return Assessment(8, "Publication de résultats d'une grande valeur US", "EQUITIES")
+
+    corporate_context = known_company or contains_any(context, (
+        "company", "companies", "firm", "merger", "takeover", "acquisition", "shareholders",
+    ))
+    acquisition = _matches(
+        title, r"\b(?:to buy|buys?|bought|to acquire|acquires?|acquired|"
+               r"merges? with|merger|takeover|buyout|acquisition)\b"
+    )
+    confirmed_deal = _matches(
+        title, r"\b(?:to buy|to acquire|buys?|bought|acquires?|acquired|agrees?|agreed|"
+               r"announces?|announced|signs?|signed|deal|merges?|approved)\b"
+    )
+    major_amount = any(amount >= 5 for amount in _billion_amounts(context))
+    large_parties = sum(contains_any(title, (company,)) for company in US_INDEX_COMPANIES) >= 2
+    if corporate_context and acquisition and confirmed_deal and (major_amount or large_parties):
+        return Assessment(7, "Acquisition ou fusion majeure annoncée", "EQUITIES")
+    return None
+
+
+def _fiscal_decision(title, context):
+    if contains_any(title, LOCAL_MACRO + ("mayor", "borough", "municipal", "parish", "local authority")):
+        return None
+    national_scope = contains_any(context, MACRO_ECONOMIES + (
+        "chancellor", "treasury", "white house", "congress", "downing street", "finance minister",
+    ))
+    if not national_scope or SPECULATION.search(title):
+        return None
+    substantive = contains_any(title, FISCAL_MEASURES)
+    action = _matches(
+        title, r"\b(?:unveils?|unveiled|announces?|announced|presents?|presented|"
+               r"introduces?|introduced|raises?|raised|hikes?|hiked|cuts?|cut|"
+               r"reduces?|reduced|increases?|increased|freezes?|frozen|scraps?|scrapped|"
+               r"extends?|extended|approves?|approved|passes?|passed|signs?|signed|"
+               r"keeps?|kept|remain(?:s)? unchanged|sets? out)\b"
+    )
+    if substantive and action:
+        return Assessment(7, "Décision fiscale ou budgétaire nationale", "FISCAL")
+    budget_release = contains_any(title, ("budget", "fiscal statement", "spending review")) and _matches(
+        title, r"\b(?:unveils?|unveiled|announces?|announced|presents?|presented|"
+               r"sets? out|publishes?|published|key points|at a glance)\b"
+    )
+    if (budget_release and contains_any(context, FISCAL_MEASURES)
+            and _matches(context, r"\b(?:announced|unveiled|introduced|raised|cut|"
+                         r"frozen|new|kept|spending|tax)\b")):
+        return Assessment(7, "Publication de mesures budgétaires nationales", "FISCAL")
+    if (contains_any(title, ("departments", "ministries"))
+            and _matches(title, r"\b(?:tells?|orders?|instructs?|requires?)\b")
+            and _matches(title, r"\d[\d.,]*\s*%\s*cuts?\b")
+            and contains_any(context, ("public spending", "government spending", "budget", "chancellor"))):
+        return Assessment(7, "Réallocation annoncée des dépenses publiques", "FISCAL")
+    return None
 
 
 def assess_news(title, description=""):
@@ -253,8 +500,26 @@ def assess_news(title, description=""):
         return Assessment(0, "Avertissement général ou préparation hypothétique")
     original_title = title
     title = _event_clause(title)
-    if EDITORIAL.search(title):
+    if EDITORIAL_FORMAT.search(title) or title.endswith("?"):
         return Assessment(0, "Analyse, question ou scénario hypothétique")
+
+    # Une déclaration de Powell ou un avertissement de résultats est en soi
+    # une information publiée. 'Could/may' dans cette déclaration ne justifie
+    # pas le même rejet qu'une anticipation d'analyste non attribuée.
+    if _official_monetary_guidance(title, context):
+        return Assessment(7, "Orientation monétaire déclarée par une banque centrale", "MACRO")
+    corporate = _corporate_event(title, context)
+    if corporate is not None:
+        return corporate
+    if _matches(title, r"\b(?:data spotlight|news wrap|preview|pricing in|odds of|chance of|rate hike bets)\b"):
+        return Assessment(0, "Prévision de marché ou synthèse, sans nouvelle décision annoncée")
+    if is_trade_decision(title, context):
+        return Assessment(8, "Décision de sanctions ou de politique commerciale", "TRADE")
+    fiscal = _fiscal_decision(title, context)
+    if fiscal is not None:
+        return fiscal
+    if EDITORIAL.search(title) or SPECULATION.search(title):
+        return Assessment(0, "Projection ou discussion sans annonce de marché confirmée")
 
     supply_effect = _supply_effect(title)
     market_move = _market_move(title)
@@ -265,18 +530,10 @@ def assess_news(title, description=""):
     if local_incident and not (supply_effect or market_move):
         return Assessment(0, "Pollution ou accident local sans effet explicite sur les flux ou les marchés")
 
-    # Décision de taux, y compris maintien : ne pas exiger des mots 'hawkish'.
-    rate_action = _matches(title, r"\b(?:cuts?|raises?|raised|hikes?|hiked|holds?|held|keeps?|"
-                           r"kept|leaves?|left|lowers?|lowered|maintains?|maintained|"
-                           r"reduces?|reduced|increases?|increased|slashes?|slashed|"
-                           r"cutting|raising|unchanged)\b")
-    rate_action = rate_action or _matches(
-        title, r"\b(?:announces?|announced|approves?|approved|delivers?|delivered)\b"
-               r".{0,30}\brate (?:cuts?|hikes?|increase|reduction)\b"
-    )
-    if (contains_any(context, CENTRAL_BANKS) and rate_action
-            and contains_any(title, ("rate", "rates", "interest rate", "borrowing costs"))):
-        return Assessment(9, "Décision de politique monétaire")
+    # Un 'rate hike' nominal dans un pari n'est pas une décision. La relation
+    # verbe/instrument ou un libellé de décision explicite doit être présent.
+    if _monetary_decision(title, context):
+        return Assessment(9, "Décision de politique monétaire", "MACRO")
 
     if (contains_any(title, INDICATORS)
             and _matches(title, r"\d[\d.,]*\s*(?:%|percent|per cent)|"
@@ -287,39 +544,51 @@ def assess_news(title, description=""):
             return Assessment(0, "Statistique économique locale hors périmètre macro")
         if not (contains_any(context, MACRO_ECONOMIES) or contains_any(title, US_INDICATORS)):
             return Assessment(0, "Portée nationale ou économie de référence non identifiée")
-        return Assessment(8, "Publication ou variation d'un indicateur macroéconomique")
+        return Assessment(8, "Publication ou variation d'un indicateur macroéconomique", "MACRO")
+
+    if (contains_any(title, ("economy", "economic growth", "consumer prices", "factory activity",
+                            "services activity", "industrial production", "consumer confidence"))
+            and contains_any(context, MACRO_ECONOMIES)
+            and _matches(title, r"\b(?:grew|grows?|shrank|shrinks?|contracts?|expands?|rises?|rose|"
+                         r"falls?|fell|slows?|accelerates?|beats?|misses?)\b")
+            and _matches(title, r"\d[\d.,]*\s*(?:%|percent|per cent)")):
+        return Assessment(8, "Publication d'une variation économique nationale", "MACRO")
+
+    if (contains_any(title, ("economy", "growth"))
+            and contains_any(title, ("consumer spending", "investment", "consumption"))
+            and contains_any(title, MACRO_ECONOMIES)
+            and _matches(title, r"\b(?:powers?|powered|drives?|drove|supports?|supported|boosts?|boosted)\b")
+            and _matches(title, r"\b(?:first|second|third|fourth|1st|2nd|3rd|4th)\s+quarter\b")):
+        return Assessment(7, "Signal publié sur les moteurs de croissance nationale", "MACRO")
 
     if _matches(title, r"\b(?:us|u\.s\.|american)\b.{0,30}\b(?:adds?|added|loses?|lost)\b"
                       r".{0,20}\d[\d,]*\s+(?:new\s+)?jobs\b"):
-        return Assessment(8, "Publication de l'emploi américain")
+        return Assessment(8, "Publication de l'emploi américain", "MACRO")
 
-    if (contains_any(context, CENTRAL_BANKS)
+    if (_reference_bank_in_scope(title, context)
             and _matches(title, r"\b(?:signals?|rules? out|opens? (?:the )?door|pledges?)\b")
             and contains_any(title, ("rate cut", "rate cuts", "rate hike", "rate hikes",
                                      "tightening", "easing", "quantitative easing"))):
-        return Assessment(7, "Orientation monétaire explicite")
+        return Assessment(7, "Orientation monétaire explicite", "MACRO")
 
     if (contains_any(title, ("opec", "opec+"))
             and contains_any(title, ("production", "output", "supply", "quota", "quotas"))
             and _matches(title, r"\b(?:agrees?|announces?|approves?|decides?|cuts?|raises?|"
                          r"increases?|reduces?|extends?|maintains?|restores?)\b")):
-        return Assessment(9, "Décision de production de l'OPEP")
+        return Assessment(9, "Décision de production de l'OPEP", "ENERGY")
 
     if supply_effect:
-        return Assessment(9, "Interruption ou reprise d'un approvisionnement stratégique")
-
-    if is_trade_decision(title, context):
-        return Assessment(8, "Décision de sanctions ou de politique commerciale")
+        return Assessment(9, "Interruption ou reprise d'un approvisionnement stratégique", "ENERGY")
 
     if is_major_company_penalty(original_title):
-        return Assessment(7, "Sanction financière exceptionnelle sur une mégacapitalisation US")
+        return Assessment(7, "Sanction financière exceptionnelle sur une mégacapitalisation US", "EQUITIES")
 
     if (contains_any(title, ("ceasefire", "peace deal", "peace agreement"))
             and contains_any(context, COUNTRIES)
             and _matches(title, r"\b(?:agrees?|agreed|signs?|signed|reaches?|reached|"
                          r"accepts?|accepted|announces?|announced|begins?|began|"
                          r"takes? effect|collapses?|collapsed|ends?|ended)\b")):
-        return Assessment(9, "Accord ou rupture de cessez-le-feu")
+        return Assessment(9, "Accord ou rupture de cessez-le-feu", "GEO")
 
     attack = _matches(title, r"\b(?:attacks?|attacked|strikes?|struck|hits?|hit|"
                       r"bombs?|bombed|bombing|invades?|invaded|"
@@ -357,13 +626,15 @@ def assess_news(title, description=""):
                          r"\s+(?:(?:military|navy|forces)\s+)?strikes?\b")
     if (attack and offensive and ((strategic_attack and contains_any(context, COUNTRIES))
                     or (interstate and major_action))):
-        return Assessment(9, "Attaque stratégique ou escalade militaire entre États")
+        return Assessment(9, "Attaque stratégique ou escalade militaire entre États", "GEO")
 
     # Mouvement explicite d'un marché de référence, pas la facture d'un ménage.
     if market_move:
-        return Assessment(6, "Mouvement explicite d'un marché de référence")
+        return Assessment(6, "Mouvement explicite d'un marché de référence", "MARKET")
 
-    return Assessment(0, "Aucun événement concret suffisamment pertinent identifié")
+    if title != original_title:
+        return Assessment(0, "Contexte écarté : aucun mécanisme de marché dans l'annonce principale")
+    return Assessment(0, "Aucun mécanisme de marché identifié : ni prix, décision économique ni résultat matériel")
 
 
 def is_relevant(text, description=""):

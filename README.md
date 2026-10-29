@@ -1,205 +1,172 @@
-# fundamental-news-bot
+# Fundamental News Bot
 
-Bot Telegram de news fondamentales pour le trading.
+Actualités susceptibles d'influencer les indices, les devises, l'or et le pétrole,
+traduites en français et envoyées sur Telegram. Version de sélection :
+**pertinence-v3.0**.
 
-## Ce que fait le bot
+## Sources
 
-- Récupère des news via RSS BBC.
-- Peut utiliser NewsAPI si `USE_NEWSAPI=1`.
-- Sélectionne les événements macro/géo/énergie concrets à partir du titre et du résumé.
-- Attribue une priorité à l'événement reconnu, sans additionner des mots-clés.
-- Envoie une alerte Telegram avec les actifs à surveiller.
-- Traduit les titres anglais en français via DeepL.
+La collecte utilise des flux publics sans nouvelle clé API :
 
-## Sélection des alertes
+- Reuters via Google News : agrégation explicitement identifiée, avec contrôle du
+  nom et du domaine de l'éditeur. Ce n'est pas un abonnement au flux professionnel Reuters.
+- InvestingLive : actualités et banques centrales.
+- Investing.com : marchés actions, matières premières, économie et résultats.
+- CNBC Top News.
+- The Guardian Business.
+- BBC Business et BBC World en complément.
 
-Le titre doit contenir un événement identifiable : décision de taux, publication
-macroéconomique, orientation monétaire explicite, décision de production OPEP,
-interruption ou reprise d'un approvisionnement stratégique, sanctions ou tarifs
-douaniers, accord ou rupture de cessez-le-feu, attaque stratégique, mouvement
-explicite d'un marché de référence.
+Le flux BBC Politics a été retiré. Le flux CNBC Market Insider, dont le relevé
+réel était figé, a été remplacé. Chaque source est contrôlée séparément :
+réponse HTTP, RSS exploitable, nombre d'articles, dates et dernière publication.
+Les requêtes ont un délai maximal, une taille bornée et une concurrence limitée.
+Une panne partielle laisse les autres sources fonctionner ; une collecte
+entièrement vide échoue explicitement.
 
-Les témoignages individuels, difficultés de chauffage, faits divers, déclarations
-générales de préparation à une crise et scénarios hypothétiques sont rejetés.
-La présence d'Iran, de pétrole ou de missiles dans le résumé ne les réhabilite pas.
-Les mots sont reconnus entièrement : `war` ne correspond plus à `award`, ni `gas`
-à `Gaza`. Les règles s'appliquent aux titres anglais, avant traduction.
-
-Version `pertinence-v2.1` : une pollution côtière ou une collision de pétrolier ne
-suffit pas à déclencher une alerte. Il faut un effet explicite sur un flux, une
-infrastructure stratégique ou un marché. Une plage fermée près d'un terminal
-pétrolier ne signifie pas que le terminal est fermé. Le verbe `hits` ne suffit
-plus à identifier une attaque militaire ; son caractère offensif doit être
-présent dans le titre, sans être inventé à partir du résumé.
-
-Les publications macro doivent concerner une économie de référence identifiable
-dans le titre ou le résumé (États-Unis, Royaume-Uni, zone euro et principales
-économies européennes, Chine, Japon, Canada, Australie, Nouvelle-Zélande, Suisse,
-Inde). Les indicateurs américains spécifiques comme le PCE ou les NFP sont
-reconnus sans nom de pays. Les statistiques locales des îles, comtés et conseils
-locaux sont rejetées même si elles sont comparées à l'inflation britannique.
-
-Version `pertinence-v2.2` : les décisions commerciales reconnaissent aussi leurs
-acteurs institutionnels (`White House`, Commission européenne, Ottawa) et les
-économies de référence, dont le Canada. Les levées, réductions et extensions de
-droits de douane, sanctions et restrictions d'exportation sont reconnues.
-
-L'analyse porte sur la proposition principale : `US imposes tariffs after
-trade talks fail` décrit une décision effective. Les mots `talks`, `could` ou
-`weighs` dans le contexte suivant `after`, `as` ou `but` n'annulent plus cette
-décision. Une annonce conditionnelle (`if`), attendue ou seulement envisagée
-reste rejetée. Le résumé ne peut toujours pas créer un événement absent du titre.
-
-Les amendes confirmées d'au moins 5 milliards de dollars, d'euros ou de livres
-concernant Apple, Microsoft, Nvidia, Alphabet/Google, Amazon, Meta ou Tesla
-sont retenues, ainsi que leurs annulations confirmées. Les amendes potentielles,
-petits litiges et faits divers d'entreprise restent écartés. Les banques centrales
-du Canada, d'Australie, de Nouvelle-Zélande, de Suisse et d'Inde sont reconnues
-lors d'une décision de taux explicite.
-
-Les alertes commerciales et sanctions financières exceptionnelles affichent
-respectivement `TRADE` et `EQUITIES`, avec les actifs à surveiller et un biais
-`À confirmer`. Elles ne déclenchent pas une prévision haussière automatique pour
-l'or ou une prévision uniforme sur les indices.
-
-Version `pertinence-v2.3` : les contextes historiques introduits par `since`
-ou `during` sont séparés de l'événement principal. Une compétition sportive
-organisée « depuis l'invasion de l'Ukraine » n'annonce pas une nouvelle invasion.
-Le nom `invasion` seul ne suffit plus à identifier une offensive : un acte
-militaire ou un début d'invasion explicite doit être présent. Les décisions de
-taux, commerciales et mouvements de marché conservent leur priorité lorsqu'ils
-constituent l'événement principal, même avec un rappel historique ensuite.
-
-Exemples :
-
-| Titre | Décision |
-| --- | --- |
-| UK needs to be ready for emergencies and hostile acts, warns Streeting | Rejeté |
-| Woman 'scared to turn heating on' due to oil cost | Rejeté |
-| Fed expected to cut interest rates | Rejeté : anticipation |
-| Fed cuts interest rates | Retenu : décision de taux |
-| Iran and Israel agree ceasefire | Retenu : accord de cessez-le-feu |
-| Russia halts gas exports to Europe | Retenu : approvisionnement |
-| Oil spill hits UAE beaches after tanker collision | Rejeté : pollution locale |
-| Oil spill halts oil exports from UAE | Retenu : interruption des exportations |
-| White House lifts tariffs on some Canadian goods as midterm elections loom | Retenu : décision commerciale |
-| US imposes tariffs after trade talks fail | Retenu : décision effective malgré le contexte de négociations |
-| Meta fined $25bn for privacy violations | Retenu : sanction financière exceptionnelle |
-| Meta may be fined $25bn | Rejeté : sanction hypothétique |
-| Russia to host first Olympic federation world event since Ukraine invasion | Rejeté : compétition sportive, contexte historique |
-| Russia begins a new invasion of Ukraine | Retenu : nouvelle offensive explicite |
-
-Priorités : 9 pour les décisions monétaires, événements stratégiques et accords
-de cessez-le-feu ; 8 pour les données macro et décisions commerciales ; 7 pour
-l'orientation monétaire et les sanctions financières exceptionnelles sur les
-mégacapitalisations US ; 6 pour les mouvements de marché. Un rejet vaut 0.
-`MIN_SCORE_SEND` reste le seuil final. Ces scores expriment une priorité de règle,
-pas une mesure de réaction du marché.
-
-Chaque décision est expliquée dans les logs (`Motif`). La limite
-`MAX_ARTICLES_PER_RUN` s'applique après le filtrage des articles non pertinents
-et des URL déjà envoyées. Le format de `state.json` reste compatible.
-Le début du run affiche aussi `Version du filtre : pertinence-v2.3` et le chemin
-du fichier importé, pour vérifier quelle copie s'exécute réellement.
-
-Ce filtre privilégie la précision : une annonce importante formulée autrement
-peut être écartée. Il ne lit pas l'article complet et ne vérifie pas la fraîcheur
-de l'événement. Les impacts directionnels de `mapping.py` restent des associations
-génériques pour les anciennes catégories. Les catégories `TRADE` et `EQUITIES`
-signalent explicitement que la réaction directionnelle reste à confirmer.
-
-## Vérification locale
-
-Après installation des dépendances, lancer :
+Les flux ont été vérifiés depuis le runner GitHub utilisé pour les alertes.
+L'outil reproductible est :
 
 ```bash
-python -m unittest discover -s tests -v
+python scripts/check_sources.py --max-items 50
 ```
 
-Les tests couvrent les deux exemples rejetés, les faux positifs de mots-clés,
-les annonces à conserver et le parcours de sélection jusqu'à l'envoi simulé.
-Ils n'appellent ni Telegram, ni DeepL, ni les sources d'actualités et ne modifient
-pas l'état réel.
+## Sélection
 
-## Mise à jour d'une installation existante
+Le filtre reconnaît des mécanismes de marché :
 
-Remplacer ensemble `bot.py`, `filter.py`, `scoring.py` et `mapping.py`.
-Conserver le `state.json` de l'installation ainsi que ses variables d'environnement.
-L'archive de mise à jour ne contient ni historique à restaurer, ni clés API.
-Les dépendances et la commande de lancement restent identiques.
+- décisions de taux, statistiques des économies de référence et indications
+  officielles des banques centrales ;
+- décisions fiscales, budgétaires et commerciales de portée nationale ;
+- résultats, perspectives et mouvements importants de grandes sociétés cotées ;
+- acquisitions ou fusions majeures annoncées ;
+- ruptures/reprises d'approvisionnement et événements géopolitiques stratégiques ;
+- mouvements explicites des indices, devises, taux, de l'or et du pétrole.
 
-## Cache DeepL
+Le titre doit porter l'annonce. Le résumé peut préciser l'acteur, le montant,
+la portée nationale ou le mécanisme financier. Un témoignage sur le chauffage,
+une compétition sportive ou un rappel d'invasion passé ne devient pas une
+alerte parce que son résumé mentionne la guerre.
 
-Cette version contient une vraie mémoire de traduction dans `state.json`.
+Une déclaration officielle de banque centrale peut être pertinente avec
+« could/may ». Un pari d'analyste, une probabilité implicite de hausse de taux
+ou des négociations sans décision ne sont pas traités comme une décision effective.
+Les petites sanctions sans portée commerciale/financière explicite, les faits
+divers et les commentaires politiques généraux restent écartés.
 
-Structure :
+Les scores indiquent une priorité de sélection, pas une prévision de gain ni
+une probabilité de mouvement. Le seuil par défaut reste 5. Les catégories
+sont MACRO, FISCAL, TRADE, EQUITIES, ENERGY, GEO et MARKET.
 
-```json
-{
-  "seen": [],
-  "translations": {
-    "english title normalized": "Titre traduit en français"
-  }
-}
+Les actifs sont associés au type d'événement et aux valeurs nommées. Le biais
+est « À confirmer » : le bot n'invente pas une hausse de l'or ou du pétrole
+à partir du nom d'un pays. La date de publication est affichée en heure de Paris.
+
+## Fraîcheur et doublons
+
+Par défaut, seules les publications datées de moins de 24 heures sont envoyées.
+Les dates manquantes, trop anciennes ou incohérentes restent visibles dans
+l'audit. Aucun horodatage de publication n'est inventé.
+
+Les URL de suivi sont normalisées. Les titres identiques présents chez plusieurs
+fournisseurs sont regroupés ; leur dédoublonnage persistant expire après 24 heures,
+pour laisser passer une nouvelle annonce ultérieure au même intitulé.
+Les décisions de taux, publications de PIB et acquisitions explicitement
+identifiables sont aussi rapprochées de façon conservatrice. Des actions ou
+valeurs contradictoires ne sont pas fusionnées.
+
+L'historique conserve les URL déjà envoyées, le cache de traduction, les titres
+récents et les événements récemment confirmés. Un article n'est marqué envoyé
+qu'après confirmation de Telegram. L'état est sauvegardé après chaque envoi ;
+les traitements automatiques sont sérialisés.
+
+La limite par défaut est **10 alertes par passage**, après tri et dédoublonnage.
+Les autres candidats restent à examiner au passage suivant ; ils ne sont pas
+marqués envoyés. L'activation de nouvelles sources peut donc rattraper des
+informations récentes sans réexpédier plusieurs jours d'archives.
+
+## Audit reproductible
+
+Chaque passage produit :
+
+- audit/news_audit.json : décision détaillée pour chaque article ;
+- audit/news_audit.csv : tableau des décisions, catégories, scores et motifs ;
+- audit/source_health.json : état de chaque fournisseur.
+
+Les rapports sont conservés sept jours comme artefacts GitHub Actions. Les
+décisions distinguent notamment envoyé, déjà envoyé, doublon, rejet du filtre,
+publication ancienne/non datée et attente de la limite d'envoi. Le résumé
+ne confond donc plus panne d'une source et absence d'article retenu.
+
+Le workflow **Audit des sources et du tri** effectue une collecte et un rejeu
+sans token Telegram, sans DeepL et sans modification de l'historique :
+
+```bash
+python scripts/check_sources.py
+python bot.py --dry-run --replay audit/source_check.json
+python scripts/validate_audit.py --require-candidates
 ```
 
-Fonctionnement :
+Un rejeu de fichier exige le mode dry-run. Une simulation ne doit jamais envoyer
+de message ou enregistrer des articles comme envoyés. La validation exige au
+moins deux sources de marchés récemment mises à jour et, avec l'option indiquée,
+au moins une actualité pertinente dans l'échantillon.
 
-1. Le bot vérifie d'abord si le titre existe déjà dans `state["translations"]`.
-2. Si oui, il réutilise la traduction sans appeler DeepL.
-3. Si non, il appelle DeepL une seule fois.
-4. Il sauvegarde ensuite la traduction dans `state.json`.
+Le filtre reste une analyse déterministe des titres et résumés RSS, sans lecture
+systématique de l'article entier. Les audits servent à contrôler ses rejets
+et à ajouter des cas réels aux tests. Il n'existe pas de quota artificiel
+d'alertes à remplir chaque jour.
 
-Important : si aucune clé DeepL n'est configurée, le bot ne sauvegarde pas le titre original dans le cache. Cela évite de bloquer les futures traductions après ajout de la clé API.
+## Configuration
 
-## Variables d'environnement nécessaires
+Créer ces secrets Actions dans le dépôt :
+
+- TELEGRAM_BOT_TOKEN : token actuel fourni par le BotFather officiel.
+- CHAT_ID : destinataire des alertes.
+- DEEPL_API_KEY : traduction des titres.
+
+Les workflows transmettent TELEGRAM_BOT_TOKEN à Python sous la variable BOT_TOKEN.
+L'ancien secret GitHub BOT_TOKEN n'est plus utilisé. Après rotation dans BotFather,
+mettre à jour TELEGRAM_BOT_TOKEN.
+
+Le jeton placé dans l'en-tête Authorization de cron-job est un **jeton GitHub** :
+il déclenche news-bot.yml avec le corps {"ref":"main"}. Il est distinct du token
+Telegram et reste inchangé lors d'une rotation du token Telegram.
+
+Variables locales :
 
 ```bash
 BOT_TOKEN=...
 CHAT_ID=...
 DEEPL_API_KEY=...
-```
 
-Optionnel :
-
-```bash
+# Valeurs par défaut
 MIN_SCORE_SEND=5
-MAX_ARTICLES_PER_RUN=60
+MAX_ARTICLES_PER_RUN=10
+MAX_NEWS_AGE_HOURS=24
+MAX_ITEMS_PER_SOURCE=50
+ALLOW_UNDATED_NEWS=0
 USE_NEWSAPI=0
-NEWSAPI_KEY=...
+NEWS_DRY_RUN=0
 ```
 
-## Secrets GitHub Actions
+NewsAPI reste facultatif et désactivé par défaut ; sa clé est envoyée dans
+un en-tête, sans journalisation d'une URL contenant la clé. Aucune API de
+calendrier économique supplémentaire n'est ajoutée par cette version.
 
-Dans ce dépôt, créer le secret de dépôt `TELEGRAM_BOT_TOKEN` avec le token
-actuel de BotFather, ainsi que `CHAT_ID` et `DEEPL_API_KEY`. Les workflows
-transmettent `TELEGRAM_BOT_TOKEN` à Python sous le nom d'environnement
-`BOT_TOKEN` ; le lancement local conserve donc ses variables habituelles.
-Le secret de dépôt historique `BOT_TOKEN` n'est plus utilisé par les workflows.
-
-Le jeton GitHub placé dans l'en-tête `Authorization` de cron-job sert uniquement
-à déclencher le workflow `news-bot.yml` avec `{"ref":"main"}`. Il est distinct
-du token Telegram et n'a pas à être remplacé lors d'une rotation dans BotFather.
-
-## Lancement
+## Installation et tests
 
 ```bash
+pip install -r requirements.txt
+python -m unittest discover -s tests -v
 python bot.py
 ```
 
-Chaque lancement vérifie la variable `BOT_TOKEN` avec la méthode Telegram `getMe`,
-même si aucun article n'est envoyé. Le log `Telegram authentifié : @...` permet
-de confirmer le bot associé au token, sans afficher le secret ni envoyer de
-message de test. Un refus de Telegram interrompt le run avant la collecte.
-Après une rotation dans BotFather, remplacer le secret `TELEGRAM_BOT_TOKEN` dans GitHub
-Actions pour les tâches qui exécutent ce workflow, même si leur déclenchement
-est assuré par cron-job.
-Le workflow de tests effectue aussi ce contrôle en lecture seule après un push
-sur `main` ; les pull requests exécutent uniquement les tests simulés.
-Les espaces en début et fin du secret sont retirés. Le contrôle distingue un
-secret vide, un format incompatible et un refus d'authentification par Telegram,
-sans afficher la valeur du secret ni l'URL d'authentification.
-L'envoi vérifie aussi la confirmation de l'API Telegram. Les journaux affichent
-le statut et la confirmation d'envoi, sans le corps de réponse contenant les
-informations privées du destinataire. Une interruption n'entraîne pas de nouvel
-essai automatique dans le même lancement.
+Les tests unitaires simulent le réseau, Telegram et DeepL. Ils couvrent les
+exemples indésirables reçus, les annonces financières retrouvées, la guidance,
+les vrais rejets observés, la collecte, la fraîcheur, les doublons, l'audit et
+la reprise d'un lot interrompu.
+
+Le lancement réel vérifie getMe, puis sendMessage pour les articles sélectionnés.
+Les journaux ne contiennent ni token, ni empreinte de token, ni réponse privée
+du destinataire. Le cache DeepL est réutilisé ; une absence de clé ne bloque
+pas le cache avec le titre anglais.

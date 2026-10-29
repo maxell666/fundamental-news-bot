@@ -1,132 +1,136 @@
-from filter import contains_any, is_major_company_penalty, is_trade_decision
+from filter import assess_news, contains_any
 
 
 def merge_impacts(impacts):
-    merged = {}
-
-    for imp in impacts:
-        imp = imp.replace("• ", "").strip()
-        parts = imp.split(" : ")
-        key = parts[0]
-        value = parts[1] if len(parts) > 1 else ""
-
-        merged.setdefault(key, [])
-
-        if value and value not in merged[key]:
-            merged[key].append(value)
-
-    out = []
-    for key, values in merged.items():
-        if values:
-            out.append(f"• {key} : " + " | ".join(values))
-        else:
-            out.append(f"• {key}")
-
-    return out
+    return list(dict.fromkeys(impacts))
 
 
-def get_market_impact(text, title=None):
-    text = (text or "").lower()
-    headline = title if title is not None else text
+def _equity_assets(headline):
+    # Les tickers identifient d'abord les valeurs effectivement citées.
+    groups = (
+        (("apple",), ["AAPL", "NAS100", "SPX500", "US30"]),
+        (("microsoft",), ["MSFT", "NAS100", "SPX500", "US30"]),
+        (("nvidia",), ["NVDA", "NAS100", "SPX500", "US30"]),
+        (("alphabet", "google"), ["GOOGL", "NAS100", "SPX500"]),
+        (("amazon",), ["AMZN", "NAS100", "SPX500", "US30"]),
+        (("meta", "facebook"), ["META", "NAS100", "SPX500"]),
+        (("tesla",), ["TSLA", "NAS100", "SPX500"]),
+        (("caterpillar",), ["CAT", "US30", "SPX500"]),
+        (("jpmorgan", "jp morgan"), ["JPM", "US30", "SPX500"]),
+        (("ibm",), ["IBM", "US30", "SPX500"]),
+        (("merck",), ["MRK", "US30", "SPX500"]),
+        (("boeing",), ["BA", "US30", "SPX500"]),
+        (("goldman sachs",), ["GS", "US30", "SPX500"]),
+        (("salesforce",), ["CRM", "US30", "SPX500"]),
+        (("broadcom",), ["AVGO", "NAS100", "SPX500"]),
+        (("amd",), ["AMD", "NAS100", "SPX500"]),
+        (("intel",), ["INTC", "NAS100", "SPX500"]),
+        (("servicenow", "service now"), ["NOW", "SPX500"]),
+        (("fortinet",), ["FTNT", "NAS100", "SPX500"]),
+        (("doordash",), ["DASH", "NAS100", "SPX500"]),
+        (("instacart",), ["CART"]),
+        (("adt",), ["ADT"]),
+    )
+    assets = []
+    for terms, targets in groups:
+        if contains_any(headline, terms):
+            assets.extend(targets)
+    return list(dict.fromkeys(assets)) or ["SPX500"]
 
-    if is_trade_decision(headline, text):
+
+def _macro_assets(headline, context):
+    groups = (
+        (("fed", "fomc", "federal reserve", "powell", "us", "u.s.", "american"),
+         ["DXY", "EURUSD", "GBPUSD", "XAUUSD", "US30", "NAS100", "SPX500"]),
+        (("ecb", "european central bank", "eurozone", "german", "germany", "euro area"),
+         ["EURUSD", "GER40", "XAUUSD"]),
+        (("boe", "bank of england", "uk", "britain", "british", "chancellor"),
+         ["GBPUSD", "UK100", "XAUUSD"]),
+        (("bank of canada", "boc", "canada", "canadian"), ["USDCAD", "XAUUSD"]),
+        (("reserve bank of australia", "rba", "australia", "australian"), ["AUDUSD", "XAUUSD"]),
+        (("reserve bank of new zealand", "rbnz", "new zealand"), ["NZDUSD", "XAUUSD"]),
+        (("bank of japan", "boj", "japan", "japanese"), ["USDJPY", "XAUUSD"]),
+        (("swiss national bank", "snb", "switzerland", "swiss"), ["USDCHF", "XAUUSD"]),
+    )
+    for candidate in (headline, context):
+        for terms, assets in groups:
+            if contains_any(candidate, terms):
+                return assets
+    return ["DXY", "XAUUSD", "US30", "NAS100", "SPX500"]
+
+
+def get_market_impact(text, title=None, category=None):
+    context = text or ""
+    headline = title if title is not None else context
+    if category is None:
+        category = assess_news(headline, context).category
+
+    if category == "MACRO":
+        return [
+            "• Devises et rendements : sensibles au chiffre ou à la décision",
+            "• Or et indices : réaction à surveiller selon la surprise de marché",
+        ], _macro_assets(headline, context), "À confirmer", category
+
+    if category == "FISCAL":
+        return [
+            "• Devise et taux du pays : sensibles aux mesures annoncées",
+            "• Indices et secteurs concernés : réaction à surveiller",
+        ], _macro_assets(headline, context), "À confirmer", category
+
+    if category == "TRADE":
         assets = ["US30", "NAS100", "SPX500", "DXY", "XAUUSD"]
-        if contains_any(headline, ("oil", "crude", "gas", "lng")):
+        if contains_any(headline, ("oil", "crude", "gas", "lng", "diesel", "fuel", "gasoline", "petrol")):
             assets += ["USOIL", "UKOIL"]
         return [
-            "• Indices US : sensibles aux nouvelles mesures commerciales",
-            "• USD et or : réaction à confirmer selon les mesures annoncées",
-        ], assets, "À confirmer", "TRADE"
+            "• Indices et secteurs concernés : sensibles aux mesures commerciales",
+            "• USD et or : réaction à confirmer selon la portée des mesures",
+        ], assets, "À confirmer", category
 
-    if is_major_company_penalty(headline):
+    if category == "EQUITIES":
         return [
-            "• Indices US : surveiller la réaction de la valeur concernée",
-            "• Volatilité du titre : hausse possible",
-        ], ["NAS100", "SPX500"], "À confirmer", "EQUITIES"
+            "• Valeur concernée : surveiller résultats, perspectives et réaction du cours",
+            "• Indices US : effet dépendant du poids de la société",
+        ], _equity_assets(headline), "À confirmer", category
 
-    impacts = []
-    assets = []
-    bias = "Neutre"
-    category = "FONDAMENTAL"
+    if category == "ENERGY":
+        return [
+            "• Pétrole : réaction liée à l'offre, la demande et aux stocks",
+            "• Indices et devises : sensibles à l'évolution du coût de l'énergie",
+        ], ["USOIL", "UKOIL", "XAUUSD", "US30", "NAS100", "SPX500"], "À confirmer", category
 
-    # GEO / guerre / Iran / attaques / missiles
-    if contains_any(text, [
-        "iran", "israel", "ukraine", "russia", "china", "taiwan",
-        "war", "attack", "missile", "drone", "conflict", "military",
-        "sanctions", "nuclear", "escalation"
-    ]):
-        category = "GEO"
-        bias = "Risk-off"
+    if category == "GEO":
+        assets = ["XAUUSD", "US30", "NAS100", "SPX500"]
+        if contains_any(headline, ("oil", "gas", "hormuz", "suez", "red sea", "refinery", "pipeline")):
+            assets += ["USOIL", "UKOIL"]
+        return [
+            "• Actifs refuges, indices et volatilité : réaction à surveiller",
+            "• Portée de l'événement et réaction effective des marchés à confirmer",
+        ], assets, "À confirmer", category
 
-        impacts += [
-            "• Or : haussier",
-            "• Indices US : prudence",
-            "• Volatilité : en hausse"
-        ]
-        assets += ["XAUUSD", "US30", "NAS100", "SPX500"]
+    if category == "MARKET":
+        assets = []
+        if contains_any(headline, ("gold", "gold prices")):
+            assets += ["XAUUSD"]
+        if contains_any(headline, ("oil", "crude", "brent", "wti", "natural gas")):
+            assets += ["USOIL", "UKOIL"]
+        if contains_any(headline, ("dollar", "dxy", "treasury", "treasuries", "yields")):
+            assets += ["DXY", "EURUSD", "GBPUSD", "XAUUSD"]
+        if contains_any(headline, ("nasdaq",)):
+            assets += ["NAS100"]
+        if contains_any(headline, ("s&p 500", "s&p500")):
+            assets += ["SPX500"]
+        if contains_any(headline, ("dow", "dow jones")):
+            assets += ["US30"]
+        if contains_any(headline, ("wall street", "us stocks", "u.s. stocks", "global stocks", "stock markets")):
+            assets += ["US30", "NAS100", "SPX500"]
+        if contains_any(headline, ("dax",)):
+            assets += ["GER40"]
+        return [
+            "• Prix : mouvement signalé par la source",
+            "• Volatilité et poursuite du mouvement : à surveiller",
+        ], list(dict.fromkeys(assets)) or ["US30", "NAS100", "SPX500", "XAUUSD"], "À confirmer", category
 
-    # Energie / pétrole / Hormuz / OPEC
-    if contains_any(text, [
-        "oil", "crude", "brent", "wti", "hormuz", "strait",
-        "opec", "fuel", "gas", "lng", "pipeline", "red sea", "suez"
-    ]):
-        category = "ENERGY"
-        bias = "Risk-off"
-
-        impacts += [
-            "• Pétrole : haussier",
-            "• Volatilité énergie : en hausse",
-            "• Or : haussier modéré",
-            "• Indices : pression possible si choc énergétique"
-        ]
-        assets += ["USOIL", "UKOIL", "XAUUSD", "US30", "NAS100", "SPX500"]
-
-    # Fed / inflation / CPI / taux / USD
-    if contains_any(text, [
-        "fed", "fomc", "powell", "federal reserve", "interest rate",
-        "rates", "inflation", "cpi", "ppi", "pce", "rate cut",
-        "rate hike", "central bank", "treasury", "yields", "dollar",
-        "nonfarm payrolls", "nfp", "jobs report"
-    ]):
-        if category == "FONDAMENTAL":
-            category = "MACRO"
-
-        impacts += [
-            "• USD : volatilité en hausse",
-            "• Indices US : à surveiller",
-            "• Or : très sensible aux taux/rendements"
-        ]
-        assets += ["DXY", "EURUSD", "GBPUSD", "XAUUSD", "US30", "NAS100", "SPX500"]
-
-    # ECB / Europe
-    if contains_any(text, ["ecb", "lagarde", "european central bank", "eurozone"]):
-        if category == "FONDAMENTAL":
-            category = "MACRO"
-
-        impacts += [
-            "• EUR : volatilité en hausse",
-            "• Indices européens : à surveiller"
-        ]
-        assets += ["EURUSD", "GER40"]
-
-    # BoE / UK
-    if contains_any(text, ["boe", "bailey", "bank of england", "pound", "sterling", "uk inflation"]):
-        if category == "FONDAMENTAL":
-            category = "MACRO"
-
-        impacts += [
-            "• GBP : volatilité en hausse",
-            "• GBPUSD : à surveiller"
-        ]
-        assets += ["GBPUSD"]
-
-    if not impacts:
-        impacts = ["• Impact à confirmer"]
-
-    impacts = merge_impacts(impacts)
-    assets = list(dict.fromkeys(assets))
-
-    return impacts, assets, bias, category
+    return ["• Impact de marché à confirmer"], [], "À confirmer", "FONDAMENTAL"
 
 
 def priority_label(score):
