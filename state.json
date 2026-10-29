@@ -481,7 +481,17 @@
     "https://www.bbc.co.uk/news/articles/cmz6581p1ee8o?at_medium=RSS&at_campaign=rss",
     "https://www.bbc.co.uk/news/articles/c60qk573yzz8o?at_medium=RSS&at_campaign=rss",
     "https://www.bbc.co.uk/news/articles/cqdr8zxrr3dxo?at_medium=RSS&at_campaign=rss",
-    "https://www.bbc.co.uk/sport/olympics/articles/cmq5ny00gzy0o?at_medium=RSS&at_campaign=rss"
+    "https://www.bbc.co.uk/sport/olympics/articles/cmq5ny00gzy0o?at_medium=RSS&at_campaign=rss",
+    "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
+    "https://www.investing.com/news/economy-news/ecb-keeps-rates-steady-as-president-lagarde-annouces-departure-4983923",
+    "https://news.google.com/rss/articles/CBMiogFBVV95cUxNR3M1cWh6azZyTHVTWV9qanQ0LXVsVHVNRzdLeUlSbEx3aVYta0xwa3VPODBoc1JvUEZMRVNGQ045ZkZZajVCTmhzZGdPcmFOaHhJelg0OHRIMjQyZnlXemdNbU42cWFhS3dQaExlT3RtLWpiTmxlVUMtYzZ4dHhYNGdFc1FtRlJ4SUtZQlFjWUE3N2JqNUtHdHctdUFtWWZBd1E",
+    "https://www.investing.com/news/commodities-news/russia-to-extend-diesel-export-ban-use-quotas-to-fulfil-us-deal-sources-say-4984682",
+    "https://www.cnbc.com/2026/10/29/pce-inflation-report-september-2026-.html",
+    "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOS21ocmJBakxUZmFUVWdxWExLS0gtcmNiVDFGb24zbTBUa25wd1I3MVBrOVVzNm9jSFFFVktiaTRXay1yOEhsWWd5ZlBhRU9EQVNJZlhtRVVySzVoNUZqajZ0MnNLeF9sZ1N3QTY2MEZHeUlKaUJnUlR4NkQ4ODh5Nmx0MWxiYm54aWphcXhpcTNTMVl3TUw3TFpQeGltQU5iRy1sLXVvME5fQQ",
+    "https://investinglive.com/news/us-september-pce-core-inflation-m-m-vs-0-3-expected/",
+    "https://www.cnbc.com/2026/10/29/merck-mrk-earnings-q3-2026.html",
+    "https://www.bbc.co.uk/news/articles/c6m24klyjr8no",
+    "https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -891,6 +901,49 @@
     "island inflation rate rises to 3%, figures show": "Le taux d'inflation de l'île atteint 3 %, selon les chiffres",
     "white house lifts tariffs on some canadian goods as midterm elections loom": "La Maison Blanche lève les droits de douane sur certains produits canadiens à l'approche des élections de mi-mandat",
     "meta fined $25bn for 'lies' over user data privacy": "Meta condamné à une amende de 25 milliards de dollars pour ses « mensonges » concernant la confidentialité des données des utilisateurs",
-    "russia to host first olympic federation world event since ukraine invasion": "La Russie va accueillir la première compétition mondiale organisée par une fédération olympique depuis l'invasion de l'Ukraine"
+    "russia to host first olympic federation world event since ukraine invasion": "La Russie va accueillir la première compétition mondiale organisée par une fédération olympique depuis l'invasion de l'Ukraine",
+    "european central bank keeps key interest rate on hold at 2.5%": "La Banque centrale européenne maintient son taux directeur inchangé à 2,5 %",
+    "ecb keeps rates steady as lagarde announces exit amid oil, france worries": "La BCE maintient ses taux inchangés tandis que Christine Lagarde annonce son départ sur fond d'inquiétudes liées au pétrole et à la situation en France",
+    "instant view: fomc holds rates steady, markets rise modestly - reuters": "En bref : le FOMC maintient ses taux inchangés, les marchés progressent légèrement - Reuters",
+    "russia to extend diesel export ban, use quotas to fulfil us deal, sources say": "La Russie s'apprête à prolonger l'interdiction d'exporter du diesel et à recourir à des quotas pour respecter l'accord conclu avec les États-Unis, selon certaines sources",
+    "third-quarter u.s. gdp increases a better-than-expected 3.4% as september inflation accelerates": "Au troisième trimestre, le PIB américain a progressé de 3,4 %, un résultat supérieur aux prévisions, tandis que l'inflation s'est accélérée en septembre",
+    "caterpillar tops quarterly profit view, but unchanged growth target dents shares - reuters": "Caterpillar dépasse les prévisions de bénéfices trimestriels, mais le maintien de son objectif de croissance pèse sur le cours de l'action - Reuters",
+    "us september pce core inflation +0.5% m/m vs +0.3% expected": "Inflation sous-jacente PCE aux États-Unis en septembre : +0,5 % en glissement mensuel contre +0,3 % prévu",
+    "merck tops quarterly estimates, hikes profit outlook as new keytruda form shows strength": "Merck dépasse les prévisions trimestrielles et revoit à la hausse ses perspectives de bénéfices, grâce aux bons résultats enregistrés par la nouvelle forme de Keytruda",
+    "microsoft profits soar days after announcing thousands of layoffs": "Les bénéfices de Microsoft s'envolent quelques jours après l'annonce de milliers de licenciements",
+    "servicenow shares plunge 25% after earnings revive ai disruption fears": "Le cours de l'action ServiceNow s'effondre de 25 % après la publication de ses résultats, qui ravivent les craintes d'un bouleversement lié à l'IA"
+  },
+  "seen_titles": {
+    "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
+    "b502f22798d1ab25007558aa7d7197ba7fdecb0a22c6380721eaaf27cfe3b594": "2026-10-29T16:35:37.597415Z",
+    "93337f05dbca3b6591f229e3cd244ceb51c272bf6e16d72bbed742c1f71569e1": "2026-10-29T16:35:38.666431Z",
+    "e13c6a51e7557dc816850cf05e68cea841caaa1771fd8668e7c040d12c982402": "2026-10-29T16:35:39.831514Z",
+    "1d1825c4aba99f37040d8d387db0da59f052afb956afff5751e8cef69312650f": "2026-10-29T16:35:41.002240Z",
+    "18e9c1e3b2027b6557818c0db77aef8f5538c6917b8c054fd5d10d40224f6ef1": "2026-10-29T16:35:42.145283Z",
+    "eb0bd3ae37b195455836feb639cce56a39d586f916426883aa9ebd9d5eb58286": "2026-10-29T16:35:43.277161Z",
+    "ab3ca8b47fc819f76e62a47759d9398f7ca8179eab637ffce8ec88e054ae9f33": "2026-10-29T16:35:44.499725Z",
+    "567f6cbea9ba4cd98da3b839b0ea0506f6c7dd84e47fdbde3f13e1aa586d9e44": "2026-10-29T16:35:45.553681Z",
+    "c54493addf991ca2bf9a87cd892e198a83522b872e447b628b3504d9ffd7d62c": "2026-10-29T16:35:46.743212Z"
+  },
+  "seen_events": {
+    "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
+      "sent_at": "2026-10-29T16:35:36.426571Z",
+      "value": {
+        "rate": "2.5"
+      },
+      "base": "rates:ecb:hold:2026-10-29"
+    },
+    "rates:fed:hold:2026-10-28|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-10-29T16:35:38.666449Z",
+      "value": {},
+      "base": "rates:fed:hold:2026-10-28"
+    },
+    "gdp:us:2026:q3|59f7f8f52628ec67fdcbb980a8e1c8bd5eccd142fa975d4fc55eb630a93d70c7": {
+      "sent_at": "2026-10-29T16:35:41.002256Z",
+      "value": {
+        "growth": "3.4"
+      },
+      "base": "gdp:us:2026:q3"
+    }
   }
 }
