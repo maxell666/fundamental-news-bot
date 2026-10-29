@@ -1,0 +1,35 @@
+name: Test macro ECI — accès aux sources
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/test-macro-eci]
+    paths:
+      - macro_probe.py
+      - macro_release.py
+      - macro_watch.py
+      - config/macro_eci_test.json
+      - .github/workflows/macro-test.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Tester les sources officielles sans Telegram
+        run: python macro_probe.py
+      - name: Conserver le contrôle d'accès
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macro-probe-${{ github.run_id }}
+          path: macro_audit/
+          retention-days: 7
