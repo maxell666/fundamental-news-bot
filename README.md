@@ -150,8 +150,13 @@ NEWS_DRY_RUN=0
 ```
 
 NewsAPI reste facultatif et désactivé par défaut ; sa clé est envoyée dans
-un en-tête, sans journalisation d'une URL contenant la clé. Aucune API de
-calendrier économique supplémentaire n'est ajoutée par cette version.
+un en-tête, sans journalisation d'une URL contenant la clé. Le module
+d'actualités ne nécessite aucun abonnement de calendrier économique.
+
+Un [essai macro séparé](docs/macro-test.md) compare le résultat public du
+Chicago PMI du 30 octobre 2026 au consensus enregistré avant sa publication.
+Il mesure le délai de détection et de confirmation Telegram, sans garantie
+préalable de latence ni modification du filtre d'actualités.
 
 ## Installation et tests
 

@@ -1,0 +1,94 @@
+name: Test macro Chicago PMI
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Contrôle public ou essai à l'heure de publication
+        type: choice
+        options: [check, watch]
+        default: check
+  push:
+    branches: [codex/test-macro-chicago-pmi]
+    paths:
+      - pmi_release.py
+      - macro_watch.py
+      - config/macro_chicago_test.json
+      - .github/workflows/macro-test.yml
+  schedule:
+    # Essai unique 30/10/2026, date exacte contrôlée en Python.
+    - cron: "35,40 13 30 10 *"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event_name != 'schedule' && inputs.mode != 'watch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Vérifier les sources sans Telegram
+        run: python macro_watch.py --check --config config/macro_chicago_test.json
+      - name: Conserver le contrôle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macro-check-${{ github.run_id }}
+          path: macro_audit/
+          retention-days: 7
+
+  watch:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.mode == 'watch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    concurrency:
+      group: macro-chicago-pmi-2026-10
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # Lire le dernier état après attente en file, y compris pour le secours.
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Préparer la sauvegarde du test
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Observer la publication et envoyer le test
+        id: watch
+        run: python macro_watch.py --watch --checkpoint-git --config config/macro_chicago_test.json
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+      - name: Sauvegarder uniquement l'état du test macro
+        if: always() && steps.watch.outcome != 'skipped'
+        run: |
+          if [ ! -f macro_test_state.json ]; then
+            exit 0
+          fi
+          git add macro_test_state.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Save macro test result [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Conserver les mesures du test
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macro-timing-${{ github.run_id }}
+          path: macro_audit/
+          retention-days: 7
