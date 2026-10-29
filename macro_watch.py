@@ -323,13 +323,19 @@ def run_watch(config: EventConfig, *, state_path: Path = Path(STATE_NAME),
         write_json(state_path, state)
     try:
         identity = verify()
-        if (not isinstance(identity, dict) or identity.get("is_bot") is not True
-                or identity.get("username", "").lower() != EXPECTED_BOT.lower()):
-            raise WatchError("Identité du bot Telegram inattendue")
     except Exception:
+        # No POST was attempted: the scheduled backup can retry this read-only
+        # validation after a transient outage.
+        state.update(status="armed", failure_reason="telegram_validation_unavailable")
+        write_json(state_path, state)
+        return finish("telegram_validation_unavailable")
+    if (not isinstance(identity, dict) or identity.get("is_bot") is not True
+            or not isinstance(identity.get("username"), str)
+            or identity["username"].lower() != EXPECTED_BOT.lower()):
         state.update(status="failed", failure_reason="telegram_identity_unconfirmed")
         write_json(state_path, state)
         return finish("telegram_identity_unconfirmed")
+    state.pop("failure_reason", None)
 
     def wait_until(moment: datetime) -> None:
         # Short waits keep cancellation responsive; never advance past target.

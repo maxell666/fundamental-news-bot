@@ -217,6 +217,21 @@ class WatchTests(unittest.TestCase):
         self.assertEqual(self.sent, [])
         self.assertEqual(self.requests, [])
 
+    def test_backup_can_retry_transient_validation_before_any_post(self):
+        def unavailable_validation():
+            raise RuntimeError("credential-bearing transport error")
+
+        first = self.run_watch(verify=unavailable_validation)
+        self.assertEqual(first["outcome"], "telegram_validation_unavailable")
+        self.assertEqual(self.state()["status"], "armed")
+        self.assertEqual(self.sent, [])
+        self.assertEqual(self.requests, [])
+        second = self.run_watch()
+        self.assertEqual(second["outcome"], "result_sent")
+        self.assertEqual(len(self.sent), 1)
+        self.assertNotIn("failure_reason", self.state())
+        self.assertNotIn("credential-bearing", self.audit_path.read_text())
+
     def test_source_refusal_is_not_retried_and_failure_is_checkpointed(self):
         self.source_responses = [watcher.HTTPResult(403)]
         checkpoints = []
