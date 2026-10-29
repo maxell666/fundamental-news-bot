@@ -6,6 +6,7 @@ on:
     branches: [codex/test-macro-eci]
     paths:
       - macro_probe.py
+        - macro_alternatives_probe.py
       - macro_release.py
       - macro_watch.py
       - config/macro_eci_test.json
@@ -25,7 +26,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements.txt
       - name: Tester les sources officielles sans Telegram
-        run: python macro_probe.py
+        run: python macro_alternatives_probe.py
       - name: Conserver le contrôle d'accès
         if: always()
         uses: actions/upload-artifact@v4
