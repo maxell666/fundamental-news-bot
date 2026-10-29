@@ -79,7 +79,7 @@ def get_market_impact(text, title=None, category=None):
 
     if category == "TRADE":
         assets = ["US30", "NAS100", "SPX500", "DXY", "XAUUSD"]
-        if contains_any(headline, ("oil", "crude", "gas", "lng")):
+        if contains_any(headline, ("oil", "crude", "gas", "lng", "diesel", "fuel", "gasoline", "petrol")):
             assets += ["USOIL", "UKOIL"]
         return [
             "• Indices et secteurs concernés : sensibles aux mesures commerciales",

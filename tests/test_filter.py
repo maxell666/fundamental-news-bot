@@ -96,6 +96,30 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_a_scheduled_earnings_release_is_not_a_new_result(self):
+        for title in (
+            "Amazon to report Q3 earnings after the bell with AI spend under scrutiny",
+            "Amazon due to report Q3 earnings above estimates",
+            "Amazon expects to report Q3 earnings on Thursday",
+            "Amazon ahead of earnings: profits forecast above estimates",
+            "Amazon earnings preview: profit outlook above estimates",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_published_results_and_announced_guidance_survive_earnings_calendar_context(self):
+        for title, score in (
+            ("Amazon says it expects to report $50bn revenue next quarter", 7),
+            ("Amazon says it expects to report revenue growth of 10% next quarter", 7),
+            ("Amazon expects to report higher revenue next quarter", 7),
+            ("Amazon forecasts revenue of $50bn ahead of earnings", 7),
+            ("Amazon reports record quarterly profits ahead of earnings call", 8),
+            ("Microsoft profits soar days after announcing thousands of layoffs", 8),
+            ("DoorDash to acquire Instacart for $17 billion", 7),
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), score, assess_news(title))
+
     def test_real_feed_previews_and_discussions_are_not_decisions(self):
         for title in (
             "Economic data spotlight: Fed rate hike bets survived Warsh, but can they survive US PCE inflation?",

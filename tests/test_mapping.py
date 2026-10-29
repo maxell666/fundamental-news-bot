@@ -17,6 +17,14 @@ class MappingTests(unittest.TestCase):
         _, assets, _, _ = get_market_impact("Gold slides as inflation accelerates", category="MARKET")
         self.assertEqual(assets, ["XAUUSD"])
 
+    def test_diesel_export_restriction_identifies_the_oil_assets(self):
+        _, assets, _, category = get_market_impact(
+            "Russia to extend diesel export ban", category="TRADE"
+        )
+        self.assertIn("USOIL", assets)
+        self.assertIn("UKOIL", assets)
+        self.assertEqual(category, "TRADE")
+
     def test_falling_oil_is_not_translated_into_an_automatic_bullish_impact(self):
         impacts, assets, bias, _ = get_market_impact("Oil prices plunge 5%", category="MARKET")
         self.assertIn("USOIL", assets)

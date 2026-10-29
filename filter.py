@@ -394,11 +394,24 @@ def _corporate_event(title, context):
         "earnings", "profit", "profits", "revenue", "revenues", "sales", "eps",
         "guidance", "outlook", "forecast", "forecasts", "margin", "margins", "results",
     ))
-    if known_company and financial_topic and _direct_statement(
+    direct_guidance = known_company and financial_topic and _direct_statement(
         title, US_INDEX_COMPANIES,
         r"warns?|says?|said|sees?|expects?|forecasts?|raises?|cuts?|lowers?|"
         r"reduces?|boosts?|withdraws?|reaffirms?|maintains?",
-    ):
+    )
+    scheduled_report = _matches(
+        title, r"\b(?:to|due to|set to|scheduled to|will)\s+report\b"
+    )
+    already_published = _matches(title, r"\b(?:reports|reported|posts|posted|releases|released)\b")
+    guidance_detail = _matches(
+        title, r"[$€£]\s*\d|\d[\d.,]*\s*(?:%|(?:billion|bn)\b)|"
+               r"\b(?:higher|lower|stronger|weaker)\s+(?:revenue|sales|earnings|profits|eps)\b|"
+               r"\b(?:revenue|sales|earnings|profits|eps)\b.{0,15}\b(?:higher|lower|grow|fall|rise|decline)\b"
+    )
+    if known_company and financial_topic and scheduled_report and not (
+            already_published or (direct_guidance and guidance_detail)):
+        return Assessment(0, "Calendrier de résultats sans nouveau chiffre ni guidance annoncée")
+    if direct_guidance:
         return Assessment(7, "Résultats attendus ou guidance annoncés par une grande valeur US", "EQUITIES")
 
     if SPECULATION.search(title):
@@ -410,8 +423,9 @@ def _corporate_event(title, context):
     if (known_company and (contains_any(title, ("shares", "stock")) or direct_price)
             and _matches(title, rf"\b{price_action}\b")):
         return Assessment(7, "Mouvement explicite du cours d'une grande valeur US", "EQUITIES")
-    if (known_company and financial_topic and _matches(
-            title, r"\b(?:reports?|reported|posts?|posted|beats?|beat|misses?|missed|tops?|topped|"
+    earnings_preview = _matches(title, r"\b(?:earnings preview|ahead of (?:its )?(?:q[1-4] )?earnings)\b")
+    if (known_company and financial_topic and (not earnings_preview or already_published) and _matches(
+            title, r"\b(?:reports|reported|posts|posted|beats?|beat|misses?|missed|tops?|topped|"
                    r"surges?|surged|soars?|soared|rises?|rose|falls?|fell|doubles?|doubled|"
                    r"triples?|tripled|jumps?|jumped|drops?|dropped|declines?|declined|"
                    r"climbs?|climbed|above|below|record|higher|lower)\b")):
