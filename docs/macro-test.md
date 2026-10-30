@@ -4,6 +4,26 @@ Essai unique : Chicago PMI d'octobre, le **30 octobre 2026 à
 13:45 UTC / 14:45 Europe/Paris / 09:45 America/New_York**.
 Il s'agit d'un essai technique, distinct du projet Annonces éco V4.
 
+## Périmètre actuel
+
+L'observateur structuré sait traiter **le Chicago PMI uniquement** : résultat,
+consensus enregistré avant publication, précédent et surprise. Son analyse et
+son message sont limités à EUR/USD, GBP/USD, GER30, USD/CHF, SP500, NAS100 et
+US30. Les variations du dollar sont traduites dans le bon sens de chaque paire ;
+la lecture des indices reste contrastée entre croissance/bénéfices et taux.
+Le GER30 est concerné plus indirectement par les taux mondiaux.
+
+Le module d'actualités peut déjà interpréter une comparaison actual/consensus
+rapportée explicitement dans une dépêche, notamment CPI/PCE. Cela ne constitue
+pas une collecte officielle structurée avec consensus figé et délai maîtrisé.
+La capture rapide autonome des **CPI, NFP et décisions FOMC n'est pas implémentée**.
+Leurs sources, périodes, unités, composantes, révisions et horaires doivent être
+traités et vérifiés séparément avant d'annoncer cette couverture.
+
+Le test du 30 octobre n'ayant jamais démarré à l'heure, aucune mesure de
+rapidité en conditions de publication n'a été validée. Les corrections du
+message ne réarment aucune date et ne déclenchent aucun envoi rétrospectif.
+
 Le consensus et le précédent sont lus dans le calendrier JSON public de
 Forex Factory et enregistrés avant l'heure prévue. Leur date, devise,
 intitulé et unité doivent correspondre exactement à l'événement.

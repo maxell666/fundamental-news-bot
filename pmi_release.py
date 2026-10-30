@@ -14,6 +14,8 @@ from html.parser import HTMLParser
 import re
 from zoneinfo import ZoneInfo
 
+from portfolio import TRACKED_ASSETS
+
 
 CHICAGO_SOURCE_URL = "https://chicago.ismworld.org/news-publications/reports/research-survey/"
 _MONTHS = {name.lower(): number for number, name in enumerate(
@@ -209,44 +211,67 @@ def analyze_chicago(
     forecast: Decimal | None,
     previous: Decimal | None,
 ) -> PMIAnalysis:
-    """Explain an activity surprise without assigning a fixed equity bias."""
+    """Explain an activity surprise for the seven tracked instruments.
+
+    This regional survey is an input to growth and rates expectations, not a
+    measurement of FX or index prices. The previous level is context only.
+    """
     actual = _decimal(actual, "actual")
     forecast = _decimal(forecast, "forecast") if forecast is not None else None
     previous = _decimal(previous, "previous") if previous is not None else None
     surprise = actual - forecast if forecast is not None else None
     previous_delta = actual - previous if previous is not None else None
     if surprise is None:
-        classification, usd, gold = "consensus_absent", "indéterminé", "indéterminé"
+        classification = "consensus_absent"
         confidence = "faible"
-        explanation = "Consensus indisponible : aucune surprise calculée, le précédent ne remplace pas le consensus."
+        explanation = "Consensus indisponible : aucune surprise calculée ni direction déduite pour les paires ou les indices. Le précédent ne remplace pas le consensus."
+        pair = chf = equity = "aucune direction déduite sans consensus"
     elif surprise > 0:
-        classification, usd, gold = "activite_plus_forte", "soutien possible via les taux", "pression possible via les taux"
+        classification = "activite_plus_forte"
         confidence = "modérée"
-        explanation = (
-            "Activité régionale supérieure au consensus. Si les anticipations de taux remontent, "
-            "le dollar pourrait être soutenu et l’or sous pression. Pour les indices, "
-            "la meilleure activité peut soutenir les bénéfices mais la hausse des taux peut peser."
+        explanation = "Activité régionale supérieure au consensus."
+        pair = (
+            "baisse possible si cette surprise relève les taux américains attendus "
+            "par rapport aux taux européens et britanniques, ce qui soutiendrait le dollar."
+        )
+        chf = (
+            "hausse possible si le différentiel de taux favorise le dollar face au franc ; "
+            "un renforcement du franc lié aux flux refuges peut contrarier ce canal."
+        )
+        equity = (
+            "lecture mixte : une activité plus forte peut soutenir les bénéfices, "
+            "mais une hausse des taux attendus augmente le coût d’actualisation."
         )
     elif surprise < 0:
-        classification, usd, gold = "activite_plus_faible", "pression possible via les taux", "soutien possible via les taux"
+        classification = "activite_plus_faible"
         confidence = "modérée"
-        explanation = (
-            "Activité régionale inférieure au consensus. Si les anticipations de taux baissent, "
-            "le dollar pourrait être sous pression et l’or soutenu. Pour les indices, "
-            "la détente des taux peut aider mais le ralentissement de l’activité peut peser."
+        explanation = "Activité régionale inférieure au consensus."
+        pair = (
+            "hausse possible si cette surprise abaisse les taux américains attendus "
+            "par rapport aux taux européens et britanniques, ce qui pèserait sur le dollar."
+        )
+        chf = (
+            "baisse possible si le différentiel de taux défavorise le dollar face au franc ; "
+            "la réaction propre du franc et les flux refuges peuvent modifier ce canal."
+        )
+        equity = (
+            "lecture mixte : une détente des taux peut soutenir les valorisations, "
+            "mais une activité plus faible peut peser sur les bénéfices."
         )
     else:
-        classification, usd, gold = "conforme", "pas de biais clair", "pas de biais clair"
+        classification = "conforme"
         confidence = "faible"
-        explanation = "Chiffre conforme au consensus : cette donnée seule ne donne pas de direction claire."
-    equity = "mixte : activité et taux peuvent s’opposer" if surprise else "pas de biais clair"
-    if surprise is None:
-        equity = "indéterminé"
+        explanation = "Chiffre conforme au consensus : aucune surprise d’activité identifiée pour orienter les paires ou les indices. L’écart au précédent ne constitue pas une surprise."
+        pair = chf = equity = "aucune direction déduite d’un chiffre conforme au consensus"
+    mechanisms = {"EURUSD": pair, "GBPUSD": pair, "USDCHF": chf,
+                  "GER30": equity, "SP500": equity, "NAS100": equity, "US30": equity}
+    if surprise:
+        mechanisms["GER30"] += " Pour GER30, la transmission est plus indirecte, via la demande mondiale et les taux."
     return PMIAnalysis(
         actual=actual, forecast=forecast, previous=previous,
         surprise_points=surprise, previous_delta_points=previous_delta,
         classification=classification,
-        directions={"USD": usd, "XAUUSD": gold, "NAS100": equity, "SPX500": equity, "US30": equity},
+        directions={asset: mechanisms[asset] for asset in TRACKED_ASSETS},
         confidence=confidence, explanation=explanation,
     )
 
@@ -264,7 +289,12 @@ def format_chicago_test_message(
     observed_at: datetime,
     forecast_at: datetime,
 ) -> str:
-    """Format an honest latency test with frozen consensus and cautious reading."""
+    """Format a frozen-consensus comparison with conditional market channels.
+
+    Detection delay is measured from the calendar's scheduled release time.
+    The public summary supplies no posting timestamp, so this does not measure
+    its actual publication latency or the time Telegram takes to deliver.
+    """
     scheduled = _utc(release.released_at, "released_at")
     observed = _utc(observed_at, "observed_at")
     frozen = _utc(forecast_at, "forecast_at")
@@ -295,15 +325,16 @@ def format_chicago_test_message(
         "",
         f"Consensus figé le {frozen.astimezone(paris):%d/%m/%Y à %H:%M:%S} (Paris)",
         f"Heure prévue au calendrier : {scheduled.astimezone(paris):%d/%m/%Y %H:%M:%S} (Paris)",
-        f"Première détection : {observed.astimezone(paris):%H:%M:%S} (Paris), +{delay:.1f} s après l’heure prévue",
-        "Actualisation de cette page publique : délai inconnu. Ce test mesure le temps jusqu’à notre première détection.",
-        "La source ne fournit pas l’heure effective de mise en ligne. Livraison Telegram non mesurée ici.",
+        f"Détecté : {observed.astimezone(paris):%H:%M:%S} (Paris), +{delay:.1f} s après l’heure prévue",
         "",
-        f"🧭 Lecture conditionnelle — confiance {analysis.confidence}",
+        "🧭 Lecture conditionnelle pour tes marchés",
         analysis.explanation,
-        *[f"• {asset} : {direction}" for asset, direction in analysis.directions.items()],
-        "Les autres annonces et la réaction des taux peuvent modifier cette lecture.",
-        "",
-        f"🔗 {release.source_url}",
     ])
+    if analysis.surprise_points:
+        lines.extend([
+            f"• EUR/USD ; GBP/USD : {analysis.directions['EURUSD']}",
+            f"• USD/CHF : {analysis.directions['USDCHF']}",
+            f"• GER30 ; SP500 ; NAS100 ; US30 : {analysis.directions['GER30']}",
+        ])
+    lines.extend(["", f"🔗 {release.source_url}"])
     return "\n".join(lines)
