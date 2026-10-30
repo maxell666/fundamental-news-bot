@@ -96,6 +96,112 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_observed_us_ten_year_yields_and_bond_prices_are_market_events(self):
+        for title in (
+            "US 10-year Treasury yields climb to 4.5%",
+            "U.S. 10-year Treasury yield jumps after inflation release",
+            "10-year US Treasury yield falls 8 basis points",
+            "US10Y yield retreats after Fed decision",
+            "Yield on 10-year US Treasury bonds rises to 4.5%",
+            "US 10-year Treasury bond prices rally as yields fall",
+            "10-year US Treasury prices fall after weak demand",
+            "US10Y bond prices rebound after data",
+            "10-year Treasuries rally after inflation report",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual((result.score, result.category), (6, "MARKET"), result)
+
+    def test_us_ten_year_auction_requires_actual_weak_demand_and_explicit_yield(self):
+        for title in (
+            "US 10-year Treasury auction draws weak demand, sending yields higher",
+            "US 10-year Treasury auction draws weak demand as yields jump",
+            "U.S. 10-year Treasury auction sees poor demand with a high yield of 4.3%",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual((result.score, result.category), (6, "MARKET"), result)
+        for title in (
+            "US 10-year Treasury auction draws weak demand",
+            "US 10-year Treasury auction expected to draw weak demand as yields rise",
+            "US 10-year Treasury auction draws weak demand as yields could rise",
+            "US 10-year Treasury auction draws weak demand as analysts forecast a yield of 4.3% next month",
+            "US 10-year Treasury auction draws weak demand as traders expect a 4.5% yield next time",
+            "US 10-year Treasury auction draws weak demand amid forecasts for a yield of 4.3%",
+            "US 10-year Treasury auction preview: weak demand and higher yields expected",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_observed_portfolio_fx_and_german_index_moves_are_recognized(self):
+        for title in (
+            "EUR/USD trades lower after Fed decision",
+            "EURUSD advances after ECB statement",
+            "GBP/USD is trading higher after UK release",
+            "GBPUSD weakens after BoE decision",
+            "USD/CHF falls after SNB statement",
+            "USDCHF gains after US release",
+            "DAX rallies after SAP results",
+            "DAX 40 rises 1% after earnings",
+            "GER30 slides after ECB decision",
+            "GER40 edges higher after SAP results",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual((result.score, result.category), (6, "MARKET"), result)
+
+    def test_portfolio_quotes_predictions_and_unrelated_subjects_stay_blocked(self):
+        for title in (
+            "US 10-year Treasury yield at 4.5% ahead of auction",
+            "US10Y bond price forecast to rise next month",
+            "US10Y yield could fall after the Fed",
+            "EUR/USD at 1.0850 ahead of Fed decision",
+            "Analysts expect EURUSD to rise after the Fed",
+            "GBP/USD could rally after UK inflation",
+            "USDCHF may fall next week",
+            "DAX quotes and daily chart",
+            "GER40 expected to rise after earnings",
+            "DAX analysts forecast shares will rally",
+            "Gold mining company shares jump",
+            "Unknown German Widgetmaker reports record quarterly profits",
+            "Russia to host first Olympic federation world event since Ukraine invasion",
+            "Trump's tariffs fail to cut US trade deficit, IW report shows - Reuters",
+            "IT, earnings, tax-cut hopes power Indian shares to monthly gains - Reuters",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
+    def test_curated_dax_financial_results_and_announced_guidance(self):
+        for title, score in (
+            ("SAP posts quarterly revenue above estimates", 8),
+            ("Siemens profits rise 12% in third quarter", 8),
+            ("Allianz reports record annual profits", 8),
+            ("Deutsche Bank quarterly profits fall 10%", 8),
+            ("Airbus raises full-year earnings guidance", 7),
+            ("Mercedes-Benz quarterly profits fall 30%", 8),
+            ("BMW posts quarterly earnings below estimates", 8),
+            ("Volkswagen reports quarterly revenue below estimates", 8),
+            ("Deutsche Telekom raises annual earnings guidance", 7),
+            ("Infineon reports quarterly profits above estimates", 8),
+            ("BASF cuts full-year profit forecast", 7),
+            ("SAP shares jump 7% after earnings", 7),
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual((result.score, result.category), (score, "EQUITIES"), result)
+        for title in (
+            "SAP due to report quarterly earnings above estimates",
+            "Siemens earnings preview: profits forecast above estimates",
+            "Analysts forecast Allianz profits to jump 20%",
+            "Airbus shares could rise if profits beat estimates",
+            "SAP launches exhibition about Russia's invasion of Ukraine",
+            "SAP customers report record quarterly profits",
+            "SAP consultants expect profits to rise 10%",
+            "SAP shares failed to rise after earnings",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
     def test_policy_effects_and_tax_cut_hopes_are_not_new_policy_decisions(self):
         for title in (
             "Trump's tariffs fail to cut US trade deficit, IW report shows - Reuters",
@@ -465,14 +571,15 @@ class RelevanceTests(unittest.TestCase):
     def test_new_alerts_have_assets_without_an_automatic_direction(self):
         for title, category, required in (
             ("White House lifts tariffs on some Canadian goods", "TRADE", "NAS100"),
-            ("US imposes new sanctions on Russian oil exports", "TRADE", "USOIL"),
+            ("US imposes new sanctions on Russian oil exports", "TRADE", "SP500"),
             ("Meta fined $25bn for privacy violations", "EQUITIES", "NAS100"),
         ):
             with self.subTest(title=title):
                 impacts, assets, bias, actual = get_market_impact(title, title=title)
                 self.assertEqual(actual, category)
                 self.assertIn(required, assets)
-                self.assertEqual(bias, "À confirmer")
+                self.assertFalse(bias)
+                self.assertTrue(set(assets) <= {"EURUSD", "GBPUSD", "USDCHF", "GER30", "SP500", "NAS100", "US30"})
                 self.assertFalse(any("haussier" in impact for impact in impacts))
 
     def test_context_does_not_reclassify_a_macro_headline_as_equities(self):

@@ -20,6 +20,27 @@ def article(title="US imposes tariffs", url="https://example.com/news", publishe
 
 
 class NewsPipelineTests(unittest.TestCase):
+    def test_out_of_scope_is_audited_with_no_target_fallback(self):
+        rows = evaluate_news([
+            article("Canada GDP for August 0.0% vs 0.2% estimate", "https://example.com/cad"),
+            article("Gold jumps 2%", "https://example.com/gold"),
+            article("Swiss CPI rises 0.3% in October", "https://example.com/chf"),
+            article("Fed cuts interest rates by 25 basis points", "https://example.com/fed"),
+        ], {}, now=NOW)
+        self.assertEqual([row["decision"] for row in rows],
+                         ["out_of_scope", "out_of_scope", "eligible", "eligible"])
+        self.assertEqual(rows[0]["portfolio_assets"], [])
+        self.assertIn("USDCHF", rows[2]["portfolio_assets"])
+        self.assertEqual(rows[2]["portfolio_drivers"], ["CHF_DATA"])
+
+    def test_summary_context_does_not_turn_canadian_gdp_into_a_us_release(self):
+        item = article("Canada GDP for August 0.0% vs 0.2% estimate")
+        item["desc"] = "US investors await the Fed and watch Nasdaq futures."
+        row = evaluate_news([item], {}, now=NOW)[0]
+        self.assertEqual(row["decision"], "out_of_scope")
+        self.assertFalse(row["portfolio_relevant"])
+        self.assertTrue(row["portfolio_reason"])
+
     def test_monetary_leadership_change_is_not_hidden_by_the_rate_duplicate(self):
         rows = evaluate_news([
             article("ECB keeps rates steady as Lagarde announces exit amid oil worries", "https://example.com/a"),
@@ -57,8 +78,8 @@ class NewsPipelineTests(unittest.TestCase):
 
     def test_rate_level_and_change_in_basis_points_are_complementary(self):
         rows = evaluate_news([
-            article("Bank of Canada rate decision: Hike to 2.50%", "https://first.example/boc"),
-            article("The full statement from the Bank of Canada rate decision. Hikes by 25 basis points", "https://second.example/boc"),
+            article("Federal Reserve rate decision: Hike to 2.50%", "https://first.example/fed"),
+            article("The full statement from the Federal Reserve rate decision. Hikes by 25 basis points", "https://second.example/fed"),
         ], {}, now=NOW)
         chosen = rank_eligible(rows, now=NOW)
         self.assertEqual(len(chosen), 1)
@@ -190,8 +211,8 @@ class NewsPipelineTests(unittest.TestCase):
 
     def test_unrelated_market_movements_have_no_generic_cooldown(self):
         rows = evaluate_news([
-            article("Gold jumps 1%", "https://example.com/a"),
-            article("Gold falls 2%", "https://example.com/b"),
+            article("EUR/USD jumps 1%", "https://example.com/a"),
+            article("EUR/USD falls 2%", "https://example.com/b"),
             article("Oil rises 3%", "https://example.com/c"),
         ], {}, now=NOW)
         chosen = rank_eligible(rows, now=NOW)

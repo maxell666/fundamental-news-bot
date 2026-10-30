@@ -4,6 +4,7 @@ import requests
 import json
 import re
 import sys
+from html import escape
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -13,6 +14,7 @@ from filter import FILTER_VERSION, assess_news
 from translate import translate_text, debug_deepl_usage, has_deepl_key
 from mapping import get_market_impact, priority_label
 from news_pipeline import evaluate_news, parse_publication, rank_eligible, summarize, write_audit
+from portfolio import assess_portfolio, TRACKED_ASSETS
 
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "").strip()
@@ -64,17 +66,22 @@ def verify_telegram_token():
     return identity
 
 
-def send_telegram(message):
+def send_telegram(message, *, parse_mode=None):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    if parse_mode not in (None, "HTML"):
+        raise ValueError("Format Telegram non autorisé")
+    data = {
+        "chat_id": CHAT_ID,
+        "text": message,
+        "disable_web_page_preview": True,
+    }
+    if parse_mode is not None:
+        data["parse_mode"] = parse_mode
 
     try:
         response = requests.post(
             url,
-            data={
-                "chat_id": CHAT_ID,
-                "text": message,
-                "disable_web_page_preview": True,
-            },
+            data=data,
             timeout=20,
         )
     except requests.RequestException:
@@ -192,18 +199,20 @@ def get_cached_translation(title, state):
 
 def format_asset(a):
     names = {
-        "USOIL": "US OIL",
-        "UKOIL": "UK OIL",
-        "SPX500": "SPX500",
-        "NAS100": "NAS100",
+        "EURUSD": "EUR/USD", "GBPUSD": "GBP/USD", "USDCHF": "USD/CHF",
+        "GER30": "GER30", "GER40": "GER30", "SPX500": "SP500",
+        "SP500": "SP500", "NAS100": "NAS100", "US30": "US30",
     }
     return names.get(a, a)
 
 
 def build_message(n, title_fr, score, impacts, assets, bias, category):
-    impact_text = "\n".join(impacts)
-    assets_text = "\n".join([f"• {format_asset(a)}" for a in assets]) if assets else "• À confirmer"
-    label = priority_label(score)
+    impact_text = "\n".join(escape(str(line)) for line in impacts)
+    categories = {
+        "MACRO": "MACRO", "FISCAL": "POLITIQUE BUDGÉTAIRE",
+        "TRADE": "COMMERCE", "EQUITIES": "ENTREPRISES",
+        "ENERGY": "ÉNERGIE", "GEO": "GÉOPOLITIQUE", "MARKET": "MARCHÉS",
+    }
     publication = parse_publication(n.get("published_at"))
     publication_line = (
         "🕒 Publication : " + publication.astimezone(ZoneInfo("Europe/Paris")).strftime("%d/%m %H:%M")
@@ -211,20 +220,19 @@ def build_message(n, title_fr, score, impacts, assets, bias, category):
     ) if publication else ""
 
     return (
-        f"🚨 {category} | {label}\n\n"
-        f"{title_fr}\n\n"
-        f"🎯 Impacts :\n{impact_text}\n\n"
-        f"📈 Actifs à surveiller :\n{assets_text}\n\n"
-        f"🧭 Bias : {bias}\n"
-        f"📊 Score : {score}\n"
+        f"📣 <b>{categories.get(category, 'ACTUALITÉ')}</b>\n\n"
+        f"<b>{escape(str(title_fr))}</b>\n\n"
+        f"🎯 <b>Lecture pour tes marchés</b>\n{impact_text}\n\n"
         f"{publication_line}"
-        f"📰 Source : {n['source']}\n"
-        f"🔗 {n['url']}"
+        f"📰 {escape(str(n['source']))}\n"
+        f'🔗 <a href="{escape(str(n["url"]), quote=True)}">Lire l’article</a>'
     )
 
 
 def should_send(title, score, description=""):
-    return score >= MIN_SCORE_SEND and assess_news(title, description).relevant
+    assessment = assess_news(title, description)
+    return (score >= MIN_SCORE_SEND and assessment.relevant
+            and assess_portfolio(title, description, category=assessment.category).relevant)
 
 
 def main(dry_run=None, replay_path=None):
@@ -287,6 +295,22 @@ def main(dry_run=None, replay_path=None):
             all_news, state, now=now, threshold=MIN_SCORE_SEND,
             max_age_hours=MAX_NEWS_AGE_HOURS, allow_undated=ALLOW_UNDATED_NEWS,
         )
+        # Préparer les lectures avant classement : une annonce sans lien
+        # argumenté ne consomme pas une place dans le lot d'envoi.
+        for row in rows:
+            if row["decision"] != "eligible":
+                continue
+            item = row["article"]
+            text = f"{item.get('title', '')} {item.get('desc', '')}"
+            impacts, assets, _, category = get_market_impact(
+                text, title=item.get("title", ""), category=row["category"]
+            )
+            allowed = set(row["portfolio_assets"]) & set(TRACKED_ASSETS)
+            if not impacts or not assets or not set(assets) <= allowed:
+                row.update(decision="no_impact_reading",
+                           reason="Lecture absente ou actifs hors du périmètre de trading")
+                continue
+            row.update(market_impacts=list(impacts), market_assets=list(assets), category=category)
         ranked = rank_eligible(rows, seen_events=state.get("seen_events", {}), now=now)
         chosen = ranked[:MAX_ARTICLES_PER_RUN]
         for row in ranked[MAX_ARTICLES_PER_RUN:]:
@@ -297,13 +321,11 @@ def main(dry_run=None, replay_path=None):
                 continue
             row["decision"] = "sending"
             item = row["article"]
-            text = f"{item.get('title', '')} {item.get('desc', '')}"
-            impacts, assets, bias, category = get_market_impact(
-                text, title=item.get("title", ""), category=row["category"]
-            )
             translated = get_cached_translation(item["title"], state)
             try:
-                send_telegram(build_message(item, translated, row["score"], impacts, assets, bias, category))
+                send_telegram(build_message(item, translated, row["score"], row["market_impacts"],
+                                            row["market_assets"], None, row["category"]),
+                              parse_mode="HTML")
             except Exception:
                 row.update(decision="send_failed", reason="Envoi non confirmé ; aucun nouvel essai dans ce lancement")
                 raise

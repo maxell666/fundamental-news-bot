@@ -1,13 +1,13 @@
 # Fundamental News Bot
 
-Actualités susceptibles d'influencer les indices, les devises, l'or et le pétrole,
-traduites en français et envoyées sur Telegram. Version de sélection :
-**pertinence-v3.1**.
+Actualités sélectionnées pour EUR/USD, GBP/USD, GER30, USD/CHF, SP500, NAS100 et
+US30, traduites en français et envoyées sur Telegram. Version de sélection :
+**pertinence-v3.2-portefeuille**.
 
-La sélection distingue les décisions annoncées des espoirs fiscaux et des bilans
-de politique commerciale, écarte l'inflation régionale allemande, regroupe les
-titres du même PIB de la zone euro et conserve les baisses effectives des grands
-groupes. Le seuil général reste inchangé.
+La sélection exige un lien économique identifié avec ce portefeuille. Le pétrole
+et les Treasuries américains sont des moteurs d'analyse, sans ajout d'actifs
+à trader. Les [règles de transmission et le format Telegram](docs/portefeuille.md)
+expliquent les exclusions, les directions conditionnelles et leurs limites.
 
 ## Sources
 
@@ -62,9 +62,13 @@ Les scores indiquent une priorité de sélection, pas une prévision de gain ni
 une probabilité de mouvement. Le seuil par défaut reste 5. Les catégories
 sont MACRO, FISCAL, TRADE, EQUITIES, ENERGY, GEO et MARKET.
 
-Les actifs sont associés au type d'événement et aux valeurs nommées. Le biais
-est « À confirmer » : le bot n'invente pas une hausse de l'or ou du pétrole
-à partir du nom d'un pays. La date de publication est affichée en heure de Paris.
+La portée est décidée dans portfolio.py et la lecture dans mapping.py.
+Une annonce sans lien argumenté ne consomme pas de place dans le lot envoyé.
+Les messages regroupent les actifs concernés autour de mécanismes concrets ;
+le biais global, le score et la liste d'actifs répétitive ont été retirés.
+Les scores restent internes au classement. La date est affichée en heure de Paris.
+Les messages d'actualités utilisent HTML avec textes et liens échappés ;
+le test macro séparé conserve son texte simple.
 
 ## Fraîcheur et doublons
 
@@ -99,7 +103,9 @@ Chaque passage produit :
 
 Les rapports sont conservés sept jours comme artefacts GitHub Actions. Les
 décisions distinguent notamment envoyé, déjà envoyé, doublon, rejet du filtre,
-publication ancienne/non datée et attente de la limite d'envoi. Le résumé
+hors portefeuille, lecture inexploitable, publication ancienne/non datée et
+attente de la limite d'envoi. Chaque ligne expose les actifs, moteurs et raisons
+de portée, ainsi que la lecture préparée avant envoi. Le résumé
 ne confond donc plus panne d'une source et absence d'article retenu.
 
 Le workflow **Audit des sources et du tri** effectue une collecte et un rejeu

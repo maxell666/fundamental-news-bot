@@ -3,12 +3,14 @@ name: Audit des sources et du tri
 on:
   workflow_dispatch:
   push:
-    branches: [codex/refonte-news-marches]
+    branches: [codex/refonte-news-marches, codex/portfolio-alerts]
     paths:
       - sources.py
       - filter.py
       - bot.py
       - news_pipeline.py
+      - portfolio.py
+      - mapping.py
       - scripts/**
       - .github/workflows/news-audit.yml
 
@@ -27,10 +29,19 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Vérifier les flux réels sans envoi Telegram
         run: python scripts/check_sources.py --probe-investinglive --max-items 50
-      - name: Classer les articles du relevé sans secrets ni envoi
+      - name: Classer le portefeuille sans historique ni envoi
         env:
           NEWS_DRY_RUN: "1"
-        run: python bot.py --dry-run --replay audit/source_check.json
+        run: |
+          python - <<'PY'
+          from unittest.mock import patch
+          import bot
+          # Un historique vide permet de mesurer la sélection des marchés,
+          # sans confondre déjà-envoyé et absence de nouvelle pertinente.
+          # Le mode dry-run interdit traduction, envoi et sauvegarde d'état.
+          with patch.object(bot, "load_state", return_value=bot.default_state()):
+              raise SystemExit(bot.main(dry_run=True, replay_path="audit/source_check.json"))
+          PY
       - name: Vérifier la fraîcheur et les annonces retrouvées
         run: python scripts/validate_audit.py --require-candidates
       - name: Conserver le relevé des sources

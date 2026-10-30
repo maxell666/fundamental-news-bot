@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 
-FILTER_VERSION = "pertinence-v3.1"
+FILTER_VERSION = "pertinence-v3.2-portefeuille"
 
 
 def normalize_text(text):
@@ -139,6 +139,19 @@ US_INDEX_COMPANIES = US_MEGACAPS + (
     "mcdonald's", "coca-cola", "pepsico", "abbvie", "merck", "applied materials",
     "lam research", "intuitive surgical",
 )
+# Valeurs allemandes suivies : les liens matériels avec GER30 et la composition
+# des indices restent du ressort du portefeuille, pas de cette reconnaissance
+# d'un événement financier publié. Conserver le nom historique US pour les
+# consommateurs qui l'utilisent déjà.
+DAX_INDEX_COMPANIES = (
+    "sap", "siemens", "siemens energy", "siemens healthineers", "allianz",
+    "deutsche bank", "airbus", "mercedes-benz", "mercedes benz", "bmw",
+    "volkswagen", "deutsche telekom", "infineon", "basf", "bayer", "adidas",
+    "munich re", "muenchener rueck", "deutsche boerse", "deutsche börse",
+    "dhl", "deutsche post", "rwe", "e.on", "henkel", "heidelberg materials",
+    "daimler truck", "vonovia", "fresenius", "beiersdorf", "commerzbank",
+)
+GLOBAL_INDEX_COMPANIES = US_INDEX_COMPANIES + DAX_INDEX_COMPANIES
 RATE_TOPICS = (
     "rate", "rates", "borrowing costs", "inflation", "monetary policy",
     "easing", "tightening", "recession", "employment", "unemployment",
@@ -301,6 +314,15 @@ def _supply_effect(title):
             or _matches(title, rf"\b{target}\b{auxiliary}\s+{action}\b"))
 
 
+_TEN_YEAR_TREASURY = (
+    r"(?:(?:(?:us|u\.s\.|united states)\s+)?(?:10|ten)[ -]?(?:year|yr)\s+"
+    r"(?:(?:us|u\.s\.|united states)\s+)?treasur(?:y|ies)"
+    r"|(?:(?:us|u\.s\.|united states)\s+)?treasur(?:y|ies)\s+(?:10|ten)[ -]?(?:year|yr)"
+    r"|(?:us|u\.s\.|united states)\s+(?:10|ten)[ -]?(?:year|yr)\s+bonds?"
+    r"|us10y)"
+)
+
+
 def _market_move(title):
     benchmarks = (
         "oil prices", "crude prices", "brent", "wti", "oil", "gold", "dollar",
@@ -310,21 +332,66 @@ def _market_move(title):
         "european stocks", "asian stocks", "software stocks", "tech stocks", "bank stocks",
         "semiconductor stocks", "chip stocks", "stocks", "equities", "stock futures",
         "us stock futures", "sterling", "pound", "euro", "yen",
+        "eur/usd", "eurusd", "gbp/usd", "gbpusd", "usd/chf", "usdchf",
+        "dax", "dax 40", "dax40", "ger30", "ger40", "germany 30", "germany 40",
     )
     subject = "|".join(re.escape(term) for term in sorted(benchmarks, key=len, reverse=True))
+    # Un rendement et le prix d'une obligation peuvent évoluer en sens opposé.
+    # Les deux sont des événements observés, sans inférer ici leur direction.
+    treasury_subject = (
+        rf"(?:benchmark\s+)?{_TEN_YEAR_TREASURY}\s+(?:bonds?\s+)?(?:yields?|prices?)"
+        rf"|{_TEN_YEAR_TREASURY}\s+bonds?"
+        rf"|(?:us\s+)?(?:10|ten)[ -]?(?:year|yr)\s+(?:us\s+)?treasuries"
+        rf"|yields?\s+on\s+{_TEN_YEAR_TREASURY}(?:\s+bonds?)?"
+    )
+    subject += "|" + treasury_subject
     # Lier le mouvement à l'actif: 'oil spill hits beaches' et 'gold mining
     # company shares jump' ne décrivent pas le cours du pétrole ou de l'or.
-    bridge = (r"(?:(?:prices?|crude|oil|futures?|index|indices|yields?|are|is|has|have|"
+    bridge = (r"(?:(?:prices?|crude|oil|futures?|index|indices|yields?|exchange|rate|are|is|has|have|"
               r"now|sharply|slightly|strongly|again|further)\s+){0,5}")
     movement = (r"(?:surges?|surged|plunges?|plunged|soars?|soared|tumbles?|tumbled|"
-                r"jumps?|jumped|slumps?|slumped|rallies|rallied|slides?|slid|rises?|rose|"
+                r"jumps?|jumped|slumps?|slumped|rall(?:y|ies|ied)|slides?|slid|rises?|rose|"
                 r"falls?|fell|hits?|hit|drops?|dropped|sinks?|sank|rebounds?|rebounded|"
                 r"gains?|gained|weakens?|weakened|strengthens?|strengthened|"
-                r"(?:edges?|ticks?|opens?|closes?|ends?|turns?)\s+(?:up|down|higher|lower))")
+                r"climbs?|climbed|advances?|advanced|retreats?|retreated|slips?|slipped|"
+                r"(?:edges?|ticks?|opens?|closes?|ends?|turns?|trades?|trading)\s+(?:up|down|higher|lower))")
     return _matches(
         title, rf"^(?:(?:global markets|markets|market update|live updates):\s*)?"
-               rf"(?:{subject})\b\s+{bridge}{movement}\b"
+               rf"(?:the\s+)?(?:{subject})\b\s+{bridge}{movement}\b"
     )
+
+
+def _treasury_auction_move(title):
+    """Demande faible constatée et rendement explicite d'une enchère US 10 ans.
+
+    Le rendement peut suivre 'as' : ne consulter ce contexte qu'après avoir
+    identifié l'enchère et sa demande effective dans la proposition principale.
+    """
+    event = _event_clause(title)
+    auction = _matches(event, rf"^(?:the\s+)?{_TEN_YEAR_TREASURY}\s+(?:bond\s+)?auction\b")
+    weak_demand = _matches(
+        event, r"\bauction\b.{0,35}\b(?:draws?|drew|sees?|saw|shows?|showed|meets?|met|records?|recorded)"
+               r"\s+(?:weak|soft|poor|sluggish)\s+demand\b"
+    )
+    if not (auction and weak_demand) or SPECULATION.search(event):
+        return False
+    for clause in re.split(
+        r"\b(?:as|after|amid|while|despite|but|although|following|because|since|during)\b|[;,]", title
+    ):
+        if SPECULATION.search(clause) or _matches(
+            clause, r"\b(?:forecasts?|expected|predicts?|prediction|projection|projected|"
+                    r"next\s+(?:month|week|time|year))\b"
+        ):
+            continue
+        if _matches(
+            clause, r"\byields?\s+(?:(?:is|are|was|were|now)\s+)?"
+                    r"(?:rises?|rose|climbs?|climbed|jumps?|jumped|surges?|surged|falls?|fell|drops?|dropped)\b"
+                    r"|\bsending\s+(?:treasury\s+)?yields?\s+(?:higher|lower)\b"
+                    r"|\b(?:high\s+|stop-out\s+)?yield\s+(?:(?:of|at|to|is|was)\s+)?\d+(?:\.\d+)?\s*%"
+                    r"|\b\d+(?:\.\d+)?\s*%\s+(?:high\s+|stop-out\s+)?yield\b"
+        ):
+            return True
+    return False
 
 
 def _direct_statement(title, actors, verbs):
@@ -403,13 +470,18 @@ def _billion_amounts(text):
 
 
 def _corporate_event(title, context):
-    known_company = contains_any(title, US_INDEX_COMPANIES)
+    known_company = contains_any(title, GLOBAL_INDEX_COMPANIES)
+    dax_names = "|".join(re.escape(company) for company in sorted(DAX_INDEX_COMPANIES, key=len, reverse=True))
+    if (not contains_any(title, US_INDEX_COMPANIES)
+            and _matches(title, rf"\b(?:{dax_names})(?:'s)?\s+"
+                                r"(?:customers?|suppliers?|consultants?|analysts?|competitors?|rivals?)\b")):
+        return None
     financial_topic = contains_any(title, (
         "earnings", "profit", "profits", "revenue", "revenues", "sales", "eps",
         "guidance", "outlook", "forecast", "forecasts", "margin", "margins", "results",
     ))
     direct_guidance = known_company and financial_topic and _direct_statement(
-        title, US_INDEX_COMPANIES,
+        title, GLOBAL_INDEX_COMPANIES,
         r"warns?|says?|said|sees?|expects?|forecasts?|raises?|cuts?|lowers?|"
         r"reduces?|boosts?|withdraws?|reaffirms?|maintains?",
     )
@@ -426,24 +498,28 @@ def _corporate_event(title, context):
             already_published or (direct_guidance and guidance_detail)):
         return Assessment(0, "Calendrier de résultats sans nouveau chiffre ni guidance annoncée")
     if direct_guidance:
-        return Assessment(7, "Résultats attendus ou guidance annoncés par une grande valeur US", "EQUITIES")
+        return Assessment(7, "Résultats attendus ou guidance annoncés par une grande valeur suivie", "EQUITIES")
 
     if SPECULATION.search(title):
         return None
     price_action = r"(?:surges?|plunges?|plummets?|soars?|tumbles?|jumps?|slumps?|rallies|slides?|drops?|sinks?|rebounds?|falls?|rises?)"
-    company_names = "|".join(re.escape(company) for company in sorted(US_INDEX_COMPANIES, key=len, reverse=True))
+    company_names = "|".join(re.escape(company) for company in sorted(GLOBAL_INDEX_COMPANIES, key=len, reverse=True))
     direct_price = (_matches(title, rf"^(?:{company_names})\b\s+{price_action}\b")
                     and _matches(title, r"\d[\d.,]*\s*%"))
-    if (known_company and (contains_any(title, ("shares", "stock")) or direct_price)
+    negated_price = _matches(
+        title, rf"\b(?:fails?|failed|unable|struggles?|struggled)\s+to\s+{price_action}\b"
+               rf"|\b(?:do|does|did|has|have|had)\s+not\s+{price_action}\b"
+    )
+    if (known_company and not negated_price and (contains_any(title, ("shares", "stock")) or direct_price)
             and _matches(title, rf"\b{price_action}\b")):
-        return Assessment(7, "Mouvement explicite du cours d'une grande valeur US", "EQUITIES")
+        return Assessment(7, "Mouvement explicite du cours d'une grande valeur suivie", "EQUITIES")
     earnings_preview = _matches(title, r"\b(?:earnings preview|ahead of (?:its )?(?:q[1-4] )?earnings)\b")
     if (known_company and financial_topic and (not earnings_preview or already_published) and _matches(
             title, r"\b(?:reports|reported|posts|posted|beats?|beat|misses?|missed|tops?|topped|"
                    r"surges?|surged|soars?|soared|rises?|rose|falls?|fell|doubles?|doubled|"
                    r"triples?|tripled|jumps?|jumped|drops?|dropped|declines?|declined|"
                    r"climbs?|climbed|above|below|record|higher|lower)\b")):
-        return Assessment(8, "Publication de résultats d'une grande valeur US", "EQUITIES")
+        return Assessment(8, "Publication de résultats d'une grande valeur suivie", "EQUITIES")
 
     corporate_context = known_company or contains_any(context, (
         "company", "companies", "firm", "merger", "takeover", "acquisition", "shareholders",
@@ -457,7 +533,7 @@ def _corporate_event(title, context):
                r"announces?|announced|signs?|signed|deal|merges?|approved)\b"
     )
     major_amount = any(amount >= 5 for amount in _billion_amounts(context))
-    large_parties = sum(contains_any(title, (company,)) for company in US_INDEX_COMPANIES) >= 2
+    large_parties = sum(contains_any(title, (company,)) for company in GLOBAL_INDEX_COMPANIES) >= 2
     if corporate_context and acquisition and confirmed_deal and (major_amount or large_parties):
         return Assessment(7, "Acquisition ou fusion majeure annoncée", "EQUITIES")
     return None
@@ -539,7 +615,7 @@ def assess_news(title, description=""):
         return Assessment(0, "Projection ou discussion sans annonce de marché confirmée")
 
     supply_effect = _supply_effect(title)
-    market_move = _market_move(title)
+    market_move = _market_move(title) or _treasury_auction_move(original_title)
     local_incident = contains_any(title, (
         "oil spill", "oil spills", "oil slick", "oil slicks", "collision",
         "tanker accident", "pollution",

@@ -86,6 +86,31 @@ class TelegramTokenTests(unittest.TestCase):
 
 
 class TelegramSendTests(unittest.TestCase):
+    def test_html_is_explicit_and_plain_messages_keep_their_existing_contract(self):
+        response = Mock(status_code=200)
+        response.json.return_value = {"ok": True, "result": {"message_id": 42}}
+        with patch.object(bot.requests, "post", return_value=response) as post, \
+                contextlib.redirect_stdout(io.StringIO()):
+            bot.send_telegram("<b>Lecture</b>", parse_mode="HTML")
+            self.assertEqual(post.call_args.kwargs["data"]["parse_mode"], "HTML")
+            bot.send_telegram("Message macro en texte simple")
+            self.assertNotIn("parse_mode", post.call_args.kwargs["data"])
+
+    def test_message_escapes_untrusted_news_and_contains_only_the_useful_reading(self):
+        item = article("Source title", 'https://example.com/news?x=1&y="quoted"')
+        item["source"] = "Reuters & <source>"
+        message = bot.build_message(item, "Taux < 4% & dollar", 9,
+                                    ["• EUR/USD : coût < 4% & scénario conditionnel"],
+                                    ["EURUSD"], "À confirmer", "MACRO")
+        self.assertIn("Taux &lt; 4% &amp; dollar", message)
+        self.assertIn("Reuters &amp; &lt;source&gt;", message)
+        self.assertIn('&amp;y=&quot;quoted&quot;', message)
+        self.assertIn("Lecture pour tes marchés", message)
+        self.assertNotIn("Bias", message)
+        self.assertNotIn("Score", message)
+        self.assertNotIn("Actifs à surveiller", message)
+        self.assertNotIn("À confirmer", message)
+        self.assertNotIn("<source>", message)
     def test_confirmed_send_does_not_log_private_response(self):
         response = Mock(status_code=200)
         response.text = "PRIVATE RESPONSE " + bot.BOT_TOKEN + " " + bot.CHAT_ID
@@ -290,6 +315,29 @@ class SelectionPipelineTests(unittest.TestCase):
         _, _, _, output = self.run_bot([])
         self.assertIn(bot.FILTER_VERSION, output)
 
+    def test_foreign_currency_and_gold_news_do_not_consume_the_send_limit(self):
+        state, translated, sent, _ = self.run_bot([
+            article("Canada GDP for August 0.0% vs 0.2% estimate", "https://test/cad"),
+            article("Gold jumps 2%", "https://test/gold"),
+            article("ECB cuts interest rates by 25 basis points", "https://test/ecb"),
+        ], limit=1)
+        sent.assert_called_once()
+        self.assertEqual(state["seen"], ["https://test/ecb"])
+        translated.assert_called_once_with("ECB cuts interest rates by 25 basis points")
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"out_of_scope": 2, "sent": 1})
+        self.assertEqual(sent.call_args.kwargs["parse_mode"], "HTML")
+
+    def test_an_unsupported_mapping_cannot_translate_or_send_an_alert(self):
+        with patch.object(bot, "get_market_impact",
+                          return_value=(["• Or : hausse"], ["XAUUSD"], None, "MACRO")):
+            state, translated, sent, _ = self.run_bot([
+                article("Fed cuts interest rates", "https://test/fed"),
+            ])
+        translated.assert_not_called()
+        sent.assert_not_called()
+        self.assertEqual(state["seen"], [])
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"no_impact_reading": 1})
+
     def test_olympic_event_with_historical_war_context_is_not_sent(self):
         state, translated, sent, _ = self.run_bot([
             article(
@@ -316,8 +364,8 @@ class SelectionPipelineTests(unittest.TestCase):
         self.assertEqual(sent.call_count, 2)
         self.assertEqual(translated.call_count, 2)
         self.assertEqual(state["seen"], [tariff["url"], penalty["url"]])
-        self.assertIn("TRADE", sent.call_args_list[0].args[0])
-        self.assertIn("EQUITIES", sent.call_args_list[1].args[0])
+        self.assertIn("COMMERCE", sent.call_args_list[0].args[0])
+        self.assertIn("ENTREPRISES", sent.call_args_list[1].args[0])
         _, translated, sent, _ = self.run_bot(news, seen=state["seen"])
         translated.assert_not_called()
         sent.assert_not_called()
