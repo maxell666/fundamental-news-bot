@@ -521,7 +521,8 @@
     "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYmVmOE5mU3JyckhjNGlWelQ5QVdhNzkwU0h1Zkd4bjJ6UGszY2lYem1BRmxjWW95VDBrYzg5NXNIWFhFWmNjNmFlUHZleE01YnNOWjRWVV9LWU1SYS1lRlVoRm15U1FrNjdvbkhtVzA4UWNzREJFWjBmUS1vU1FmcEN5a2loa1VsaHRRN190UHZNRmtvTVR1a0RmUlZwTlBPTmtoVFpURGpudw",
     "https://www.cnbc.com/2026/10/29/aws-q3-earnings-report-2026.html",
     "https://www.investing.com/news/commodities-news/oil-rises-on-prospects-of-fresh-us-military-action-against-iran-4985693",
-    "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZFFGQ3JLNVhhZkJORVpfQWI2Sm4zMUR5OERBSTc4OUtlSkVrak5YWUVpSnhBZVhBZWVWdkpOZHRlZVVCczR5V1RnOEFVU0ZQY2JBNF9GN3pqSG9GenpNYTE5NlVSZGhXbm4ySEl6aTBvQjdlb095Wm82RzNFcEhrcVNYeExMR3dyeGJmWDhheE90dS1XWFF2QzVDRjd6aVphVkgwbkJvT0N3OWNOUmFz"
+    "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZFFGQ3JLNVhhZkJORVpfQWI2Sm4zMUR5OERBSTc4OUtlSkVrak5YWUVpSnhBZVhBZWVWdkpOZHRlZVVCczR5V1RnOEFVU0ZQY2JBNF9GN3pqSG9GenpNYTE5NlVSZGhXbm4ySEl6aTBvQjdlb095Wm82RzNFcEhrcVNYeExMR3dyeGJmWDhheE90dS1XWFF2QzVDRjd6aVphVkgwbkJvT0N3OWNOUmFz",
+    "https://www.investing.com/news/commodities-news/oil-rises-on-supply-concerns-as-houthis-attack-saudi-arabia-4985735"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -971,7 +972,8 @@
     "euro edges up versus dollar after ecb holds rates - reuters": "L'euro progresse légèrement face au dollar après le maintien des taux par la BCE - Reuters",
     "amazon aws posts 39% revenue growth as cloud rivals also accelerate": "Amazon AWS affiche une croissance de 39 % de son chiffre d'affaires alors que ses concurrents dans le cloud accélèrent également leur croissance",
     "oil rises on prospects of fresh u.s. military action against iran": "Le prix du pétrole augmente face à la perspective d'une nouvelle intervention militaire américaine contre l'Iran",
-    "google's nvidia chip challenge boosts cloud sales, crimps cash flow - reuters": "Le défi lancé par Google à Nvidia en matière de puces stimule les ventes dans le cloud, mais pèse sur la trésorerie - Reuters"
+    "google's nvidia chip challenge boosts cloud sales, crimps cash flow - reuters": "Le défi lancé par Google à Nvidia en matière de puces stimule les ventes dans le cloud, mais pèse sur la trésorerie - Reuters",
+    "oil rises on supply concerns as houthis attack saudi arabia": "Le prix du pétrole augmente en raison des craintes liées à l'approvisionnement, alors que les Houthis attaquent l'Arabie saoudite"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1013,7 +1015,8 @@
     "23e7051ee50f45108f447a1300959113afc3d975a689ec88bb7421221b1fc456": "2026-10-29T21:40:48.408853Z",
     "d54c554ce9d5de3299bf765512cd9f72795b7033b859c8788a87dddef938b64a": "2026-10-30T00:50:47.436671Z",
     "c6443e6fbb8cafcc9fb125ee95e22f7838902aae4605c43bb1a0a16dc8801055": "2026-10-30T01:50:45.418751Z",
-    "d5ea20fe69c8dead14f82984169359ec76c64764d1346764a32c71db7e54d53e": "2026-10-30T01:55:35.615055Z"
+    "d5ea20fe69c8dead14f82984169359ec76c64764d1346764a32c71db7e54d53e": "2026-10-30T01:55:35.615055Z",
+    "c2818d9a0eed956524ed288a297894da777b354f2afaff560d38a7aecfae43ee": "2026-10-30T02:45:45.878222Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
