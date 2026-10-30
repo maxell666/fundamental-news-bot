@@ -6,6 +6,7 @@ from pmi_release import (
     ReleaseNotReady, ReleaseParseError, analyze_chicago,
     format_chicago_test_message, inspect_chicago_release, parse_chicago_release,
 )
+from portfolio import TRACKED_ASSETS
 
 
 SCHEDULED = datetime(2026, 10, 30, 13, 45, tzinfo=timezone.utc)
@@ -163,25 +164,45 @@ class ChicagoAnalysisTests(unittest.TestCase):
         self.assertEqual(analysis.surprise_points, Decimal("0.1"))
         self.assertEqual(analysis.previous_delta_points, Decimal("2.3"))
         self.assertEqual(analysis.classification, "activite_plus_forte")
-        self.assertIn("soutien possible", analysis.directions["USD"])
-        self.assertIn("pression possible", analysis.directions["XAUUSD"])
-        for asset in ("NAS100", "SPX500", "US30"):
+        self.assertEqual(tuple(analysis.directions), TRACKED_ASSETS)
+        for asset in ("EURUSD", "GBPUSD"):
+            self.assertIn("baisse possible", analysis.directions[asset])
+            self.assertIn("taux américains attendus", analysis.directions[asset])
+        self.assertIn("hausse possible", analysis.directions["USDCHF"])
+        self.assertIn("flux refuges", analysis.directions["USDCHF"])
+        for asset in ("GER30", "NAS100", "SP500", "US30"):
             self.assertIn("mixte", analysis.directions[asset])
+            self.assertIn("bénéfices", analysis.directions[asset])
+            self.assertIn("taux", analysis.directions[asset])
+        self.assertIn("transmission est plus indirecte", analysis.directions["GER30"])
 
     def test_weaker_activity_keeps_equity_interpretation_mixed(self):
         analysis = analyze_chicago(Decimal("48.4"), Decimal("50.0"), Decimal("47.0"))
         self.assertEqual(analysis.classification, "activite_plus_faible")
         self.assertEqual(analysis.surprise_points, Decimal("-1.6"))
         self.assertEqual(analysis.previous_delta_points, Decimal("1.4"))
-        self.assertIn("pression possible", analysis.directions["USD"])
+        for asset in ("EURUSD", "GBPUSD"):
+            self.assertIn("hausse possible", analysis.directions[asset])
+        self.assertIn("baisse possible", analysis.directions["USDCHF"])
         self.assertIn("mixte", analysis.directions["NAS100"])
+        self.assertEqual(set(analysis.directions), set(TRACKED_ASSETS))
+
+    def test_same_previous_does_not_hide_a_positive_surprise(self):
+        analysis = analyze_chicago(Decimal("54.6"), Decimal("54.5"), Decimal("54.6"))
+        self.assertEqual(analysis.surprise_points, Decimal("0.1"))
+        self.assertEqual(analysis.previous_delta_points, Decimal("0.0"))
+        self.assertEqual(analysis.classification, "activite_plus_forte")
+        self.assertIn("baisse possible", analysis.directions["EURUSD"])
 
     def test_on_consensus_and_missing_forecast_do_not_invent_direction(self):
         for forecast, classification in ((Decimal("54.6"), "conforme"), (None, "consensus_absent")):
             with self.subTest(forecast=forecast):
                 analysis = analyze_chicago(Decimal("54.6"), forecast, Decimal("50.0"))
                 self.assertEqual(analysis.classification, classification)
-                self.assertNotIn("soutien possible", analysis.directions["USD"])
+                self.assertEqual(set(analysis.directions), set(TRACKED_ASSETS))
+                for direction in analysis.directions.values():
+                    self.assertNotIn("hausse possible", direction)
+                    self.assertNotIn("baisse possible", direction)
 
     def test_float_and_nonfinite_consensus_are_rejected(self):
         with self.assertRaises(TypeError):
@@ -199,12 +220,50 @@ class ChicagoAnalysisTests(unittest.TestCase):
         self.assertIn("TEST MACRO", text)
         self.assertIn("+0,1 point(s)", text)
         self.assertIn("14:45:00 (Paris)", text)
+        self.assertIn("Heure prévue au calendrier", text)
+        self.assertIn("Détecté : 14:45:05", text)
         self.assertIn("+5.0 s après l’heure prévue", text)
-        self.assertIn("délai inconnu", text.lower().replace(" : ", " "))
-        self.assertIn("ne fournit pas l’heure effective", text)
         self.assertIn("Lecture conditionnelle", text)
-        self.assertIn("NAS100 : mixte", text)
+        self.assertIn("EUR/USD ; GBP/USD : baisse possible", text)
+        self.assertIn("USD/CHF : hausse possible", text)
+        self.assertIn("GER30 ; SP500 ; NAS100 ; US30 : lecture mixte", text)
+        self.assertNotIn("hausse observée", text)
+        self.assertNotIn("baisse observée", text)
+        self.assertIn("Pour GER30, la transmission est plus indirecte", text)
+        self.assertNotIn("confiance", text)
+        for untracked in ("XAUUSD", "SPX500", "l’or", "• USD :"):
+            self.assertNotIn(untracked, text)
         self.assertNotIn("Heure effective :", text)
+
+    def test_negative_surprise_message_has_correct_quote_orientation(self):
+        release = parse(summary(value="55.3", change="3.5"))
+        text = format_chicago_test_message(
+            release, Decimal("55.8"), Decimal("58.8"),
+            observed_at=SCHEDULED + timedelta(seconds=20),
+            forecast_at=SCHEDULED - timedelta(hours=1),
+        )
+        self.assertIn("Publié : 55,3", text)
+        self.assertIn("Surprise : -0,5", text)
+        self.assertIn("Écart au précédent : -3,5", text)
+        self.assertIn("EUR/USD ; GBP/USD : hausse possible", text)
+        self.assertIn("USD/CHF : baisse possible", text)
+        self.assertIn("GER30 ; SP500 ; NAS100 ; US30 : lecture mixte", text)
+        self.assertNotIn("hausse observée", text)
+        self.assertNotIn("baisse observée", text)
+
+    def test_conform_and_missing_consensus_messages_do_not_repeat_asset_placeholders(self):
+        release = parse(summary())
+        for forecast in (Decimal("54.6"), None):
+            with self.subTest(forecast=forecast):
+                text = format_chicago_test_message(
+                    release, forecast, Decimal("50.0"),
+                    observed_at=SCHEDULED + timedelta(seconds=3),
+                    forecast_at=SCHEDULED - timedelta(hours=1),
+                )
+                self.assertNotIn("• ", text)
+                self.assertNotIn("hausse possible", text)
+                self.assertNotIn("baisse possible", text)
+                self.assertNotIn("À confirmer", text)
 
     def test_message_rejects_late_consensus_or_premature_observation(self):
         release = parse(summary())
