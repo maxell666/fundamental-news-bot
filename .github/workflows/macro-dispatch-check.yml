@@ -40,7 +40,7 @@ jobs:
           plain = body.text()
           for match in re.finditer(r"Chicago Business Barometer", plain, re.I):
               fragment = plain[match.start():match.start()+220]
-              if re.search(r"\d", fragment):
+              if re.search(r"\d+\.\d+", fragment):
                   report["headline_sample"] = " ".join(fragment.split()[:20])
                   break
           report["release_markers"] = re.findall(r"\bReleased.{0,45}", plain, re.I)[:2]

@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 
-FILTER_VERSION = "pertinence-v3.0"
+FILTER_VERSION = "pertinence-v3.1"
 
 
 def normalize_text(text):
@@ -88,7 +88,7 @@ INDICATORS = (
 )
 MACRO_ECONOMIES = (
     "us", "u.s.", "united states", "american", "uk", "united kingdom",
-    "britain", "british", "england", "eurozone", "euro area", "european union",
+    "britain", "british", "england", "eurozone", "euro zone", "euro area", "european union",
     "germany", "german", "france", "french", "italy", "spain", "china",
     "chinese", "japan", "japanese", "canada", "canadian", "australia",
     "australian", "new zealand", "switzerland", "swiss", "india", "indian",
@@ -96,6 +96,8 @@ MACRO_ECONOMIES = (
 LOCAL_MACRO = (
     "island", "isle of man", "jersey", "guernsey", "channel islands",
     "local inflation", "regional inflation", "county", "counties", "council",
+    "german state", "german states", "länder", "laender", "bavaria", "saxony",
+    "north rhine westphalia", "baden wuerttemberg",
 )
 US_INDICATORS = ("pce", "nonfarm payrolls", "non-farm payrolls", "nfp", "jobless claims")
 STRATEGIC = (
@@ -171,6 +173,18 @@ def _event_clause(title):
     )[0].strip(" ,;:-")
 
 
+def _policy_action_text(title):
+    """Ne pas prendre l'échec d'une politique ou un espoir pour son adoption."""
+    title = re.sub(
+        r"\b(?:fails?|failed|unable)\s+to\s+(?:cut|reduce|lower|increase|raise)\b",
+        "", title,
+    )
+    return re.sub(
+        r"\b(?:tax|taxes|fiscal|spending)[ -](?:cuts?|hikes?|rises?|increases?|reductions?)\s+"
+        r"(?:hopes?|bets?|expectations?)\b", "", title,
+    )
+
+
 def is_trade_decision(title, description=""):
     context = normalize_text(f"{title} {description}")
     title = _event_clause(normalize_text(title))
@@ -194,7 +208,7 @@ def is_trade_decision(title, description=""):
     # 'Raises concerns over tariffs' ne signifie pas 'raises tariffs'.
     action_text = re.sub(
         r"\b(?:raises?|raised|increases?|increased)\s+(?:concerns?|fears?|questions?|doubts?)\b",
-        "", title,
+        "", _policy_action_text(title),
     )
     return (
         contains_any(title, ("tariff", "tariffs", "sanction", "sanctions", "embargo",
@@ -416,7 +430,7 @@ def _corporate_event(title, context):
 
     if SPECULATION.search(title):
         return None
-    price_action = r"(?:surges?|plunges?|soars?|tumbles?|jumps?|slumps?|rallies|slides?|drops?|sinks?|rebounds?|falls?|rises?)"
+    price_action = r"(?:surges?|plunges?|plummets?|soars?|tumbles?|jumps?|slumps?|rallies|slides?|drops?|sinks?|rebounds?|falls?|rises?)"
     company_names = "|".join(re.escape(company) for company in sorted(US_INDEX_COMPANIES, key=len, reverse=True))
     direct_price = (_matches(title, rf"^(?:{company_names})\b\s+{price_action}\b")
                     and _matches(title, r"\d[\d.,]*\s*%"))
@@ -458,8 +472,11 @@ def _fiscal_decision(title, context):
     if not national_scope or SPECULATION.search(title):
         return None
     substantive = contains_any(title, FISCAL_MEASURES)
+    # Dans 'tax-cut hopes', 'cut' qualifie un espoir, pas une mesure adoptée.
+    # Retirer ce syntagme sans masquer une autre décision explicite du titre.
+    action_text = _policy_action_text(title)
     action = _matches(
-        title, r"\b(?:unveils?|unveiled|announces?|announced|presents?|presented|"
+        action_text, r"\b(?:unveils?|unveiled|announces?|announced|presents?|presented|"
                r"introduces?|introduced|raises?|raised|hikes?|hiked|cuts?|cut|"
                r"reduces?|reduced|increases?|increased|freezes?|frozen|scraps?|scrapped|"
                r"extends?|extended|approves?|approved|passes?|passed|signs?|signed|"
