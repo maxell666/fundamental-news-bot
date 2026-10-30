@@ -551,7 +551,8 @@
     "https://www.investing.com/news/earnings/chevron-earnings-beat-by-040-revenue-topped-estimates-4986561",
     "https://www.investing.com/news/earnings/exxonmobil-earnings-top-estimates-as-diesel-gasoline-spike-fuels-refining-profit-4986774",
     "https://www.investing.com/news/stock-market-news/exxon-chevron-earnings-propelled-by-wardriven-refining-surge-4986750",
-    "https://www.investing.com/news/stock-market-news/exxonmobil-beats-thirdquarter-profit-estimates-on-refining-boom-4986749"
+    "https://www.investing.com/news/stock-market-news/exxonmobil-beats-thirdquarter-profit-estimates-on-refining-boom-4986749",
+    "https://investinglive.com/news/eurozone-q3-gdp-beats-expectations-but-the-growth-surprise-comes-with-a-catch/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1031,7 +1032,8 @@
     "chevron earnings beat by $0.40, revenue topped estimates": "Les bénéfices de Chevron ont dépassé les prévisions de 0,40 dollar, tandis que le chiffre d'affaires a dépassé les estimations",
     "exxonmobil earnings top estimates as diesel, gasoline spike fuels refining profit": "Les résultats d'ExxonMobil dépassent les prévisions, la flambée des prix du diesel et de l'essence stimulant les bénéfices du secteur du raffinage",
     "exxon, chevron earnings propelled by war-driven refining surge": "Les résultats d'Exxon et de Chevron portés par la forte hausse de l'activité de raffinage liée à la guerre",
-    "exxonmobil beats third-quarter profit estimates on refining boom": "ExxonMobil dépasse les prévisions de bénéfices pour le troisième trimestre grâce à l'essor du raffinage"
+    "exxonmobil beats third-quarter profit estimates on refining boom": "ExxonMobil dépasse les prévisions de bénéfices pour le troisième trimestre grâce à l'essor du raffinage",
+    "eurozone q3 gdp beats expectations but the growth surprise comes with a catch": "Le PIB de la zone euro au troisième trimestre dépasse les prévisions, mais cette surprise en matière de croissance cache un bémol"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1103,7 +1105,8 @@
     "30b02e0d584fa702475873be5bf5e41b195ac1ec4dbae3df5eeef3f7e4ee73d7": "2026-10-30T10:40:43.770697Z",
     "1ac81bd5f0be827519e7f639fe6de90eba4197b75cb4cfac944208eb06b38f48": "2026-10-30T10:55:38.338261Z",
     "aa4adae4171a8bade005bd1cd88739ab555ad601b2330249b3e85282a3814606": "2026-10-30T10:55:39.630080Z",
-    "92dafa6a4dfd07b7489f6c7d8a213276804e892e1c4130279cc72566ccbe26ca": "2026-10-30T10:55:40.928423Z"
+    "92dafa6a4dfd07b7489f6c7d8a213276804e892e1c4130279cc72566ccbe26ca": "2026-10-30T10:55:40.928423Z",
+    "3ceb09fe4701f685e4da2d63d73f0e45699ad6287f8ae4f64286d64a8ad784d7": "2026-10-30T11:10:48.555684Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
@@ -1154,6 +1157,11 @@
         "rate": "1.25"
       },
       "base": "rates:boj:hold:2026-10-30"
+    },
+    "gdp:eurozone:2026:q3|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-10-30T11:10:48.555701Z",
+      "value": {},
+      "base": "gdp:eurozone:2026:q3"
     }
   }
 }
