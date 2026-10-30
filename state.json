@@ -561,7 +561,8 @@
     "https://www.investing.com/news/stock-market-news/symbotic-stock-jumps-on-6b-walmart-automation-deal-4987516",
     "https://investinglive.com/news/canada-gdp-for-august-0-0-vs-0-2-estimate/",
     "https://www.investing.com/news/economy-news/german-inflation-slows-in-october-4987819",
-    "https://www.investing.com/news/stock-market-news/intel-warning-sparks-chip-rout-as-pc-weakness-clouds-turnaround-4987123"
+    "https://www.investing.com/news/stock-market-news/intel-warning-sparks-chip-rout-as-pc-weakness-clouds-turnaround-4987123",
+    "https://www.investing.com/news/stock-market-news/nasdaq-tumbles-at-open-as-amazon-intel-add-to-ai-spending-woes-4988016"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1051,7 +1052,8 @@
     "symbotic stock jumps on $6b walmart automation deal": "Le cours de l'action Symbotic s'envole grâce à un contrat d'automatisation de 6 milliards de dollars conclu avec Walmart",
     "canada gdp for august 0.0% vs 0.2% estimate": "PIB du Canada en août : 0,0 % contre une estimation de 0,2 %",
     "german inflation slows in october": "L'inflation allemande ralentit en octobre",
-    "intel plunges 25%, triggers global chip rout on bleak outlook": "Intel s'effondre de 25 %, provoquant une chute générale du marché mondial des puces électroniques en raison de perspectives moroses"
+    "intel plunges 25%, triggers global chip rout on bleak outlook": "Intel s'effondre de 25 %, provoquant une chute générale du marché mondial des puces électroniques en raison de perspectives moroses",
+    "nasdaq tumbles at open as amazon, intel add to ai spending woes": "Le Nasdaq s'effondre à l'ouverture, Amazon et Intel venant aggraver les difficultés liées aux dépenses en IA"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1133,7 +1135,8 @@
     "815c9eaeaa8ff7291a0077c7efa54ec7379727a998d9adb03eba9ce65956c296": "2026-10-30T12:40:45.603370Z",
     "8c301213933be68071c650aa5d978d2225c0ac04a62224ddb37e6551932273d1": "2026-10-30T13:10:45.145916Z",
     "0c8e6e7a2e17ecebd37490746d4d460aafdd1cfd307664ff2a2de6e6978de57d": "2026-10-30T13:40:44.118707Z",
-    "485bb81620a1f01098dd0743f6b87cd448c51801583d51c9d8967869e771f565": "2026-10-30T13:40:45.365584Z"
+    "485bb81620a1f01098dd0743f6b87cd448c51801583d51c9d8967869e771f565": "2026-10-30T13:40:45.365584Z",
+    "d7ecb1601b25c2c3574163c73f9eae2772ddf69608bfdfa7ff4997c9e0cfe15a": "2026-10-30T14:01:10.963261Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
