@@ -554,7 +554,8 @@
     "https://www.investing.com/news/stock-market-news/exxonmobil-beats-thirdquarter-profit-estimates-on-refining-boom-4986749",
     "https://investinglive.com/news/eurozone-q3-gdp-beats-expectations-but-the-growth-surprise-comes-with-a-catch/",
     "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2JIcGhXLURlX1ZHUDVac0IwV1BuN1puU1ljMVFoMUJPNWtZQ2FFdEVMY1ZoZ3pENFUtZEpXZ0ZRU2ZLTFVobHd2XzRiaUxuRFRESXVYNm9zNUUxLWliR1A0RHpTUlNjSUxOazBFSzFvUS1HVWVJX1VGeU41WkxDSjlLTHlQX0dEd1NqUzNna0dkMEZBYmZEd1JZaHhuVElEZFBLZFR0YVQ4V3BxVkhLbGxOMzlRWjU1RmZzRA",
-    "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMFp6N3FNV2FiY1Y2UFlWQ21yeTgyVlRKcTV6UEMzQTRiUFlTM0lJaWtYSzFpWHMydzQxSWZCeDZLV2hSUzZlNUwyRTNDY2llYnEydkp4WG95cUxzaW1Ed0ZRdUZGbUtjeW1CVWpIeERKR2xERGVWcjdVcTBHQTZiTzNyaHJsMlhpU3hSWnlESUZBc2ZIT3dUUWwwRGpVYk1fVVU2MEx2V1RfNk54NVBRVVFPWEtkcDQ2TUw4TFgwNUc"
+    "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMFp6N3FNV2FiY1Y2UFlWQ21yeTgyVlRKcTV6UEMzQTRiUFlTM0lJaWtYSzFpWHMydzQxSWZCeDZLV2hSUzZlNUwyRTNDY2llYnEydkp4WG95cUxzaW1Ed0ZRdUZGbUtjeW1CVWpIeERKR2xERGVWcjdVcTBHQTZiTzNyaHJsMlhpU3hSWnlESUZBc2ZIT3dUUWwwRGpVYk1fVVU2MEx2V1RfNk54NVBRVVFPWEtkcDQ2TUw4TFgwNUc",
+    "https://news.google.com/rss/articles/CBMisAFBVV95cUxPblVtZktXRjdPbHJBWDM4WWJsV2RyMlhnOVFYRTZPc01udjZNZTVjeHdIN1dVY0w1M1NHbHpxNjV6Vm9jQ3FOUjBIaElyZEdSWWxycmNZdnJwNnBfdTJDc1FBMWVJZ19vR0s3Y1h2Uml2LThWc2NzQ2sxN3NnVzFEeGhvNnpPSElHSFRIQnJreHpCR2c3dnRQbEVYTDlJVjhzVVk3b1gxaFczMFhkb2NDSw"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1037,7 +1038,8 @@
     "exxonmobil beats third-quarter profit estimates on refining boom": "ExxonMobil dépasse les prévisions de bénéfices pour le troisième trimestre grâce à l'essor du raffinage",
     "eurozone q3 gdp beats expectations but the growth surprise comes with a catch": "Le PIB de la zone euro au troisième trimestre dépasse les prévisions, mais cette surprise en matière de croissance cache un bémol",
     "wrapup exxon, chevron earnings propelled by war-driven refining surge - reuters": "RÉSUMÉ : Les résultats d'Exxon et de Chevron portés par une forte hausse de l'activité de raffinage liée à la guerre - Reuters",
-    "it, earnings, tax-cut hopes power indian shares to monthly gains - reuters": "Le secteur informatique, les résultats d'entreprise et les espoirs de baisse d'impôts propulsent les actions indiennes vers des gains mensuels - Reuters"
+    "it, earnings, tax-cut hopes power indian shares to monthly gains - reuters": "Le secteur informatique, les résultats d'entreprise et les espoirs de baisse d'impôts propulsent les actions indiennes vers des gains mensuels - Reuters",
+    "nasdaq futures sink as amazon, intel intensify ai spending fears - reuters": "Les contrats à terme sur le Nasdaq plongent alors qu'Amazon et Intel alimentent les craintes concernant les dépenses en IA - Reuters"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1112,7 +1114,8 @@
     "92dafa6a4dfd07b7489f6c7d8a213276804e892e1c4130279cc72566ccbe26ca": "2026-10-30T10:55:40.928423Z",
     "3ceb09fe4701f685e4da2d63d73f0e45699ad6287f8ae4f64286d64a8ad784d7": "2026-10-30T11:10:48.555684Z",
     "f0ad9e6faceac4d36a4dc9eac1eb397fbb2f91472a39d53effdd19e69be4b238": "2026-10-30T11:35:36.057067Z",
-    "e8414868df64066b15adcaaf7cfd1e71be48a34701fdabac1ebd32ace0789fc1": "2026-10-30T11:45:48.036046Z"
+    "e8414868df64066b15adcaaf7cfd1e71be48a34701fdabac1ebd32ace0789fc1": "2026-10-30T11:45:48.036046Z",
+    "5cdd363807e5f2c8328d438d65d348ac55e003611870c52e1fa368b47f7448e9": "2026-10-30T11:55:34.083110Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
