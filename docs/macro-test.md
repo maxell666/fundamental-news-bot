@@ -22,6 +22,11 @@ n'est obtenu dans la fenêtre de trois minutes, le test signale son échec.
 Le workflow séparé prévoit un démarrage à 13:35 UTC, avec un départ de secours
 à 13:40 UTC. Le 30 octobre, ces événements GitHub planifiés ne se sont pas
 déclenchés : aucun observateur n'a démarré et aucun délai n'a été mesuré.
+Le contrôle réalisé après l'annonce a aussi révélé une formulation absente
+du lecteur : le verbe anglais « dipped ». Le parseur reconnaît désormais
+le niveau d'octobre de 55,3, distinct de sa baisse de 3,5 points.
+La lecture faite après l'annonce ne permet pas de dater la mise en ligne
+initiale ni de mesurer le délai qu'aurait eu l'essai.
 
 Le workflow d'actualités appelle désormais un petit déclencheur depuis les
 exécutions initiées par cron-job.org. Pendant les dix minutes précédant

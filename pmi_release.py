@@ -23,7 +23,7 @@ _MONTHS = {name.lower(): number for number, name in enumerate(
 _MONTH_RE = "(?:" + "|".join(_MONTHS) + ")"
 _NUMBER_RE = r"[+-]?\d+(?:\.\d+)?"
 _MOVEMENT_RE = (
-    r"rebounded|rose|fell|increased|decreased|dropped|slipped|declined|climbed|"
+    r"rebounded|rose|fell|increased|decreased|dropped|dipped|dips|slipped|declined|climbed|"
     r"jumped|advanced|eased|cooled|tempered|edged(?:\s+(?:up|down|higher|lower))?|"
     r"was\s+(?:up|down)|remained(?:\s+unchanged)?|stood"
 )
