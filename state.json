@@ -563,7 +563,10 @@
     "https://www.investing.com/news/economy-news/german-inflation-slows-in-october-4987819",
     "https://www.investing.com/news/stock-market-news/intel-warning-sparks-chip-rout-as-pc-weakness-clouds-turnaround-4987123",
     "https://www.investing.com/news/stock-market-news/nasdaq-tumbles-at-open-as-amazon-intel-add-to-ai-spending-woes-4988016",
-    "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNjJPY3ZXYmJiVGxxQ3E4ZERuMXJwM2pnNEZRZmE2SVY1UVQ5bjg1Z25OTVV0VU1xc21LUkpmZWNQUmlBbU9keW9SV1M5ODRpRnVCQ25MU1ZPV1RzN2ptQW5oVHh5SldjZm1aSEtRY29MR3k1dVVBLXhFbVF0ZWNqUWlMZ1ZhdW5DM2lvTmVpdFJ0NEZncGV0Vk4wVV9IRDdrOHpOc1pCcGF0S2dkc0JFekppdzVXWjB0TUtV"
+    "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNjJPY3ZXYmJiVGxxQ3E4ZERuMXJwM2pnNEZRZmE2SVY1UVQ5bjg1Z25OTVV0VU1xc21LUkpmZWNQUmlBbU9keW9SV1M5ODRpRnVCQ25MU1ZPV1RzN2ptQW5oVHh5SldjZm1aSEtRY29MR3k1dVVBLXhFbVF0ZWNqUWlMZ1ZhdW5DM2lvTmVpdFJ0NEZncGV0Vk4wVV9IRDdrOHpOc1pCcGF0S2dkc0JFekppdzVXWjB0TUtV",
+    "https://www.investing.com/news/economy-news/feds-musalem-says-a-rate-hike-is-needed-soon-4988364",
+    "https://www.investing.com/news/economy-news/feds-barkin-signals-further-rate-hikes-ahead-with-pace-remaining-the-key-question-4988361",
+    "https://news.google.com/rss/articles/CBMikwFBVV95cUxNd0JuSzdaWWtxaGJGdW5CV0pONGc2dlpzMVJnaGl2UUIwQmtkc1FNSUVNQzhxTFRycVZ4dGpRaVlvbGdraXBWenkzY1otSno3TC1zWTlQUmFRandmM0hlSm14a1pfWTJMNjdNclo5bFlFQWt3UlpIcFlPY3RtZzBQVXhKUzVPSWMxUXZFckNVM3ZXZEU"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1055,16 +1058,12 @@
     "german inflation slows in october": "L'inflation allemande ralentit en octobre",
     "intel plunges 25%, triggers global chip rout on bleak outlook": "Intel s'effondre de 25 %, provoquant une chute générale du marché mondial des puces électroniques en raison de perspectives moroses",
     "nasdaq tumbles at open as amazon, intel add to ai spending woes": "Le Nasdaq s'effondre à l'ouverture, Amazon et Intel venant aggraver les difficultés liées aux dépenses en IA",
-    "abbvie lifts annual profit forecast as immunology drugs continue to fuel growth - reuters": "AbbVie revoit à la hausse ses prévisions de bénéfice annuel, les médicaments immunologiques continuant de stimuler la croissance - Reuters"
+    "abbvie lifts annual profit forecast as immunology drugs continue to fuel growth - reuters": "AbbVie revoit à la hausse ses prévisions de bénéfice annuel, les médicaments immunologiques continuant de stimuler la croissance - Reuters",
+    "fed’s musalem says a rate hike is needed ’soon’": "Musalem, de la Fed, estime qu'une hausse des taux est nécessaire « prochainement »",
+    "fed’s barkin signals further rate hikes ahead with pace remaining the key question": "Barkin, de la Fed, laisse entrevoir de nouvelles hausses des taux, le rythme restant la question centrale",
+    "robust consumer spending, ai-related investment power us economy in third quarter - reuters": "La vigueur des dépenses de consommation et les investissements liés à l'IA ont stimulé l'économie américaine au troisième trimestre - Reuters"
   },
   "seen_titles": {
-    "e13c6a51e7557dc816850cf05e68cea841caaa1771fd8668e7c040d12c982402": "2026-10-29T16:35:39.831514Z",
-    "1d1825c4aba99f37040d8d387db0da59f052afb956afff5751e8cef69312650f": "2026-10-29T16:35:41.002240Z",
-    "18e9c1e3b2027b6557818c0db77aef8f5538c6917b8c054fd5d10d40224f6ef1": "2026-10-29T16:35:42.145283Z",
-    "eb0bd3ae37b195455836feb639cce56a39d586f916426883aa9ebd9d5eb58286": "2026-10-29T16:35:43.277161Z",
-    "ab3ca8b47fc819f76e62a47759d9398f7ca8179eab637ffce8ec88e054ae9f33": "2026-10-29T16:35:44.499725Z",
-    "567f6cbea9ba4cd98da3b839b0ea0506f6c7dd84e47fdbde3f13e1aa586d9e44": "2026-10-29T16:35:45.553681Z",
-    "c54493addf991ca2bf9a87cd892e198a83522b872e447b628b3504d9ffd7d62c": "2026-10-29T16:35:46.743212Z",
     "95e6c4498bc13449b620de05e8e94fd72f491b10dcf54b6ed76ab80cf17dc1e5": "2026-10-29T16:40:47.289384Z",
     "f50be6267f151ec1f6dbccaee5735a4349cb71961aa282695f37ca8ae3124f07": "2026-10-29T16:40:48.507601Z",
     "ea64ef65ed829220e6ea8901d9e586d164c77a0bc5d4e4af7540a595458a200a": "2026-10-29T16:40:49.880341Z",
@@ -1136,16 +1135,12 @@
     "0c8e6e7a2e17ecebd37490746d4d460aafdd1cfd307664ff2a2de6e6978de57d": "2026-10-30T13:40:44.118707Z",
     "485bb81620a1f01098dd0743f6b87cd448c51801583d51c9d8967869e771f565": "2026-10-30T13:40:45.365584Z",
     "d7ecb1601b25c2c3574163c73f9eae2772ddf69608bfdfa7ff4997c9e0cfe15a": "2026-10-30T14:01:10.963261Z",
-    "9c887436f4dd360432326f5fd10cdf6f904713463cdf8c91a3914b8e2473576f": "2026-10-30T15:10:49.300637Z"
+    "9c887436f4dd360432326f5fd10cdf6f904713463cdf8c91a3914b8e2473576f": "2026-10-30T15:10:49.300637Z",
+    "166ecf8098e331fab9621439178d5de5993cdea2ed106aa20209fda71d050595": "2026-10-30T16:40:46.972627Z",
+    "08c18e410d1aafdcfe1da13d7e9562add8496eb85ddd045b55449bbb2ce929e5": "2026-10-30T16:40:47.911113Z",
+    "70e607e2a0241b242a140cfeb08b827fb398fe029a77eff54742164085c462d1": "2026-10-30T16:40:48.931191Z"
   },
   "seen_events": {
-    "gdp:us:2026:q3|59f7f8f52628ec67fdcbb980a8e1c8bd5eccd142fa975d4fc55eb630a93d70c7": {
-      "sent_at": "2026-10-29T16:35:41.002256Z",
-      "value": {
-        "growth": "3.4"
-      },
-      "base": "gdp:us:2026:q3"
-    },
     "acquisition:doordash:instacart:2026-10-29|bd8e920827083b18fdf0d8fe5a02fd7440936e68f9f52d8f3d9fa4c40bfe7212": {
       "sent_at": "2026-10-29T16:40:48.507622Z",
       "value": {
@@ -1180,6 +1175,11 @@
       "sent_at": "2026-10-30T11:10:48.555701Z",
       "value": {},
       "base": "gdp:eurozone:2026:q3"
+    },
+    "gdp:us:2026:q3|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-10-30T16:40:48.931208Z",
+      "value": {},
+      "base": "gdp:us:2026:q3"
     }
   }
 }
