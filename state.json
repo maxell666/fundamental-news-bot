@@ -525,7 +525,9 @@
     "https://www.investing.com/news/commodities-news/oil-rises-on-supply-concerns-as-houthis-attack-saudi-arabia-4985735",
     "https://www.investing.com/news/economy-news/stocks-slump-bonds-leap-as-ai-giants-spending-spooks-investors-4985741",
     "https://www.cnbc.com/2026/10/30/boj-inflation-target-rates.html",
-    "https://www.investing.com/news/economy-news/boj-keeps-interest-rates-steady-signals-further-rate-hikes-4985752"
+    "https://www.investing.com/news/economy-news/boj-keeps-interest-rates-steady-signals-further-rate-hikes-4985752",
+    "https://www.investing.com/news/economy-news/analysts-react-to-boj-decision-to-keep-rates-steady-4985754",
+    "https://investinglive.com/central-banks/boj-declares-underlying-inflation-at-2-target-lifts-fy2027-price-forecast-as-rates-held/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -979,7 +981,9 @@
     "oil rises on supply concerns as houthis attack saudi arabia": "Le prix du pétrole augmente en raison des craintes liées à l'approvisionnement, alors que les Houthis attaquent l'Arabie saoudite",
     "stocks slump, bonds leap as ai giants’ spending spooks investors": "Les actions s'effondrent, les obligations s'envolent alors que les dépenses des géants de l'IA inquiètent les investisseurs",
     "boj holds rates as inflation aligns with 2% target for first time since 2013": "La Banque du Japon maintient ses taux alors que l'inflation atteint l'objectif de 2 % pour la première fois depuis 2013",
-    "boj keeps interest rates steady, signals further rate hikes": "La Banque du Japon maintient ses taux d'intérêt inchangés et laisse entrevoir de nouvelles hausses"
+    "boj keeps interest rates steady, signals further rate hikes": "La Banque du Japon maintient ses taux d'intérêt inchangés et laisse entrevoir de nouvelles hausses",
+    "analysts react to boj decision to keep rates steady": "Les analystes réagissent à la décision de la Banque du Japon de maintenir ses taux inchangés",
+    "boj declares underlying inflation at 2% target, lifts fy2027 price forecast as rates held": "La Banque du Japon annonce que l'inflation sous-jacente atteint l'objectif de 2 % et revoit à la hausse ses prévisions de prix pour l'exercice 2027, tout en maintenant ses taux inchangés"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1025,7 +1029,9 @@
     "c2818d9a0eed956524ed288a297894da777b354f2afaff560d38a7aecfae43ee": "2026-10-30T02:45:45.878222Z",
     "21015d066d3a91dde7cdff6b63a8a037523cc1ec96209118a1a5fc01396ff728": "2026-10-30T03:01:15.471907Z",
     "e40198922f4c6f99594e9172f090dcb37aed09cc8180eeba0d2d2563d92927f5": "2026-10-30T03:25:40.534133Z",
-    "915ec2e1281dbc419d842134fc1404cdc696f7a8d4ccc3e39dce10ade5d6fd2e": "2026-10-30T03:31:00.104561Z"
+    "915ec2e1281dbc419d842134fc1404cdc696f7a8d4ccc3e39dce10ade5d6fd2e": "2026-10-30T03:31:00.104561Z",
+    "5f6afe98da382a36d5dd07b11da8f3e6e6ce4788089fffa0d55083e4eb32c10e": "2026-10-30T04:05:32.101304Z",
+    "fa5680a7d060f56b16f8c283ac11fd0a81cfaf4dc1dbfb1dd033fff8f1e266ff": "2026-10-30T04:05:33.254510Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
@@ -1068,6 +1074,13 @@
     "rates:boj:hold:2026-10-30|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
       "sent_at": "2026-10-30T03:25:40.534314Z",
       "value": {},
+      "base": "rates:boj:hold:2026-10-30"
+    },
+    "rates:boj:hold:2026-10-30|02d4b079c99ca9b63fac7396c841fa87a2c1cf99687b5021363ae41717acb180": {
+      "sent_at": "2026-10-30T04:05:32.101325Z",
+      "value": {
+        "rate": "1.25"
+      },
       "base": "rates:boj:hold:2026-10-30"
     }
   }
