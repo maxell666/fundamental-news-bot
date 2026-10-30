@@ -27,27 +27,5 @@ jobs:
         run: python scripts/dispatch_macro.py --probe-check
         env:
           GH_TOKEN: ${{ github.token }}
-      - name: Inspecter le format public de la source
-        run: |
-          python - <<'PY'
-          import json, re
-          from macro_watch import public_fetch
-          from pmi_release import CHICAGO_SOURCE_URL, _BodyText, inspect_chicago_release, ReleaseParseError
-          source = public_fetch(CHICAGO_SOURCE_URL)
-          report = {"http_status": source.status, "content_type": (source.headers or {}).get("Content-Type")}
-          body = _BodyText()
-          body.feed(source.text)
-          plain = body.text()
-          for match in re.finditer(r"Chicago Business Barometer", plain, re.I):
-              fragment = plain[match.start():match.start()+220]
-              if re.search(r"\d+\.\d+", fragment):
-                  report["headline_sample"] = " ".join(fragment.split()[:20])
-                  break
-          report["release_markers"] = re.findall(r"\bReleased.{0,45}", plain, re.I)[:2]
-          try:
-              summary = inspect_chicago_release(source.text)
-              report.update(period=summary.period, actual=str(summary.actual))
-          except ReleaseParseError as error:
-              report["parse_diagnostic"] = str(error)
-          print(json.dumps(report, ensure_ascii=True))
-          PY
+      - name: Contrôler les sources de l’essai actif sans Telegram
+        run: python macro_watch.py --check --config config/macro_active_test.json

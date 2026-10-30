@@ -164,10 +164,10 @@ NewsAPI reste facultatif et désactivé par défaut ; sa clé est envoyée dans
 un en-tête, sans journalisation d'une URL contenant la clé. Le module
 d'actualités ne nécessite aucun abonnement de calendrier économique.
 
-Un [essai macro séparé](docs/macro-test.md) compare le résultat public du
-Chicago PMI du 30 octobre 2026 au consensus enregistré avant sa publication.
-Il mesure le délai de détection et de confirmation Telegram, sans garantie
-préalable de latence ni modification du filtre d'actualités.
+Un [essai macro séparé](docs/macro-test.md) est programmé sur l’ISM manufacturier
+du 2 novembre 2026 à 16 h (Paris). Il compare le résultat officiel au consensus
+figé avant publication, avec confirmation de démarrage et mesure du délai
+de détection puis de confirmation Telegram. Le délai n’est pas garanti.
 
 ## Installation et tests
 

@@ -1,4 +1,4 @@
-name: Test macro Chicago PMI
+name: Test macro économique
 
 on:
   workflow_dispatch:
@@ -9,15 +9,18 @@ on:
         options: [check, watch]
         default: check
   push:
-    branches: [codex/test-macro-chicago-pmi]
+    branches: [codex/test-macro-chicago-pmi, codex/arm-ism-test]
     paths:
       - pmi_release.py
+      - ism_release.py
       - macro_watch.py
       - config/macro_chicago_test.json
+      - config/macro_active_test.json
       - .github/workflows/macro-test.yml
   schedule:
-    # Essai unique 30/10/2026, date exacte contrôlée en Python.
-    - cron: "35,40 13 30 10 *"
+    # Secours au déclenchement cron-job.org, essai unique du 02/11/2026.
+    # Le lecteur vérifie la date exacte et l'état avant tout envoi.
+    - cron: "50,55 14 2 11 *"
 
 permissions:
   contents: read
@@ -34,7 +37,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements.txt
       - name: Vérifier les sources sans Telegram
-        run: python macro_watch.py --check --config config/macro_chicago_test.json
+        run: python macro_watch.py --check --config config/macro_active_test.json
       - name: Conserver le contrôle
         if: always()
         uses: actions/upload-artifact@v4
@@ -50,7 +53,7 @@ jobs:
     permissions:
       contents: write
     concurrency:
-      group: macro-chicago-pmi-2026-10
+      group: macro-single-release-test
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v6
@@ -68,7 +71,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Observer la publication et envoyer le test
         id: watch
-        run: python macro_watch.py --watch --checkpoint-git --config config/macro_chicago_test.json
+        run: python macro_watch.py --watch --checkpoint-git --config config/macro_active_test.json
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}

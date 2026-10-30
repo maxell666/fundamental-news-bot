@@ -1,0 +1,15 @@
+{
+  "kind": "ism_manufacturing",
+  "event_id": "ism-manufacturing-2026-10",
+  "title": "ISM Manufacturing PMI",
+  "country": "USD",
+  "period": "2026-10",
+  "scheduled_at": "2026-11-02T15:00:00Z",
+  "source_url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/october/",
+  "check_source_url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/september/",
+  "calendar_url": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
+  "poll_seconds": 10,
+  "max_poll_seconds": 180,
+  "warmup_seconds": 600,
+  "notify_start": true
+}

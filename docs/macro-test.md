@@ -1,111 +1,126 @@
-# Essai gratuit de résultat macro
+# Essai macro actif
 
-Essai unique : Chicago PMI d'octobre, le **30 octobre 2026 à
-13:45 UTC / 14:45 Europe/Paris / 09:45 America/New_York**.
-Il s'agit d'un essai technique, distinct du projet Annonces éco V4.
+Le prochain essai est l’**ISM Manufacturing PMI d’octobre 2026**, publié
+**lundi 2 novembre à 16:00 Europe/Paris / 15:00 UTC / 10:00 New York**.
+Le changement d’heure américain du 1er novembre est pris en compte.
 
-## Périmètre actuel
+La configuration active est `config/macro_active_test.json`. L’ancienne
+configuration Chicago est conservée comme historique, sans être réarmée.
 
-L'observateur structuré sait traiter **le Chicago PMI uniquement** : résultat,
-consensus enregistré avant publication, précédent et surprise. Son analyse et
-son message sont limités à EUR/USD, GBP/USD, GER30, USD/CHF, SP500, NAS100 et
-US30. Les variations du dollar sont traduites dans le bon sens de chaque paire ;
-la lecture des indices reste contrastée entre croissance/bénéfices et taux.
-Le GER30 est concerné plus indirectement par les taux mondiaux.
+**Contrôle réel du 30 octobre :** après deux réponses HTTP503, les deux pages
+officielles ont répondu HTTP200 à 16:08 UTC (17:08 Paris). Le rapport historique
+de septembre a été reconnu avec son PMI54,5 ; la page cible d’octobre est encore
+non publiée, ce qui est attendu. Le consensus JSON est accessible, mais son
+événement de lundi ne figure pas encore dans la semaine courante.
+Le contrôle est réussi sans valider prématurément un résultat : `ready=false`
+reflète ici l’absence de l’annonce future. L’accès ayant été intermittent,
+il sera recontrôlé au démarrage. Aucun flux de remplacement non vérifié n’est
+utilisé.
 
-Le module d'actualités peut déjà interpréter une comparaison actual/consensus
-rapportée explicitement dans une dépêche, notamment CPI/PCE. Cela ne constitue
-pas une collecte officielle structurée avec consensus figé et délai maîtrisé.
-La capture rapide autonome des **CPI, NFP et décisions FOMC n'est pas implémentée**.
-Leurs sources, périodes, unités, composantes, révisions et horaires doivent être
-traités et vérifiés séparément avant d'annoncer cette couverture.
+## Données et critères de réussite
 
-Le test du 30 octobre n'ayant jamais démarré à l'heure, aucune mesure de
-rapidité en conditions de publication n'a été validée. Les corrections du
-message ne réarment aucune date et ne déclenchent aucun envoi rétrospectif.
+- Le lecteur vérifie la page officielle du rapport d’octobre. Un rapport de
+  septembre ou d’une autre année ne peut pas devenir le résultat attendu.
+- La page de septembre sert uniquement au contrôle préalable de l’accès et du
+  parseur. Son PMI de 54,5 n’est jamais présenté comme le résultat d’octobre.
+- Le consensus et le précédent sont lus dans le JSON public Forex Factory,
+  pour le titre, la devise et l’horaire exacts de l’annonce. Ils sont figés
+  avant publication, puis une dernière lecture peut les rafraîchir avant T0.
+- Le consensus visible le 30 octobre sur le calendrier web est 54,7. Il n’est
+  pas codé comme valeur attendue : le lecteur doit prendre la valeur réellement
+  présente avant l’annonce du lundi.
+- Le flux JSON « this week » bascule avec la semaine. Avant que l’événement
+  de lundi y figure, le contrôle indique `event_not_listed_yet` et
+  `ready=false`. Cet état attendu ne valide pas le consensus.
+- Le résultat, les nouvelles commandes, l’emploi et les prix payés sont lus
+  séparément lorsqu’ils sont disponibles. Un sous-indice ne remplace pas le
+  chiffre principal. Sans consensus propre à un sous-indice, aucun écart
+  aux attentes n’est inventé.
 
-Le consensus et le précédent sont lus dans le calendrier JSON public de
-Forex Factory et enregistrés avant l'heure prévue. Leur date, devise,
-intitulé et unité doivent correspondre exactement à l'événement.
-Le résultat est lu sur la page publique d'ISM Chicago, avec validation de
-la période et de la date. Le chiffre de septembre encore affiché avant
-l'annonce ne doit jamais être envoyé comme chiffre d'octobre.
+## Déclenchement et confirmation
 
-Le message privé porte la mention TEST : résultat, consensus, précédent,
-écart et lecture macro conditionnelle. Un PMI mesure l'activité ; il
-n'entraîne pas automatiquement un biais identique pour tous les actifs.
-Aucun résultat ni consensus manquant n'est inventé. Si aucun résultat valide
-n'est obtenu dans la fenêtre de trois minutes, le test signale son échec.
+Le déclenchement principal passe par les exécutions du bot d’actualités
+initiées par cron-job.org. Le petit répartiteur ne demande le démarrage du
+lecteur séparé qu’entre T−10 minutes et T−15 secondes, pour la date exacte
+configurée. Les actualités continuent indépendamment.
 
-## Exécution et mesures
+Un déclenchement GitHub de secours est également prévu à 14:50 et 14:55 UTC
+le 2 novembre. Les exécutions du lecteur sont sérialisées et relisent main
+au démarrage afin de retrouver le dernier état sauvegardé.
 
-Le workflow séparé prévoit un démarrage à 13:35 UTC, avec un départ de secours
-à 13:40 UTC. Le 30 octobre, ces événements GitHub planifiés ne se sont pas
-déclenchés : aucun observateur n'a démarré et aucun délai n'a été mesuré.
-Le contrôle réalisé après l'annonce a aussi révélé une formulation absente
-du lecteur : le verbe anglais « dipped ». Le parseur reconnaît désormais
-le niveau d'octobre de 55,3, distinct de sa baisse de 3,5 points.
-La lecture faite après l'annonce ne permet pas de dater la mise en ligne
-initiale ni de mesurer le délai qu'aurait eu l'essai.
+Après vérification de l’identité Telegram, du consensus préannonce et de la
+sauvegarde distante, un message **TEST DÉMARRÉ** est prévu vers **15:50 Paris**.
+Il indique le statut d’accès à la source constaté à ce moment, y compris une
+indisponibilité. Ce message confirme le lancement du lecteur ; il ne garantit
+pas la disponibilité du résultat et ne prétend pas que l’annonce est publiée.
 
-Le workflow d'actualités appelle désormais un petit déclencheur depuis les
-exécutions initiées par cron-job.org. Pendant les dix minutes précédant
-l'événement configuré, il demande le lancement du workflow macro séparé en mode
-watch, sans attendre son résultat ni bloquer les actualités. Il n'appelle aucune
-API hors de cette fenêtre. Les quinze dernières secondes avant l'annonce sont
-exclues pour laisser au lecteur le temps d'enregistrer le consensus. Les gardes
-de date et d'état restent en place ; aucun résultat passé n'est rejoué.
+Le lecteur attend 16:00 Paris puis consulte la source toutes les dix secondes,
+pendant trois minutes au maximum. Les refus d’accès et Retry-After sont
+respectés, y compris ceux reçus lors du contrôle de démarrage. Il transmet
+ensuite un résultat confirmé ou un message
+d’indisponibilité. Une donnée tardive n’est pas envoyée comme résultat rapide.
 
-Le contrôle de routage déclenche uniquement le mode check : accès public,
-sans Telegram ni état d'envoi. Une réponse GitHub204 confirme l'acceptation de
-la demande ; les journaux de l'exécution cible permettent d'en confirmer le
-démarrage. Ce contrôle n'établit pas la latence d'un prochain résultat.
+Le délai réel de mise en ligne du site n’est pas garanti. Le contrôle de
+démarrage et la mesure de latence font partie de l’essai.
 
-Lorsqu'un essai est armé, le lecteur attend l'heure publique puis vérifie
-la page toutes les dix secondes,
-pendant trois minutes au maximum. Il respecte les refus et la temporisation
-du serveur. GitHub peut retarder ses tâches programmées : le code refuse un
-départ en dehors de la fenêtre et ne capture pas un consensus après l'annonce.
+## État et absence de doublons
 
-L'état macro_test_state.json est distinct de celui des actualités.
-L'intention d'envoi est sauvegardée dans GitHub avant l'appel Telegram.
-Un envoi incertain ne fait pas l'objet d'une répétition automatique.
-Les départs sont sérialisés et lisent main au démarrage.
+L’état `macro_test_state.json` est séparé des actualités. Le consensus et le
+démarrage sont sauvegardés dans GitHub avant l’attente. Les intentions d’envoi
+de la confirmation puis du résultat sont réservées avant leurs appels Telegram.
 
-Les rapports macro_audit mesurent l'heure prévue, le démarrage, la première
-observation valide et la confirmation de l'API Telegram. Cette confirmation
-n'est pas l'heure de notification sur le téléphone. La date effective de mise
-en ligne n'est pas fournie par la source.
+Une confirmation de démarrage incertaine n’est pas répétée ; l’observation du
+résultat peut continuer. Un envoi de résultat incertain n’est pas répété.
+Le test prévoit au plus une confirmation de démarrage puis un résultat
+ou un avis d’échec.
 
-**Aucun délai inférieur à une minute n'est garanti avant cet essai réel.**
-Les abonnés MNI reçoivent par ailleurs le Chicago PMI trois minutes avant
-l'heure publique selon Forex Factory ; le test porte sur l'accès public gratuit.
+La date exacte de 2026 est contrôlée : le cron ne réactive pas l’essai les
+années suivantes. Aucun résultat du Chicago PMI du 30 octobre n’est rejoué.
 
-Les secrets TELEGRAM_BOT_TOKEN et CHAT_ID sont utilisés uniquement pour
-l'envoi. Aucun secret ni identifiant du destinataire n'est journalisé.
-Les alertes d'actualités et cron-job.org conservent leur configuration.
+## Message et limites de la mesure
 
-## Vérification sans envoi
+Le message contient résultat, consensus figé, précédent, surprise, période,
+heure prévue et première détection. La lecture vise uniquement EUR/USD,
+GBP/USD, GER30, USD/CHF, SP500, NAS100 et US30. Un PMI mesure l’activité :
+croissance, bénéfices et taux peuvent produire des effets opposés sur les
+indices. Les prix payés ne deviennent pas automatiquement une surprise
+d’inflation.
+
+Les audits distinguent T0 prévu, démarrage, premier résultat valide et
+confirmation de l’API Telegram. Cette confirmation n’est pas l’heure de la
+notification sur le téléphone. La source ne fournit pas l’heure effective de
+mise en ligne. Aucun délai inférieur à une minute n’est encore démontré.
+
+## Couverture actuelle
+
+Le lecteur structuré couvre les prototypes **Chicago PMI et ISM manufacturier**.
+La collecte rapide autonome des **CPI, NFP et décisions FOMC n’est pas implémentée**.
+Le module d’actualités peut interpréter un résultat et son consensus explicitement
+rapportés dans une dépêche ; cela ne remplace pas cette collecte structurée.
+
+Le premier essai Chicago du 30 octobre n’a jamais démarré via l’horaire GitHub.
+Le raccordement à cron-job et le parseur du mot « dipped » ont ensuite été
+corrigés. Aucune mesure de latence n’a été obtenue sur cette publication.
+
+## Contrôle sans envoi
 
 ```bash
 python -m unittest discover -s tests -v
-python macro_watch.py --check --config config/macro_chicago_test.json
+python macro_watch.py --check --config config/macro_active_test.json
 ```
 
-Le mode check ne lit aucun secret et n'écrit pas d'état d'envoi. Il vérifie
-l'accès courant et l'extraction du communiqué, même s'il est encore ancien.
-La date exacte de 2026 empêche un nouvel essai annuel.
+Le mode check ne lit aucun secret Telegram et n’écrit pas d’état d’envoi.
+Il contrôle séparément le rapport cible, le rapport historique et le calendrier.
+Les audits ne contiennent ni token ni identifiant du destinataire.
 
 ## Sources
 
-- [Calendrier MNI](https://www.mnimarkets.com/chicago-business-barometer-aka-chicago-pmi-publication-calendar)
-- [Résultat public ISM Chicago](https://chicago.ismworld.org/news-publications/reports/research-survey/)
-- [Consensus public](https://nfs.faireconomy.media/ff_calendar_thisweek.json)
-- [Définition et avance abonnés](https://www.forexfactory.com/calendar/189-us-chicago-pmi)
+- [Calendrier officiel ISM](https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/)
+- [Rapport cible d’octobre](https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/october/)
+- [Rapport historique de septembre](https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/september/)
+- [Calendrier du 2 novembre](https://www.forexfactory.com/calendar?day=nov2.2026)
+- [Consensus JSON public](https://nfs.faireconomy.media/ff_calendar_thisweek.json)
 
-Les communiqués ECI du BLS ont répondu HTTP403 depuis le runner le 29 octobre.
-L'API BLS v1 est écartée : sa documentation mentionne un
-[décalage d'un jour](https://www.bls.gov/bls/api_features.htm).
-Ne pas contourner ces refus ni remplacer silencieusement les résultats par
-un flux retardé. L'accès à la page PMI a été contrôlé depuis le runner ;
-la vitesse de mise à jour reste à mesurer.
+Les communiqués ECI du BLS avaient répondu HTTP403 depuis le runner. L’API BLS
+v1 mentionne un [décalage d’un jour](https://www.bls.gov/bls/api_features.htm) ;
+elle n’est pas utilisée comme résultat immédiat et aucun refus n’est contourné.
