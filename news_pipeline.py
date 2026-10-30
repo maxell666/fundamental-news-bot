@@ -11,6 +11,7 @@ from pathlib import Path
 
 from filter import FILTER_VERSION, assess_news, contains_any, normalize_text, _event_clause
 from sources import canonicalize_url
+from portfolio import assess_portfolio, TRACKED_ASSETS
 
 
 def story_key(title):
@@ -33,7 +34,8 @@ def parse_publication(value):
 
 
 def evaluate_news(articles, state, *, now=None, threshold=5, max_age_hours=24,
-                  allow_undated=False, assessor=assess_news, title_dedup_hours=24):
+                  allow_undated=False, assessor=assess_news, title_dedup_hours=24,
+                  portfolio_scope=True):
     """Toutes les entrées reçoivent une décision, y compris les rejets et doublons."""
     now = now or datetime.now(timezone.utc)
     seen_urls = {canonicalize_url(url) for url in state.get("seen", [])}
@@ -50,6 +52,8 @@ def evaluate_news(articles, state, *, now=None, threshold=5, max_age_hours=24,
         url = canonicalize_url(article.get("canonical_url") or article.get("url", ""))
         article.update({"title": title, "canonical_url": url})
         assessment = assessor(title, article.get("desc", ""))
+        scope = assess_portfolio(title, article.get("desc", ""),
+                                 category=getattr(assessment, "category", "FONDAMENTAL"))
         key = story_key(title)
         published = parse_publication(article.get("published_at"))
         row = {
@@ -61,6 +65,10 @@ def evaluate_news(articles, state, *, now=None, threshold=5, max_age_hours=24,
             "description": re.sub(r"<[^>]+>", " ", str(article.get("desc", "")))[:600],
             "decision": "eligible", "reason": assessment.reason,
             "article": article,
+            "portfolio_relevant": scope.relevant,
+            "portfolio_assets": list(scope.assets),
+            "portfolio_drivers": list(scope.drivers),
+            "portfolio_reason": scope.reason,
         }
         if not title or not url:
             row.update(decision="invalid", reason="Titre ou URL manquant/invalide")
@@ -78,6 +86,8 @@ def evaluate_news(articles, state, *, now=None, threshold=5, max_age_hours=24,
             row.update(decision="rejected", reason=assessment.reason)
         elif assessment.score < threshold:
             row.update(decision="below_threshold", reason=f"Priorité sous le seuil configuré ({threshold})")
+        elif portfolio_scope and not scope.relevant:
+            row.update(decision="out_of_scope", reason=scope.reason)
         if row["decision"] == "eligible":
             encountered_urls.add(url)
             encountered_titles.add(key)
@@ -313,7 +323,8 @@ def summarize(rows):
         "decisions": dict(Counter(row["decision"] for row in rows)),
         "categories": dict(Counter(row["category"] for row in rows if row["score"] > 0)),
         "rejection_reasons": dict(Counter(row["reason"] for row in rows if row["decision"] in
-                                         ("rejected", "below_threshold", "stale", "undated", "future"))),
+                                         ("rejected", "below_threshold", "stale", "undated", "future",
+                                          "out_of_scope", "no_impact_reading"))),
     }
 
 
@@ -325,17 +336,22 @@ def write_audit(rows, sources, *, dry_run, directory="audit", error=None):
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "filter_version": FILTER_VERSION, "dry_run": dry_run,
+        "tracked_assets": list(TRACKED_ASSETS),
         "summary": summarize(rows), "sources": sources, "items": public_rows,
         "error": error,
     }
     (directory / "news_audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     (directory / "source_health.json").write_text(json.dumps(sources, ensure_ascii=False, indent=2), encoding="utf-8")
-    fields = ["decision", "score", "category", "source", "published_at", "title", "reason", "filter_reason", "url"]
+    fields = ["decision", "score", "category", "source", "published_at", "title", "reason", "filter_reason",
+              "portfolio_assets", "portfolio_drivers", "portfolio_reason", "market_impacts", "url"]
     with (directory / "news_audit.csv").open("w", encoding="utf-8-sig", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore")
         writer.writeheader()
         for row in public_rows:
             safe = {field: row.get(field, "") for field in fields}
+            for field, value in safe.items():
+                if isinstance(value, (list, tuple)):
+                    safe[field] = " | ".join(str(item) for item in value)
             for field, value in safe.items():
                 if isinstance(value, str) and value.lstrip().startswith(("=", "+", "-", "@")):
                     safe[field] = "'" + value
