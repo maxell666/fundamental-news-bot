@@ -504,7 +504,7 @@ class ISMWatchTests(unittest.TestCase):
         report = self.run_watch(event=ism_config(notify_start=True), arm_checkpoint=arm, checkpoint=final, send=send)
         self.assertEqual(report["outcome"], "result_sent")
         self.assertEqual(len(self.sent), 2)
-        self.assertIn("TEST ARMÉ", self.sent[0])
+        self.assertIn("TEST DÉMARRÉ", self.sent[0])
         self.assertIn("16:00:00 (Paris)", self.sent[0])
         self.assertIn("54.7", self.sent[0])
         self.assertEqual(self.state()["startup_notice_status"], "confirmed")
@@ -523,20 +523,69 @@ class ISMWatchTests(unittest.TestCase):
         self.assertEqual(report["outcome"], "result_sent")
         self.assertEqual(self.state()["startup_notice_status"], "uncertain")
         self.assertEqual(len(attempts), 2)
-        self.assertIn("TEST ARMÉ", attempts[0])
-        self.assertNotIn("TEST ARMÉ", attempts[1])
+        self.assertIn("TEST DÉMARRÉ", attempts[0])
+        self.assertNotIn("TEST DÉMARRÉ", attempts[1])
+
+    def test_startup_503_is_reported_honestly_and_can_recover_at_publication(self):
+        official = []
+
+        def fetch(url):
+            if url == watcher.CALENDAR_URL:
+                return watcher.HTTPResult(200, ism_calendar())
+            official.append(self.clock.now())
+            return watcher.HTTPResult(503) if len(official) == 1 else watcher.HTTPResult(200, ism_report())
+
+        report = self.run_watch(event=ism_config(notify_start=True), arm_checkpoint=lambda _: None, fetch=fetch)
+        self.assertEqual(report["outcome"], "result_sent")
+        self.assertEqual(official, [ISM_T0 - timedelta(seconds=300), ISM_T0])
+        self.assertEqual(len(self.sent), 2)
+        self.assertIn("TEST DÉMARRÉ", self.sent[0])
+        self.assertIn("indisponible (HTTP 503)", self.sent[0])
+        self.assertEqual(self.state()["startup_source_http_status"], 503)
+        self.assertEqual(self.state()["startup_source_readability"], "unavailable")
+
+    def test_startup_retry_after_beyond_deadline_prevents_any_official_poll(self):
+        official = []
+
+        def fetch(url):
+            if url == watcher.CALENDAR_URL:
+                return watcher.HTTPResult(200, ism_calendar())
+            official.append(self.clock.now())
+            return watcher.HTTPResult(503, headers={"Retry-After": "600"})
+
+        report = self.run_watch(event=ism_config(notify_start=True), arm_checkpoint=lambda _: None, fetch=fetch)
+        self.assertEqual(report["outcome"], "unavailable_notice_sent")
+        self.assertEqual(official, [ISM_T0 - timedelta(seconds=300)])
+        self.assertEqual(report["source_attempts"], [])
+        self.assertEqual(self.clock.now(), ISM_T0 + timedelta(seconds=180))
+        self.assertEqual(len(self.sent), 2)
+        self.assertEqual(watcher.parse_time(self.state()["source_not_before"]), ISM_T0 + timedelta(seconds=300))
+
+    def test_startup_source_get_never_extracts_a_result_before_t0(self):
+        parse = watcher.parse_release
+
+        def parse_after_release(config, body):
+            self.assertGreaterEqual(self.clock.now(), ISM_T0)
+            return parse(config, body)
+
+        with patch("macro_watch.parse_release", side_effect=parse_after_release):
+            result = self.run_watch(event=ism_config(notify_start=True), arm_checkpoint=lambda _: None)
+        self.assertEqual(result["outcome"], "result_sent")
+        self.assertEqual(self.state()["first_seen_at"], watcher.timestamp(ISM_T0))
 
     def test_saved_pending_confirmed_or_uncertain_startup_is_never_repeated(self):
         for status in ("pending", "confirmed", "uncertain"):
             with self.subTest(status=status):
                 self.clock.at = ISM_T0 - timedelta(seconds=30)
                 self.sent.clear()
+                self.requests.clear()
                 self.armed_state(startup_notice_status=status,
                                  startup_confirmed_at=watcher.timestamp(ISM_T0 - timedelta(seconds=60)))
                 report = self.run_watch(event=ism_config(notify_start=True), arm_checkpoint=lambda _: None)
                 self.assertEqual(report["outcome"], "result_sent")
                 self.assertEqual(len(self.sent), 1)
-                self.assertNotIn("TEST ARMÉ", self.sent[0])
+                self.assertNotIn("TEST DÉMARRÉ", self.sent[0])
+                self.assertEqual(len([url for url, _ in self.requests if url == ism_config().source_url]), 1)
 
     def test_startup_pending_checkpoint_failure_prevents_only_its_post(self):
         calls = []
@@ -550,7 +599,7 @@ class ISMWatchTests(unittest.TestCase):
         self.assertEqual(report["outcome"], "result_sent")
         self.assertEqual(report["startup_notice_outcome"], "checkpoint_unconfirmed_no_post")
         self.assertEqual(len(self.sent), 1)
-        self.assertNotIn("TEST ARMÉ", self.sent[0])
+        self.assertNotIn("TEST DÉMARRÉ", self.sent[0])
 
     def test_startup_not_sent_without_remote_checkpoint_or_after_announcement(self):
         report = self.run_watch(event=ism_config(notify_start=True))
@@ -561,7 +610,7 @@ class ISMWatchTests(unittest.TestCase):
         report = self.run_watch(event=ism_config(notify_start=True), arm_checkpoint=lambda _: None)
         self.assertEqual(report["outcome"], "result_sent")
         self.assertEqual(len(self.sent), 1)
-        self.assertNotIn("TEST ARMÉ", self.sent[0])
+        self.assertNotIn("TEST DÉMARRÉ", self.sent[0])
 
 
 class ISMPublicCheckTests(unittest.TestCase):

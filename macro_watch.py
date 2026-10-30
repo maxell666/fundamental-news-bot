@@ -383,7 +383,8 @@ def run_watch(config: EventConfig, *, state_path: Path = Path(STATE_NAME),
         if state is not None:
             audit["state_status"] = state["status"]
             for key in ("first_seen_at", "telegram_accepted_at", "forecast_at", "failure_reason",
-                        "startup_at", "startup_confirmed_at", "startup_notice_status", "startup_notice_accepted_at"):
+                        "startup_at", "startup_confirmed_at", "startup_notice_status", "startup_notice_accepted_at",
+                        "startup_source_http_status", "startup_source_readability", "source_not_before"):
                 if key in state:
                     audit[key] = state[key]
         if audit_path is not None:
@@ -482,6 +483,20 @@ def run_watch(config: EventConfig, *, state_path: Path = Path(STATE_NAME),
         if (not config.notify_start or clock() >= config.scheduled_at
                 or state.get("startup_notice_status") in {"pending", "confirmed", "uncertain"}):
             return True
+        # Availability only: never parse a figure before its scheduled release.
+        state.update(startup_source_checked_at=timestamp(clock()), startup_source_http_status=None,
+                     startup_source_readability="unconfirmed")
+        try:
+            source = fetch(config.source_url)
+            state.update(startup_source_http_status=source.status,
+                         startup_source_readability="accessible" if source.status == 200 else "unavailable")
+            if source.status in {429, 503}:
+                state["source_not_before"] = timestamp(
+                    clock() + timedelta(seconds=retry_delay(source, clock(), config.poll_seconds)))
+            if source.status in {401, 403}:
+                state["source_access_refused"] = True
+        except Exception:
+            pass
         state.update(startup_notice_status="pending", startup_notice_reserved_at=timestamp(clock()))
         write_json(state_path, state)
         try:
@@ -493,11 +508,18 @@ def run_watch(config: EventConfig, *, state_path: Path = Path(STATE_NAME),
             audit["startup_notice_outcome"] = "release_time_reached_no_startup_post"
             return True
         planned = config.scheduled_at.astimezone(ZoneInfo("Europe/Paris"))
-        message = (f"🧪 TEST ARMÉ — {config.title}\n"
+        status = state["startup_source_http_status"]
+        access = ("accessible (HTTP 200), résultat attendu à l’heure prévue" if status == 200 else
+                  "page du résultat attendue (HTTP 404), nouvel essai à la publication" if status == 404 else
+                  f"accès refusé (HTTP {status}), aucun réessai d’accès" if status in {401, 403} else
+                  f"actuellement indisponible (HTTP {status}), nouvel essai à la publication en respectant le délai demandé par la source" if status is not None else
+                  "disponibilité non confirmée, nouvel essai à la publication")
+        message = (f"🧪 TEST DÉMARRÉ — {config.title}\n"
                    f"Publication prévue : {planned:%d/%m/%Y à %H:%M:%S} (Paris)\n"
                    f"Période : {config.period}\n"
                    f"Consensus enregistré au démarrage : {state['forecast']} ; précédent : {state['previous']} points.\n"
                    "Une dernière vérification du consensus est prévue avant l’annonce.\n"
+                   f"Source officielle : {access}.\n"
                    f"Surveillance active : contrôle de la page officielle toutes les {config.poll_seconds} secondes "
                    f"pendant au maximum {config.max_poll_seconds} secondes après l’heure prévue.\n"
                    "Le test tentera d’envoyer le résultat confirmé et l’écart au consensus, ou un message d’indisponibilité.\n"
@@ -588,6 +610,13 @@ def run_watch(config: EventConfig, *, state_path: Path = Path(STATE_NAME),
 
     if not snapshot_valid():
         return unavailable("pre_release_consensus_missing")
+    if state.get("source_access_refused"):
+        return unavailable("source_access_refused")
+    if state.get("source_not_before"):
+        not_before = parse_time(state["source_not_before"])
+        wait_until(min(not_before, config.deadline))
+        if not_before > config.deadline:
+            return unavailable("release_not_detected_in_window")
     while clock() <= config.deadline and clock().date() == config.scheduled_at.date():
         requested_at = clock()
         attempt = {"requested_at": timestamp(requested_at)}

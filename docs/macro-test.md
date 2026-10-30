@@ -7,6 +7,14 @@ Le changement d’heure américain du 1er novembre est pris en compte.
 La configuration active est `config/macro_active_test.json`. L’ancienne
 configuration Chicago est conservée comme historique, sans être réarmée.
 
+**Disponibilité non validée au 30 octobre :** les deux contrôles réels depuis
+GitHub ont reçu HTTP503 pour les pages ISM cible et historique. Le consensus
+JSON est accessible, mais son événement de lundi n’est pas encore dans la
+semaine courante. L’essai reste programmé à titre expérimental ; sa source
+n’est pas annoncée comme opérationnelle. Son retour à la normale est une
+condition à l’obtention d’un résultat. Aucun flux de remplacement non vérifié
+n’est utilisé.
+
 ## Données et critères de réussite
 
 - Le lecteur vérifie la page officielle du rapport d’octobre. Un rapport de
@@ -39,13 +47,15 @@ le 2 novembre. Les exécutions du lecteur sont sérialisées et relisent main
 au démarrage afin de retrouver le dernier état sauvegardé.
 
 Après vérification de l’identité Telegram, du consensus préannonce et de la
-sauvegarde distante, un message de confirmation de démarrage est prévu vers
-**15:50 Paris**. Ce message est distinct du résultat et ne prétend pas que
-l’annonce a déjà été publiée.
+sauvegarde distante, un message **TEST DÉMARRÉ** est prévu vers **15:50 Paris**.
+Il indique le statut d’accès à la source constaté à ce moment, y compris une
+indisponibilité. Ce message confirme le lancement du lecteur ; il ne garantit
+pas la disponibilité du résultat et ne prétend pas que l’annonce est publiée.
 
 Le lecteur attend 16:00 Paris puis consulte la source toutes les dix secondes,
 pendant trois minutes au maximum. Les refus d’accès et Retry-After sont
-respectés. Il transmet ensuite un résultat confirmé ou un message
+respectés, y compris ceux reçus lors du contrôle de démarrage. Il transmet
+ensuite un résultat confirmé ou un message
 d’indisponibilité. Une donnée tardive n’est pas envoyée comme résultat rapide.
 
 Le délai réel de mise en ligne du site n’est pas garanti. Le contrôle de
