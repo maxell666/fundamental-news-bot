@@ -1064,16 +1064,6 @@
     "robust consumer spending, ai-related investment power us economy in third quarter - reuters": "La vigueur des dépenses de consommation et les investissements liés à l'IA ont stimulé l'économie américaine au troisième trimestre - Reuters"
   },
   "seen_titles": {
-    "95e6c4498bc13449b620de05e8e94fd72f491b10dcf54b6ed76ab80cf17dc1e5": "2026-10-29T16:40:47.289384Z",
-    "f50be6267f151ec1f6dbccaee5735a4349cb71961aa282695f37ca8ae3124f07": "2026-10-29T16:40:48.507601Z",
-    "ea64ef65ed829220e6ea8901d9e586d164c77a0bc5d4e4af7540a595458a200a": "2026-10-29T16:40:49.880341Z",
-    "20ee6d7ceab9175d6b45c266d415304b1fc7da0641aac3227672045d9a2ef8ac": "2026-10-29T16:40:51.098988Z",
-    "262604287cfe6b964d4c770f27c38b1b3d2eae032db98c145ddaab45a15c1889": "2026-10-29T16:40:52.459883Z",
-    "5c80b2565b00cbe8d86e92522fd1909b5d3a9d8fae76c12128ac82431e14c5b4": "2026-10-29T16:40:53.708538Z",
-    "bc28660c762c512bcc9e8d3c61abfcf518e80407113b6e82c67f7860db6ead32": "2026-10-29T16:40:54.960418Z",
-    "31ad50058a346821852e74537d7557bb9e323274cba3f1b02606116edb07dcff": "2026-10-29T16:40:56.260644Z",
-    "9cd2ea7c8009eb61a586969c11e16d856ed56534be75862c4d0acb3d63d41d97": "2026-10-29T16:40:57.516827Z",
-    "ab467b71009e30f68080304e0d958b73fae663f54e4f453feccfb2cc6a83d538": "2026-10-29T16:40:58.759491Z",
     "1cfee006f3b261437f5bc9367bcaa65b81f4285d507a7a52256b56d0f351561e": "2026-10-29T16:45:44.602964Z",
     "90aaf81b1257c59299a00415c4b0ef7d563ca92aa1a12414b2b8d9541f8f2c3c": "2026-10-29T16:45:45.609302Z",
     "2c143232973c3251bda83e17d69de4cc7b26627af2f79d76c2c06d02c96b9c4e": "2026-10-29T16:45:46.524517Z",
@@ -1141,14 +1131,6 @@
     "70e607e2a0241b242a140cfeb08b827fb398fe029a77eff54742164085c462d1": "2026-10-30T16:40:48.931191Z"
   },
   "seen_events": {
-    "acquisition:doordash:instacart:2026-10-29|bd8e920827083b18fdf0d8fe5a02fd7440936e68f9f52d8f3d9fa4c40bfe7212": {
-      "sent_at": "2026-10-29T16:40:48.507622Z",
-      "value": {
-        "amount_billion": "17",
-        "currency": "USD"
-      },
-      "base": "acquisition:doordash:instacart:2026-10-29"
-    },
     "rates:fed:hold:2026-10-29|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
       "sent_at": "2026-10-29T19:20:44.567559Z",
       "value": {},
