@@ -7,13 +7,15 @@ Le changement d’heure américain du 1er novembre est pris en compte.
 La configuration active est `config/macro_active_test.json`. L’ancienne
 configuration Chicago est conservée comme historique, sans être réarmée.
 
-**Disponibilité non validée au 30 octobre :** les deux contrôles réels depuis
-GitHub ont reçu HTTP503 pour les pages ISM cible et historique. Le consensus
-JSON est accessible, mais son événement de lundi n’est pas encore dans la
-semaine courante. L’essai reste programmé à titre expérimental ; sa source
-n’est pas annoncée comme opérationnelle. Son retour à la normale est une
-condition à l’obtention d’un résultat. Aucun flux de remplacement non vérifié
-n’est utilisé.
+**Contrôle réel du 30 octobre :** après deux réponses HTTP503, les deux pages
+officielles ont répondu HTTP200 à 16:08 UTC (17:08 Paris). Le rapport historique
+de septembre a été reconnu avec son PMI54,5 ; la page cible d’octobre est encore
+non publiée, ce qui est attendu. Le consensus JSON est accessible, mais son
+événement de lundi ne figure pas encore dans la semaine courante.
+Le contrôle est réussi sans valider prématurément un résultat : `ready=false`
+reflète ici l’absence de l’annonce future. L’accès ayant été intermittent,
+il sera recontrôlé au démarrage. Aucun flux de remplacement non vérifié n’est
+utilisé.
 
 ## Données et critères de réussite
 
