@@ -544,7 +544,8 @@
     "https://www.investing.com/news/economy-news/ecb-survey-sees-higher-inflation-in-coming-quarters-4986291",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-sink-nasdaq-down-2-as-amazon-intel-earnings-underwhelm-4985675",
     "https://investinglive.com/news/german-state-inflation-cools-in-october-but-will-that-ease-the-ecb-s-headache/",
-    "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMFY2WEZOWHhyVDVPMkM2ZVUxM01TR09lcUZ0RlBWNF96QkJzWXhUZWpIbmlRSUlxN3FiZ0pEYWVXOW1YcVBQcHQ4cjU1NFpCQVlnS3pneWlKeTZIRjJzWkJuek9OeDhNSGxTU1ozV1g0czltbldNNkJORWRWS0ZBU25WdURjNWNpREdpdmZoV1c2ZzBnUmM5cm5HTG16OFpEdVhLWC13RkxHM3IxX1E"
+    "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMFY2WEZOWHhyVDVPMkM2ZVUxM01TR09lcUZ0RlBWNF96QkJzWXhUZWpIbmlRSUlxN3FiZ0pEYWVXOW1YcVBQcHQ4cjU1NFpCQVlnS3pneWlKeTZIRjJzWkJuek9OeDhNSGxTU1ozV1g0czltbldNNkJORWRWS0ZBU25WdURjNWNpREdpdmZoV1c2ZzBnUmM5cm5HTG16OFpEdVhLWC13RkxHM3IxX1E",
+    "https://www.cnbc.com/2026/10/30/euro-zone-gdp-france.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1017,7 +1018,8 @@
     "ecb survey sees higher inflation in coming quarters": "Une enquête de la BCE prévoit une hausse de l'inflation au cours des prochains trimestres",
     "nasdaq futures slide as amazon, intel earnings deepen ai spending concerns": "Les contrats à terme sur le Nasdaq reculent alors que les résultats d'Amazon et d'Intel renforcent les inquiétudes concernant les dépenses en matière d'IA",
     "german state inflation cools in october, but will that ease the ecb's headache?": "L'inflation dans les Länder allemands ralentit en octobre, mais cela soulagera-t-il les maux de tête de la BCE ?",
-    "gold hits 3-1/2-month low on fed hike fears, set for monthly loss - reuters": "L'or atteint son plus bas niveau depuis trois mois et demi en raison des craintes liées à une hausse des taux de la Fed et s'apprête à enregistrer une perte mensuelle - Reuters"
+    "gold hits 3-1/2-month low on fed hike fears, set for monthly loss - reuters": "L'or atteint son plus bas niveau depuis trois mois et demi en raison des craintes liées à une hausse des taux de la Fed et s'apprête à enregistrer une perte mensuelle - Reuters",
+    "euro zone economy slows to 0.4% growth in q3 as crisis-hit france contracts": "La croissance économique de la zone euro ralentit à 0,4 % au troisième trimestre, tandis que la France, touchée par la crise, enregistre une contraction"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1082,7 +1084,8 @@
     "ac5b5c4fc73b854c7bac9bd46aa7b36b200ed339c862d273a9d0d8c33f24951d": "2026-10-30T09:35:43.392181Z",
     "456b7bc71d78175933241cb4155764f09a263085225a151e5f2b69652b8b913e": "2026-10-30T09:35:44.382250Z",
     "b5d54a69d9faac696b2f67cb76adff21bb50d3d8038b3b5c44b09f23df574b02": "2026-10-30T10:05:35.430321Z",
-    "84c3d2c906c87c6db5fa747a49fa87d6671da0ba83ddaf60bfac3555316f2b04": "2026-10-30T10:05:36.512591Z"
+    "84c3d2c906c87c6db5fa747a49fa87d6671da0ba83ddaf60bfac3555316f2b04": "2026-10-30T10:05:36.512591Z",
+    "1bd9ab0c6a21abf126fed978381d42782e2a26b1d2cd8a5a9e804313c06e200f": "2026-10-30T10:10:48.401149Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
