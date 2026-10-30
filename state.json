@@ -556,7 +556,8 @@
     "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2JIcGhXLURlX1ZHUDVac0IwV1BuN1puU1ljMVFoMUJPNWtZQ2FFdEVMY1ZoZ3pENFUtZEpXZ0ZRU2ZLTFVobHd2XzRiaUxuRFRESXVYNm9zNUUxLWliR1A0RHpTUlNjSUxOazBFSzFvUS1HVWVJX1VGeU41WkxDSjlLTHlQX0dEd1NqUzNna0dkMEZBYmZEd1JZaHhuVElEZFBLZFR0YVQ4V3BxVkhLbGxOMzlRWjU1RmZzRA",
     "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMFp6N3FNV2FiY1Y2UFlWQ21yeTgyVlRKcTV6UEMzQTRiUFlTM0lJaWtYSzFpWHMydzQxSWZCeDZLV2hSUzZlNUwyRTNDY2llYnEydkp4WG95cUxzaW1Ed0ZRdUZGbUtjeW1CVWpIeERKR2xERGVWcjdVcTBHQTZiTzNyaHJsMlhpU3hSWnlESUZBc2ZIT3dUUWwwRGpVYk1fVVU2MEx2V1RfNk54NVBRVVFPWEtkcDQ2TUw4TFgwNUc",
     "https://news.google.com/rss/articles/CBMisAFBVV95cUxPblVtZktXRjdPbHJBWDM4WWJsV2RyMlhnOVFYRTZPc01udjZNZTVjeHdIN1dVY0w1M1NHbHpxNjV6Vm9jQ3FOUjBIaElyZEdSWWxycmNZdnJwNnBfdTJDc1FBMWVJZ19vR0s3Y1h2Uml2LThWc2NzQ2sxN3NnVzFEeGhvNnpPSElHSFRIQnJreHpCR2c3dnRQbEVYTDlJVjhzVVk3b1gxaFczMFhkb2NDSw",
-    "https://www.investing.com/news/earnings/abbvie-earnings-beat-by-008-revenue-topped-estimates-4987285"
+    "https://www.investing.com/news/earnings/abbvie-earnings-beat-by-008-revenue-topped-estimates-4987285",
+    "https://www.investing.com/news/earnings/exxonmobil-holdings-earnings-beat-by-024-revenue-fell-short-of-estimates-4987413"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1041,7 +1042,8 @@
     "wrapup exxon, chevron earnings propelled by war-driven refining surge - reuters": "RÉSUMÉ : Les résultats d'Exxon et de Chevron portés par une forte hausse de l'activité de raffinage liée à la guerre - Reuters",
     "it, earnings, tax-cut hopes power indian shares to monthly gains - reuters": "Le secteur informatique, les résultats d'entreprise et les espoirs de baisse d'impôts propulsent les actions indiennes vers des gains mensuels - Reuters",
     "nasdaq futures sink as amazon, intel intensify ai spending fears - reuters": "Les contrats à terme sur le Nasdaq plongent alors qu'Amazon et Intel alimentent les craintes concernant les dépenses en IA - Reuters",
-    "abbvie earnings beat by $0.08, revenue topped estimates": "Les résultats d'AbbVie ont dépassé les prévisions de 0,08 dollar, tandis que son chiffre d'affaires a dépassé les estimations"
+    "abbvie earnings beat by $0.08, revenue topped estimates": "Les résultats d'AbbVie ont dépassé les prévisions de 0,08 dollar, tandis que son chiffre d'affaires a dépassé les estimations",
+    "exxonmobil holdings earnings beat by $0.24, revenue fell short of estimates": "Les résultats d'ExxonMobil Holdings ont dépassé les prévisions de 0,24 dollar, tandis que le chiffre d'affaires s'est révélé inférieur aux estimations"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1118,7 +1120,8 @@
     "f0ad9e6faceac4d36a4dc9eac1eb397fbb2f91472a39d53effdd19e69be4b238": "2026-10-30T11:35:36.057067Z",
     "e8414868df64066b15adcaaf7cfd1e71be48a34701fdabac1ebd32ace0789fc1": "2026-10-30T11:45:48.036046Z",
     "5cdd363807e5f2c8328d438d65d348ac55e003611870c52e1fa368b47f7448e9": "2026-10-30T11:55:34.083110Z",
-    "163595309e770ce6bf03209c113b8f5bcbda8ce9dd0bc79c4adbafb47dceb60c": "2026-10-30T12:01:13.149893Z"
+    "163595309e770ce6bf03209c113b8f5bcbda8ce9dd0bc79c4adbafb47dceb60c": "2026-10-30T12:01:13.149893Z",
+    "9030f0a3b73106b9e06237413456f9a2d24fce7ba3482ee2661aacc770072f21": "2026-10-30T12:20:43.581769Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
