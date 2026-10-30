@@ -96,6 +96,59 @@ SELECTED = (
 
 
 class RelevanceTests(unittest.TestCase):
+    def test_policy_effects_and_tax_cut_hopes_are_not_new_policy_decisions(self):
+        for title in (
+            "Trump's tariffs fail to cut US trade deficit, IW report shows - Reuters",
+            "US tariffs failed to reduce the trade deficit, report shows",
+            "IT, earnings, tax-cut hopes power Indian shares to monthly gains - Reuters",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+        for title, category in (
+            ("White House cuts tariffs on Canadian imports", "TRADE"),
+            ("US announces a tariff deal with China", "TRADE"),
+            ("Trump cuts tariffs after talks fail", "TRADE"),
+            ("India announces income tax cuts in national Budget", "FISCAL"),
+            ("Chancellor cuts income tax to help families", "FISCAL"),
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertTrue(result.relevant, result)
+                self.assertEqual(result.category, category)
+
+    def test_german_regional_inflation_is_distinct_from_the_national_release(self):
+        for title in (
+            "German state inflation cools in October, but will that ease the ECB's headache?",
+            "Bavaria CPI inflation eases to 2.8%",
+            "Inflation in German states falls to 2.8%",
+            "German Länder inflation slows in October",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title, "The German national CPI is due later today.")
+                self.assertFalse(result.relevant, result)
+                self.assertIn("locale", result.reason)
+        for title in ("German inflation slows in October", "Germany CPI inflation falls to 2.8%"):
+            with self.subTest(title=title):
+                self.assertEqual(compute_score(title), 8, assess_news(title))
+
+    def test_actual_major_company_plummet_and_guidance_are_not_price_predictions(self):
+        for title in (
+            "Intel plummets over 28% as weak forecast overshadows earnings beat",
+            "Nvidia shares plummet 12% after weak earnings",
+            "Intel forecasts fourth-quarter revenue below Wall Street estimates",
+        ):
+            with self.subTest(title=title):
+                result = assess_news(title)
+                self.assertEqual(result.score, 7, result)
+                self.assertEqual(result.category, "EQUITIES")
+        for title in (
+            "Intel shares forecast to fall 28% after earnings",
+            "Analysts expect Nvidia shares to plummet 12%",
+            "Intel could plummet 28% if its forecast disappoints",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(is_relevant(title), assess_news(title))
+
     def test_a_scheduled_earnings_release_is_not_a_new_result(self):
         for title in (
             "Amazon to report Q3 earnings after the bell with AI spend under scrutiny",

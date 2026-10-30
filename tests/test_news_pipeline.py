@@ -99,6 +99,57 @@ class NewsPipelineTests(unittest.TestCase):
         self.assertEqual({row["event_base"] for row in chosen}, {"gdp:us:2026:q3", "gdp:us:2026:q2"})
         self.assertEqual(rows[2]["decision"], "duplicate_event")
 
+    def test_euro_zone_economy_and_eurozone_gdp_headlines_describe_the_same_quarter(self):
+        rows = evaluate_news([
+            article("Eurozone Q3 GDP beats expectations but the growth surprise comes with a catch",
+                    "https://example.com/a", "2026-10-29T14:40:00Z"),
+            article("Euro zone economy slows to 0.4% growth in Q3 as crisis-hit France contracts",
+                    "https://example.com/b", "2026-10-29T14:48:00Z"),
+        ], {}, now=NOW)
+        chosen = rank_eligible(rows, now=NOW)
+        self.assertEqual(len(chosen), 1)
+        self.assertEqual(chosen[0]["event_base"], "gdp:eurozone:2026:q3")
+        self.assertEqual(chosen[0]["event_value"], {"growth": "0.4"})
+        self.assertEqual(rows[0]["decision"], "duplicate_event")
+        history = {chosen[0]["event_key"]: {
+            "sent_at": "2026-10-29T14:50:00Z", "value": chosen[0]["event_value"],
+            "base": chosen[0]["event_base"],
+        }}
+        repeated = evaluate_news([
+            article("Euro area GDP grew 0.4% in the third quarter", "https://example.com/c"),
+        ], {}, now=NOW)
+        self.assertEqual(rank_eligible(repeated, history, now=NOW), [])
+
+    def test_eurozone_gdp_revisions_other_periods_and_countries_are_not_suppressed(self):
+        rows = evaluate_news([
+            article("Euro zone economy grows 0.4% in Q3", "https://example.com/a"),
+            article("Eurozone Q3 GDP revised from 0.4% to 0.5%", "https://example.com/b"),
+            article("Euro area GDP grows 0.4% in Q2", "https://example.com/c"),
+            article("US economy grows 0.4% in Q3", "https://example.com/d"),
+        ], {}, now=NOW)
+        chosen = rank_eligible(rows, now=NOW)
+        self.assertEqual(len(chosen), 4)
+        self.assertEqual(rows[1]["event_value"], {"growth": "0.5"})
+        self.assertEqual(len({row["event_key"] for row in chosen}), 4)
+
+    def test_gdp_history_cannot_hide_an_unquantified_revision_or_an_inflation_release(self):
+        earlier = evaluate_news([
+            article("Euro area GDP grew 0.4% in Q3", "https://example.com/a"),
+        ], {}, now=NOW)
+        sent = rank_eligible(earlier, now=NOW)[0]
+        history = {sent["event_key"]: {
+            "sent_at": "2026-10-29T14:30:00Z", "value": sent["event_value"],
+            "base": sent["event_base"],
+        }}
+        rows = evaluate_news([
+            article("Eurozone Q3 GDP revised higher", "https://example.com/b"),
+            article("Eurozone Q3 GDP revised higher from 0.4%", "https://example.com/c"),
+            article("Euro zone economy faces inflation of 0.4% in Q3", "https://example.com/d"),
+        ], {}, now=NOW)
+        chosen = rank_eligible(rows, history, now=NOW)
+        self.assertEqual(len(chosen), 3)
+        self.assertTrue(all(row["event_key"] is None for row in chosen))
+
     def test_major_acquisition_duplicates_require_same_parties_and_amount(self):
         rows = evaluate_news([
             article("DoorDash to acquire Instacart for $17 billion", "https://example.com/a"),

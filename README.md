@@ -2,7 +2,12 @@
 
 Actualités susceptibles d'influencer les indices, les devises, l'or et le pétrole,
 traduites en français et envoyées sur Telegram. Version de sélection :
-**pertinence-v3.0**.
+**pertinence-v3.1**.
+
+La sélection distingue les décisions annoncées des espoirs fiscaux et des bilans
+de politique commerciale, écarte l'inflation régionale allemande, regroupe les
+titres du même PIB de la zone euro et conserve les baisses effectives des grands
+groupes. Le seuil général reste inchangé.
 
 ## Sources
 

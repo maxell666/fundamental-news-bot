@@ -104,6 +104,15 @@ class ChicagoParseTests(unittest.TestCase):
             with self.subTest(movement=movement):
                 self.assertEqual(parse(summary().replace("rose 2.3", movement + " 2.3")).actual, Decimal("54.6"))
 
+    def test_dipped_headline_extracts_october_level_not_decline(self):
+        for movement in ("dipped", "dips"):
+            with self.subTest(movement=movement):
+                html = summary(value="55.3", change="3.5").replace("rose 3.5", f"{movement} 3.5")
+                release = parse(html)
+                self.assertEqual(release.period, "2026-10")
+                self.assertEqual(release.actual, Decimal("55.3"))
+                self.assertEqual(release.publication_date, date(2026, 10, 30))
+
     def test_change_from_previous_does_not_become_level(self):
         html = summary().replace("rose 2.3 points to", "increased by 2.3 points from 52.3 to")
         self.assertEqual(parse(html).actual, Decimal("54.6"))

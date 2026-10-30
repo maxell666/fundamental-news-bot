@@ -6,6 +6,7 @@ on:
    - cron: "2-59/5 * * * *"
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: fundamental-news-bot
@@ -27,6 +28,12 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Déclencher un essai macro uniquement avant sa publication
+        continue-on-error: true
+        run: python scripts/dispatch_macro.py
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Run bot
         id: run-bot

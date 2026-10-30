@@ -163,12 +163,17 @@ def _event_signature(row):
                             if re.search(rf"\b{word}[- ]+quarter\b", title)), None)
         growth_story = contains_any(title, ("gdp",)) or (
             contains_any(title, ("economy", "growth"))
-            and contains_any(title, ("consumer spending", "investment", "consumption"))
+            and (contains_any(title, ("consumer spending", "investment", "consumption"))
+                 or (re.search(r"[-+]?[0-9]+(?:[.,][0-9]+)?\s*%", primary)
+                     and re.search(r"\b(?:economy|economic growth)\s+"
+                                   r"(?:(?:has|had|is|now|still)\s+){0,3}"
+                                   r"(?:grew|grows?|shrank|shrinks?|contracts?|expands?|"
+                                   r"slows?|accelerates?|rises?|rose|falls?|fell)\b", primary)))
         )
         economies = (
             ("us", ("us", "u.s.", "united states", "american")),
             ("uk", ("uk", "united kingdom", "british", "britain")),
-            ("eurozone", ("eurozone", "euro area")),
+            ("eurozone", ("eurozone", "euro zone", "euro area")),
             ("china", ("china", "chinese")), ("japan", ("japan", "japanese")),
             ("canada", ("canada", "canadian")), ("australia", ("australia", "australian")),
         )
@@ -178,7 +183,26 @@ def _event_signature(row):
             year = int(explicit_year.group(1)) if explicit_year else published.year - (quarter == 4 and published.month <= 3)
             value = {}
             gdp = re.search(r"\bgdp\b", title)
-            if gdp and (match := re.search(r"([-+]?[0-9]+(?:[.,][0-9]+)?)\s*%", title[gdp.end():])):
+            # Un titre 'economy ... growth in Q3' décrit aussi le PIB. Lire la
+            # nouvelle valeur d'une révision, jamais le chiffre 'from' précédent.
+            revision = re.search(
+                r"\brevised\b.{0,20}\bfrom\s+[-+]?[0-9]+(?:[.,][0-9]+)?\s*%"
+                r"\s+to\s+([-+]?[0-9]+(?:[.,][0-9]+)?)\s*%", primary,
+            )
+            if contains_any(primary, ("revised", "revision", "revisions")):
+                match = revision or re.search(
+                    r"\brevised\s+(?:(?:up|down|higher|lower)\s+)?(?:to\s+)?"
+                    r"([-+]?[0-9]+(?:[.,][0-9]+)?)\s*%", primary,
+                )
+                if match is None:
+                    row["event_note"] = "Révision du PIB sans nouvelle valeur explicite dans le titre"
+                    return None
+            else:
+                match = re.search(
+                    r"([-+]?[0-9]+(?:[.,][0-9]+)?)\s*%",
+                    title[gdp.end():] if gdp else primary,
+                )
+            if match:
                 value["growth"] = _number(match.group(1))
             return f"gdp:{country}:{year}:q{quarter}", value
 

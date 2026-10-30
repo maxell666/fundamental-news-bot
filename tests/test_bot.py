@@ -288,7 +288,7 @@ class SelectionPipelineTests(unittest.TestCase):
 
     def test_filter_version_is_visible_in_logs(self):
         _, _, _, output = self.run_bot([])
-        self.assertIn("pertinence-v3.0", output)
+        self.assertIn(bot.FILTER_VERSION, output)
 
     def test_olympic_event_with_historical_war_context_is_not_sent(self):
         state, translated, sent, _ = self.run_bot([
