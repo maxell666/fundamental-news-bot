@@ -69,7 +69,7 @@ def dispatch(mode: str, token: str, *, post=requests.post) -> int:
 def main(argv: list[str] | None = None, *, now: datetime | None = None, post=requests.post) -> int:
     parser = argparse.ArgumentParser(description="Déclencher le watcher macro depuis le run news existant")
     parser.add_argument("--probe-check", action="store_true", help="Tester une fois la route GitHub en mode contrôle sans Telegram")
-    parser.add_argument("--config", type=Path, default=REPO_ROOT / "config/macro_chicago_test.json")
+    parser.add_argument("--config", type=Path, default=REPO_ROOT / "config/macro_active_test.json")
     parser.add_argument("--state", type=Path, default=REPO_ROOT / "macro_test_state.json")
     args = parser.parse_args(argv)
     try:
