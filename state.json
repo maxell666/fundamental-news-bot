@@ -523,7 +523,8 @@
     "https://www.investing.com/news/commodities-news/oil-rises-on-prospects-of-fresh-us-military-action-against-iran-4985693",
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZFFGQ3JLNVhhZkJORVpfQWI2Sm4zMUR5OERBSTc4OUtlSkVrak5YWUVpSnhBZVhBZWVWdkpOZHRlZVVCczR5V1RnOEFVU0ZQY2JBNF9GN3pqSG9GenpNYTE5NlVSZGhXbm4ySEl6aTBvQjdlb095Wm82RzNFcEhrcVNYeExMR3dyeGJmWDhheE90dS1XWFF2QzVDRjd6aVphVkgwbkJvT0N3OWNOUmFz",
     "https://www.investing.com/news/commodities-news/oil-rises-on-supply-concerns-as-houthis-attack-saudi-arabia-4985735",
-    "https://www.investing.com/news/economy-news/stocks-slump-bonds-leap-as-ai-giants-spending-spooks-investors-4985741"
+    "https://www.investing.com/news/economy-news/stocks-slump-bonds-leap-as-ai-giants-spending-spooks-investors-4985741",
+    "https://www.cnbc.com/2026/10/30/boj-inflation-target-rates.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -975,7 +976,8 @@
     "oil rises on prospects of fresh u.s. military action against iran": "Le prix du pétrole augmente face à la perspective d'une nouvelle intervention militaire américaine contre l'Iran",
     "google's nvidia chip challenge boosts cloud sales, crimps cash flow - reuters": "Le défi lancé par Google à Nvidia en matière de puces stimule les ventes dans le cloud, mais pèse sur la trésorerie - Reuters",
     "oil rises on supply concerns as houthis attack saudi arabia": "Le prix du pétrole augmente en raison des craintes liées à l'approvisionnement, alors que les Houthis attaquent l'Arabie saoudite",
-    "stocks slump, bonds leap as ai giants’ spending spooks investors": "Les actions s'effondrent, les obligations s'envolent alors que les dépenses des géants de l'IA inquiètent les investisseurs"
+    "stocks slump, bonds leap as ai giants’ spending spooks investors": "Les actions s'effondrent, les obligations s'envolent alors que les dépenses des géants de l'IA inquiètent les investisseurs",
+    "boj holds rates as inflation aligns with 2% target for first time since 2013": "La Banque du Japon maintient ses taux alors que l'inflation atteint l'objectif de 2 % pour la première fois depuis 2013"
   },
   "seen_titles": {
     "482da33036df40136b21f83a7d9937818d695c85765b8750400b514a8748e09d": "2026-10-29T16:35:36.426550Z",
@@ -1019,7 +1021,8 @@
     "c6443e6fbb8cafcc9fb125ee95e22f7838902aae4605c43bb1a0a16dc8801055": "2026-10-30T01:50:45.418751Z",
     "d5ea20fe69c8dead14f82984169359ec76c64764d1346764a32c71db7e54d53e": "2026-10-30T01:55:35.615055Z",
     "c2818d9a0eed956524ed288a297894da777b354f2afaff560d38a7aecfae43ee": "2026-10-30T02:45:45.878222Z",
-    "21015d066d3a91dde7cdff6b63a8a037523cc1ec96209118a1a5fc01396ff728": "2026-10-30T03:01:15.471907Z"
+    "21015d066d3a91dde7cdff6b63a8a037523cc1ec96209118a1a5fc01396ff728": "2026-10-30T03:01:15.471907Z",
+    "e40198922f4c6f99594e9172f090dcb37aed09cc8180eeba0d2d2563d92927f5": "2026-10-30T03:25:40.534133Z"
   },
   "seen_events": {
     "rates:ecb:hold:2026-10-29|79df104718b16c27844d67dc345c7d50e65698e33e22087a72f3c4db4f7ef5f3": {
@@ -1058,6 +1061,11 @@
       "sent_at": "2026-10-29T21:30:59.908010Z",
       "value": {},
       "base": "rates:boj:hold:2026-10-29"
+    },
+    "rates:boj:hold:2026-10-30|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-10-30T03:25:40.534314Z",
+      "value": {},
+      "base": "rates:boj:hold:2026-10-30"
     }
   }
 }
