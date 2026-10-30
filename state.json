@@ -1068,7 +1068,6 @@
     "german inflation slows more than expected in october - reuters": "L'inflation allemande ralentit plus que prévu en octobre - Reuters"
   },
   "seen_titles": {
-    "6cc5cfb5890107f012c238363963461def7a584690def99a74147eea8c4cc168": "2026-10-29T19:20:44.567546Z",
     "c544c057551d6bbce343b9800ab10c4d22f99b1d95e0249031234731b9d3acad": "2026-10-29T20:10:43.200300Z",
     "b247f6dbcaa7a55e82f564b6ca27a85e26d204c27e4a81f932b9f6cc39ccd47b": "2026-10-29T20:10:44.113659Z",
     "dec1fa769129fedfeb5d4567e3f345a76ec434a4abd9d93377588e4e19c00113": "2026-10-29T20:15:42.738247Z",
@@ -1130,11 +1129,6 @@
     "094fcb9ea32f505196d68e6d99737f9c2408be8329c19233676f60cf3741330f": "2026-10-30T18:45:45.121751Z"
   },
   "seen_events": {
-    "rates:fed:hold:2026-10-29|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-10-29T19:20:44.567559Z",
-      "value": {},
-      "base": "rates:fed:hold:2026-10-29"
-    },
     "rates:boj:hold:2026-10-29|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
       "sent_at": "2026-10-29T21:30:59.908010Z",
       "value": {},
