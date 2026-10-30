@@ -260,6 +260,14 @@ def _observed_moves(headline):
         move = _direction(clause)
         if move in ("up", "down"):
             result[asset] = move
+        elif asset in _INDICES:
+            # Un extrême de niveau ne donne pas le signe de la séance.
+            level = re.search(
+                r"\b(?:hits?|reaches?|touches?|hovers?|trades?|near)\b.{0,55}\b(low|high)s?\b",
+                clause,
+            )
+            if level:
+                result[asset] = level.group(1)
     # Une expression de marché US englobe uniquement les trois indices US.
     if not result and contains_any(headline, ("wall street", "us stocks", "u.s. stocks", "us stock futures")):
         for match in re.finditer(r"\b(?:wall street|u\.?s\.? stocks|us stock futures)\b", headline):
@@ -304,9 +312,12 @@ def get_market_impact(text, title=None, category=None):
 
     # Un cours observé ne prouve pas un mouvement des six autres instruments.
     observed = _observed_moves(headline) if category == "MARKET" or "OBSERVED_MOVE" in drivers else {}
+    observed = {asset: move for asset, move in observed.items() if asset in allowed}
     if observed:
         for move, label in (("up", "hausse"), ("down", "baisse")):
             add(tuple(asset for asset, direction in observed.items() if direction == move), label + " observée dans la dépêche ; cette observation ne prédit pas la prochaine variation.")
+        for level, label in (("low", "creux"), ("high", "sommet")):
+            add(tuple(asset for asset, value in observed.items() if value == level), "niveau proche d'un " + label + " signalé ; ce niveau ne donne pas la variation de la séance ni la prochaine direction.")
         return impacts, [asset for asset in TRACKED_ASSETS if asset in used_assets], None, category
 
     if "OBSERVED_MOVE" in drivers:

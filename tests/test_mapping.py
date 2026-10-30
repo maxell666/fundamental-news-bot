@@ -398,6 +398,33 @@ class MappingTests(unittest.TestCase):
                 self.assertLessEqual(len(text), 2400)
                 self.assertNotIn("Untrusted source content", text)
 
+    def test_real_reuters_nasdaq_low_has_a_level_reading_without_a_session_drop(self):
+        title = "Nasdaq hits near three-month low as Amazon, Intel deepen AI capex concerns - Reuters"
+        text, assets = self.combined(title, "MARKET")
+        self.assertEqual(assets, ["NAS100"])
+        self.assertIn("niveau proche d'un creux signalé", text)
+        self.assertIn("ne donne pas la variation de la séance", text)
+        self.assertNotIn("baisse observée", text)
+        self.assertNotIn("%", text)
+
+    def test_benchmark_high_is_an_observed_level_not_an_invented_daily_gain(self):
+        text, assets = self.combined("S&P 500 hits near record high", "MARKET")
+        self.assertEqual(assets, ["SP500"])
+        self.assertIn("niveau proche d'un sommet signalé", text)
+        self.assertNotIn("hausse observée", text)
+
+    def test_other_benchmark_clause_cannot_erase_or_expand_primary_low(self):
+        gate = PortfolioAssessment(True, ("NAS100",), ("OBSERVED_MOVE",), "Primary benchmark")
+        with patch("mapping.assess_portfolio", return_value=gate):
+            text, assets = self.combined("Nasdaq hits near three-month low while DAX rises", "MARKET")
+        self.assertEqual(assets, ["NAS100"])
+        self.assertIn("niveau proche d'un creux signalé", text)
+        self.assertNotIn("GER30", text)
+        self.assertNotIn("hausse observée", text)
+
+    def test_unknown_benchmark_level_does_not_get_a_generic_portfolio(self):
+        self.assertEqual(self.impact("SmallCo index hits a three-month low", "MARKET")[:3], ([], [], None))
+
     def test_priority_label_remains_compatible(self):
         self.assertEqual([priority_label(value) for value in (4, 5, 9)], ["WATCH", "HIGH", "CRITICAL"])
 
