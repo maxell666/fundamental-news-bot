@@ -1,0 +1,29 @@
+name: Vérifier le déclenchement macro
+
+on:
+  push:
+    branches: [codex/fix-macro-trigger, main]
+    paths:
+      - scripts/dispatch_macro.py
+      - .github/workflows/news-bot.yml
+      - .github/workflows/macro-dispatch-check.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  route-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Déclencher seulement le contrôle public sans Telegram
+        run: python scripts/dispatch_macro.py --probe-check
+        env:
+          GH_TOKEN: ${{ github.token }}

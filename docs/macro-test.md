@@ -19,8 +19,25 @@ n'est obtenu dans la fenêtre de trois minutes, le test signale son échec.
 
 ## Exécution et mesures
 
-Le workflow séparé démarre à 13:35 UTC, avec un départ de secours à 13:40 UTC.
-Il attend l'heure publique puis vérifie la page toutes les dix secondes,
+Le workflow séparé prévoit un démarrage à 13:35 UTC, avec un départ de secours
+à 13:40 UTC. Le 30 octobre, ces événements GitHub planifiés ne se sont pas
+déclenchés : aucun observateur n'a démarré et aucun délai n'a été mesuré.
+
+Le workflow d'actualités appelle désormais un petit déclencheur depuis les
+exécutions initiées par cron-job.org. Pendant les dix minutes précédant
+l'événement configuré, il demande le lancement du workflow macro séparé en mode
+watch, sans attendre son résultat ni bloquer les actualités. Il n'appelle aucune
+API hors de cette fenêtre. Les quinze dernières secondes avant l'annonce sont
+exclues pour laisser au lecteur le temps d'enregistrer le consensus. Les gardes
+de date et d'état restent en place ; aucun résultat passé n'est rejoué.
+
+Le contrôle de routage déclenche uniquement le mode check : accès public,
+sans Telegram ni état d'envoi. Une réponse GitHub204 confirme l'acceptation de
+la demande ; les journaux de l'exécution cible permettent d'en confirmer le
+démarrage. Ce contrôle n'établit pas la latence d'un prochain résultat.
+
+Lorsqu'un essai est armé, le lecteur attend l'heure publique puis vérifie
+la page toutes les dix secondes,
 pendant trois minutes au maximum. Il respecte les refus et la temporisation
 du serveur. GitHub peut retarder ses tâches programmées : le code refuse un
 départ en dehors de la fenêtre et ne capture pas un consensus après l'annonce.
