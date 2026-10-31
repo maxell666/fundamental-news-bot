@@ -1074,20 +1074,11 @@
     "russia extends diesel export ban through january, allows limited shipments": "La Russie prolonge l'interdiction d'exportation de gazole jusqu'en janvier, tout en autorisant des expéditions limitées"
   },
   "seen_titles": {
-    "166ecf8098e331fab9621439178d5de5993cdea2ed106aa20209fda71d050595": "2026-10-30T16:40:46.972627Z",
-    "08c18e410d1aafdcfe1da13d7e9562add8496eb85ddd045b55449bbb2ce929e5": "2026-10-30T16:40:47.911113Z",
-    "70e607e2a0241b242a140cfeb08b827fb398fe029a77eff54742164085c462d1": "2026-10-30T16:40:48.931191Z",
     "2eaeda16d4c4f8c3d5062a5f0f20bfc67213f91191dc886961fdc45dc9422bb5": "2026-10-30T17:30:57.412927Z",
     "094fcb9ea32f505196d68e6d99737f9c2408be8329c19233676f60cf3741330f": "2026-10-30T18:45:45.121751Z",
     "ddb3f76d55086e421b29fabbe945d8c9e9035f1da7b1b2048fca0e5bb723abd2": "2026-10-31T02:10:46.331814Z",
     "75e128bff0091f5b070fcf85d10ceb3b0ce5c104d63b872a621531d004f9dfbf": "2026-10-31T06:10:47.004187Z",
     "a2efcfb1c5abc6dea8c633e1c8db0d85d4fd7c4acc92703ab718c50102dde1a6": "2026-10-31T14:01:16.659484Z"
   },
-  "seen_events": {
-    "gdp:us:2026:q3|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-10-30T16:40:48.931208Z",
-      "value": {},
-      "base": "gdp:us:2026:q3"
-    }
-  }
+  "seen_events": {}
 }
