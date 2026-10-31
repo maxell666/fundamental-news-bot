@@ -1072,7 +1072,6 @@
     "german inflation cools on fuel tax cut, economy grows more than expected in q3 - reuters": "L'inflation allemande ralentit grâce à la baisse de la taxe sur les carburants ; la croissance économique dépasse les prévisions au troisième trimestre - Reuters"
   },
   "seen_titles": {
-    "3ceb09fe4701f685e4da2d63d73f0e45699ad6287f8ae4f64286d64a8ad784d7": "2026-10-30T11:10:48.555684Z",
     "f0ad9e6faceac4d36a4dc9eac1eb397fbb2f91472a39d53effdd19e69be4b238": "2026-10-30T11:35:36.057067Z",
     "e8414868df64066b15adcaaf7cfd1e71be48a34701fdabac1ebd32ace0789fc1": "2026-10-30T11:45:48.036046Z",
     "5cdd363807e5f2c8328d438d65d348ac55e003611870c52e1fa368b47f7448e9": "2026-10-30T11:55:34.083110Z",
@@ -1093,11 +1092,6 @@
     "75e128bff0091f5b070fcf85d10ceb3b0ce5c104d63b872a621531d004f9dfbf": "2026-10-31T06:10:47.004187Z"
   },
   "seen_events": {
-    "gdp:eurozone:2026:q3|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-10-30T11:10:48.555701Z",
-      "value": {},
-      "base": "gdp:eurozone:2026:q3"
-    },
     "gdp:us:2026:q3|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
       "sent_at": "2026-10-30T16:40:48.931208Z",
       "value": {},
