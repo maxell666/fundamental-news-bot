@@ -1070,8 +1070,6 @@
     "china’s october factory activity contracts at fastest pace in 3 months, pmi survey shows": "L'activité industrielle chinoise en octobre recule à son rythme le plus rapide depuis trois mois, selon l'enquête PMI"
   },
   "seen_titles": {
-    "e40198922f4c6f99594e9172f090dcb37aed09cc8180eeba0d2d2563d92927f5": "2026-10-30T03:25:40.534133Z",
-    "915ec2e1281dbc419d842134fc1404cdc696f7a8d4ccc3e39dce10ade5d6fd2e": "2026-10-30T03:31:00.104561Z",
     "5f6afe98da382a36d5dd07b11da8f3e6e6ce4788089fffa0d55083e4eb32c10e": "2026-10-30T04:05:32.101304Z",
     "fa5680a7d060f56b16f8c283ac11fd0a81cfaf4dc1dbfb1dd033fff8f1e266ff": "2026-10-30T04:05:33.254510Z",
     "4811bfe49527cba45cf6b21944b9aa9bd98e12fec75814892b1d5a2c6172b616": "2026-10-30T04:10:53.114168Z",
@@ -1118,11 +1116,6 @@
     "ddb3f76d55086e421b29fabbe945d8c9e9035f1da7b1b2048fca0e5bb723abd2": "2026-10-31T02:10:46.331814Z"
   },
   "seen_events": {
-    "rates:boj:hold:2026-10-30|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-10-30T03:25:40.534314Z",
-      "value": {},
-      "base": "rates:boj:hold:2026-10-30"
-    },
     "rates:boj:hold:2026-10-30|02d4b079c99ca9b63fac7396c841fa87a2c1cf99687b5021363ae41717acb180": {
       "sent_at": "2026-10-30T04:05:32.101325Z",
       "value": {
