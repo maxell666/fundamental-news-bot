@@ -579,7 +579,8 @@
     "https://investinglive.com/news/china-private-factory-pmi-at-52-0-beats-forecasts-output-growth-fastest-since-april/",
     "https://www.investing.com/news/commodities-news/oil-falls-as-trump-favours-iran-diplomacy-before-midterm-elections-4989799",
     "https://www.investing.com/news/economy-news/ecb-will-have-to-raise-rates-again-extent-uncertain-kazimir-says-4990326",
-    "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeHdxcnVlWmx5T1pjbDZQS19XeXlYTW1xZmNONnJQWHk4YU1EQTRzZFZQVEJxYjd6WEJTN2pfZC10ZGlzXzVURVdHZkg1RjZGY2tjN0ZVRjNRc0p4UmQ1c2F6MUt4eEpHSml6Z3Q4WHpqV094aEo0dTlVbk00OGFBazlmdGhsWGdtckFHQjlBTVU5Q0FRR3hxUnVmcVpPeGZsTHBlWmhTdw"
+    "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeHdxcnVlWmx5T1pjbDZQS19XeXlYTW1xZmNONnJQWHk4YU1EQTRzZFZQVEJxYjd6WEJTN2pfZC10ZGlzXzVURVdHZkg1RjZGY2tjN0ZVRjNRc0p4UmQ1c2F6MUt4eEpHSml6Z3Q4WHpqV094aEo0dTlVbk00OGFBazlmdGhsWGdtckFHQjlBTVU5Q0FRR3hxUnVmcVpPeGZsTHBlWmhTdw",
+    "https://www.investing.com/news/commodities-news/oil-slips-more-than-1-as-talks-continue-on-ending-iran-war-4989784"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1087,7 +1088,8 @@
     "china private factory pmi at 52.0 beats forecasts, output growth fastest since april": "L'indice PMI des usines privées chinoises, à 52,0, dépasse les prévisions ; la croissance de la production est la plus forte depuis avril",
     "oil drops over 3% as iran diplomacy hopes prompt profit-taking after october rally": "Le prix du pétrole recule de plus de 3 %, les espoirs diplomatiques concernant l'Iran ayant déclenché des prises de bénéfices après la remontée observée en octobre",
     "ecb will have to raise rates again, extent uncertain, kazimir says": "« La BCE devra relever à nouveau ses taux, mais l'ampleur de cette hausse reste incertaine », déclare M. Kazimir",
-    "oil drops almost 4% on hopes of progress in talks on ending us-iran war - reuters": "Le prix du pétrole recule de près de 4 % dans l'espoir d'une avancée dans les négociations visant à mettre fin au conflit entre les États-Unis et l'Iran - Reuters"
+    "oil drops almost 4% on hopes of progress in talks on ending us-iran war - reuters": "Le prix du pétrole recule de près de 4 % dans l'espoir d'une avancée dans les négociations visant à mettre fin au conflit entre les États-Unis et l'Iran - Reuters",
+    "oil drops over 4% on hopes of progress in talks on ending us-iran war": "Le prix du pétrole recule de plus de 4 % dans l'espoir d'une avancée dans les négociations visant à mettre fin au conflit entre les États-Unis et l'Iran"
   },
   "seen_titles": {
     "139b98ba074c87eea08e9e5f68f476f97fc33079005d0ca7e6cde80e9e5a9250": "2026-11-01T21:15:42.839937Z",
@@ -1095,7 +1097,8 @@
     "c23fb84a42bcf99871632b3709d308c346c728b7b60d2d8cee94ddafb9ee52dd": "2026-11-02T02:05:32.009827Z",
     "9a32b383b2c74e75f2b9d39c38b1b8a5705110b84ba915631708366120887aa2": "2026-11-02T08:50:44.402928Z",
     "3dc13219e16a42486aae5873d8be250e1da9d63b11578dfe22341abd96b2b8ac": "2026-11-02T09:10:43.483722Z",
-    "1a647e79f63749b814728f1faea0b44d6e310b4cd8e082ea7daf67156522bab9": "2026-11-02T09:50:45.546002Z"
+    "1a647e79f63749b814728f1faea0b44d6e310b4cd8e082ea7daf67156522bab9": "2026-11-02T09:50:45.546002Z",
+    "e314823dc837eaa2a12dbec2a0c337753f2095099c5796c6b4e727844842d3b0": "2026-11-02T10:45:44.948980Z"
   },
   "seen_events": {
     "rates:boe:raise:2026-11-02|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
