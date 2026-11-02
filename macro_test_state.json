@@ -17,5 +17,8 @@
   "startup_source_checked_at": "2026-11-02T14:51:06.589Z",
   "startup_source_http_status": 200,
   "startup_source_readability": "accessible",
-  "status": "send_pending"
+  "status": "completed",
+  "telegram_accepted_at": "2026-11-02T15:00:33.390Z",
+  "telegram_api_latency_seconds": 0.505,
+  "telegram_post_started_at": "2026-11-02T15:00:32.886Z"
 }
