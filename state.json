@@ -575,7 +575,8 @@
     "https://news.google.com/rss/articles/CBMitgFBVV95cUxOTk80ZVBzRVczc0hyRHU0RkJiTWx5ZDUwdnBHb0FWSmJyQWJzWHRYR0hZd0MzTW1INnFtSWRISVVRb1RncDltYW16eTYxRU9NcWJzanRqMmp4LWFXUVNTV2tzT3JCM0doS01hWDdGeUhNdHZ3WTdYXy14Q0luZTRmOWdQNlp2ZThtYlQ0cWhNSVk0c0ZkOUFyMExMUWRHMXRKamU2ZHRLa2pPMG9heUhzN2YwTnpCZw",
     "https://www.investing.com/news/economy-news/pakistanbound-lng-tanker-attacked-near-hormuz-despite-iran-clearance--bloomberg-4989531",
     "https://investinglive.com/news/china-s-factory-and-services-pmi-gauges-both-drop-below-50-as-fourth-quarter-starts-on-a-weak-note/",
-    "https://www.investing.com/news/economy-news/bank-of-england-poised-to-raise-rates-but-may-push-back-on-bets-for-more-4989788"
+    "https://www.investing.com/news/economy-news/bank-of-england-poised-to-raise-rates-but-may-push-back-on-bets-for-more-4989788",
+    "https://investinglive.com/news/china-private-factory-pmi-at-52-0-beats-forecasts-output-growth-fastest-since-april/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1079,12 +1080,14 @@
     "opec+ agrees in principle to keep oil output targets steady in december, sources say - reuters": "L'OPEP+ s'accorde en principe pour maintenir inchangés ses objectifs de production pétrolière en décembre, selon certaines sources - Reuters",
     "pakistan-bound lng tanker attacked near hormuz despite iran clearance - bloomberg": "Un méthanier à destination du Pakistan a été attaqué près du détroit d'Ormuz malgré l'autorisation de l'Iran - Bloomberg",
     "china’s factory and services pmi gauges both drop below 50 as fourth quarter starts on a weak note": "Les indices PMI chinois du secteur manufacturier et des services passent tous deux sous la barre des 50, marquant ainsi un début de quatrième trimestre en demi-teinte",
-    "bank of england poised to raise rates but may push back on bets for more": "La Banque d'Angleterre s'apprête à relever ses taux, mais pourrait freiner les anticipations d'une nouvelle hausse"
+    "bank of england poised to raise rates but may push back on bets for more": "La Banque d'Angleterre s'apprête à relever ses taux, mais pourrait freiner les anticipations d'une nouvelle hausse",
+    "china private factory pmi at 52.0 beats forecasts, output growth fastest since april": "L'indice PMI des usines privées chinoises, à 52,0, dépasse les prévisions ; la croissance de la production est la plus forte depuis avril"
   },
   "seen_titles": {
     "5da981afe693d1fd5429bb8e03634e382182fe8c8a200fa39e9bd87abe099373": "2026-11-01T10:10:43.528017Z",
     "139b98ba074c87eea08e9e5f68f476f97fc33079005d0ca7e6cde80e9e5a9250": "2026-11-01T21:15:42.839937Z",
-    "d2cb7aa75435f57136a8cc4aa91225c9bba801e157fbf4dcb345dbfe862a1c78": "2026-11-02T00:20:45.658649Z"
+    "d2cb7aa75435f57136a8cc4aa91225c9bba801e157fbf4dcb345dbfe862a1c78": "2026-11-02T00:20:45.658649Z",
+    "c23fb84a42bcf99871632b3709d308c346c728b7b60d2d8cee94ddafb9ee52dd": "2026-11-02T02:05:32.009827Z"
   },
   "seen_events": {
     "rates:boe:raise:2026-11-02|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
