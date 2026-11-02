@@ -1,0 +1,10 @@
+{
+  "event_id": "ism-manufacturing-2026-10",
+  "forecast": "54.5",
+  "forecast_at": "2026-11-02T14:51:05.075Z",
+  "previous": "54.5",
+  "scheduled_at": "2026-11-02T15:00:00.000Z",
+  "startup_at": "2026-11-02T14:51:04.993Z",
+  "startup_confirmed_at": "2026-11-02T14:51:05.094Z",
+  "status": "armed"
+}
