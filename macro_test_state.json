@@ -6,5 +6,10 @@
   "scheduled_at": "2026-11-02T15:00:00.000Z",
   "startup_at": "2026-11-02T14:51:04.993Z",
   "startup_confirmed_at": "2026-11-02T14:51:05.094Z",
+  "startup_notice_reserved_at": "2026-11-02T14:51:06.780Z",
+  "startup_notice_status": "pending",
+  "startup_source_checked_at": "2026-11-02T14:51:06.589Z",
+  "startup_source_http_status": 200,
+  "startup_source_readability": "accessible",
   "status": "armed"
 }
