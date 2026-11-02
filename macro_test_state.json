@@ -1,9 +1,14 @@
 {
+  "actual": "55.5",
   "event_id": "ism-manufacturing-2026-10",
+  "first_seen_at": "2026-11-02T15:00:31.239Z",
   "forecast": "54.5",
-  "forecast_at": "2026-11-02T14:51:05.075Z",
+  "forecast_at": "2026-11-02T14:59:30.091Z",
+  "message_kind": "result",
+  "period": "2026-10",
   "previous": "54.5",
   "scheduled_at": "2026-11-02T15:00:00.000Z",
+  "send_reserved_at": "2026-11-02T15:00:31.239Z",
   "startup_at": "2026-11-02T14:51:04.993Z",
   "startup_confirmed_at": "2026-11-02T14:51:05.094Z",
   "startup_notice_accepted_at": "2026-11-02T14:51:08.916Z",
@@ -12,5 +17,5 @@
   "startup_source_checked_at": "2026-11-02T14:51:06.589Z",
   "startup_source_http_status": 200,
   "startup_source_readability": "accessible",
-  "status": "armed"
+  "status": "send_pending"
 }
