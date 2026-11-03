@@ -1116,7 +1116,6 @@
     "swiss inflation surprises higher in october but core prices offer some relief": "L'inflation suisse a surpris à la hausse en octobre, mais les prix sous-jacents apportent un certain soulagement"
   },
   "seen_titles": {
-    "3dc13219e16a42486aae5873d8be250e1da9d63b11578dfe22341abd96b2b8ac": "2026-11-02T09:10:43.483722Z",
     "1a647e79f63749b814728f1faea0b44d6e310b4cd8e082ea7daf67156522bab9": "2026-11-02T09:50:45.546002Z",
     "e314823dc837eaa2a12dbec2a0c337753f2095099c5796c6b4e727844842d3b0": "2026-11-02T10:45:44.948980Z",
     "d84b03e8927dc7a8e53671d2c208a6b6a99482a2646981bf713980c4039f81ac": "2026-11-02T11:10:43.379089Z",
@@ -1132,11 +1131,5 @@
     "29331e436c35d30a362f9bbb90e19f6b18bfec511f059cdc7e849a240c502409": "2026-11-03T01:45:44.439390Z",
     "7f31779cf6e4465d7cbd63decf2e2fac0e1f15c88a5c467805d5afdb68d17b5f": "2026-11-03T08:10:49.541978Z"
   },
-  "seen_events": {
-    "rates:ecb:raise:2026-11-02|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-02T09:10:43.483741Z",
-      "value": {},
-      "base": "rates:ecb:raise:2026-11-02"
-    }
-  }
+  "seen_events": {}
 }
