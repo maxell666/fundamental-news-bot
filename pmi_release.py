@@ -281,6 +281,96 @@ def _number(value: Decimal, *, signed: bool = False) -> str:
     return prefix + format(value, "f").replace(".", ",")
 
 
+def _display_points(value: Decimal) -> str:
+    text = _number(value)
+    return text if "," in text else text + ",0"
+
+
+def _format_pmi_result(
+    *, title: str, period: str, source_url: str, analysis: PMIAnalysis,
+    scheduled_at: datetime, observed_at: datetime, forecast_at: datetime,
+    regional: bool = False, report_previous: Decimal | None = None,
+    components: tuple[tuple[str, Decimal], ...] = (),
+) -> str:
+    """Shared mobile presentation; prices and rates remain conditional.
+
+    The footer measures detection from the scheduled release, not the source's
+    actual posting time or Telegram delivery. Exact timestamps stay in audits.
+    """
+    scheduled = _utc(scheduled_at, "released_at")
+    observed, frozen = _utc(observed_at, "observed_at"), _utc(forecast_at, "forecast_at")
+    if observed < scheduled:
+        raise ValueError("Observation precedes the scheduled release")
+    if frozen >= scheduled:
+        raise ValueError("Consensus must be frozen before the scheduled release")
+    if not isinstance(period, str) or not re.fullmatch(r"\d{4}-(?:0[1-9]|1[0-2])", period):
+        raise ValueError("period must have the form YYYY-MM")
+    months = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+              "août", "septembre", "octobre", "novembre", "décembre")
+    label = f"{months[int(period[5:]) - 1]} {period[:4]}"
+    subject = "Activité de Chicago" if regional else "Industrie américaine"
+    conclusions = {
+        "activite_plus_forte": f"{subject} plus forte qu’attendu.",
+        "activite_plus_faible": f"{subject} plus faible qu’attendu.",
+        "conforme": f"{subject} conforme aux attentes.",
+        "consensus_absent": "Attentes indisponibles : comparaison impossible.",
+    }
+    lines = [f"🧪 TEST MACRO — {title} · {label}", conclusions[analysis.classification]]
+    if regional:
+        lines.append("Enquête régionale : portée limitée.")
+    lines.extend([
+        "",
+        f"Publié : {_display_points(analysis.actual)} pts",
+        f"Attendu : {_display_points(analysis.forecast)} pts" if analysis.forecast is not None else "Attendu : indisponible",
+        f"Précédent : {_display_points(analysis.previous)} pts" if analysis.previous is not None else "Précédent : indisponible",
+    ])
+    if analysis.surprise_points is not None:
+        surprise = _display_points(analysis.surprise_points)
+        if analysis.surprise_points > 0:
+            surprise = "+" + surprise
+        unit = "point" if abs(analysis.surprise_points) <= 1 else "points"
+        lines.append(f"Surprise : {surprise} {unit}")
+    if report_previous is not None and report_previous != analysis.previous:
+        lines.append(f"Précédent du rapport : {_display_points(report_previous)} pts")
+
+    if analysis.surprise_points:
+        stronger = analysis.surprise_points > 0
+        pair_arrow, chf_arrow = ("↓", "↑") if stronger else ("↑", "↓")
+        rate_move = "montent" if stronger else "baissent"
+        lines.extend([
+            "", "🎯 Scénarios possibles",
+            f"Si les taux US attendus {rate_move} par rapport aux taux européens, britanniques et suisses :",
+            f"• EUR/USD {pair_arrow} POSSIBLE",
+            f"• GBP/USD {pair_arrow} POSSIBLE",
+            f"• USD/CHF {chf_arrow} POSSIBLE",
+            "Le rôle de refuge du franc peut modifier le sens de USD/CHF.",
+            "",
+            "SP500 / NAS100 / US30 : MIXTE",
+            ("L’activité peut soutenir les bénéfices ; si les taux montent, pression possible, surtout sur NAS100."
+             if stronger else
+             "L’activité peut peser sur les bénéfices ; si les taux baissent, soutien possible, surtout pour NAS100."),
+            "GER30 : MIXTE — effets indirects via l’activité mondiale et les taux.",
+        ])
+    else:
+        lines.extend(["", "Marchés : aucun sens déduit de ce chiffre seul."])
+
+    regime = "expansion" if analysis.actual > 50 else "contraction" if analysis.actual < 50 else "seuil neutre"
+    lines.extend(["", f"Contexte : {regime} (seuil : 50)."])
+    if components:
+        lines.append(" • ".join(f"{name} : {_display_points(value)} pts" for name, value in components))
+        if any(name == "Prix payés" for name, _ in components):
+            lines.append("Prix payés : pas de surprise déduite sans attentes comparables.")
+    paris = ZoneInfo("Europe/Paris")
+    delay = f"{(observed - scheduled).total_seconds():.1f}".replace(".", ",")
+    lines.extend([
+        "",
+        f"Prévu : {scheduled.astimezone(paris):%d/%m %H:%M} Paris • détecté : {observed.astimezone(paris):%H:%M:%S} (+{delay} s)",
+        "Attentes enregistrées avant annonce." if analysis.forecast is not None else "Attentes indisponibles avant annonce.",
+        f"🔗 {source_url}",
+    ])
+    return "\n".join(lines)
+
+
 def format_chicago_test_message(
     release: PMIRelease,
     forecast: Decimal | None,
@@ -295,46 +385,8 @@ def format_chicago_test_message(
     The public summary supplies no posting timestamp, so this does not measure
     its actual publication latency or the time Telegram takes to deliver.
     """
-    scheduled = _utc(release.released_at, "released_at")
-    observed = _utc(observed_at, "observed_at")
-    frozen = _utc(forecast_at, "forecast_at")
-    if observed < scheduled:
-        raise ValueError("Observation precedes the scheduled release")
-    if frozen >= scheduled:
-        raise ValueError("Consensus must be frozen before the scheduled release")
     analysis = analyze_chicago(release.actual, forecast, previous)
-    paris = ZoneInfo("Europe/Paris")
-    delay = (observed - scheduled).total_seconds()
-    lines = [
-        "🧪 TEST MACRO — Chicago PMI",
-        f"Période : {release.period}",
-        "Indicateur régional, portée plus limitée que CPI ou FOMC.",
-        "",
-        "✅ Résultat confirmé sur la page officielle ISM Chicago",
-        f"Publié : {_number(analysis.actual)} points",
-        f"Consensus enregistré avant annonce : {_number(analysis.forecast)}" if forecast is not None else "Consensus : indisponible",
-        f"Précédent enregistré avant annonce : {_number(analysis.previous)}" if previous is not None else "Précédent : indisponible",
-    ]
-    if analysis.surprise_points is not None:
-        lines.append(f"Surprise : {_number(analysis.surprise_points, signed=True)} point(s) vs consensus")
-    if analysis.previous_delta_points is not None:
-        lines.append(f"Écart au précédent : {_number(analysis.previous_delta_points, signed=True)} point(s)")
-    regime = "expansion" if analysis.actual > 50 else "contraction" if analysis.actual < 50 else "seuil neutre"
-    lines.extend([
-        f"Niveau d’activité : {regime} (seuil : 50)",
-        "",
-        f"Consensus figé le {frozen.astimezone(paris):%d/%m/%Y à %H:%M:%S} (Paris)",
-        f"Heure prévue au calendrier : {scheduled.astimezone(paris):%d/%m/%Y %H:%M:%S} (Paris)",
-        f"Détecté : {observed.astimezone(paris):%H:%M:%S} (Paris), +{delay:.1f} s après l’heure prévue",
-        "",
-        "🧭 Lecture conditionnelle pour tes marchés",
-        analysis.explanation,
-    ])
-    if analysis.surprise_points:
-        lines.extend([
-            f"• EUR/USD ; GBP/USD : {analysis.directions['EURUSD']}",
-            f"• USD/CHF : {analysis.directions['USDCHF']}",
-            f"• GER30 ; SP500 ; NAS100 ; US30 : {analysis.directions['GER30']}",
-        ])
-    lines.extend(["", f"🔗 {release.source_url}"])
-    return "\n".join(lines)
+    return _format_pmi_result(title="Chicago PMI", period=release.period,
+                              source_url=release.source_url, analysis=analysis,
+                              scheduled_at=release.released_at, observed_at=observed_at,
+                              forecast_at=forecast_at, regional=True)

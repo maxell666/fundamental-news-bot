@@ -1,13 +1,21 @@
-# Essai macro actif
+# Essai macro et lecture des résultats
 
-Le prochain essai est l’**ISM Manufacturing PMI d’octobre 2026**, publié
-**lundi 2 novembre à 16:00 Europe/Paris / 15:00 UTC / 10:00 New York**.
-Le changement d’heure américain du 1er novembre est pris en compte.
+L’essai sur l’**ISM Manufacturing PMI d’octobre 2026**, prévu le
+**lundi 2 novembre à 16:00 Europe/Paris / 15:00 UTC / 10:00 New York**, a réussi.
+Le résultat officiel était **55,5**, contre **54,5 attendu** et **54,5 précédent**.
+Les attentes ont été figées à **15:59:30,091 Paris**, le résultat a été détecté
+à **16:00:31,239**, puis accepté par l’API Telegram à **16:00:33,390**.
+Le lancement de secours a retrouvé l’état terminé sans envoyer de doublon.
+Les [journaux de l’exécution](https://github.com/maxell666/fundamental-news-bot/actions/runs/41465839469)
+conservent la mesure. Le changement d’heure américain du 1er novembre a bien
+été pris en compte.
 
 La configuration active est `config/macro_active_test.json`. L’ancienne
 configuration Chicago est conservée comme historique, sans être réarmée.
+Cet essai est terminé : aucune nouvelle publication n’est programmée par le
+seul changement de présentation décrit ci-dessous.
 
-**Contrôle réel du 30 octobre :** après deux réponses HTTP503, les deux pages
+**Contrôle préalable du 30 octobre :** après deux réponses HTTP503, les deux pages
 officielles ont répondu HTTP200 à 16:08 UTC (17:08 Paris). Le rapport historique
 de septembre a été reconnu avec son PMI54,5 ; la page cible d’octobre est encore
 non publiée, ce qui est attendu. Le consensus JSON est accessible, mais son
@@ -79,17 +87,32 @@ années suivantes. Aucun résultat du Chicago PMI du 30 octobre n’est rejoué.
 
 ## Message et limites de la mesure
 
-Le message contient résultat, consensus figé, précédent, surprise, période,
-heure prévue et première détection. La lecture vise uniquement EUR/USD,
-GBP/USD, GER30, USD/CHF, SP500, NAS100 et US30. Un PMI mesure l’activité :
-croissance, bénéfices et taux peuvent produire des effets opposés sur les
-indices. Les prix payés ne deviennent pas automatiquement une surprise
-d’inflation.
+Le message commence par une conclusion en français simple, puis les chiffres
+**Publié / Attendu / Précédent** et la surprise exprimée en points.
+La période est écrite en toutes lettres. Les conséquences possibles pour
+EUR/USD, GBP/USD, USD/CHF, SP500, NAS100, US30 et GER30 viennent avant les
+composantes et le pied de message technique.
+
+Les flèches de devises restent conditionnelles au différentiel de taux ;
+USD/CHF conserve la réserve liée aux flux vers le franc. Les indices ont une
+lecture concrète de deux effets possibles : croissance et bénéfices d’un côté,
+taux et coût du financement de l’autre. Le NAS100 est particulièrement exposé
+au canal des taux ; le GER30 reçoit une transmission plus indirecte. Un chiffre
+conforme ou sans attentes ne produit aucune flèche directionnelle. Le précédent
+ne remplace jamais les attentes.
+
+Les nouvelles commandes, l’emploi et les prix payés restent des niveaux de
+composantes, sans surprise inventée en l’absence de leurs propres attentes.
+Le précédent figurant dans le rapport reste indiqué s’il diffère de la valeur capturée.
+L’heure prévue, la première détection et la source sont conservées en bas du
+message ; les horodatages détaillés et les mesures d’envoi restent dans l’audit.
 
 Les audits distinguent T0 prévu, démarrage, premier résultat valide et
 confirmation de l’API Telegram. Cette confirmation n’est pas l’heure de la
 notification sur le téléphone. La source ne fournit pas l’heure effective de
-mise en ligne. Aucun délai inférieur à une minute n’est encore démontré.
+mise en ligne. Sur l’essai du 2 novembre, le délai entre l’heure prévue et
+l’acceptation Telegram a été de **33,390 secondes**. Ce résultat sur une
+publication ne garantit pas le même délai pour les suivantes.
 
 ## Couverture actuelle
 

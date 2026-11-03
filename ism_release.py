@@ -14,7 +14,7 @@ import re
 from zoneinfo import ZoneInfo
 
 from pmi_release import (
-    PMIAnalysis, ReleaseNotReady, ReleaseParseError, _BodyText, _number, _utc,
+    PMIAnalysis, ReleaseNotReady, ReleaseParseError, _BodyText, _format_pmi_result, _utc,
     analyze_chicago,
 )
 
@@ -261,39 +261,12 @@ def format_ism_test_message(
     *, observed_at: datetime, forecast_at: datetime,
 ) -> str:
     """Plain text; detection is relative to schedule, not actual posting time."""
-    scheduled = _utc(release.released_at, "released_at")
-    observed, frozen = _utc(observed_at, "observed_at"), _utc(forecast_at, "forecast_at")
-    if observed < scheduled:
-        raise ValueError("Observation precedes the scheduled release")
-    if frozen >= scheduled:
-        raise ValueError("Consensus must be frozen before the scheduled release")
     analysis = analyze_ism(release.actual, forecast, previous)
-    paris = ZoneInfo("Europe/Paris")
-    lines = ["🧪 TEST MACRO — ISM manufacturier États-Unis", f"Période : {release.period}", "",
-             "✅ Résultat confirmé sur le rapport officiel ISM",
-             f"Publié : {_number(analysis.actual)} points",
-             f"Consensus enregistré avant annonce : {_number(analysis.forecast)}" if forecast is not None else "Consensus : indisponible",
-             f"Précédent enregistré avant annonce : {_number(analysis.previous)}" if previous is not None else "Précédent : indisponible"]
-    if analysis.surprise_points is not None:
-        lines.append(f"Surprise : {_number(analysis.surprise_points, signed=True)} point(s) vs consensus")
-    if analysis.previous_delta_points is not None:
-        lines.append(f"Écart au précédent : {_number(analysis.previous_delta_points, signed=True)} point(s)")
-    if release.previous is not None and release.previous != analysis.previous:
-        lines.append(f"Précédent figurant dans le rapport : {_number(release.previous)}")
-    regime = "expansion" if analysis.actual > 50 else "contraction" if analysis.actual < 50 else "seuil neutre"
-    lines.append(f"Secteur manufacturier : {regime} (seuil : 50)")
-    for field, label in (("new_orders", "Nouvelles commandes"), ("employment", "Emploi"), ("prices", "Prix payés")):
-        value = getattr(release, field)
-        if value is not None:
-            lines.append(f"{label} : {_number(value)} points")
-    lines.extend(["", f"Consensus figé le {frozen.astimezone(paris):%d/%m/%Y à %H:%M:%S} (Paris)",
-                  f"Heure prévue au calendrier : {scheduled.astimezone(paris):%d/%m/%Y %H:%M:%S} (Paris)",
-                  f"Détecté : {observed.astimezone(paris):%H:%M:%S} (Paris), +{(observed - scheduled).total_seconds():.1f} s après l’heure prévue",
-                  "", "🧭 Lecture conditionnelle pour tes marchés", analysis.explanation])
-    if analysis.surprise_points:
-        lines.extend([f"• EUR/USD ; GBP/USD : {analysis.directions['EURUSD']}",
-                      f"• USD/CHF : {analysis.directions['USDCHF']}",
-                      f"• GER30 ; SP500 ; NAS100 ; US30 : {analysis.directions['GER30']}"])
-    if release.prices is not None:
-        lines.append("Les prix payés renseignent les tensions sur les intrants ; sans consensus sur cette composante, leur niveau ne mesure pas une surprise inflationniste.")
-    return "\n".join(lines + ["", f"🔗 {release.source_url}"])
+    components = tuple((label, value) for field, label in (
+        ("new_orders", "Nouvelles commandes"), ("employment", "Emploi"), ("prices", "Prix payés")
+    ) if (value := getattr(release, field)) is not None)
+    return _format_pmi_result(title="ISM manufacturier", period=release.period,
+                              source_url=release.source_url, analysis=analysis,
+                              scheduled_at=release.released_at, observed_at=observed_at,
+                              forecast_at=forecast_at, report_previous=release.previous,
+                              components=components)

@@ -151,12 +151,16 @@ class ISMMessageTests(unittest.TestCase):
         text = format_ism_test_message(parse(report()), Decimal("55.0"), Decimal("54.5"),
                                        observed_at=SCHEDULED + timedelta(seconds=4),
                                        forecast_at=SCHEDULED - timedelta(hours=1))
-        for part in ("Publié : 55,1", "Surprise : +0,1", "Nouvelles commandes : 56,2", "Prix payés : 76,4",
-                     "Heure prévue au calendrier : 02/11/2026 16:00:00", "Détecté : 16:00:04", "+4.0 s après l’heure prévue",
-                     "EUR/USD ; GBP/USD : baisse possible", "USD/CHF : hausse possible", "GER30 ; SP500 ; NAS100 ; US30 : lecture mixte"):
+        for part in ("Publié : 55,1 pts", "Surprise : +0,1 point", "Nouvelles commandes : 56,2", "Prix payés : 76,4",
+                     "octobre 2026", "Industrie américaine plus forte qu’attendu", "Attendu : 55,0 pts",
+                     "Prévu : 02/11 16:00 Paris", "détecté : 16:00:04 (+4,0 s)",
+                     "EUR/USD ↓ POSSIBLE", "GBP/USD ↓ POSSIBLE", "USD/CHF ↑ POSSIBLE",
+                     "SP500 / NAS100 / US30 : MIXTE", "GER30 : MIXTE — effets indirects"):
             self.assertIn(part, text)
         for absent in ("Chicago", "régional", "XAUUSD", "SPX500", "confiance", "hausse observée", "Heure effective"):
             self.assertNotIn(absent, text)
+        self.assertLess(text.index("EUR/USD"), text.index("Prévu :"))
+        self.assertLessEqual(len(text), 1300)
 
     def test_missing_forecast_does_not_invent_surprise_from_previous_or_prices(self):
         text = format_ism_test_message(parse(report()), None, Decimal("54.5"),
@@ -165,7 +169,25 @@ class ISMMessageTests(unittest.TestCase):
         self.assertNotIn("Surprise :", text)
         self.assertNotIn("hausse possible", text)
         self.assertNotIn("baisse possible", text)
-        self.assertIn("sans consensus sur cette composante", text)
+        self.assertIn("Attentes indisponibles : comparaison impossible", text)
+        self.assertIn("Attentes indisponibles avant annonce.", text)
+        self.assertNotIn("Attentes enregistrées avant annonce.", text)
+        self.assertIn("pas de surprise déduite sans attentes comparables", text)
+        self.assertNotIn("↑", text)
+        self.assertNotIn("↓", text)
+
+    def test_conform_message_has_no_arrows_and_keeps_reported_previous_difference(self):
+        release = parse(report(previous="54.6"))
+        text = format_ism_test_message(release, Decimal("55.1"), Decimal("54.5"),
+                                       observed_at=SCHEDULED + timedelta(seconds=4),
+                                       forecast_at=SCHEDULED - timedelta(hours=1))
+        self.assertIn("conforme aux attentes", text)
+        self.assertIn("Surprise : 0,0 point", text)
+        self.assertIn("Précédent : 54,5 pts", text)
+        self.assertIn("Précédent du rapport : 54,6 pts", text)
+        self.assertNotIn("↑", text)
+        self.assertNotIn("↓", text)
+        self.assertNotIn("POSSIBLE", text)
 
     def test_late_consensus_or_observation_before_schedule_are_rejected(self):
         for observed, frozen in ((SCHEDULED, SCHEDULED), (SCHEDULED - timedelta(seconds=1), SCHEDULED - timedelta(hours=1))):

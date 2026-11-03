@@ -164,10 +164,13 @@ NewsAPI reste facultatif et désactivé par défaut ; sa clé est envoyée dans
 un en-tête, sans journalisation d'une URL contenant la clé. Le module
 d'actualités ne nécessite aucun abonnement de calendrier économique.
 
-Un [essai macro séparé](docs/macro-test.md) est programmé sur l’ISM manufacturier
-du 2 novembre 2026 à 16 h (Paris). Il compare le résultat officiel au consensus
-figé avant publication, avec confirmation de démarrage et mesure du délai
-de détection puis de confirmation Telegram. Le délai n’est pas garanti.
+Un [essai macro séparé](docs/macro-test.md) sur l’ISM manufacturier du
+2 novembre 2026 a confirmé un résultat de 55,5 contre 54,5 attendu, avec un envoi
+accepté par Telegram 33,390 secondes après l’heure prévue. Le délai des futures
+publications n’est pas garanti. La présentation donne d’abord une conclusion,
+puis Publié / Attendu / Précédent et les conséquences conditionnelles pour
+les marchés suivis. La couverture rapide reste limitée aux prototypes Chicago
+PMI et ISM manufacturier ; cet essai terminé ne programme pas d’autre annonce.
 
 ## Installation et tests
 
