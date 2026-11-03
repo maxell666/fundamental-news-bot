@@ -81,3 +81,36 @@ d'impact. Un rejeu de l'historique reste possible sans Telegram ni DeepL.
 - [Transmission monétaire — Banque d'Angleterre](https://www.bankofengland.co.uk/quarterly-bulletin/2024/2024/about-a-rate-of-general-interest-how-monetary-policy-transmits)
 - [Taux américains et prime de terme — New York Fed](https://www.newyorkfed.org/research/data_indicators/term-premia-tabs)
 - [DAX — STOXX](https://stoxx.com/index/daxnr/)
+
+## Reprises des résultats d’entreprise
+
+Les reprises sont regroupées par entreprise et sujet pendant 24 heures glissantes,
+y compris au changement de date. La règle couvre Apple et les grandes sociétés
+technologiques explicitement reconnues dans `company_stories.py`.
+
+Un article sur les résultats, une nouvelle prévision de marge/chiffre d’affaires
+et une réaction de l’action sont des sujets distincts. Les titres reformulant
+le même sujet ne donnent pas de nouvel envoi. Une correction explicite, un autre
+trimestre, une prévision chiffrée modifiée, un sens de réaction opposé ou un
+nouveau palier de variation de l’action (5/10/20/30 %) restent séparés.
+Un pourcentage de marge ne devient pas un pourcentage de mouvement de l’action.
+Les acquisitions, sanctions, rappels de produits et nouvelles de direction ne
+sont pas bloqués par ce regroupement. Un titre multi-entreprises passe encore
+si une entreprise apporte une information non couverte.
+
+Les simples aperçus avant résultats sont écartés. Une entreprise qui annonce
+une baisse de prévisions avant ses résultats reste une annonce effective.
+La comparaison est déterministe et limitée aux faits reconnus dans les titres ;
+un nouveau fait présent seulement dans le résumé peut échapper à cette lecture.
+
+L’audit distingue `duplicate_company_story` des articles identiques par URL.
+Les signatures sont inscrites dans `seen_events` après confirmation Telegram.
+Lors de l’installation, seuls les titres déjà confirmés dans `seen_titles`
+peuvent initialiser cet historique à partir du cache de traduction, avec leur
+heure d’envoi d’origine. Le cache seul ne prouve pas qu’un message a été envoyé.
+Aucun titre rejeté ou en attente de quota n’est marqué comme envoyé.
+
+Le rejeu des huit titres Apple envoyés les 2 et 3 novembre 2026 garde trois
+messages : résultats supérieurs aux attentes, baisse prévue des marges et
+réaction boursière. Il enlève un aperçu et quatre reprises. Ce n’est pas une
+limite fixe de trois alertes par entreprise.
