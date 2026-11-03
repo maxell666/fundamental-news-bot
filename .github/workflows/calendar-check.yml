@@ -1,0 +1,20 @@
+name: Vérifier les résultats du calendrier
+on:
+  push:
+    branches: [codex/important-macro]
+    paths: [important_macro.py, .github/workflows/calendar-check.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python important_macro.py --check

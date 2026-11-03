@@ -117,7 +117,9 @@ publication ne garantit pas le même délai pour les suivantes.
 ## Couverture actuelle
 
 Le lecteur structuré couvre les prototypes **Chicago PMI et ISM manufacturier**.
-La collecte rapide autonome des **CPI, NFP et décisions FOMC n’est pas implémentée**.
+La [collecte récurrente séparée](annonces-importantes.md) couvre désormais
+les chiffres CPI, NFP et taux Fed via le calendrier public Forex Factory ;
+ces prototypes officiels restent distincts de cette nouvelle source.
 Le module d’actualités peut interpréter un résultat et son consensus explicitement
 rapportés dans une dépêche ; cela ne remplace pas cette collecte structurée.
 

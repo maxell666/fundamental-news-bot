@@ -35,6 +35,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Préparer les résultats des annonces importantes
+        continue-on-error: true
+        run: python important_macro.py --dispatch
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       - name: Run bot
         id: run-bot
         run: python bot.py
