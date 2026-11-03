@@ -48,7 +48,7 @@ def signatures(title):
     r'\b(?:shares?|stock)\s+(?:\w+\s+){0,2}(?:slump\w*|fall\w*|fell|drop\w*|plunge\w*|tumble\w*|slide\w*|slid|rise\w*|rose|jump\w*|surge\w*|rall\w*|gain\w*)'
     r'\s+(?:by\s+|as much as\s+|more than\s+|over\s+|nearly\s+)?([-+]?\d+(?:[.,]\d+)?)\s*%',t)]
    if moves:value['milestone']=max((b for b in (5,10,20,30) if max(moves)>=b),default=0)
- elif has(t,r'\b(?:forecast\w*|guidance|outlook|expects?|projects?)\b') and has(t,r'\b(?:raises?|raised|hikes?|higher|growth|strong\w*|upbeat|cuts?|lower\w*|drop\w*|declin\w*|weak\w*|downbeat|warn\w*)\b'):
+ elif has(t,r'\b(?:forecast\w*|guidance|outlook|expects?|projects?|warns?)\b') and has(t,r'\b(?:raises?|raised|hikes?|higher|growth|strong\w*|upbeat|cuts?|lower\w*|drop\w*|declin\w*|weak\w*|downbeat|warn\w*)\b'):
   topic='guidance'
   up=has(t,r'\b(?:raises?|raised|hikes?|higher|growth|strong\w*|upbeat)\b')
   down=has(t,r'\b(?:cuts?|lower\w*|drop\w*|declin\w*|weak\w*|downbeat|warn\w*)\b')

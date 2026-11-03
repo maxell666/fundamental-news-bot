@@ -65,3 +65,9 @@ class CompanyStoriesTests(unittest.TestCase):
  def test_margin_percentage_is_not_a_share_price_milestone(self):
   history=sent('Apple shares slide after earnings')
   self.assertFalse(deduplicate_company_stories([row('Apple shares slide after earnings as margin forecast drops to 35%')],history,NOW))
+
+ def test_earnings_beat_with_new_margin_warning_is_new_information(self):
+  history=sent('Apple earnings beat Wall Street estimates')
+  item=row('Apple beats earnings estimates but warns margins will drop')
+  self.assertEqual(len(deduplicate_company_stories([item],history,NOW)),1)
+  self.assertTrue(item['company_events'][0]['base'].endswith(':guidance'))
