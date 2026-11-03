@@ -595,7 +595,8 @@
     "https://investinglive.com/news/swiss-inflation-surprises-higher-in-october-but-core-prices-offer-some-relief/",
     "https://www.cnbc.com/2026/11/03/apple-palantir-stock-earnings.html",
     "https://www.investing.com/news/stock-market-news/apple-shares-slide-as-higher-memory-costs-fuel-margin-concerns-4994517",
-    "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html"
+    "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+    "https://investinglive.com/central-banks/ecb-s-nagel-says-a-december-rate-hike-is-very-likely-to-be-necessary/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1119,7 +1120,8 @@
     "swiss inflation surprises higher in october but core prices offer some relief": "L'inflation suisse a surpris à la hausse en octobre, mais les prix sous-jacents apportent un certain soulagement",
     "apple and palantir shares slide in premarket trading following post-bell earnings": "Les actions d'Apple et de Palantir reculent en pré-ouverture après la publication des résultats en fin de séance",
     "apple shares slide as higher memory costs fuel margin concerns": "Les actions Apple chutent alors que la hausse des coûts de la mémoire alimente les craintes concernant les marges",
-    "apple stock sinks as global memory crisis hurts profits, giving ternus his first big test": "Le cours de l'action Apple s'effondre alors que la crise mondiale de la mémoire pèse sur les bénéfices, ce qui constitue un premier grand défi pour Ternus"
+    "apple stock sinks as global memory crisis hurts profits, giving ternus his first big test": "Le cours de l'action Apple s'effondre alors que la crise mondiale de la mémoire pèse sur les bénéfices, ce qui constitue un premier grand défi pour Ternus",
+    "ecb’s nagel says a december rate hike is very likely to be necessary": "M. Nagel, de la BCE, estime qu'une hausse des taux en décembre sera très probablement nécessaire"
   },
   "seen_titles": {
     "f1945026333fe76710ca7ffb8b0eff715186e4690f85e7343f5796338dc3d1aa": "2026-11-02T20:30:59.197640Z",
@@ -1132,7 +1134,8 @@
     "7f31779cf6e4465d7cbd63decf2e2fac0e1f15c88a5c467805d5afdb68d17b5f": "2026-11-03T08:10:49.541978Z",
     "4af9d84e4bc4d057abdd1fb9cf64cefe8e446604265f255e72a7872bff1d80d3": "2026-11-03T09:25:35.913189Z",
     "a6949c74521847dc4739c2eecaa3fa11f8908915d79c9e85b6711adc23885e51": "2026-11-03T12:01:09.538257Z",
-    "cdde1786a1c582d32913d2c3ac438c56ed7599074efb75bf32bc7f1a53e8b56d": "2026-11-03T13:45:42.976301Z"
+    "cdde1786a1c582d32913d2c3ac438c56ed7599074efb75bf32bc7f1a53e8b56d": "2026-11-03T13:45:42.976301Z",
+    "1049f9146a33af07689e9cb1f79e83dadfbc78bab334d686ca3acd56d1b5c0ff": "2026-11-03T19:10:47.331113Z"
   },
   "seen_events": {
     "company:apple:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
