@@ -1,0 +1,25 @@
+name: Vérifier les résultats du calendrier
+on:
+  push:
+    branches: [codex/important-macro]
+    paths: [scripts/probe_calendar.py, .github/workflows/calendar-check.yml, important_macro.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python scripts/probe_calendar.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: calendar-public-check
+          path: calendar_probe/
+          retention-days: 3
