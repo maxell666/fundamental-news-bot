@@ -24,7 +24,7 @@ class MacroTests(unittest.TestCase):
   for rows in ([row(eid=2)],[dict(row(),dateline=int(T.timestamp())+60)],[dict(row(),timeMasked=True)]):
    with self.assertRaises(ValueError):m.match_event(m.page_events(html(rows)),row()['name'],'USD',T,1)
  def test_duplicate_ids_and_days_fail_closed(self):
-  for body in (html([row(),row()]),html([row()])+html([row()])):
+  for body in (html([row(),row()]),html([row()])+html([row(eid=2)])):
    with self.assertRaises(ValueError):m.page_events(body)
  def test_units_and_negative_values(self):
   self.assertEqual(m.comparison('0.25M','200K'),(Decimal('50000'), 'count'))
@@ -90,3 +90,6 @@ class MacroTests(unittest.TestCase):
    kwargs=dict(path=path,now=lambda:T+timedelta(seconds=30),get=get,save=lambda:None,send=sent.append,verify=lambda:dict(is_bot=True,username=m.EXPECTED_BOT))
    self.assertEqual(m.watch(**kwargs),'completed');self.assertIn('Attendu : 200K',sent[0])
    self.assertEqual(m.watch(**kwargs),'outside_window');self.assertEqual(len(sent),1)
+
+ def test_identical_responsive_calendar_copies_are_allowed(self):
+  self.assertEqual(len(m.page_events(html([row()])+html([row()]))),1)

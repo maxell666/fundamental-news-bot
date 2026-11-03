@@ -71,8 +71,10 @@ def fetch(url):
 def page_events(body):
     # Parse JSON data, never execute the site's JavaScript.
     matches=list(re.finditer(r'\bdays:\s*(?=\[)',body))
-    if len(matches)!=1:raise ValueError('Calendrier ambigu')
-    days=json.JSONDecoder().raw_decode(body[matches[0].end():])[0]
+    if not matches:raise ValueError('Calendrier absent')
+    copies=[json.JSONDecoder().raw_decode(body[m.end():])[0] for m in matches]
+    if any(copy!=copies[0] for copy in copies[1:]):raise ValueError('Calendrier ambigu')
+    days=copies[0]
     events=[];seen=set()
     for day in days:
         for e in day.get('events',[]):
