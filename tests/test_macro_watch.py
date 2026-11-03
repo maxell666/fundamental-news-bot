@@ -109,7 +109,7 @@ class WatchTests(unittest.TestCase):
         self.assertEqual(report["outcome"], "result_sent")
         self.assertEqual(len(self.sent), 1)
         self.assertIn("Publié : 57,0", self.sent[0])
-        self.assertIn("Consensus enregistré avant annonce : 55,8", self.sent[0])
+        self.assertIn("Attendu : 55,8", self.sent[0])
         self.assertIn("Surprise : +1,2", self.sent[0])
         self.assertIn("TEST MACRO", self.sent[0])
         self.assertEqual(self.state()["status"], "completed")

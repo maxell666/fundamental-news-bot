@@ -218,18 +218,20 @@ class ChicagoAnalysisTests(unittest.TestCase):
             forecast_at=SCHEDULED - timedelta(hours=2),
         )
         self.assertIn("TEST MACRO", text)
-        self.assertIn("+0,1 point(s)", text)
-        self.assertIn("14:45:00 (Paris)", text)
-        self.assertIn("Heure prévue au calendrier", text)
-        self.assertIn("Détecté : 14:45:05", text)
-        self.assertIn("+5.0 s après l’heure prévue", text)
-        self.assertIn("Lecture conditionnelle", text)
-        self.assertIn("EUR/USD ; GBP/USD : baisse possible", text)
-        self.assertIn("USD/CHF : hausse possible", text)
-        self.assertIn("GER30 ; SP500 ; NAS100 ; US30 : lecture mixte", text)
+        self.assertIn("octobre 2026", text)
+        self.assertIn("Enquête régionale", text)
+        self.assertIn("Surprise : +0,1 point", text)
+        self.assertIn("Attendu : 54,5 pts", text)
+        self.assertIn("Prévu : 30/10 14:45 Paris", text)
+        self.assertIn("détecté : 14:45:05 (+5,0 s)", text)
+        self.assertIn("Si les taux US attendus montent", text)
+        self.assertIn("EUR/USD ↓ POSSIBLE", text)
+        self.assertIn("GBP/USD ↓ POSSIBLE", text)
+        self.assertIn("USD/CHF ↑ POSSIBLE", text)
+        self.assertIn("SP500 / NAS100 / US30 : MIXTE", text)
         self.assertNotIn("hausse observée", text)
         self.assertNotIn("baisse observée", text)
-        self.assertIn("Pour GER30, la transmission est plus indirecte", text)
+        self.assertIn("GER30 : MIXTE — effets indirects", text)
         self.assertNotIn("confiance", text)
         for untracked in ("XAUUSD", "SPX500", "l’or", "• USD :"):
             self.assertNotIn(untracked, text)
@@ -244,10 +246,12 @@ class ChicagoAnalysisTests(unittest.TestCase):
         )
         self.assertIn("Publié : 55,3", text)
         self.assertIn("Surprise : -0,5", text)
-        self.assertIn("Écart au précédent : -3,5", text)
-        self.assertIn("EUR/USD ; GBP/USD : hausse possible", text)
-        self.assertIn("USD/CHF : baisse possible", text)
-        self.assertIn("GER30 ; SP500 ; NAS100 ; US30 : lecture mixte", text)
+        self.assertIn("Précédent : 58,8 pts", text)
+        self.assertIn("Si les taux US attendus baissent", text)
+        self.assertIn("EUR/USD ↑ POSSIBLE", text)
+        self.assertIn("GBP/USD ↑ POSSIBLE", text)
+        self.assertIn("USD/CHF ↓ POSSIBLE", text)
+        self.assertIn("SP500 / NAS100 / US30 : MIXTE", text)
         self.assertNotIn("hausse observée", text)
         self.assertNotIn("baisse observée", text)
 
@@ -260,10 +264,33 @@ class ChicagoAnalysisTests(unittest.TestCase):
                     observed_at=SCHEDULED + timedelta(seconds=3),
                     forecast_at=SCHEDULED - timedelta(hours=1),
                 )
-                self.assertNotIn("• ", text)
+                self.assertFalse(any(line.startswith("• ") for line in text.splitlines()))
                 self.assertNotIn("hausse possible", text)
                 self.assertNotIn("baisse possible", text)
                 self.assertNotIn("À confirmer", text)
+                self.assertNotIn("↑", text)
+                self.assertNotIn("↓", text)
+                if forecast is None:
+                    self.assertIn("Attentes indisponibles : comparaison impossible", text)
+                    self.assertIn("Attentes indisponibles avant annonce.", text)
+                    self.assertNotIn("Attentes enregistrées avant annonce.", text)
+                    self.assertNotIn("Surprise :", text)
+                else:
+                    self.assertIn("conforme aux attentes", text)
+                    self.assertIn("Surprise : 0,0 point", text)
+
+    def test_better_than_forecast_does_not_claim_acceleration_or_expansion(self):
+        release = parse(summary(value="48.4").replace("rose 2.3", "fell 1.6"))
+        text = format_chicago_test_message(
+            release, Decimal("48.0"), Decimal("50.0"),
+            observed_at=SCHEDULED + timedelta(seconds=5),
+            forecast_at=SCHEDULED - timedelta(hours=1),
+        )
+        self.assertIn("plus forte qu’attendu", text)
+        self.assertIn("Contexte : contraction", text)
+        self.assertNotIn("accélération", text)
+        self.assertLess(text.index("EUR/USD"), text.index("Prévu :"))
+        self.assertLessEqual(len(text), 1300)
 
     def test_message_rejects_late_consensus_or_premature_observation(self):
         release = parse(summary())
