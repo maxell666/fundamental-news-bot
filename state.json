@@ -1134,5 +1134,37 @@
     "4af9d84e4bc4d057abdd1fb9cf64cefe8e446604265f255e72a7872bff1d80d3": "2026-11-03T09:25:35.913189Z",
     "a6949c74521847dc4739c2eecaa3fa11f8908915d79c9e85b6711adc23885e51": "2026-11-03T12:01:09.538257Z"
   },
-  "seen_events": {}
+  "seen_events": {
+    "company:apple:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
+      "sent_at": "2026-11-02T21:45:44.559347Z",
+      "base": "company:apple:earnings",
+      "value": {
+        "direction": "beat"
+      }
+    },
+    "company:apple:guidance|f3a04b41502e0baad41c24f3f929e819c3ef8248930016a79cac64d44b53b717": {
+      "sent_at": "2026-11-03T01:45:44.439390Z",
+      "base": "company:apple:guidance",
+      "value": {
+        "direction": "down",
+        "metric": "margin"
+      }
+    },
+    "company:apple:reaction|1cc7eba2db8569b65a6b67fef10213221b06dc21f867e0cdf7feb95e13209c0f": {
+      "sent_at": "2026-11-03T09:25:35.913189Z",
+      "base": "company:apple:reaction",
+      "value": {
+        "direction": "down",
+        "milestone": 0
+      }
+    },
+    "company:palantir:reaction|1cc7eba2db8569b65a6b67fef10213221b06dc21f867e0cdf7feb95e13209c0f": {
+      "sent_at": "2026-11-03T09:25:35.913189Z",
+      "base": "company:palantir:reaction",
+      "value": {
+        "direction": "down",
+        "milestone": 0
+      }
+    }
+  }
 }
