@@ -1130,7 +1130,6 @@
     "amd stock jumps 7% on earnings as data center revenue nearly doubles": "Le titre AMD bondit de 7 % après la publication de ses résultats, le chiffre d'affaires lié aux centres de données ayant presque doublé"
   },
   "seen_titles": {
-    "133e683f2091ed76d84d1b2aabd0ccf879d695fa885c2847a943a202b4b6c8e5": "2026-11-02T21:45:44.559347Z",
     "272a68306e8f6835d4f66164b5543449c7bdba93aab31c36a8bc455b30869b20": "2026-11-02T21:50:43.576641Z",
     "19e2610e7b8199df739b301d8add1a75c9ee682b8e4f7ad6c19c3351a5359446": "2026-11-02T21:50:44.535320Z",
     "b26a7531d7e328d62a6edafb9d971d673e1405e5fb5de71fb54b86c957917099": "2026-11-02T22:55:38.787945Z",
@@ -1146,13 +1145,6 @@
     "88bfe5122e0b167944749072f427432206e6ba8f88620be8b7755e8dc494cc8f": "2026-11-03T21:25:34.461687Z"
   },
   "seen_events": {
-    "company:apple:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
-      "sent_at": "2026-11-02T21:45:44.559347Z",
-      "base": "company:apple:earnings",
-      "value": {
-        "direction": "beat"
-      }
-    },
     "company:apple:guidance|f3a04b41502e0baad41c24f3f929e819c3ef8248930016a79cac64d44b53b717": {
       "sent_at": "2026-11-03T01:45:44.439390Z",
       "base": "company:apple:guidance",
@@ -1191,6 +1183,13 @@
       "value": {
         "direction": "up",
         "milestone": 5
+      }
+    },
+    "company:apple:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
+      "sent_at": "2026-11-02T21:50:43.576641Z",
+      "base": "company:apple:earnings",
+      "value": {
+        "direction": "beat"
       }
     }
   }
