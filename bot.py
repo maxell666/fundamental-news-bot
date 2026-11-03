@@ -13,7 +13,7 @@ from sources import SourceCollectionError, collect_news, fetch_newsapi
 from filter import FILTER_VERSION, assess_news
 from translate import translate_text, debug_deepl_usage, has_deepl_key
 from mapping import get_market_impact, priority_label
-from news_pipeline import evaluate_news, parse_publication, rank_eligible, summarize, write_audit
+from news_pipeline import story_key, evaluate_news, parse_publication, rank_eligible, summarize, write_audit
 from portfolio import assess_portfolio, TRACKED_ASSETS
 
 
@@ -261,6 +261,16 @@ def main(dry_run=None, replay_path=None):
         if isinstance(event, dict) and (date := parse_publication(event.get("sent_at"))) is not None
         and timedelta(0) <= now - date <= timedelta(hours=24)
     }
+    from company_stories import signatures, event_record
+    for title in state.get("translations", {}):
+        sent_at = state["seen_titles"].get(story_key(title))
+        if not sent_at:
+            continue
+        for base, value in signatures(title):
+            event = event_record(base, value)
+            state["seen_events"].setdefault(event["key"], {
+                "sent_at": sent_at, "base": base, "value": value,
+            })
     print("State chargé | seen =", len(state["seen"]), "| translations =", len(state["translations"]))
     rows, health = [], []
     failure = None
@@ -336,6 +346,11 @@ def main(dry_run=None, replay_path=None):
                 state["seen_events"][row["event_key"]] = {
                     "sent_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
                     "value": row["event_value"], "base": row["event_base"],
+                }
+            for event in row.get("company_events", []):
+                state["seen_events"][event["key"]] = {
+                    "sent_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+                    "base": event["base"], "value": event["value"],
                 }
             save_state(state)
         if not dry_run:

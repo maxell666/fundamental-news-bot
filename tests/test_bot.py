@@ -257,6 +257,25 @@ class SelectionPipelineTests(unittest.TestCase):
         ], state_data=state)
         sent.assert_called_once()
 
+    def test_company_history_survives_runs_and_backfills_confirmed_titles(self):
+        state, _, sent, _ = self.run_bot([
+            article("Apple results beat Wall Street expectations on strong iPhone sales", "https://test/apple-first"),
+        ])
+        sent.assert_called_once()
+        self.assertTrue(any(k.startswith("company:apple:earnings") for k in state["seen_events"]))
+        # Simulate upgrading an old state: only confirmed cached titles seed history.
+        state["seen_events"] = {}
+        _, translated, sent, _ = self.run_bot([
+            article("Apple beats quarterly estimates for profit and revenue", "https://test/apple-repeat"),
+        ], state_data=state)
+        sent.assert_not_called()
+        translated.assert_not_called()
+        self.assertEqual(self.last_audit["summary"]["decisions"], {"duplicate_company_story": 1})
+        _, _, sent, _ = self.run_bot([
+            article("Apple forecasts margin drop as rising memory costs bite", "https://test/apple-guidance"),
+        ], state_data=state)
+        sent.assert_called_once()
+
     def test_total_source_failure_keeps_a_diagnostic_instead_of_silent_success(self):
         diagnostics = [{"source": "Markets", "status": "error", "detail": "HTTP 503"}]
         with tempfile.TemporaryDirectory() as directory, \

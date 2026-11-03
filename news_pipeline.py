@@ -10,6 +10,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from filter import FILTER_VERSION, assess_news, contains_any, normalize_text, _event_clause
+from company_stories import is_company_preview, deduplicate_company_stories
 from sources import canonicalize_url
 from portfolio import assess_portfolio, TRACKED_ASSETS
 
@@ -82,6 +83,8 @@ def evaluate_news(articles, state, *, now=None, threshold=5, max_age_hours=24,
             row.update(decision="future", reason="Date de publication future incohérente")
         elif published is not None and now - published > timedelta(hours=max_age_hours):
             row.update(decision="stale", reason=f"Publication de plus de {max_age_hours:g} heures")
+        elif is_company_preview(title):
+            row.update(decision="rejected", reason="Analyse ou aperçu avant résultats, sans nouvelle annonce d’entreprise")
         elif not assessment.relevant:
             row.update(decision="rejected", reason=assessment.reason)
         elif assessment.score < threshold:
@@ -314,7 +317,8 @@ def rank_eligible(rows, seen_events=None, now=None):
         for row in ambiguous:
             row.update(event_base=base, decision="duplicate_event",
                        reason="Annonce sans nouvelle valeur déjà couverte par des décisions chiffrées distinctes")
-    return sorted(representatives, key=lambda row: (row["score"], row["published_at"] or ""), reverse=True)
+    ordered = sorted(representatives, key=lambda row: (row["score"], row["published_at"] or ""), reverse=True)
+    return deduplicate_company_stories(ordered, seen_events, now)
 
 
 def summarize(rows):
