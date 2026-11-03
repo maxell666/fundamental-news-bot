@@ -1,9 +1,11 @@
 {
   "events": {
     "2026-11-03T15:00:00.000Z": {
+      "first_seen_at": "2026-11-03T15:00:20.552Z",
       "forecast_at": "2026-11-03T14:50:55.650Z",
       "items": [
         {
+          "actual": "7.52M",
           "currency": "USD",
           "forecast": "7.15M",
           "id": 149798,
@@ -11,8 +13,9 @@
           "title": "JOLTS Job Openings"
         }
       ],
+      "reserved_at": "2026-11-03T15:00:20.555Z",
       "scheduled_at": "2026-11-03T15:00:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
