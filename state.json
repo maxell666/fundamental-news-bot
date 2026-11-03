@@ -599,7 +599,8 @@
     "https://investinglive.com/central-banks/ecb-s-nagel-says-a-december-rate-hike-is-very-likely-to-be-necessary/",
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWVp0N2w0REZqOUJ3YkRxcmliYkhtX25yTkFtdmJDUFdSVm5CcXRQYjdMeFFLU0gxcHk1STM2R0xXaGJ6TW9ZN2ZQS2RReVRiXzNtY1B3Qm5fZ1lfTUFaMVpRM2d2ZVZodnZtbUFFLUtkcURfUEtENElyNG5YcFRGcncteEFaZFUwOGxVUmpTMWFkMEtvb09VTG50a2NSbjhLUm5Zc3EtZS1XUU5lWm9B",
     "https://www.investing.com/news/earnings/amd-stock-jumps-after-hours-as-quarterly-results-revenue-guidance-beat-estimates-4996344",
-    "https://www.cnbc.com/2026/11/03/amd-amd-q3-earnings-report-2026-.html"
+    "https://www.cnbc.com/2026/11/03/amd-amd-q3-earnings-report-2026-.html",
+    "https://www.investing.com/news/stock-market-news/amd-forecasts-quarterly-revenue-above-estimates-as-datacenter-growth-accelerates-4996502"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1127,7 +1128,8 @@
     "ecb’s nagel says a december rate hike is very likely to be necessary": "M. Nagel, de la BCE, estime qu'une hausse des taux en décembre sera très probablement nécessaire",
     "nasdaq rallies as ai heavyweights rebound ahead of midterm results - reuters": "Le Nasdaq rebondit grâce à la remontée des géants de l'IA à l'approche des résultats de mi-trimestre - Reuters",
     "amd stock jumps after hours as quarterly results, revenue guidance beat estimates": "Le cours de l'action AMD bondit après la clôture, ses résultats trimestriels et ses prévisions de chiffre d'affaires ayant dépassé les estimations",
-    "amd stock jumps 7% on earnings as data center revenue nearly doubles": "Le titre AMD bondit de 7 % après la publication de ses résultats, le chiffre d'affaires lié aux centres de données ayant presque doublé"
+    "amd stock jumps 7% on earnings as data center revenue nearly doubles": "Le titre AMD bondit de 7 % après la publication de ses résultats, le chiffre d'affaires lié aux centres de données ayant presque doublé",
+    "amd forecasts quarterly revenue above estimates as data-center growth accelerates": "AMD prévoit un chiffre d'affaires trimestriel supérieur aux estimations, grâce à l'accélération de la croissance du secteur des centres de données"
   },
   "seen_titles": {
     "b26a7531d7e328d62a6edafb9d971d673e1405e5fb5de71fb54b86c957917099": "2026-11-02T22:55:38.787945Z",
@@ -1140,7 +1142,8 @@
     "1049f9146a33af07689e9cb1f79e83dadfbc78bab334d686ca3acd56d1b5c0ff": "2026-11-03T19:10:47.331113Z",
     "0676761f4831411877300ecf2868993492d01c3fecf13e4c114ac7cc9f9df04c": "2026-11-03T20:01:09.840138Z",
     "6e23e52debdffe068ef90f474822cf9fcfa06700b8d8b632f59d65e4ec37bf73": "2026-11-03T21:25:33.250462Z",
-    "88bfe5122e0b167944749072f427432206e6ba8f88620be8b7755e8dc494cc8f": "2026-11-03T21:25:34.461687Z"
+    "88bfe5122e0b167944749072f427432206e6ba8f88620be8b7755e8dc494cc8f": "2026-11-03T21:25:34.461687Z",
+    "3fd3f7b3aab4c15a6e4ebe00fdedbb0a01020d77fce7d9be06667d5283c1e818": "2026-11-03T22:01:15.218020Z"
   },
   "seen_events": {
     "company:apple:guidance|f3a04b41502e0baad41c24f3f929e819c3ef8248930016a79cac64d44b53b717": {
@@ -1188,6 +1191,14 @@
       "base": "company:apple:earnings",
       "value": {
         "direction": "beat"
+      }
+    },
+    "company:amd:guidance|07c973209160dbc6a998815426017e06260bbdec264f1b87e27e2c6aeda7adb7": {
+      "sent_at": "2026-11-03T22:01:15.218039Z",
+      "base": "company:amd:guidance",
+      "value": {
+        "direction": "up",
+        "metric": "revenue"
       }
     }
   }
