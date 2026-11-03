@@ -597,7 +597,9 @@
     "https://www.investing.com/news/stock-market-news/apple-shares-slide-as-higher-memory-costs-fuel-margin-concerns-4994517",
     "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
     "https://investinglive.com/central-banks/ecb-s-nagel-says-a-december-rate-hike-is-very-likely-to-be-necessary/",
-    "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWVp0N2w0REZqOUJ3YkRxcmliYkhtX25yTkFtdmJDUFdSVm5CcXRQYjdMeFFLU0gxcHk1STM2R0xXaGJ6TW9ZN2ZQS2RReVRiXzNtY1B3Qm5fZ1lfTUFaMVpRM2d2ZVZodnZtbUFFLUtkcURfUEtENElyNG5YcFRGcncteEFaZFUwOGxVUmpTMWFkMEtvb09VTG50a2NSbjhLUm5Zc3EtZS1XUU5lWm9B"
+    "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWVp0N2w0REZqOUJ3YkRxcmliYkhtX25yTkFtdmJDUFdSVm5CcXRQYjdMeFFLU0gxcHk1STM2R0xXaGJ6TW9ZN2ZQS2RReVRiXzNtY1B3Qm5fZ1lfTUFaMVpRM2d2ZVZodnZtbUFFLUtkcURfUEtENElyNG5YcFRGcncteEFaZFUwOGxVUmpTMWFkMEtvb09VTG50a2NSbjhLUm5Zc3EtZS1XUU5lWm9B",
+    "https://www.investing.com/news/earnings/amd-stock-jumps-after-hours-as-quarterly-results-revenue-guidance-beat-estimates-4996344",
+    "https://www.cnbc.com/2026/11/03/amd-amd-q3-earnings-report-2026-.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1123,7 +1125,9 @@
     "apple shares slide as higher memory costs fuel margin concerns": "Les actions Apple chutent alors que la hausse des coûts de la mémoire alimente les craintes concernant les marges",
     "apple stock sinks as global memory crisis hurts profits, giving ternus his first big test": "Le cours de l'action Apple s'effondre alors que la crise mondiale de la mémoire pèse sur les bénéfices, ce qui constitue un premier grand défi pour Ternus",
     "ecb’s nagel says a december rate hike is very likely to be necessary": "M. Nagel, de la BCE, estime qu'une hausse des taux en décembre sera très probablement nécessaire",
-    "nasdaq rallies as ai heavyweights rebound ahead of midterm results - reuters": "Le Nasdaq rebondit grâce à la remontée des géants de l'IA à l'approche des résultats de mi-trimestre - Reuters"
+    "nasdaq rallies as ai heavyweights rebound ahead of midterm results - reuters": "Le Nasdaq rebondit grâce à la remontée des géants de l'IA à l'approche des résultats de mi-trimestre - Reuters",
+    "amd stock jumps after hours as quarterly results, revenue guidance beat estimates": "Le cours de l'action AMD bondit après la clôture, ses résultats trimestriels et ses prévisions de chiffre d'affaires ayant dépassé les estimations",
+    "amd stock jumps 7% on earnings as data center revenue nearly doubles": "Le titre AMD bondit de 7 % après la publication de ses résultats, le chiffre d'affaires lié aux centres de données ayant presque doublé"
   },
   "seen_titles": {
     "133e683f2091ed76d84d1b2aabd0ccf879d695fa885c2847a943a202b4b6c8e5": "2026-11-02T21:45:44.559347Z",
@@ -1137,7 +1141,9 @@
     "a6949c74521847dc4739c2eecaa3fa11f8908915d79c9e85b6711adc23885e51": "2026-11-03T12:01:09.538257Z",
     "cdde1786a1c582d32913d2c3ac438c56ed7599074efb75bf32bc7f1a53e8b56d": "2026-11-03T13:45:42.976301Z",
     "1049f9146a33af07689e9cb1f79e83dadfbc78bab334d686ca3acd56d1b5c0ff": "2026-11-03T19:10:47.331113Z",
-    "0676761f4831411877300ecf2868993492d01c3fecf13e4c114ac7cc9f9df04c": "2026-11-03T20:01:09.840138Z"
+    "0676761f4831411877300ecf2868993492d01c3fecf13e4c114ac7cc9f9df04c": "2026-11-03T20:01:09.840138Z",
+    "6e23e52debdffe068ef90f474822cf9fcfa06700b8d8b632f59d65e4ec37bf73": "2026-11-03T21:25:33.250462Z",
+    "88bfe5122e0b167944749072f427432206e6ba8f88620be8b7755e8dc494cc8f": "2026-11-03T21:25:34.461687Z"
   },
   "seen_events": {
     "company:apple:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
@@ -1169,6 +1175,22 @@
       "value": {
         "direction": "down",
         "milestone": 0
+      }
+    },
+    "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
+      "sent_at": "2026-11-03T21:25:33.250470Z",
+      "base": "company:amd:reaction",
+      "value": {
+        "direction": "up",
+        "milestone": 0
+      }
+    },
+    "company:amd:reaction|d0bbd3f46c9eefff9044483234b85fcd648109da0f17058cdbd7dc04def8f718": {
+      "sent_at": "2026-11-03T21:25:34.461695Z",
+      "base": "company:amd:reaction",
+      "value": {
+        "direction": "up",
+        "milestone": 5
       }
     }
   }
