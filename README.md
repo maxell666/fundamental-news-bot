@@ -169,8 +169,8 @@ Un [essai macro séparé](docs/macro-test.md) sur l’ISM manufacturier du
 accepté par Telegram 33,390 secondes après l’heure prévue. Le délai des futures
 publications n’est pas garanti. La présentation donne d’abord une conclusion,
 puis Publié / Attendu / Précédent et les conséquences conditionnelles pour
-les marchés suivis. La couverture rapide reste limitée aux prototypes Chicago
-PMI et ISM manufacturier ; cet essai terminé ne programme pas d’autre annonce.
+les marchés suivis. Cet essai daté est terminé. La collecte récurrente décrite plus bas prend
+le relais pour les annonces importantes.
 
 ## Installation et tests
 
@@ -189,3 +189,13 @@ Le lancement réel vérifie getMe, puis sendMessage pour les articles sélection
 Les journaux ne contiennent ni token, ni empreinte de token, ni réponse privée
 du destinataire. Le cache DeepL est réutilisé ; une absence de clé ne bloque
 pas le cache avec le titre anglais.
+
+## Résultats des annonces importantes
+
+La [collecte récurrente des résultats](docs/annonces-importantes.md) complète
+les actualités pour USD, EUR, GBP et CHF : inflation, emploi, croissance,
+PMI/ISM et taux directeurs. Elle utilise gratuitement le calendrier public
+Forex Factory, fige les attentes avant publication et regroupe les chiffres
+simultanés. Le cron-job existant déclenche automatiquement cette surveillance.
+Le délai des résultats publics n’est pas garanti ; les communiqués et
+conférences des banques centrales ne sont pas analysés par ce lecteur chiffré.

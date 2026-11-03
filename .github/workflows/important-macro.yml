@@ -1,0 +1,31 @@
+name: Résultats des annonces importantes
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: important-economic-releases
+  cancel-in-progress: false
+jobs:
+  watch:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Préparer la sauvegarde
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Capturer les attentes et surveiller les résultats
+        run: python important_macro.py --watch
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
