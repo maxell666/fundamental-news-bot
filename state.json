@@ -1148,7 +1148,6 @@
     "eurozone inflation hits 4% for first time since 2023, piling pressure on ecb": "L'inflation dans la zone euro atteint 4 % pour la première fois depuis 2023, ce qui accentue la pression sur la BCE"
   },
   "seen_titles": {
-    "a6949c74521847dc4739c2eecaa3fa11f8908915d79c9e85b6711adc23885e51": "2026-11-03T12:01:09.538257Z",
     "cdde1786a1c582d32913d2c3ac438c56ed7599074efb75bf32bc7f1a53e8b56d": "2026-11-03T13:45:42.976301Z",
     "1049f9146a33af07689e9cb1f79e83dadfbc78bab334d686ca3acd56d1b5c0ff": "2026-11-03T19:10:47.331113Z",
     "0676761f4831411877300ecf2868993492d01c3fecf13e4c114ac7cc9f9df04c": "2026-11-03T20:01:09.840138Z",
@@ -1187,14 +1186,6 @@
       "value": {
         "direction": "up",
         "metric": "revenue"
-      }
-    },
-    "company:apple:reaction|1cc7eba2db8569b65a6b67fef10213221b06dc21f867e0cdf7feb95e13209c0f": {
-      "sent_at": "2026-11-03T12:01:09.538257Z",
-      "base": "company:apple:reaction",
-      "value": {
-        "direction": "down",
-        "milestone": 0
       }
     },
     "inflation:eurozone:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
