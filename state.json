@@ -613,7 +613,9 @@
     "https://news.google.com/rss/articles/CBMioAFBVV95cUxQbWpBY1VHMFd5a2tJXzM1RFFFQTl5Y09aVDgza095UkJKVzNnQ3F4VW1pMzBEazJKMGhlS21zUEdCLXJPOVhWdXRnZmlLRHliMDdqYmt2b2ZWYk5FeW85VnBSalpRd1E5b3BVSUZDU2VLMUNiQm41YWw1SUgxV2dWaUFZUkI2MllhY0Z5ZkZHcWNuQmdCaHBKbVRhck1meTRz",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-steady-with-midterms-in-focus-amd-rallies-on-strong-earnings-4997029",
     "https://www.investing.com/news/economy-news/dollar-dips-with-us-midterm-results-in-focus-4997104",
-    "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQUEyU0pEVG8xTHJtT2xCU0ltcXVTalphM0RNTEZ0UVlCTW5Qbjg4cS1RQnh5QXZnVEZvdnBacmZRM2FhMWJLWXVjU08yNkpvOHZiLTUtSGN0Mk55NGFBNWdxTmR4b3ZBeGNlX3ptUGNaRVFzRzhyNDZodklncGFZaV96cUxHY1Q1ODZWdmpTVWlWRVp4bVdJb0Zrb1pLaXVsUFFySUd4cm40cFphNGZB"
+    "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQUEyU0pEVG8xTHJtT2xCU0ltcXVTalphM0RNTEZ0UVlCTW5Qbjg4cS1RQnh5QXZnVEZvdnBacmZRM2FhMWJLWXVjU08yNkpvOHZiLTUtSGN0Mk55NGFBNWdxTmR4b3ZBeGNlX3ptUGNaRVFzRzhyNDZodklncGFZaV96cUxHY1Q1ODZWdmpTVWlWRVp4bVdJb0Zrb1pLaXVsUFFySUd4cm40cFphNGZB",
+    "https://www.investing.com/news/stock-market-news/qualcomm-forecasts-upbeat-sales-on-strength-in-nonsmartphone-segments-5001228",
+    "https://www.investing.com/news/stock-market-news/qualcomm-falls-3-as-handset-revenue-misses-estimates-costs-rise-5001230"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1155,7 +1157,9 @@
     "wall street rallies after democrats win congress; data center stocks slide - reuters": "Wall Street rebondit après la victoire des démocrates au Congrès ; les valeurs des centres de données reculent - Reuters",
     "wall street surges as investors cheer removal of midterms uncertainty": "Wall Street s'envole alors que les investisseurs se réjouissent de la fin de l'incertitude liée aux élections de mi-mandat",
     "dollar falls after democrats take us congress in midterm elections": "Le dollar recule après la victoire des démocrates au Congrès américain lors des élections de mi-mandat",
-    "oil tumbles as investors weigh end to iran war after us democrats' midterm elections sweep - reuters": "Le prix du pétrole s'effondre alors que les investisseurs envisagent la fin de la guerre avec l'Iran après la victoire écrasante des démocrates américains aux élections de mi-mandat - Reuters"
+    "oil tumbles as investors weigh end to iran war after us democrats' midterm elections sweep - reuters": "Le prix du pétrole s'effondre alors que les investisseurs envisagent la fin de la guerre avec l'Iran après la victoire écrasante des démocrates américains aux élections de mi-mandat - Reuters",
+    "qualcomm’s smartphone chip sales miss estimates, shares fall": "Les ventes de puces pour smartphones de Qualcomm sont inférieures aux prévisions, et le cours de l'action recule",
+    "qualcomm falls 3% as handset revenue misses estimates, costs rise": "Qualcomm recule de 3 % alors que le chiffre d'affaires lié aux téléphones mobiles est inférieur aux prévisions et que les coûts augmentent"
   },
   "seen_titles": {
     "6e23e52debdffe068ef90f474822cf9fcfa06700b8d8b632f59d65e4ec37bf73": "2026-11-03T21:25:33.250462Z",
@@ -1173,7 +1177,9 @@
     "d10dfc56d4027382fa1770b8407d1a76c07650e1fdb2a249e5f8bfc3d295bcd4": "2026-11-04T15:25:31.331552Z",
     "550eefb4b370097f505f3d4fa175de14e8aa7dbb7e2c4e9dbeb02715f6f6b0b7": "2026-11-04T16:20:39.383861Z",
     "5924690296e4a74a6140fffa9c30a02a178884ecfe26adedfe60b3903c68e12c": "2026-11-04T16:40:43.252981Z",
-    "fcd9a971f79153f3cc90f4118d8413a4a75b20d3d55534040fda9844af3261c5": "2026-11-04T17:15:42.576595Z"
+    "fcd9a971f79153f3cc90f4118d8413a4a75b20d3d55534040fda9844af3261c5": "2026-11-04T17:15:42.576595Z",
+    "a60e7f4ff916695199338b91cf78eec8731cd89960124d3851261aeb8192be9f": "2026-11-04T21:20:41.663081Z",
+    "da5defec8d5fa97575368a03be6ba7ad8200d09bfd3e295b8b1349b48527dbca": "2026-11-04T21:20:42.850351Z"
   },
   "seen_events": {
     "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
