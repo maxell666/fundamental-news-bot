@@ -1134,7 +1134,6 @@
     "amd forecasts quarterly revenue above estimates as data-center revenue hits record - reuters": "AMD prévoit un chiffre d'affaires trimestriel supérieur aux estimations, grâce à un chiffre d'affaires record dans le secteur des centres de données - Reuters"
   },
   "seen_titles": {
-    "8599556191f431e1f53ce3a9fb1bdf4d450ccf2b8eaff46777b509e8a7f75dc2": "2026-11-03T01:05:52.893770Z",
     "29331e436c35d30a362f9bbb90e19f6b18bfec511f059cdc7e849a240c502409": "2026-11-03T01:45:44.439390Z",
     "7f31779cf6e4465d7cbd63decf2e2fac0e1f15c88a5c467805d5afdb68d17b5f": "2026-11-03T08:10:49.541978Z",
     "4af9d84e4bc4d057abdd1fb9cf64cefe8e446604265f255e72a7872bff1d80d3": "2026-11-03T09:25:35.913189Z",
@@ -1186,13 +1185,6 @@
       "value": {
         "direction": "up",
         "milestone": 5
-      }
-    },
-    "company:apple:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
-      "sent_at": "2026-11-03T01:05:52.893770Z",
-      "base": "company:apple:earnings",
-      "value": {
-        "direction": "beat"
       }
     },
     "company:amd:guidance|07c973209160dbc6a998815426017e06260bbdec264f1b87e27e2c6aeda7adb7": {
