@@ -17,6 +17,27 @@
       "scheduled_at": "2026-11-03T15:00:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-03T15:00:22.509Z"
+    },
+    "2026-11-04T10:00:00.000Z": {
+      "forecast_at": "2026-11-04T09:50:58.854Z",
+      "items": [
+        {
+          "currency": "EUR",
+          "forecast": "2.5%",
+          "id": 151324,
+          "previous": "2.5%",
+          "title": "Core CPI Flash Estimate y/y"
+        },
+        {
+          "currency": "EUR",
+          "forecast": "4.0%",
+          "id": 151325,
+          "previous": "3.8%",
+          "title": "CPI Flash Estimate y/y"
+        }
+      ],
+      "scheduled_at": "2026-11-04T10:00:00.000Z",
+      "status": "armed"
     }
   }
 }
