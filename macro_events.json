@@ -44,9 +44,11 @@
       "status": "send_pending"
     },
     "2026-11-04T13:15:00.000Z": {
+      "first_seen_at": "2026-11-04T13:15:40.791Z",
       "forecast_at": "2026-11-04T13:05:40.345Z",
       "items": [
         {
+          "actual": "86K",
           "currency": "USD",
           "forecast": "67K",
           "id": 150612,
@@ -54,8 +56,9 @@
           "title": "ADP Non-Farm Employment Change"
         }
       ],
+      "reserved_at": "2026-11-04T13:15:40.795Z",
       "scheduled_at": "2026-11-04T13:15:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
