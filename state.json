@@ -616,7 +616,8 @@
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQUEyU0pEVG8xTHJtT2xCU0ltcXVTalphM0RNTEZ0UVlCTW5Qbjg4cS1RQnh5QXZnVEZvdnBacmZRM2FhMWJLWXVjU08yNkpvOHZiLTUtSGN0Mk55NGFBNWdxTmR4b3ZBeGNlX3ptUGNaRVFzRzhyNDZodklncGFZaV96cUxHY1Q1ODZWdmpTVWlWRVp4bVdJb0Zrb1pLaXVsUFFySUd4cm40cFphNGZB",
     "https://www.investing.com/news/stock-market-news/qualcomm-forecasts-upbeat-sales-on-strength-in-nonsmartphone-segments-5001228",
     "https://www.investing.com/news/stock-market-news/qualcomm-falls-3-as-handset-revenue-misses-estimates-costs-rise-5001230",
-    "https://www.cnbc.com/2026/11/04/qualcomm-qcom-earnings-report-q4-2026.html"
+    "https://www.cnbc.com/2026/11/04/qualcomm-qcom-earnings-report-q4-2026.html",
+    "https://news.google.com/rss/articles/CBMisgFBVV95cUxOT1otSGFrSy03TGU4SkFJWHJ0SlJER0pMU0FvV3RIZm1udEtsLTlqazJwbzFEX1lNR3NGYWdNRnRBMDc1ZEk0elNtb2xHcXFFOEFqSnVsWkVRSTBpeHBPUEwtNDZtSUxuZUpKSnM1aXFlX2VUczJlNWRFSXM3MGxmRXAyYkt0dUloMlhaYVJZUVhqNmU2cGVpNkJaMXY3Sm5Qck04ZjNtbHdBSC02Q3hxd3BR"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1161,11 +1162,10 @@
     "oil tumbles as investors weigh end to iran war after us democrats' midterm elections sweep - reuters": "Le prix du pétrole s'effondre alors que les investisseurs envisagent la fin de la guerre avec l'Iran après la victoire écrasante des démocrates américains aux élections de mi-mandat - Reuters",
     "qualcomm’s smartphone chip sales miss estimates, shares fall": "Les ventes de puces pour smartphones de Qualcomm sont inférieures aux prévisions, et le cours de l'action recule",
     "qualcomm falls 3% as handset revenue misses estimates, costs rise": "Qualcomm recule de 3 % alors que le chiffre d'affaires lié aux téléphones mobiles est inférieur aux prévisions et que les coûts augmentent",
-    "qualcomm stock drops 5% on weak earnings forecast as memory shortage weighs on smartphone sales": "L'action Qualcomm recule de 5 % en raison de prévisions de résultats décevantes, la pénurie de mémoire pesant sur les ventes de smartphones"
+    "qualcomm stock drops 5% on weak earnings forecast as memory shortage weighs on smartphone sales": "L'action Qualcomm recule de 5 % en raison de prévisions de résultats décevantes, la pénurie de mémoire pesant sur les ventes de smartphones",
+    "amd shares rise as ai-driven data-center strength fuels growth outlook - reuters": "Les actions d'AMD progressent alors que la bonne santé des centres de données, tirée par l'IA, renforce les perspectives de croissance - Reuters"
   },
   "seen_titles": {
-    "6e23e52debdffe068ef90f474822cf9fcfa06700b8d8b632f59d65e4ec37bf73": "2026-11-03T21:25:33.250462Z",
-    "88bfe5122e0b167944749072f427432206e6ba8f88620be8b7755e8dc494cc8f": "2026-11-03T21:25:34.461687Z",
     "3fd3f7b3aab4c15a6e4ebe00fdedbb0a01020d77fce7d9be06667d5283c1e818": "2026-11-03T22:01:15.218020Z",
     "e9855fc4990a481d3b38b4034a27cf6fa776382e104c1552881e15b0e6680c3b": "2026-11-03T23:31:01.379413Z",
     "9e2a7dccdac7d448826d0e7a96dc206ff9366d276603c9a4a5d71e03522d1ba2": "2026-11-04T02:10:41.725520Z",
@@ -1182,25 +1182,10 @@
     "fcd9a971f79153f3cc90f4118d8413a4a75b20d3d55534040fda9844af3261c5": "2026-11-04T17:15:42.576595Z",
     "a60e7f4ff916695199338b91cf78eec8731cd89960124d3851261aeb8192be9f": "2026-11-04T21:20:41.663081Z",
     "da5defec8d5fa97575368a03be6ba7ad8200d09bfd3e295b8b1349b48527dbca": "2026-11-04T21:20:42.850351Z",
-    "10ac4acabacd27a5cfdb434547565f9470aa5bf80a31926543ee7c21fd2de487": "2026-11-04T21:25:32.916804Z"
+    "10ac4acabacd27a5cfdb434547565f9470aa5bf80a31926543ee7c21fd2de487": "2026-11-04T21:25:32.916804Z",
+    "5109fe16c833fc4d45defe4a8f63ef5cc11b1a3ee22063c5f603f72464c3ede2": "2026-11-04T21:30:53.396882Z"
   },
   "seen_events": {
-    "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
-      "sent_at": "2026-11-03T21:25:33.250470Z",
-      "base": "company:amd:reaction",
-      "value": {
-        "direction": "up",
-        "milestone": 0
-      }
-    },
-    "company:amd:reaction|d0bbd3f46c9eefff9044483234b85fcd648109da0f17058cdbd7dc04def8f718": {
-      "sent_at": "2026-11-03T21:25:34.461695Z",
-      "base": "company:amd:reaction",
-      "value": {
-        "direction": "up",
-        "milestone": 5
-      }
-    },
     "company:amd:guidance|07c973209160dbc6a998815426017e06260bbdec264f1b87e27e2c6aeda7adb7": {
       "sent_at": "2026-11-03T22:01:15.218039Z",
       "base": "company:amd:guidance",
@@ -1219,6 +1204,14 @@
       "base": "inflation:eurozone:headline",
       "value": {
         "rate": "4"
+      }
+    },
+    "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
+      "sent_at": "2026-11-04T21:30:53.396895Z",
+      "base": "company:amd:reaction",
+      "value": {
+        "direction": "up",
+        "milestone": 0
       }
     }
   }
