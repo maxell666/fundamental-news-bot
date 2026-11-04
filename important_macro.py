@@ -178,8 +178,16 @@ def checkpoint():
     diff=subprocess.run(['git','diff','--cached','--quiet','--',str(STATE)],capture_output=True).returncode
     if diff not in (0,1):raise ValueError('Sauvegarde refusée')
     if diff and subprocess.run(['git','commit','-m','Save economic release state [skip ci]','--',str(STATE)],capture_output=True).returncode:raise ValueError('Sauvegarde refusée')
-    for cmd in (['git','pull','--rebase','origin','main'],['git','push','origin','HEAD:main']):
-        if subprocess.run(cmd,capture_output=True).returncode:raise ValueError('Sauvegarde refusée')
+    # The news job can push a different state file between rebase and push.
+    # Retry only Git synchronization; never repeat the Telegram POST.
+    for attempt in range(3):
+        rebased=subprocess.run(['git','pull','--rebase','origin','main'],capture_output=True).returncode
+        if rebased:
+            subprocess.run(['git','rebase','--abort'],capture_output=True)
+            raise ValueError('Sauvegarde refusée : rebase')
+        pushed=subprocess.run(['git','push','origin','HEAD:main'],capture_output=True).returncode
+        if not pushed:return
+    raise ValueError('Sauvegarde refusée : push')
 
 
 def watch(*,now=lambda:datetime.now(UTC),sleep=time.sleep,get=fetch,save=checkpoint,send=None,verify=None,path=STATE):
@@ -249,7 +257,15 @@ def watch(*,now=lambda:datetime.now(UTC),sleep=time.sleep,get=fetch,save=checkpo
     except Exception:
         record['status']='send_uncertain';write_json(path,data);save();return 'send_uncertain'
     record.update(status='completed' if valid else 'unavailable',telegram_accepted_at=timestamp(now()))
-    write_json(path,data);save();return record['status']
+    write_json(path,data)
+    print(json.dumps({'outcome': 'telegram_accepted', 'scheduled_at': key,
+                      'first_seen_at':record.get('first_seen_at'),
+                      'telegram_accepted_at':record['telegram_accepted_at']},sort_keys=True),flush=True)
+    try:save()
+    except ValueError:
+        print('Confirmation Telegram acquise ; sauvegarde distante finale non confirmée. Aucun nouvel envoi.',flush=True)
+        return 'sent_checkpoint_pending'
+    return record['status']
 
 
 def dispatch(now=None,get=fetch,post=requests.post):

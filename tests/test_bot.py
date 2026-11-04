@@ -276,6 +276,22 @@ class SelectionPipelineTests(unittest.TestCase):
         ], state_data=state)
         sent.assert_called_once()
 
+    def test_confirmed_inflation_title_seeds_history_across_runs(self):
+        state, _, sent, _ = self.run_bot([
+            article("Euro zone inflation hits 4% for first time in three years as interest rate hike looms", "https://test/inflation-first"),
+        ])
+        sent.assert_called_once()
+        state["seen_events"] = {}
+        _, translated, sent, _ = self.run_bot([
+            article("Eurozone inflation hits 4% for first time since 2023, piling pressure on ECB", "https://test/inflation-repeat"),
+        ], state_data=state)
+        sent.assert_not_called()
+        translated.assert_not_called()
+        _, _, sent, _ = self.run_bot([
+            article("Eurozone inflation rises to 4.1%", "https://test/inflation-new-value"),
+        ], state_data=state)
+        sent.assert_called_once()
+
     def test_total_source_failure_keeps_a_diagnostic_instead_of_silent_success(self):
         diagnostics = [{"source": "Markets", "status": "error", "detail": "HTTP 503"}]
         with tempfile.TemporaryDirectory() as directory, \

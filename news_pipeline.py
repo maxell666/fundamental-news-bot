@@ -116,6 +116,103 @@ def _independent_monetary_news(title):
                           rf"(?:(?:chair|governor|president|chief|head)\s+)?{personnel}\b", title))
 
 
+def inflation_signature(title, published_at):
+    """Actual consumer-inflation releases; expectations/policy news stay separate."""
+    title = normalize_text(title)
+    if not re.search(r"\b(?:inflation|cpi|consumer prices?)\b", title):
+        return None
+    if re.search(r"\b(?:survey|expectations|producer|ppi|wages?|pce|projections?|gdp|pmi|payrolls?|unemployment|borrowing|mortgage|retail sales)\b", title):
+        return None
+    if re.search(r"\b(?:expected|forecast|seen|set)\s+to\b|\b(?:could|may|will)\s+(?:rise|fall|hit|reach)\b", title):
+        return None
+    if re.search(r"^\s*(?:ecb|fed|boe|snb|lagarde|powell)\b|\b(?:bond|yields?|stocks?|shares?)\b", title):
+        return None
+    if re.search(r"\b(?:euro|dollar|sterling|franc)\s+(?:rises?|falls?|jumps?|slides?|surges?|drops?)\b", title):
+        return None
+    if re.search(r"\b(?:ecb|fed|boe|snb)\s+(?:raises?|hikes?|cuts?|holds?|keeps?)\b", title):
+        return None
+    economies = (
+        ("eurozone", r"\beuro(?:zone| zone| area)\b"),
+        ("us", r"\b(?:us|u\.s\.|united states|american)\b"),
+        ("germany", r"\b(?:germany|german)\b"),
+        ("uk", r"\b(?:uk|u\.k\.|britain|british|united kingdom)\b"),
+        ("switzerland", r"\b(?:swiss|switzerland)\b"),
+    )
+    countries = [name for name, pattern in economies if re.search(pattern, title)]
+    if len(countries) != 1 or re.search(r"\b(?:state|regional)\b|\bgerman states\b", title):
+        return None
+    if not re.search(r"\b(?:rises?|rose|hits?|reaches?|falls?|fell|eases?|dips?|slows?|cools?|accelerates?|holds?|steady|unchanged|comes?|registered|at|climbs?|jumps?|increases?|decreases?)\b", title):
+        return None
+    core = bool(re.search(r"\b(?:core|underlying)\b", title))
+    # Two different metrics in one headline must not collapse into one value.
+    if core and len(re.findall(r"[-+]?\d+(?:[.,]\d+)?\s*(?:%|percent)", title)) > 1:
+        return None
+    value = {}
+    revision = re.search(r"\brevis\w*\b", title)
+    if revision:
+        match = re.search(r"\bto\s+([-+]?\d+(?:[.,]\d+)?)\s*(?:%|percent)", title)
+        if not match:
+            return None
+    else:
+        match = re.search(r"([-+]?\d+(?:[.,]\d+)?)\s*(?:%|percent)", title)
+    if match:
+        value["rate"] = _number(match.group(1))
+    if re.search(r"\b(?:m/m|mom|monthly|month.on.month)\b", title):
+        value["frequency"] = "mom"
+    elif re.search(r"\b(?:y/y|yoy|annual|year.on.year)\b", title):
+        value["frequency"] = "yoy"
+    if re.search(r"\b(?:flash|prelim\w*)\b", title):
+        value["phase"] = "flash"
+    elif re.search(r"\bfinal\b", title):
+        value["phase"] = "final"
+    months = ("january", "february", "march", "april", "may", "june", "july",
+              "august", "september", "october", "november", "december")
+    for month, name in enumerate(months, 1):
+        if found := re.search(r"\b" + name + r"(?:\s+(20\d{2}))?\b", title):
+            date = parse_publication(published_at)
+            if date:
+                year = int(found.group(1)) if found.group(1) else date.year - (month > date.month)
+                value["period"] = f"{year:04d}-{month:02d}"
+            break
+    return f"inflation:{countries[0]}:{'core' if core else 'headline'}", value
+
+
+def inflation_history_from_results(data, now):
+    """Only confirmed structured CPI sends may suppress subsequent RSS reprises."""
+    history = {}
+    if not isinstance(data, dict) or not isinstance(data.get("events"), dict):
+        return history
+    countries = {"USD": "us", "EUR": "eurozone", "GBP": "uk", "CHF": "switzerland"}
+    for record in data["events"].values():
+        if not isinstance(record, dict) or record.get("status") != "completed":
+            continue
+        sent = parse_publication(record.get("telegram_accepted_at"))
+        if sent is None or not timedelta(0) <= now - sent < timedelta(hours=24):
+            continue
+        for item in record.get("items", []):
+            if not isinstance(item, dict):
+                continue
+            title = item.get("title", "")
+            allowed = {"CPI m/m", "CPI y/y", "Core CPI m/m", "Core CPI y/y",
+                       "CPI Flash Estimate y/y", "Core CPI Flash Estimate y/y", "German Prelim CPI m/m"}
+            country = countries.get(item.get("currency"))
+            actual = item.get("actual", "")
+            if title not in allowed or not country or not isinstance(actual, str):
+                continue
+            match = re.fullmatch(r"([-+]?\d+(?:\.\d+)?)%", actual)
+            if not match:
+                continue
+            if title.startswith("German"):
+                country = "germany"
+            base = f"inflation:{country}:{'core' if title.startswith('Core') else 'headline'}"
+            value = {"rate": _number(match.group(1)), "frequency": "mom" if "m/m" in title else "yoy"}
+            if "Flash" in title or "Prelim" in title:
+                value["phase"] = "flash"
+            history[_event_key(base, value)] = {"base": base, "value": value,
+                "sent_at": record["telegram_accepted_at"], "source": "confirmed_structured_result"}
+    return history
+
+
 def _event_signature(row):
     """Familles bornées et factuelles: aucune similitude générale de titres."""
     title = normalize_text(row["title"])
@@ -127,6 +224,10 @@ def _event_signature(row):
     date = published.date().isoformat()
     description = row.get("description") or row.get("article", {}).get("desc", "")
     context = normalize_text(f"{title} {description}")
+
+    if row.get("category") == "MACRO":
+        if signature := inflation_signature(title, row.get("published_at")):
+            return signature
 
     if row.get("category") == "MACRO" and row.get("score") == 9:
         if _independent_monetary_news(title):

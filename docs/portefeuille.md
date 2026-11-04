@@ -114,3 +114,23 @@ Le rejeu des huit titres Apple envoyés les 2 et 3 novembre 2026 garde trois
 messages : résultats supérieurs aux attentes, baisse prévue des marges et
 réaction boursière. Il enlève un aperçu et quatre reprises. Ce n’est pas une
 limite fixe de trois alertes par entreprise.
+
+## Reprises d’une publication d’inflation
+
+Les titres décrivant le même chiffre d’inflation sont rapprochés pendant 24 heures
+par économie et métrique : inflation totale ou sous-jacente, variation mensuelle
+ou annuelle, période nommée, estimation préliminaire ou résultat final lorsque
+ces précisions sont présentes. Une valeur différente reste une information
+nouvelle. Une révision sans nouveau chiffre explicite reste visible.
+
+Les trois titres « Euro zone inflation rises to three-year high »,
+« Euro zone inflation hits 4% for first time in three years as interest rate hike
+looms » et « Eurozone inflation hits 4% for first time since 2023, piling pressure
+on ECB » représentent une seule publication. Une analyse de sondage ou
+anticipations, une nouvelle décision/commentaire de banque centrale et une
+réaction explicite de marché restent séparés.
+
+Les titres historiquement confirmés initialisent ce rapprochement au déploiement.
+Un résultat CPI du lecteur structuré peut aussi éviter les reprises RSS, uniquement
+si son envoi Telegram est confirmé dans l’état. Une intention d’envoi en attente
+ou incertaine n’est pas assimilée à une livraison réussie.
