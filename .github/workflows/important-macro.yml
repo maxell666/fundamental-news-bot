@@ -29,3 +29,11 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
+      - name: Conserver la preuve de capture et de confirmation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: economic-release-state-${{ github.run_id }}
+          path: macro_events.json
+          retention-days: 7
+          if-no-files-found: ignore

@@ -13,7 +13,7 @@ from sources import SourceCollectionError, collect_news, fetch_newsapi
 from filter import FILTER_VERSION, assess_news
 from translate import translate_text, debug_deepl_usage, has_deepl_key
 from mapping import get_market_impact, priority_label
-from news_pipeline import story_key, evaluate_news, parse_publication, rank_eligible, summarize, write_audit
+from news_pipeline import inflation_history_from_results, inflation_signature, _event_key, story_key, evaluate_news, parse_publication, rank_eligible, summarize, write_audit
 from portfolio import assess_portfolio, TRACKED_ASSETS
 
 
@@ -266,11 +266,23 @@ def main(dry_run=None, replay_path=None):
         sent_at = state["seen_titles"].get(story_key(title))
         if not sent_at:
             continue
+        if inflation := inflation_signature(title, sent_at):
+            base, value = inflation
+            state["seen_events"].setdefault(_event_key(base, value), {
+                "sent_at": sent_at, "base": base, "value": value,
+            })
         for base, value in signatures(title):
             event = event_record(base, value)
             state["seen_events"].setdefault(event["key"], {
                 "sent_at": sent_at, "base": base, "value": value,
             })
+    # A pending or uncertain Telegram intent is never treated as a confirmed send.
+    try:
+        macro_results = json.loads(Path("macro_events.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        macro_results = {}
+    for key, record in inflation_history_from_results(macro_results, now).items():
+        state["seen_events"].setdefault(key, record)
     print("State chargé | seen =", len(state["seen"]), "| translations =", len(state["translations"]))
     rows, health = [], []
     failure = None

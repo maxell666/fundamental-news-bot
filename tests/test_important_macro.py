@@ -93,3 +93,37 @@ class MacroTests(unittest.TestCase):
 
  def test_identical_responsive_calendar_copies_are_allowed(self):
   self.assertEqual(len(m.page_events(html([row()])+html([row()]))),1)
+
+class CheckpointProofTests(unittest.TestCase):
+ def test_git_push_race_retries_sync_without_any_telegram_call(self):
+  from types import SimpleNamespace
+  # add, diff, commit, rebase, rejected push, rebase, accepted push
+  codes=[0,1,0,0,1,0,0]
+  with patch.object(m.subprocess,'run',side_effect=[SimpleNamespace(returncode=c) for c in codes]) as run:
+   m.checkpoint()
+  pushes=[c for c in run.call_args_list if c.args[0][1]=='push']
+  self.assertEqual(len(pushes),2)
+ def test_exhausted_push_retries_fail_closed(self):
+  from types import SimpleNamespace
+  with patch.object(m.subprocess,'run',side_effect=[SimpleNamespace(returncode=c) for c in [0,1,0,0,1,0,1,0,1]]):
+   with self.assertRaisesRegex(ValueError,'push'):m.checkpoint()
+ def test_final_checkpoint_failure_keeps_exact_local_proof_and_never_resends(self):
+  with tempfile.TemporaryDirectory() as td:
+   path=Path(td)/'state.json';clock=[T-timedelta(seconds=60)];saves=[];sent=[]
+   def now():return clock[0]
+   def sleep(n):clock[0]+=timedelta(seconds=n)
+   def save():
+    if len(saves)==2:raise ValueError('push rejected')
+    saves.append(json.loads(path.read_text()))
+   def get(url):
+    if url==m.WEEK:return m.HTTPResult(200,weekly())
+    return m.HTTPResult(200,html([row(value='' if now()<T else '250K')]))
+   kwargs=dict(path=path,now=now,sleep=sleep,get=get,save=save,send=sent.append,verify=lambda:dict(is_bot=True,username=m.EXPECTED_BOT))
+   self.assertEqual(m.watch(**kwargs),'sent_checkpoint_pending')
+   key=m.timestamp(T)
+   self.assertEqual(saves[-1]['events'][key]['status'],'send_pending')
+   local=json.loads(path.read_text())['events'][key]
+   self.assertEqual(local['status'],'completed')
+   self.assertIn('telegram_accepted_at',local)
+   self.assertEqual(m.watch(**kwargs),'outside_window')
+   self.assertEqual(len(sent),1)

@@ -65,3 +65,21 @@ capture préannonce ne fabrique pas de comparaison a posteriori.
 annonces futures de la semaine, sans secret, Telegram ni changement d’état.
 `python -m unittest discover -s tests -v` teste la sélection, les unités,
 les comparaisons contradictoires, les captures figées et les réservations.
+
+## Vérification des 3 et 4 novembre 2026
+
+- JOLTS du 3 novembre : 7,52 M contre 7,15 M attendu, précédent7,08 M.
+  Publication prévue16:00 Paris, détection16:00:20,552 et acceptation Telegram
+  16:00:22,509 (+22,509 s). Le secours n’a pas renvoyé le résultat.
+- Inflation zone euro du 4 novembre : 4,0 % et sous-jacente2,5 %, toutes deux
+  conformes aux attentes. Détection11:00:30,525 Paris. Les journaux du run
+  41810255613 confirment l’acceptation Telegram avant11:00:40,736 ; l’heure
+  d’acceptation exacte n’a pas été conservée dans GitHub, car la sauvegarde
+  finale a échoué après le POST. L’état distant est donc resté `send_pending`.
+  Aucun second envoi n’a eu lieu.
+
+La sauvegarde distante réessaie maintenant la synchronisation Git en cas de
+concurrence avec les autres tâches, sans rejouer le POST Telegram. La confirmation
+horodatée est écrite immédiatement dans les journaux et l’état local est conservé
+en artefact, y compris après un échec de sauvegarde finale. Ces mesures donnent
+une preuve d’envoi exploitable sans inventer une heure pour un événement passé.
