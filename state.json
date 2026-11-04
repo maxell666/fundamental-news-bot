@@ -1196,6 +1196,18 @@
         "direction": "down",
         "milestone": 0
       }
+    },
+    "inflation:eurozone:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-11-04T10:15:45.520201Z",
+      "base": "inflation:eurozone:headline",
+      "value": {}
+    },
+    "inflation:eurozone:headline|6d20be6b281da87f5acae3632a8ecefcd020dbfac66f1f16a1fc39044765839b": {
+      "sent_at": "2026-11-04T10:50:47.630085Z",
+      "base": "inflation:eurozone:headline",
+      "value": {
+        "rate": "4"
+      }
     }
   }
 }
