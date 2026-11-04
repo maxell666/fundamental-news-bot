@@ -605,7 +605,8 @@
     "https://investinglive.com/news/china-services-pmi-slows-to-50-8-in-october-as-price-cuts-meet-rising-costs/",
     "https://www.cnbc.com/2026/11/03/treasury-yields-fall-as-democrats-win-big-in-us-midterm-elections.html",
     "https://www.investing.com/news/economy-news/euro-zone-economic-growth-slows-to-fourmonth-low-in-october-pmi-shows-4997820",
-    "https://www.investing.com/news/economy-news/democrats-seize-congress-amd-shares-surge--whats-moving-markets-4997756"
+    "https://www.investing.com/news/economy-news/democrats-seize-congress-amd-shares-surge--whats-moving-markets-4997756",
+    "https://www.investing.com/news/economy-news/euro-zone-inflation-rises-to-threeyear-high-4998098"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1139,7 +1140,8 @@
     "china services pmi slows to 50.8 in october as price cuts meet rising costs": "L'indice PMI des services chinois recule à 50,8 en octobre, les baisses de prix venant contrebalancer la hausse des coûts",
     "treasury yields fall as investors crowd into bonds for safety amid election stock sell-off": "Les rendements des bons du Trésor reculent, les investisseurs se ruant sur les obligations à la recherche de sécurité face à la vague de ventes sur les marchés boursiers liée aux élections",
     "euro zone economic growth slows to four-month low in october, pmi shows": "La croissance économique de la zone euro a ralenti en octobre pour atteindre son plus bas niveau depuis quatre mois, selon l'indice PMI",
-    "democrats seize congress; amd shares surge - what’s moving markets": "Les démocrates remportent le Congrès ; les actions d'AMD s'envolent : ce qui fait bouger les marchés"
+    "democrats seize congress; amd shares surge - what’s moving markets": "Les démocrates remportent le Congrès ; les actions d'AMD s'envolent : ce qui fait bouger les marchés",
+    "euro zone inflation rises to three-year high": "L'inflation dans la zone euro atteint son plus haut niveau depuis trois ans"
   },
   "seen_titles": {
     "a6949c74521847dc4739c2eecaa3fa11f8908915d79c9e85b6711adc23885e51": "2026-11-03T12:01:09.538257Z",
@@ -1153,7 +1155,8 @@
     "9e2a7dccdac7d448826d0e7a96dc206ff9366d276603c9a4a5d71e03522d1ba2": "2026-11-04T02:10:41.725520Z",
     "873040672bfdfbcd238417f73a4aeb5f931a0bfb2b8002d800c8f2b4972d6b81": "2026-11-04T06:40:46.109718Z",
     "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-04T09:20:45.683529Z",
-    "bcb8e445ffcc661135080e26aec755b500e3e9f74cddb0c0233e228d5694dcd4": "2026-11-04T09:20:46.758717Z"
+    "bcb8e445ffcc661135080e26aec755b500e3e9f74cddb0c0233e228d5694dcd4": "2026-11-04T09:20:46.758717Z",
+    "e9501061bc818db47777a32cb77568d1716508d3f6cd918f01e4c73674d15b72": "2026-11-04T10:15:45.520201Z"
   },
   "seen_events": {
     "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
