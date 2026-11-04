@@ -608,7 +608,8 @@
     "https://www.investing.com/news/economy-news/democrats-seize-congress-amd-shares-surge--whats-moving-markets-4997756",
     "https://www.investing.com/news/economy-news/euro-zone-inflation-rises-to-threeyear-high-4998098",
     "https://www.cnbc.com/2026/11/04/euro-zone-cpi-inflation-october-ecb-rate-hike.html",
-    "https://investinglive.com/news/eurozone-inflation-hits-4-for-first-time-since-2023-piling-pressure-on-ecb/"
+    "https://investinglive.com/news/eurozone-inflation-hits-4-for-first-time-since-2023-piling-pressure-on-ecb/",
+    "https://www.investing.com/news/stock-market-news/us-democratic-win-unlikely-to-ease-firms-cost-tariff-woes-in-near-term-executives-say-4999169"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1145,7 +1146,8 @@
     "democrats seize congress; amd shares surge - what’s moving markets": "Les démocrates remportent le Congrès ; les actions d'AMD s'envolent : ce qui fait bouger les marchés",
     "euro zone inflation rises to three-year high": "L'inflation dans la zone euro atteint son plus haut niveau depuis trois ans",
     "euro zone inflation hits 4% for first time in three years as interest rate hike looms": "L'inflation dans la zone euro atteint 4 % pour la première fois en trois ans, alors qu'une hausse des taux d'intérêt se profile",
-    "eurozone inflation hits 4% for first time since 2023, piling pressure on ecb": "L'inflation dans la zone euro atteint 4 % pour la première fois depuis 2023, ce qui accentue la pression sur la BCE"
+    "eurozone inflation hits 4% for first time since 2023, piling pressure on ecb": "L'inflation dans la zone euro atteint 4 % pour la première fois depuis 2023, ce qui accentue la pression sur la BCE",
+    "us democratic win unlikely to ease firms’ cost, tariff woes in near term, executives say": "Selon des dirigeants d'entreprise, la victoire des démocrates américains ne devrait pas soulager à court terme les entreprises de leurs difficultés liées aux coûts et aux droits de douane"
   },
   "seen_titles": {
     "cdde1786a1c582d32913d2c3ac438c56ed7599074efb75bf32bc7f1a53e8b56d": "2026-11-03T13:45:42.976301Z",
@@ -1161,7 +1163,8 @@
     "bcb8e445ffcc661135080e26aec755b500e3e9f74cddb0c0233e228d5694dcd4": "2026-11-04T09:20:46.758717Z",
     "e9501061bc818db47777a32cb77568d1716508d3f6cd918f01e4c73674d15b72": "2026-11-04T10:15:45.520201Z",
     "efea2364bbe946125289b578bfe21e563dc9999ad8f67979d8a078322057fda5": "2026-11-04T10:50:47.630085Z",
-    "d95440e106ed84d620f4c59d0e93ad1d1ce96735e596ed834e9729aa5c337921": "2026-11-04T11:15:48.140184Z"
+    "d95440e106ed84d620f4c59d0e93ad1d1ce96735e596ed834e9729aa5c337921": "2026-11-04T11:15:48.140184Z",
+    "18baedf48c556a6b8a55edb40e999bc6b1817ff27c029dd0e07b3b1d04d5d342": "2026-11-04T13:20:48.828615Z"
   },
   "seen_events": {
     "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
