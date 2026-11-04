@@ -60,6 +60,20 @@
       "scheduled_at": "2026-11-04T13:15:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-04T13:15:42.298Z"
+    },
+    "2026-11-04T15:00:00.000Z": {
+      "forecast_at": "2026-11-04T14:50:51.328Z",
+      "items": [
+        {
+          "currency": "USD",
+          "forecast": "54.8",
+          "id": 146609,
+          "previous": "54.9",
+          "title": "ISM Services PMI"
+        }
+      ],
+      "scheduled_at": "2026-11-04T15:00:00.000Z",
+      "status": "armed"
     }
   }
 }
