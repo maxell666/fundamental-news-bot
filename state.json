@@ -603,7 +603,9 @@
     "https://www.investing.com/news/stock-market-news/amd-forecasts-quarterly-revenue-above-estimates-as-datacenter-growth-accelerates-4996502",
     "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNM01ic0VHVkhaaTh2RV9KVV8zNHFCNW1TZnRlc29mMDg5T200aGRFZkdhd0JtYmtiZGt4LVJRdTdzWlV4dnhnRk9WVW5NWE1QWEFXSmhnZFVDNHpUVk94b0NFOEt4MXNLRWFmYTQzZnlZN3VvTGNtVzZFNnFHQVJ6NWlISXlsNFFBYnVVMnhXTVlOUHE0MWk2TWhYUFgtQ2Yzc1JzVHVRNmo5RmpvQ3Qwc3E3bkJVQTRnQ2JIX2x5NVg",
     "https://investinglive.com/news/china-services-pmi-slows-to-50-8-in-october-as-price-cuts-meet-rising-costs/",
-    "https://www.cnbc.com/2026/11/03/treasury-yields-fall-as-democrats-win-big-in-us-midterm-elections.html"
+    "https://www.cnbc.com/2026/11/03/treasury-yields-fall-as-democrats-win-big-in-us-midterm-elections.html",
+    "https://www.investing.com/news/economy-news/euro-zone-economic-growth-slows-to-fourmonth-low-in-october-pmi-shows-4997820",
+    "https://www.investing.com/news/economy-news/democrats-seize-congress-amd-shares-surge--whats-moving-markets-4997756"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1135,7 +1137,9 @@
     "amd forecasts quarterly revenue above estimates as data-center growth accelerates": "AMD prévoit un chiffre d'affaires trimestriel supérieur aux estimations, grâce à l'accélération de la croissance du secteur des centres de données",
     "amd forecasts quarterly revenue above estimates as data-center revenue hits record - reuters": "AMD prévoit un chiffre d'affaires trimestriel supérieur aux estimations, grâce à un chiffre d'affaires record dans le secteur des centres de données - Reuters",
     "china services pmi slows to 50.8 in october as price cuts meet rising costs": "L'indice PMI des services chinois recule à 50,8 en octobre, les baisses de prix venant contrebalancer la hausse des coûts",
-    "treasury yields fall as investors crowd into bonds for safety amid election stock sell-off": "Les rendements des bons du Trésor reculent, les investisseurs se ruant sur les obligations à la recherche de sécurité face à la vague de ventes sur les marchés boursiers liée aux élections"
+    "treasury yields fall as investors crowd into bonds for safety amid election stock sell-off": "Les rendements des bons du Trésor reculent, les investisseurs se ruant sur les obligations à la recherche de sécurité face à la vague de ventes sur les marchés boursiers liée aux élections",
+    "euro zone economic growth slows to four-month low in october, pmi shows": "La croissance économique de la zone euro a ralenti en octobre pour atteindre son plus bas niveau depuis quatre mois, selon l'indice PMI",
+    "democrats seize congress; amd shares surge - what’s moving markets": "Les démocrates remportent le Congrès ; les actions d'AMD s'envolent : ce qui fait bouger les marchés"
   },
   "seen_titles": {
     "4af9d84e4bc4d057abdd1fb9cf64cefe8e446604265f255e72a7872bff1d80d3": "2026-11-03T09:25:35.913189Z",
@@ -1148,7 +1152,9 @@
     "3fd3f7b3aab4c15a6e4ebe00fdedbb0a01020d77fce7d9be06667d5283c1e818": "2026-11-03T22:01:15.218020Z",
     "e9855fc4990a481d3b38b4034a27cf6fa776382e104c1552881e15b0e6680c3b": "2026-11-03T23:31:01.379413Z",
     "9e2a7dccdac7d448826d0e7a96dc206ff9366d276603c9a4a5d71e03522d1ba2": "2026-11-04T02:10:41.725520Z",
-    "873040672bfdfbcd238417f73a4aeb5f931a0bfb2b8002d800c8f2b4972d6b81": "2026-11-04T06:40:46.109718Z"
+    "873040672bfdfbcd238417f73a4aeb5f931a0bfb2b8002d800c8f2b4972d6b81": "2026-11-04T06:40:46.109718Z",
+    "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-04T09:20:45.683529Z",
+    "bcb8e445ffcc661135080e26aec755b500e3e9f74cddb0c0233e228d5694dcd4": "2026-11-04T09:20:46.758717Z"
   },
   "seen_events": {
     "company:apple:reaction|1cc7eba2db8569b65a6b67fef10213221b06dc21f867e0cdf7feb95e13209c0f": {
