@@ -631,7 +631,8 @@
     "https://www.investing.com/news/economy-news/bank-of-england-hikes-interest-rates-amid-mounting-inflationary-pressures-5003501",
     "https://www.investing.com/news/stock-market-news/visa-sees-us-holiday-retail-sales-growing-45-fastest-pace-since-2021-5003995",
     "https://news.google.com/rss/articles/CBMisgFBVV95cUxObTdYYmZaZmRqRUt0TDhBbERraDF2VlpSTDJ4M1NyZ2dRRkNUUVJ0OVFHdzJyc01uNDZOV2YzZFprbU90aUNzTEtYTEdNWU5Jc19VVVlHc24tNkZ2VFhqOWg3b0swVDFnY2hHaGxuNVZXVkE5S09xZXV2eGRQb1kwdWFEZWxpeGMybDZRcGtyWW52Q1JfaHY4MVo1YmJfRW9KZmNsdVJqS24zeGRZVUpaV3VB",
-    "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbjZCZGJiUVFJRkdBeU1DaTExb3FMSmdaLVRuLTRrQWNnd3F5MDg1YnZlTUZfclBPRWhQZXdlbWxEakVXdlNidWVWbmhFcGZTVEpSOWlJSE1FTHhOWTVlUXkwSG5rTXRNTDE5ckRWTzhnYmx3LVVJSDE2S2JNQW9CTUNFanlFNWlqMkJWdFZTMzU0VnpzX2tua25aQS0zNTdsUDNRRA"
+    "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbjZCZGJiUVFJRkdBeU1DaTExb3FMSmdaLVRuLTRrQWNnd3F5MDg1YnZlTUZfclBPRWhQZXdlbWxEakVXdlNidWVWbmhFcGZTVEpSOWlJSE1FTHhOWTVlUXkwSG5rTXRNTDE5ckRWTzhnYmx3LVVJSDE2S2JNQW9CTUNFanlFNWlqMkJWdFZTMzU0VnpzX2tua25aQS0zNTdsUDNRRA",
+    "https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1191,7 +1192,8 @@
     "bank of england hikes interest rates amid mounting inflationary pressures": "La Banque d'Angleterre relève ses taux d'intérêt face à la montée des pressions inflationnistes",
     "visa sees us holiday retail sales growing 4.5%, fastest pace since 2021": "Selon Visa, les ventes au détail pendant les fêtes de fin d'année aux États-Unis devraient progresser de 4,5 %, soit le rythme le plus soutenu depuis 2021",
     "nasdaq falls at open after midterms-fueled surge as chip, data center stocks fall - reuters": "Le Nasdaq recule à l'ouverture après une forte hausse alimentée par les élections de mi-mandat, dans un contexte de baisse des valeurs du secteur des semi-conducteurs et des centres de données - Reuters",
-    "china says us farm purchases hinge on tariff-cut deal - reuters": "La Chine affirme que ses achats de produits agricoles américains dépendent d'un accord sur la réduction des droits de douane - Reuters"
+    "china says us farm purchases hinge on tariff-cut deal - reuters": "La Chine affirme que ses achats de produits agricoles américains dépendent d'un accord sur la réduction des droits de douane - Reuters",
+    "qualcomm slides 9% after earnings, leading postelection chip stock sell-off": "Qualcomm recule de 9 % après la publication de ses résultats, entraînant une vague de ventes de titres du secteur des semi-conducteurs après les élections"
   },
   "seen_titles": {
     "550eefb4b370097f505f3d4fa175de14e8aa7dbb7e2c4e9dbeb02715f6f6b0b7": "2026-11-04T16:20:39.383861Z",
@@ -1214,7 +1216,8 @@
     "ae4c9d53d1fb8cae5b3d30f169fd64e15c39c5b833b9cc629edd53a6cfe5e227": "2026-11-05T12:10:40.395085Z",
     "1f1e2d79b26e1ee86cb0c963ec0c7780abfc756e5c8dcaa670b81c4a6920bf5f": "2026-11-05T13:05:33.466827Z",
     "0cc5698a74e34e0a25b4353429e94cf810f13862851d32e3b02c280383f2fddd": "2026-11-05T14:45:39.789779Z",
-    "23534f39a6174aa448a3104a9b4680554dd1befb007f558fcf9bf23381dc7d29": "2026-11-05T15:10:43.259406Z"
+    "23534f39a6174aa448a3104a9b4680554dd1befb007f558fcf9bf23381dc7d29": "2026-11-05T15:10:43.259406Z",
+    "2c293bb61fbde597b191a63210f76c3607ec5ba2b577f1227b103abacdc8c65b": "2026-11-05T15:35:33.288785Z"
   },
   "seen_events": {
     "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
