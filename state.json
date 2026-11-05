@@ -625,7 +625,8 @@
     "https://www.investing.com/news/economy-news/uk-inflation-to-peak-at-44-around-start-of-2027-ft-survey-shows-5002287",
     "https://news.google.com/rss/articles/CBMitgFBVV95cUxOS3ZvRzF1aTlTZE9WT0NxYkU4TWFHTi04YnhEVXd1VTJRTXdibGtPdGZtTWkwZEVBLU0xNmtZaEc4R2lWZWVSdGJtY1FSdzhIazR5a2YwdDJoRzFFTHN1Z2FNb2l5b2x5SllyTE9sTTZTNkxFODFJVkhxOGhlblRTXzNiLTZpc3FKcXBqRzZUMjYtY3VXOHlnR0hPOFFYTldZaXpzSGNTbzlPNlhUdHF1amJTcFp1dw",
     "https://www.investing.com/news/commodities-news/china-ties-more-us-farm-imports-to-reciprocal-tariff-cuts-5002457",
-    "https://www.investing.com/news/earnings/siemens-healthineers-beats-q4-revenue-expectations-5002519"
+    "https://www.investing.com/news/earnings/siemens-healthineers-beats-q4-revenue-expectations-5002519",
+    "https://news.google.com/rss/articles/CBMiswFBVV95cUxOakZCVGgwaXJDcW1sUmROMW5IRldPV2h4VU50Tnpqbk9jQVBzR1VSWnpXd1laUUNMQ05iSC1GaUl2cXlvZGt0S1ZIcmRGdVY0LVFFWC1pbGlJSUJCZzRLbnhKYzhMbXV4RzNTTVp3WHFlN2hzVHJEeHViN1RjUWZnRUc5MDU2X0s1RTJ1UERZVXVyTTR1Rkt2QTRMa3lvY21sWG1mbE1fU0Vjcm1jSEtmLVl0OA"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1179,11 +1180,10 @@
     "uk inflation to peak at 4.4% around start of 2027, ft survey shows": "L'inflation au Royaume-Uni devrait atteindre un pic de 4,4 % vers le début de l'année 2027, selon une enquête du Financial Times",
     "dollar slides as us election drives oil and treasury yields lower; sterling gains - reuters": "Le dollar recule alors que les élections américaines font baisser les cours du pétrole et les rendements des bons du Trésor ; la livre sterling s'apprécie - Reuters",
     "china ties more us farm imports to reciprocal tariff cuts": "La Chine subordonne davantage ses importations de produits agricoles américains à des réductions tarifaires réciproques",
-    "siemens healthineers beats q4 revenue expectations": "Siemens Healthineers dépasse les prévisions de chiffre d'affaires pour le quatrième trimestre"
+    "siemens healthineers beats q4 revenue expectations": "Siemens Healthineers dépasse les prévisions de chiffre d'affaires pour le quatrième trimestre",
+    "euro zone economic growth slows to four-month low in october, pmi shows - reuters": "La croissance économique de la zone euro a ralenti en octobre pour atteindre son plus bas niveau depuis quatre mois, selon l'indice PMI - Reuters"
   },
   "seen_titles": {
-    "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-04T09:20:45.683529Z",
-    "bcb8e445ffcc661135080e26aec755b500e3e9f74cddb0c0233e228d5694dcd4": "2026-11-04T09:20:46.758717Z",
     "e9501061bc818db47777a32cb77568d1716508d3f6cd918f01e4c73674d15b72": "2026-11-04T10:15:45.520201Z",
     "efea2364bbe946125289b578bfe21e563dc9999ad8f67979d8a078322057fda5": "2026-11-04T10:50:47.630085Z",
     "d95440e106ed84d620f4c59d0e93ad1d1ce96735e596ed834e9729aa5c337921": "2026-11-04T11:15:48.140184Z",
@@ -1203,7 +1203,8 @@
     "8c5642e2cb3fce19c75b7129a3f49232def11226e1a40d34e0fb58ce013cd69e": "2026-11-05T06:20:40.257041Z",
     "4a8afc8dbe1b2fddf4f7f40221f31fce7229c841f8ddd07846e260f73429cf44": "2026-11-05T07:35:31.586937Z",
     "99574f35d565356d0ffa75aab514751bbdcd3571d3225729c7449658704b7e83": "2026-11-05T08:01:05.875555Z",
-    "47e64479cfd20f926d5cb654f3b1b38372fa663f3675a7cd75ee86528ae623b4": "2026-11-05T08:20:38.060048Z"
+    "47e64479cfd20f926d5cb654f3b1b38372fa663f3675a7cd75ee86528ae623b4": "2026-11-05T08:20:38.060048Z",
+    "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-05T09:30:27.669116Z"
   },
   "seen_events": {
     "inflation:eurozone:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
