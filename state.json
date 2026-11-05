@@ -630,7 +630,8 @@
     "https://www.investing.com/news/stock-market-news/us-stock-index-futures-steady-after-midterms-rally-5001919",
     "https://www.investing.com/news/economy-news/bank-of-england-hikes-interest-rates-amid-mounting-inflationary-pressures-5003501",
     "https://www.investing.com/news/stock-market-news/visa-sees-us-holiday-retail-sales-growing-45-fastest-pace-since-2021-5003995",
-    "https://news.google.com/rss/articles/CBMisgFBVV95cUxObTdYYmZaZmRqRUt0TDhBbERraDF2VlpSTDJ4M1NyZ2dRRkNUUVJ0OVFHdzJyc01uNDZOV2YzZFprbU90aUNzTEtYTEdNWU5Jc19VVVlHc24tNkZ2VFhqOWg3b0swVDFnY2hHaGxuNVZXVkE5S09xZXV2eGRQb1kwdWFEZWxpeGMybDZRcGtyWW52Q1JfaHY4MVo1YmJfRW9KZmNsdVJqS24zeGRZVUpaV3VB"
+    "https://news.google.com/rss/articles/CBMisgFBVV95cUxObTdYYmZaZmRqRUt0TDhBbERraDF2VlpSTDJ4M1NyZ2dRRkNUUVJ0OVFHdzJyc01uNDZOV2YzZFprbU90aUNzTEtYTEdNWU5Jc19VVVlHc24tNkZ2VFhqOWg3b0swVDFnY2hHaGxuNVZXVkE5S09xZXV2eGRQb1kwdWFEZWxpeGMybDZRcGtyWW52Q1JfaHY4MVo1YmJfRW9KZmNsdVJqS24zeGRZVUpaV3VB",
+    "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbjZCZGJiUVFJRkdBeU1DaTExb3FMSmdaLVRuLTRrQWNnd3F5MDg1YnZlTUZfclBPRWhQZXdlbWxEakVXdlNidWVWbmhFcGZTVEpSOWlJSE1FTHhOWTVlUXkwSG5rTXRNTDE5ckRWTzhnYmx3LVVJSDE2S2JNQW9CTUNFanlFNWlqMkJWdFZTMzU0VnpzX2tua25aQS0zNTdsUDNRRA"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1189,7 +1190,8 @@
     "nasdaq futures fall as chip stocks come under pressure amid u.s. midterms fallout": "Les contrats à terme sur le Nasdaq reculent alors que les valeurs du secteur des semi-conducteurs subissent des pressions dans le sillage des élections de mi-mandat aux États-Unis",
     "bank of england hikes interest rates amid mounting inflationary pressures": "La Banque d'Angleterre relève ses taux d'intérêt face à la montée des pressions inflationnistes",
     "visa sees us holiday retail sales growing 4.5%, fastest pace since 2021": "Selon Visa, les ventes au détail pendant les fêtes de fin d'année aux États-Unis devraient progresser de 4,5 %, soit le rythme le plus soutenu depuis 2021",
-    "nasdaq falls at open after midterms-fueled surge as chip, data center stocks fall - reuters": "Le Nasdaq recule à l'ouverture après une forte hausse alimentée par les élections de mi-mandat, dans un contexte de baisse des valeurs du secteur des semi-conducteurs et des centres de données - Reuters"
+    "nasdaq falls at open after midterms-fueled surge as chip, data center stocks fall - reuters": "Le Nasdaq recule à l'ouverture après une forte hausse alimentée par les élections de mi-mandat, dans un contexte de baisse des valeurs du secteur des semi-conducteurs et des centres de données - Reuters",
+    "china says us farm purchases hinge on tariff-cut deal - reuters": "La Chine affirme que ses achats de produits agricoles américains dépendent d'un accord sur la réduction des droits de douane - Reuters"
   },
   "seen_titles": {
     "d10dfc56d4027382fa1770b8407d1a76c07650e1fdb2a249e5f8bfc3d295bcd4": "2026-11-04T15:25:31.331552Z",
@@ -1212,7 +1214,8 @@
     "fc38aa4b596718796ac40f616b0d5e6b4f1b18b35aa070f633f000b9b4dd1de0": "2026-11-05T11:20:43.182888Z",
     "ae4c9d53d1fb8cae5b3d30f169fd64e15c39c5b833b9cc629edd53a6cfe5e227": "2026-11-05T12:10:40.395085Z",
     "1f1e2d79b26e1ee86cb0c963ec0c7780abfc756e5c8dcaa670b81c4a6920bf5f": "2026-11-05T13:05:33.466827Z",
-    "0cc5698a74e34e0a25b4353429e94cf810f13862851d32e3b02c280383f2fddd": "2026-11-05T14:45:39.789779Z"
+    "0cc5698a74e34e0a25b4353429e94cf810f13862851d32e3b02c280383f2fddd": "2026-11-05T14:45:39.789779Z",
+    "23534f39a6174aa448a3104a9b4680554dd1befb007f558fcf9bf23381dc7d29": "2026-11-05T15:10:43.259406Z"
   },
   "seen_events": {
     "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
