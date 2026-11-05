@@ -634,7 +634,8 @@
     "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbjZCZGJiUVFJRkdBeU1DaTExb3FMSmdaLVRuLTRrQWNnd3F5MDg1YnZlTUZfclBPRWhQZXdlbWxEakVXdlNidWVWbmhFcGZTVEpSOWlJSE1FTHhOWTVlUXkwSG5rTXRNTDE5ckRWTzhnYmx3LVVJSDE2S2JNQW9CTUNFanlFNWlqMkJWdFZTMzU0VnpzX2tua25aQS0zNTdsUDNRRA",
     "https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html",
     "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNeENYSWEwaDRLMW55UG5qd3NaNDNVenVSbXBpUHZfbHI1R1pqMk5VVkJUbkRYMG9QMzYtYzMzSWhPLS1SeTg2eXVUWkU4MGFMWlBiajlPMjY4RDItX1dXYlU3djA5cUJNMFItVGQ3RWhoUHdIcVVMcWMzLTB2eE5vLThWckM4bVByTmRXb0RPWFpVV0NDWjZHZ0k3R1ZrWjBJWXl6ajV4cEFTaHRFejk3elYtS1Vxekl5aDlhYjAyRDlaVG52dzQweDMxS1UyeGJ5",
-    "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWk03bDJPMTdlbGlRNi1YMHRCNHlsMWllWWt4Slk4dEZzeExCbUs5QmtjbG56TzlIWHg2eHZCbEF2U3hucml0UXBIeVoyamdhVlhqWjJTaENueW1tYjdhN1k5dy00NEk3UWJtUG45cmxiOHphOEJkNXJ2dG84UlpFYV8zOWpfMVFnY1dNWVV5Q083Q2VucHFfdG1PeWVtcW9nT216LVJwUlFnbE0wMEhDT3kzVUhnU2NLZ1k2US1R"
+    "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWk03bDJPMTdlbGlRNi1YMHRCNHlsMWllWWt4Slk4dEZzeExCbUs5QmtjbG56TzlIWHg2eHZCbEF2U3hucml0UXBIeVoyamdhVlhqWjJTaENueW1tYjdhN1k5dy00NEk3UWJtUG45cmxiOHphOEJkNXJ2dG84UlpFYV8zOWpfMVFnY1dNWVV5Q083Q2VucHFfdG1PeWVtcW9nT216LVJwUlFnbE0wMEhDT3kzVUhnU2NLZ1k2US1R",
+    "https://www.cnbc.com/2026/11/05/nasdaq-drops-into-correction-territory-heres-what-typically-happens-next.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1197,7 +1198,8 @@
     "china says us farm purchases hinge on tariff-cut deal - reuters": "La Chine affirme que ses achats de produits agricoles américains dépendent d'un accord sur la réduction des droits de douane - Reuters",
     "qualcomm slides 9% after earnings, leading postelection chip stock sell-off": "Qualcomm recule de 9 % après la publication de ses résultats, entraînant une vague de ventes de titres du secteur des semi-conducteurs après les élections",
     "qualcomm shares slump as weak smartphone chip sales overshadow data-center momentum - reuters": "Les actions de Qualcomm s'effondrent, les faibles ventes de puces pour smartphones venant éclipser la dynamique des centres de données - Reuters",
-    "attack appears to hit russia's ryazan oil refinery, reuters analysis finds - reuters": "Une attaque semble avoir frappé la raffinerie de pétrole russe de Ryazan, selon une analyse de Reuters - Reuters"
+    "attack appears to hit russia's ryazan oil refinery, reuters analysis finds - reuters": "Une attaque semble avoir frappé la raffinerie de pétrole russe de Ryazan, selon une analyse de Reuters - Reuters",
+    "nasdaq drops into correction territory — here’s what typically happens next": "Le Nasdaq entre en phase de correction : voici ce qui se passe généralement ensuite"
   },
   "seen_titles": {
     "17aa891b0e5cac032831b099e2867d7356fd0af055b1b187cd34543f1446ea69": "2026-11-04T22:40:41.527878Z",
@@ -1216,7 +1218,8 @@
     "23534f39a6174aa448a3104a9b4680554dd1befb007f558fcf9bf23381dc7d29": "2026-11-05T15:10:43.259406Z",
     "2c293bb61fbde597b191a63210f76c3607ec5ba2b577f1227b103abacdc8c65b": "2026-11-05T15:35:33.288785Z",
     "634b09029b142922d9f57109f9bba0a0fead26072690b2d86217d312368a75d2": "2026-11-05T16:50:51.863337Z",
-    "9622669defa21d2b1f7769082c9bac4d0c314c80c78be5cb86a133abd2dc513d": "2026-11-05T17:01:05.513344Z"
+    "9622669defa21d2b1f7769082c9bac4d0c314c80c78be5cb86a133abd2dc513d": "2026-11-05T17:01:05.513344Z",
+    "b14c098ff140520ccba20aa4d7075bc336267a9e7d838ac6c5818c99242271f8": "2026-11-05T22:01:01.769416Z"
   },
   "seen_events": {
     "rates:boe:raise:2026-11-05|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
