@@ -114,6 +114,20 @@
       "scheduled_at": "2026-11-05T12:00:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-05T12:00:11.924Z"
+    },
+    "2026-11-05T13:30:00.000Z": {
+      "forecast_at": "2026-11-05T13:20:54.150Z",
+      "items": [
+        {
+          "currency": "USD",
+          "forecast": "197K",
+          "id": 147022,
+          "previous": "194K",
+          "title": "Unemployment Claims"
+        }
+      ],
+      "scheduled_at": "2026-11-05T13:30:00.000Z",
+      "status": "armed"
     }
   }
 }
