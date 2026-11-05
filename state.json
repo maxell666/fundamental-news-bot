@@ -624,7 +624,8 @@
     "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZnJ0US1MMVdHMmJRYTlsNlkwUUtUa0VTcjZLRm8ycnFCNmRPRnUycVFxcDJhMzgyUlNmN3VSTEtxRXoyWXJJb01FVjBmVFdKM0RsVDFDWVRpbk0zeV9TMmlfZDRFZm5DcEFqdWpaVHRvZlpTTEdhYkFNbTJKVVQ5ZnZBRmQ3U2t0U2ttSkFqMA",
     "https://www.investing.com/news/economy-news/uk-inflation-to-peak-at-44-around-start-of-2027-ft-survey-shows-5002287",
     "https://news.google.com/rss/articles/CBMitgFBVV95cUxOS3ZvRzF1aTlTZE9WT0NxYkU4TWFHTi04YnhEVXd1VTJRTXdibGtPdGZtTWkwZEVBLU0xNmtZaEc4R2lWZWVSdGJtY1FSdzhIazR5a2YwdDJoRzFFTHN1Z2FNb2l5b2x5SllyTE9sTTZTNkxFODFJVkhxOGhlblRTXzNiLTZpc3FKcXBqRzZUMjYtY3VXOHlnR0hPOFFYTldZaXpzSGNTbzlPNlhUdHF1amJTcFp1dw",
-    "https://www.investing.com/news/commodities-news/china-ties-more-us-farm-imports-to-reciprocal-tariff-cuts-5002457"
+    "https://www.investing.com/news/commodities-news/china-ties-more-us-farm-imports-to-reciprocal-tariff-cuts-5002457",
+    "https://www.investing.com/news/earnings/siemens-healthineers-beats-q4-revenue-expectations-5002519"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1177,7 +1178,8 @@
     "us private payrolls rise in october, adp says - reuters": "Les emplois dans le secteur privé américain ont augmenté en octobre, selon ADP - Reuters",
     "uk inflation to peak at 4.4% around start of 2027, ft survey shows": "L'inflation au Royaume-Uni devrait atteindre un pic de 4,4 % vers le début de l'année 2027, selon une enquête du Financial Times",
     "dollar slides as us election drives oil and treasury yields lower; sterling gains - reuters": "Le dollar recule alors que les élections américaines font baisser les cours du pétrole et les rendements des bons du Trésor ; la livre sterling s'apprécie - Reuters",
-    "china ties more us farm imports to reciprocal tariff cuts": "La Chine subordonne davantage ses importations de produits agricoles américains à des réductions tarifaires réciproques"
+    "china ties more us farm imports to reciprocal tariff cuts": "La Chine subordonne davantage ses importations de produits agricoles américains à des réductions tarifaires réciproques",
+    "siemens healthineers beats q4 revenue expectations": "Siemens Healthineers dépasse les prévisions de chiffre d'affaires pour le quatrième trimestre"
   },
   "seen_titles": {
     "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-04T09:20:45.683529Z",
@@ -1200,7 +1202,8 @@
     "8b5b936aa50e45fccf13c4009cdaaa16cb2a8ab2e8a2586aa5c0ed45e63bba84": "2026-11-05T00:20:39.105659Z",
     "8c5642e2cb3fce19c75b7129a3f49232def11226e1a40d34e0fb58ce013cd69e": "2026-11-05T06:20:40.257041Z",
     "4a8afc8dbe1b2fddf4f7f40221f31fce7229c841f8ddd07846e260f73429cf44": "2026-11-05T07:35:31.586937Z",
-    "99574f35d565356d0ffa75aab514751bbdcd3571d3225729c7449658704b7e83": "2026-11-05T08:01:05.875555Z"
+    "99574f35d565356d0ffa75aab514751bbdcd3571d3225729c7449658704b7e83": "2026-11-05T08:01:05.875555Z",
+    "47e64479cfd20f926d5cb654f3b1b38372fa663f3675a7cd75ee86528ae623b4": "2026-11-05T08:20:38.060048Z"
   },
   "seen_events": {
     "inflation:eurozone:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
