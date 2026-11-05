@@ -1184,7 +1184,6 @@
     "euro zone economic growth slows to four-month low in october, pmi shows - reuters": "La croissance économique de la zone euro a ralenti en octobre pour atteindre son plus bas niveau depuis quatre mois, selon l'indice PMI - Reuters"
   },
   "seen_titles": {
-    "e9501061bc818db47777a32cb77568d1716508d3f6cd918f01e4c73674d15b72": "2026-11-04T10:15:45.520201Z",
     "efea2364bbe946125289b578bfe21e563dc9999ad8f67979d8a078322057fda5": "2026-11-04T10:50:47.630085Z",
     "d95440e106ed84d620f4c59d0e93ad1d1ce96735e596ed834e9729aa5c337921": "2026-11-04T11:15:48.140184Z",
     "18baedf48c556a6b8a55edb40e999bc6b1817ff27c029dd0e07b3b1d04d5d342": "2026-11-04T13:20:48.828615Z",
@@ -1207,11 +1206,6 @@
     "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-05T09:30:27.669116Z"
   },
   "seen_events": {
-    "inflation:eurozone:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-04T10:15:45.520201Z",
-      "base": "inflation:eurozone:headline",
-      "value": {}
-    },
     "inflation:eurozone:headline|6d20be6b281da87f5acae3632a8ecefcd020dbfac66f1f16a1fc39044765839b": {
       "sent_at": "2026-11-04T10:50:47.630085Z",
       "base": "inflation:eurozone:headline",
