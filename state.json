@@ -627,7 +627,8 @@
     "https://www.investing.com/news/commodities-news/china-ties-more-us-farm-imports-to-reciprocal-tariff-cuts-5002457",
     "https://www.investing.com/news/earnings/siemens-healthineers-beats-q4-revenue-expectations-5002519",
     "https://news.google.com/rss/articles/CBMiswFBVV95cUxOakZCVGgwaXJDcW1sUmROMW5IRldPV2h4VU50Tnpqbk9jQVBzR1VSWnpXd1laUUNMQ05iSC1GaUl2cXlvZGt0S1ZIcmRGdVY0LVFFWC1pbGlJSUJCZzRLbnhKYzhMbXV4RzNTTVp3WHFlN2hzVHJEeHViN1RjUWZnRUc5MDU2X0s1RTJ1UERZVXVyTTR1Rkt2QTRMa3lvY21sWG1mbE1fU0Vjcm1jSEtmLVl0OA",
-    "https://www.investing.com/news/stock-market-news/us-stock-index-futures-steady-after-midterms-rally-5001919"
+    "https://www.investing.com/news/stock-market-news/us-stock-index-futures-steady-after-midterms-rally-5001919",
+    "https://www.investing.com/news/economy-news/bank-of-england-hikes-interest-rates-amid-mounting-inflationary-pressures-5003501"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1183,7 +1184,8 @@
     "china ties more us farm imports to reciprocal tariff cuts": "La Chine subordonne davantage ses importations de produits agricoles américains à des réductions tarifaires réciproques",
     "siemens healthineers beats q4 revenue expectations": "Siemens Healthineers dépasse les prévisions de chiffre d'affaires pour le quatrième trimestre",
     "euro zone economic growth slows to four-month low in october, pmi shows - reuters": "La croissance économique de la zone euro a ralenti en octobre pour atteindre son plus bas niveau depuis quatre mois, selon l'indice PMI - Reuters",
-    "nasdaq futures fall as chip stocks come under pressure amid u.s. midterms fallout": "Les contrats à terme sur le Nasdaq reculent alors que les valeurs du secteur des semi-conducteurs subissent des pressions dans le sillage des élections de mi-mandat aux États-Unis"
+    "nasdaq futures fall as chip stocks come under pressure amid u.s. midterms fallout": "Les contrats à terme sur le Nasdaq reculent alors que les valeurs du secteur des semi-conducteurs subissent des pressions dans le sillage des élections de mi-mandat aux États-Unis",
+    "bank of england hikes interest rates amid mounting inflationary pressures": "La Banque d'Angleterre relève ses taux d'intérêt face à la montée des pressions inflationnistes"
   },
   "seen_titles": {
     "18baedf48c556a6b8a55edb40e999bc6b1817ff27c029dd0e07b3b1d04d5d342": "2026-11-04T13:20:48.828615Z",
@@ -1204,7 +1206,8 @@
     "99574f35d565356d0ffa75aab514751bbdcd3571d3225729c7449658704b7e83": "2026-11-05T08:01:05.875555Z",
     "47e64479cfd20f926d5cb654f3b1b38372fa663f3675a7cd75ee86528ae623b4": "2026-11-05T08:20:38.060048Z",
     "18adce9c282962c42821efc73351b8955a9a23b06462e8bf95df80cabdacb60d": "2026-11-05T09:30:27.669116Z",
-    "fc38aa4b596718796ac40f616b0d5e6b4f1b18b35aa070f633f000b9b4dd1de0": "2026-11-05T11:20:43.182888Z"
+    "fc38aa4b596718796ac40f616b0d5e6b4f1b18b35aa070f633f000b9b4dd1de0": "2026-11-05T11:20:43.182888Z",
+    "ae4c9d53d1fb8cae5b3d30f169fd64e15c39c5b833b9cc629edd53a6cfe5e227": "2026-11-05T12:10:40.395085Z"
   },
   "seen_events": {
     "company:amd:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
@@ -1218,6 +1221,13 @@
     "rates:boe:raise:2026-11-05|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
       "sent_at": "2026-11-05T00:20:37.931729Z",
       "value": {},
+      "base": "rates:boe:raise:2026-11-05"
+    },
+    "rates:boe:raise:2026-11-05|6d20be6b281da87f5acae3632a8ecefcd020dbfac66f1f16a1fc39044765839b": {
+      "sent_at": "2026-11-05T12:10:40.395108Z",
+      "value": {
+        "rate": "4"
+      },
       "base": "rates:boe:raise:2026-11-05"
     }
   }
