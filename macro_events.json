@@ -80,9 +80,11 @@
       "telegram_accepted_at": "2026-11-04T15:00:54.176Z"
     },
     "2026-11-05T08:00:00.000Z": {
+      "first_seen_at": "2026-11-05T08:00:20.328Z",
       "forecast_at": "2026-11-05T07:50:44.626Z",
       "items": [
         {
+          "actual": "3.1%",
           "currency": "CHF",
           "forecast": "3.1%",
           "id": 147310,
@@ -90,8 +92,9 @@
           "title": "Unemployment Rate"
         }
       ],
+      "reserved_at": "2026-11-05T08:00:20.331Z",
       "scheduled_at": "2026-11-05T08:00:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
