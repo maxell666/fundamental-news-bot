@@ -78,6 +78,20 @@
       "scheduled_at": "2026-11-04T15:00:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-04T15:00:54.176Z"
+    },
+    "2026-11-05T08:00:00.000Z": {
+      "forecast_at": "2026-11-05T07:50:44.626Z",
+      "items": [
+        {
+          "currency": "CHF",
+          "forecast": "3.1%",
+          "id": 147310,
+          "previous": "3.1%",
+          "title": "Unemployment Rate"
+        }
+      ],
+      "scheduled_at": "2026-11-05T08:00:00.000Z",
+      "status": "armed"
     }
   }
 }
