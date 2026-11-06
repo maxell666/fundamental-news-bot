@@ -166,6 +166,20 @@
       "scheduled_at": "2026-11-06T13:30:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-06T13:30:33.150Z"
+    },
+    "2026-11-06T15:00:00.000Z": {
+      "forecast_at": "2026-11-06T14:50:46.928Z",
+      "items": [
+        {
+          "currency": "USD",
+          "forecast": "48.1",
+          "id": 148580,
+          "previous": "46.3",
+          "title": "Prelim UoM Consumer Sentiment"
+        }
+      ],
+      "scheduled_at": "2026-11-06T15:00:00.000Z",
+      "status": "armed"
     }
   }
 }
