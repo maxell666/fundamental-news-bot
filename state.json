@@ -1242,7 +1242,6 @@
     "global stocks fall amid ‘big worries over ai’ after democrats’ midterms triumph": "Les marchés boursiers mondiaux reculent sur fond de « vives inquiétudes concernant l'IA » après la victoire des démocrates aux élections de mi-mandat"
   },
   "seen_titles": {
-    "83b235905f590c6bb35885e558c47e1cfc27ea8b25e2f193f34a99364615dff2": "2026-11-05T23:30:52.356077Z",
     "f4245fc02f4d5c7d1deee7ab416bce8a48ea53a6bfa70bdf7c8fe19de83ecdcc": "2026-11-06T04:20:40.202558Z",
     "a5b5beac5c88c36d3504e43ec746a449ef2fd274fa0a9e8f865192aaab2467bd": "2026-11-06T06:55:29.719517Z",
     "80f0340518257adc498cef3481979f6c44c68c0238a8b3d79a8def4d20d39117": "2026-11-06T09:57:59.968010Z",
@@ -1263,13 +1262,5 @@
     "b06c4b5c2588774feecec0033be5ec21df1231d090d8d7646aabf80ab43b9834": "2026-11-06T21:50:39.718379Z",
     "03c0617540017f6cc6a6c7186d15e5bb500eba4d24913e42c66d7e538c6f42d1": "2026-11-06T22:05:36.615621Z"
   },
-  "seen_events": {
-    "company:microsoft:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
-      "sent_at": "2026-11-05T23:30:52.356088Z",
-      "base": "company:microsoft:earnings",
-      "value": {
-        "direction": "beat"
-      }
-    }
-  }
+  "seen_events": {}
 }
