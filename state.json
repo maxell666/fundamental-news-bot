@@ -1204,8 +1204,6 @@
     "iren tops quarterly revenue estimates, delays some microsoft ai infrastructure deliveries - reuters": "IREN dépasse les prévisions de chiffre d'affaires trimestriel et reporte certaines livraisons d'infrastructures d'IA de Microsoft - Reuters"
   },
   "seen_titles": {
-    "da9c5e6c865df2b4fe6d80f6765547caddfd1f3c108d7fb5b3274bc20b4e56c0": "2026-11-05T00:20:37.931710Z",
-    "8b5b936aa50e45fccf13c4009cdaaa16cb2a8ab2e8a2586aa5c0ed45e63bba84": "2026-11-05T00:20:39.105659Z",
     "8c5642e2cb3fce19c75b7129a3f49232def11226e1a40d34e0fb58ce013cd69e": "2026-11-05T06:20:40.257041Z",
     "4a8afc8dbe1b2fddf4f7f40221f31fce7229c841f8ddd07846e260f73429cf44": "2026-11-05T07:35:31.586937Z",
     "99574f35d565356d0ffa75aab514751bbdcd3571d3225729c7449658704b7e83": "2026-11-05T08:01:05.875555Z",
@@ -1223,11 +1221,6 @@
     "83b235905f590c6bb35885e558c47e1cfc27ea8b25e2f193f34a99364615dff2": "2026-11-05T23:30:52.356077Z"
   },
   "seen_events": {
-    "rates:boe:raise:2026-11-05|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-05T00:20:37.931729Z",
-      "value": {},
-      "base": "rates:boe:raise:2026-11-05"
-    },
     "rates:boe:raise:2026-11-05|6d20be6b281da87f5acae3632a8ecefcd020dbfac66f1f16a1fc39044765839b": {
       "sent_at": "2026-11-05T12:10:40.395108Z",
       "value": {
