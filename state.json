@@ -648,7 +648,8 @@
     "https://www.theguardian.com/business/live/2026/nov/06/global-stocks-tumble-ai-panic-markets-democrats-midterms-success-jobs-oil-dollar-latest-news-updates",
     "https://www.cnbc.com/2026/11/06/jobs-report-october-2026.html",
     "https://news.google.com/rss/articles/CBMisgFBVV95cUxPakNLaDVCMElHQkc5cjV5SmVJcFNPdVpMbnZHRmVFMkoxR3hhbERYTnBZcUlmQVZBanhMeVhEZHpsN3JxM0xrUHNsYVZPWW1EdXBWam1pNk5lSEZVNHkwcUV1VG9xbmVYek80a3JXelRIcW9fQjQ3TUljTUdpZkhYWUJaZHhxNTUybWQwME81bUtPTmJ4UUg4ZjVrZjVlLUx2azFkWjhmeThDWkp2MHJwdTVR",
-    "https://www.investing.com/news/stock-market-news/nasdaq-opens-higher-as-chips-pare-losses-ratehike-fears-linger-5008634"
+    "https://www.investing.com/news/stock-market-news/nasdaq-opens-higher-as-chips-pare-losses-ratehike-fears-linger-5008634",
+    "https://www.investing.com/news/stock-market-news/oracle-falls-4-as-microsoft-reportedly-winds-down-ai-cloud-capacity-deal-5008936"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1225,7 +1226,8 @@
     "global stocks tumble as ai panic grips markets after democrats’ midterm success – business live": "Les marchés boursiers mondiaux s'effondrent alors que la panique liée à l'IA s'empare des marchés après le succès des démocrates aux élections de mi-mandat – actualités économiques en direct",
     "u.s. economy added 165,000 jobs in october, way more than expected; unemployment rate at 4.1%": "L'économie américaine a créé 165 000 emplois en octobre, un chiffre bien supérieur aux prévisions ; le taux de chômage s'établit à 4,1 %",
     "us job growth beats expectations in october; unemployment rate falls to 4.1% - reuters": "La croissance de l'emploi aux États-Unis dépasse les prévisions en octobre ; le taux de chômage recule à 4,1 % - Reuters",
-    "nasdaq opens higher as chips pare losses, rate-hike fears linger": "Le Nasdaq s'ouvre en hausse alors que le secteur des semi-conducteurs réduit ses pertes, mais les craintes liées à une hausse des taux persistent"
+    "nasdaq opens higher as chips pare losses, rate-hike fears linger": "Le Nasdaq s'ouvre en hausse alors que le secteur des semi-conducteurs réduit ses pertes, mais les craintes liées à une hausse des taux persistent",
+    "oracle falls 4% as microsoft reportedly winds down ai cloud capacity deal": "Oracle recule de 4 % alors que Microsoft serait en train de mettre fin à un accord portant sur des capacités de cloud pour l'IA"
   },
   "seen_titles": {
     "b14c098ff140520ccba20aa4d7075bc336267a9e7d838ac6c5818c99242271f8": "2026-11-05T22:01:01.769416Z",
@@ -1241,7 +1243,8 @@
     "f52a6a7e2e9b7bf3988dbe8e5a6c67580bcbd5d3f6166f18fb012da21973b2ce": "2026-11-06T11:55:36.051945Z",
     "caecbc4b1e65ccefaccfc23799e5b4eb35f87da481c50611c5b756fec2d4838c": "2026-11-06T13:35:31.379043Z",
     "352e183710152adef57c00a464a4110902e94291d8f7a42b7c9e42366ad8c889": "2026-11-06T14:30:53.082738Z",
-    "c2211fafb794762e98ee9e258030ad04c2377429424abebbe5fdab704ce6b378": "2026-11-06T15:01:04.205351Z"
+    "c2211fafb794762e98ee9e258030ad04c2377429424abebbe5fdab704ce6b378": "2026-11-06T15:01:04.205351Z",
+    "e1737bab0d750c57941ffd9672282e263a055714ade2f8a0a42cc43cb2939f5c": "2026-11-06T18:01:03.631552Z"
   },
   "seen_events": {
     "company:microsoft:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
