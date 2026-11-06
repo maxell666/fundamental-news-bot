@@ -182,7 +182,8 @@
       ],
       "reserved_at": "2026-11-06T15:00:10.337Z",
       "scheduled_at": "2026-11-06T15:00:00.000Z",
-      "status": "send_pending"
+      "status": "completed",
+      "telegram_accepted_at": "2026-11-06T15:00:12.892Z"
     }
   }
 }
