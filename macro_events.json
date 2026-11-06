@@ -134,9 +134,11 @@
       "telegram_accepted_at": "2026-11-05T13:30:22.451Z"
     },
     "2026-11-06T13:30:00.000Z": {
+      "first_seen_at": "2026-11-06T13:30:31.647Z",
       "forecast_at": "2026-11-06T13:20:45.653Z",
       "items": [
         {
+          "actual": "0.4%",
           "currency": "USD",
           "forecast": "0.3%",
           "id": 146937,
@@ -144,6 +146,7 @@
           "title": "Average Hourly Earnings m/m"
         },
         {
+          "actual": "165K",
           "currency": "USD",
           "forecast": "65K",
           "id": 146914,
@@ -151,6 +154,7 @@
           "title": "Non-Farm Employment Change"
         },
         {
+          "actual": "4.1%",
           "currency": "USD",
           "forecast": "4.2%",
           "id": 146925,
@@ -158,8 +162,9 @@
           "title": "Unemployment Rate"
         }
       ],
+      "reserved_at": "2026-11-06T13:30:31.651Z",
       "scheduled_at": "2026-11-06T13:30:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
