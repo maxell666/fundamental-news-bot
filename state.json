@@ -643,7 +643,8 @@
     "https://www.investing.com/news/economy-news/us-inflation-too-high-essential-to-get-back-to-2-feds-williams-5007154",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-after-ai-rout-batters-wall-st-payrolls-data-in-focus-5006240",
     "https://investinglive.com/news/eurozone-retail-sales-fall-0-7-in-september-signalling-weakening-consumer-demand/",
-    "https://www.bbc.co.uk/news/articles/cmn04705rd8jo"
+    "https://www.bbc.co.uk/news/articles/cmn04705rd8jo",
+    "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQcTZYNGtkV0pONThjTHhjTkdYS0JYX1YtSlJISko4bVRPZDlUSzZaTmhRU0ZtQmtnZWFRQUkxRDhUWHR2akFsSkhSZmQxdVE4dURkRlJ4ekEtc1lFSTlTT3VaU1VRa0VKRjZFZkdZUWVpR3NNT1hfR1JhLVkxWHlLUDVZT04wMnJYTFMyX0haakxHcWdIdWg2SFVpNGF4eWFwNXV0eGZ3Q2ZDeTYzbGtyZXpGM05XNDVBb0U2dUtScEM"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1215,10 +1216,10 @@
     "us inflation too high; essential to get back to 2%: fed’s williams": "« L'inflation aux États-Unis est trop élevée ; il est essentiel de revenir à 2 % » : Williams, de la Fed",
     "nasdaq futures rise as ai rout pauses amid dip buying": "Les contrats à terme sur le Nasdaq progressent alors que la chute des valeurs liées à l'IA marque une pause, favorisée par des achats sur repli",
     "eurozone retail sales fall 0.7% in september, signalling weakening consumer demand": "Les ventes au détail de la zone euro ont reculé de 0,7 % en septembre, signe d'un affaiblissement de la demande des consommateurs",
-    "global stocks plunge as fears over us ai slowdown spread to asia and europe": "Les marchés boursiers mondiaux s'effondrent alors que les craintes d'un ralentissement du secteur de l'IA aux États-Unis se propagent en Asie et en Europe"
+    "global stocks plunge as fears over us ai slowdown spread to asia and europe": "Les marchés boursiers mondiaux s'effondrent alors que les craintes d'un ralentissement du secteur de l'IA aux États-Unis se propagent en Asie et en Europe",
+    "dollar climbs on safe haven demand as ai rout saps asian markets - reuters": "Le dollar s'apprécie grâce à la demande de valeurs refuges, tandis que la chute des valeurs liées à l'IA pèse sur les marchés asiatiques - Reuters"
   },
   "seen_titles": {
-    "fc38aa4b596718796ac40f616b0d5e6b4f1b18b35aa070f633f000b9b4dd1de0": "2026-11-05T11:20:43.182888Z",
     "ae4c9d53d1fb8cae5b3d30f169fd64e15c39c5b833b9cc629edd53a6cfe5e227": "2026-11-05T12:10:40.395085Z",
     "1f1e2d79b26e1ee86cb0c963ec0c7780abfc756e5c8dcaa670b81c4a6920bf5f": "2026-11-05T13:05:33.466827Z",
     "0cc5698a74e34e0a25b4353429e94cf810f13862851d32e3b02c280383f2fddd": "2026-11-05T14:45:39.789779Z",
@@ -1234,7 +1235,8 @@
     "ad3546c736119179b492357aa1bdaaea14dd886b654cff37569682cabb3d011f": "2026-11-06T11:01:03.291554Z",
     "567fa05152f4d89893658ded281152eefa9a3bce3b1ae596559d73bbc6b49152": "2026-11-06T11:01:04.694588Z",
     "081b9df2c09600890a32220ed868e00afc18269d2cfaef30bec48a1dfb729e20": "2026-11-06T11:05:32.632363Z",
-    "5b5279b978afed6ea20d83d774b2b3c0cb8c93580ff94a330d7f32cb0df20541": "2026-11-06T11:20:39.564710Z"
+    "5b5279b978afed6ea20d83d774b2b3c0cb8c93580ff94a330d7f32cb0df20541": "2026-11-06T11:20:39.564710Z",
+    "e8fd00c2dd375f1042a03aa9ccb31703c66de51572077b2d7db27f2677dbc2eb": "2026-11-06T11:25:31.744473Z"
   },
   "seen_events": {
     "rates:boe:raise:2026-11-05|6d20be6b281da87f5acae3632a8ecefcd020dbfac66f1f16a1fc39044765839b": {
