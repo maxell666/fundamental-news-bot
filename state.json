@@ -638,7 +638,8 @@
     "https://www.cnbc.com/2026/11/05/nasdaq-drops-into-correction-territory-heres-what-typically-happens-next.html",
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxPSnlxQ1JoQmdtMWZ4UzhHRWJacmNRTGNCeDJmTWRRV2xpdU9xUzY2MzhVSklqMkNxeG93QVNnRUZCYUxvVUNBaHVta2lPS2VxMDlxQnZvandHTXZQVk1LNmVTakZxTzJjcHFGbjBwUHd0ajBwdl9HUERfaEsyWGNicU9yeklKMldtNldLMk5rNWpRNnMyWXY1QUNVa3lLU21tcXEwbXUzMFUzTTZtNnRN",
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxPa19aTnZtOEpfZ3RqS0dfVkZWcUpPTG91S3ltd1NqWUNvbENsNllVdDdYbWtLaXpLR0N6Uk5jMzRIZThlLUkwNVZwaXh5dlZPUFhLQ3JZY01Ka2tmbHFjY2thcnk2aFc3eUxsOHhXNFNQNjlWcU9NZmFRVnFNNjZPenhVbmZKMzNPRnlwVkNydng2dE9DRjNCVDFQeGl1WGdFT3RfYmNJRmp2OVFhMExV",
-    "https://www.investing.com/news/economy-news/dollar-holds-yen-gains-as-equity-rout-saps-risk-appetite-ahead-of-payrolls-5006269"
+    "https://www.investing.com/news/economy-news/dollar-holds-yen-gains-as-equity-rout-saps-risk-appetite-ahead-of-payrolls-5006269",
+    "https://www.investing.com/news/stock-market-news/nasdaq-futures-rise-after-steep-ai-selloff-as-chip-stocks-stabilize-5007026"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1205,7 +1206,8 @@
     "nasdaq drops into correction territory — here’s what typically happens next": "Le Nasdaq entre en phase de correction : voici ce qui se passe généralement ensuite",
     "iren tops quarterly revenue estimates, delays some microsoft ai infrastructure deliveries - reuters": "IREN dépasse les prévisions de chiffre d'affaires trimestriel et reporte certaines livraisons d'infrastructures d'IA de Microsoft - Reuters",
     "renewed refinery attacks deplete russian diesel supply as us deal in focus - reuters": "De nouvelles attaques contre des raffineries épuisent les stocks de diesel russes alors que l'accord avec les États-Unis est au centre de l'attention - Reuters",
-    "dollar climbs on haven bid as ai rout grips asian markets": "Le dollar s'apprécie grâce à la demande de valeurs refuges alors que la chute liée à l'IA secoue les marchés asiatiques"
+    "dollar climbs on haven bid as ai rout grips asian markets": "Le dollar s'apprécie grâce à la demande de valeurs refuges alors que la chute liée à l'IA secoue les marchés asiatiques",
+    "nasdaq futures rise after steep ai selloff as chip stocks stabilize": "Les contrats à terme sur le Nasdaq remontent après une forte correction dans le secteur de l'IA, alors que les valeurs du secteur des semi-conducteurs se stabilisent"
   },
   "seen_titles": {
     "fc38aa4b596718796ac40f616b0d5e6b4f1b18b35aa070f633f000b9b4dd1de0": "2026-11-05T11:20:43.182888Z",
@@ -1219,7 +1221,8 @@
     "b14c098ff140520ccba20aa4d7075bc336267a9e7d838ac6c5818c99242271f8": "2026-11-05T22:01:01.769416Z",
     "83b235905f590c6bb35885e558c47e1cfc27ea8b25e2f193f34a99364615dff2": "2026-11-05T23:30:52.356077Z",
     "f4245fc02f4d5c7d1deee7ab416bce8a48ea53a6bfa70bdf7c8fe19de83ecdcc": "2026-11-06T04:20:40.202558Z",
-    "a5b5beac5c88c36d3504e43ec746a449ef2fd274fa0a9e8f865192aaab2467bd": "2026-11-06T06:55:29.719517Z"
+    "a5b5beac5c88c36d3504e43ec746a449ef2fd274fa0a9e8f865192aaab2467bd": "2026-11-06T06:55:29.719517Z",
+    "80f0340518257adc498cef3481979f6c44c68c0238a8b3d79a8def4d20d39117": "2026-11-06T09:57:59.968010Z"
   },
   "seen_events": {
     "rates:boe:raise:2026-11-05|6d20be6b281da87f5acae3632a8ecefcd020dbfac66f1f16a1fc39044765839b": {
