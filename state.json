@@ -650,7 +650,8 @@
     "https://news.google.com/rss/articles/CBMisgFBVV95cUxPakNLaDVCMElHQkc5cjV5SmVJcFNPdVpMbnZHRmVFMkoxR3hhbERYTnBZcUlmQVZBanhMeVhEZHpsN3JxM0xrUHNsYVZPWW1EdXBWam1pNk5lSEZVNHkwcUV1VG9xbmVYek80a3JXelRIcW9fQjQ3TUljTUdpZkhYWUJaZHhxNTUybWQwME81bUtPTmJ4UUg4ZjVrZjVlLUx2azFkWjhmeThDWkp2MHJwdTVR",
     "https://www.investing.com/news/stock-market-news/nasdaq-opens-higher-as-chips-pare-losses-ratehike-fears-linger-5008634",
     "https://www.investing.com/news/stock-market-news/oracle-falls-4-as-microsoft-reportedly-winds-down-ai-cloud-capacity-deal-5008936",
-    "https://www.cnbc.com/2026/11/06/fed-daly-interest-rates-inflation.html"
+    "https://www.cnbc.com/2026/11/06/fed-daly-interest-rates-inflation.html",
+    "https://www.investing.com/news/economy-news/feds-daly-says-further-rate-hikes-likely-needed-to-curb-inflation-5009002"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1229,7 +1230,8 @@
     "us job growth beats expectations in october; unemployment rate falls to 4.1% - reuters": "La croissance de l'emploi aux États-Unis dépasse les prévisions en octobre ; le taux de chômage recule à 4,1 % - Reuters",
     "nasdaq opens higher as chips pare losses, rate-hike fears linger": "Le Nasdaq s'ouvre en hausse alors que le secteur des semi-conducteurs réduit ses pertes, mais les craintes liées à une hausse des taux persistent",
     "oracle falls 4% as microsoft reportedly winds down ai cloud capacity deal": "Oracle recule de 4 % alors que Microsoft serait en train de mettre fin à un accord portant sur des capacités de cloud pour l'IA",
-    "san francisco fed president daly says higher rates 'are likely to be needed' in inflation fight": "La présidente de la Fed de San Francisco, Mme Daly, estime que des hausses de taux « seront probablement nécessaires » pour lutter contre l'inflation"
+    "san francisco fed president daly says higher rates 'are likely to be needed' in inflation fight": "La présidente de la Fed de San Francisco, Mme Daly, estime que des hausses de taux « seront probablement nécessaires » pour lutter contre l'inflation",
+    "fed’s daly says further rate hikes likely needed to curb inflation": "M. Daly, de la Fed, estime que de nouvelles hausses des taux d'intérêt seront probablement nécessaires pour juguler l'inflation"
   },
   "seen_titles": {
     "b14c098ff140520ccba20aa4d7075bc336267a9e7d838ac6c5818c99242271f8": "2026-11-05T22:01:01.769416Z",
@@ -1247,7 +1249,8 @@
     "352e183710152adef57c00a464a4110902e94291d8f7a42b7c9e42366ad8c889": "2026-11-06T14:30:53.082738Z",
     "c2211fafb794762e98ee9e258030ad04c2377429424abebbe5fdab704ce6b378": "2026-11-06T15:01:04.205351Z",
     "e1737bab0d750c57941ffd9672282e263a055714ade2f8a0a42cc43cb2939f5c": "2026-11-06T18:01:03.631552Z",
-    "11b4ef17ed0e4507ac76d3810e9dcd79127a292526baf123579aa67268bce8d8": "2026-11-06T18:45:38.899803Z"
+    "11b4ef17ed0e4507ac76d3810e9dcd79127a292526baf123579aa67268bce8d8": "2026-11-06T18:45:38.899803Z",
+    "d006a79a6199fe7075d8faa4d8a1e1ef8836dcbfce7d26772c99071a8b3cd5a0": "2026-11-06T19:01:07.829276Z"
   },
   "seen_events": {
     "company:microsoft:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
