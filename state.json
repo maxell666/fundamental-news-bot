@@ -655,7 +655,8 @@
     "https://news.google.com/rss/articles/CBMirgFBVV95cUxQang5czlMS1c0LVRiTWdNdXItcDlKcTgyOXplSVVGRHljMGVrVG1KVGJTclR0TmtjWjFob0t1QWh6OTdkNzltaDJhTi1fdUdkM2tOb01JaVVlaVRWcWVTdkZFbmdBYlgxY2ktWVh6eFdZRVczekVTdFRCSWtOSzBGVnNCWHpFNFFXWFE2WDVQUjFCa19tbUhzNzdlNksyNFBqek4tcXdrcjVIVTQxMkE",
     "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbUhTTlgyaFZBWXZIQllzVEkxM3FGZzZBa1N6MTlZY0pDQ3Ryb1c0eUlFZjhXVFZQeEk3VVVaRGVSWmNhU3VFbkVpb1lkTHF5Z3prV3JvZDBxS3ZyeXFaZmREY1VNbXBYVjB4aE9jNmtPSUVyMDhuVExBYU5PanpCQ1JfYTJNNWh0UzBGV3FQQ25ZTEduVFdBSEJpVVVLOTZZcUdFTjAyM3k4RFpLUEU4WUVFem1wX181Y3RGazd0Rlo1SFQ4cGY2Y3lR",
     "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQanB1RlNfclNuTUN5SEpJTjFWWUM1UVR2V2xLclNnTjhfNnp0VjNGZE5qeDBiekZXOFpLR2hOTnFud1ZKYlgzaFF6dGpwbkdENXF5VldQSEl0MEE1X0dHbWMyWHFvOU82WC01SjNSamFuSFQtY1M4VHJMN1VEMzlyQnN3UkotaXhiTm4taGdud2w5Wnk0cmtVQlp1MjRvNEJreERfdzZZbmtRQWo5d3NTYnVpOThYRjUwU3BJSGRFSEE",
-    "https://www.theguardian.com/business/2026/nov/06/global-stocks-plunge-amid-ai-slowdown-fears-after-democrats-midterm-triumph"
+    "https://www.theguardian.com/business/2026/nov/06/global-stocks-plunge-amid-ai-slowdown-fears-after-democrats-midterm-triumph",
+    "https://www.investing.com/news/economy-news/ecb-contender-de-cos-warns-of-inflation-risks-as-iran-war-keeps-energy-prices-high-5009821"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1239,7 +1240,8 @@
     "nasdaq rebounds as chip stocks recover from steep losses - reuters": "Le Nasdaq rebondit alors que les valeurs du secteur des semi-conducteurs se remettent de fortes baisses - Reuters",
     "brazil extends oil export tax through year end, advances us reciprocity process - reuters": "Le Brésil prolonge la taxe sur les exportations de pétrole jusqu'à la fin de l'année et fait avancer le processus de réciprocité avec les États-Unis - Reuters",
     "us treasury sanctions canadian money services firms over iran-related transactions - reuters": "Le Trésor américain impose des sanctions à des sociétés canadiennes de services monétaires pour des transactions liées à l'Iran - Reuters",
-    "global stocks fall amid ‘big worries over ai’ after democrats’ midterms triumph": "Les marchés boursiers mondiaux reculent sur fond de « vives inquiétudes concernant l'IA » après la victoire des démocrates aux élections de mi-mandat"
+    "global stocks fall amid ‘big worries over ai’ after democrats’ midterms triumph": "Les marchés boursiers mondiaux reculent sur fond de « vives inquiétudes concernant l'IA » après la victoire des démocrates aux élections de mi-mandat",
+    "ecb contender de cos warns of inflation risks as iran war keeps energy prices high": "Le candidat à la présidence de la BCE, M. de Cos, met en garde contre les risques d'inflation alors que la guerre en Iran maintient les prix de l'énergie à un niveau élevé"
   },
   "seen_titles": {
     "5b5279b978afed6ea20d83d774b2b3c0cb8c93580ff94a330d7f32cb0df20541": "2026-11-06T11:20:39.564710Z",
@@ -1254,7 +1256,8 @@
     "6d148b393a4a0d4aeed4e057bbb30063c0e62fd74ca0e27e986d37dbe4337690": "2026-11-06T19:15:43.072503Z",
     "418f8bdcea1f0e3550e08f0a05ad5fd021b7eac5413058c8ec55d3c6cbf53c9b": "2026-11-06T19:45:38.531258Z",
     "b06c4b5c2588774feecec0033be5ec21df1231d090d8d7646aabf80ab43b9834": "2026-11-06T21:50:39.718379Z",
-    "03c0617540017f6cc6a6c7186d15e5bb500eba4d24913e42c66d7e538c6f42d1": "2026-11-06T22:05:36.615621Z"
+    "03c0617540017f6cc6a6c7186d15e5bb500eba4d24913e42c66d7e538c6f42d1": "2026-11-06T22:05:36.615621Z",
+    "ee7845b89d1d700a44db9a6b658968de6cef531e0a90f8646997462c628a36f8": "2026-11-07T11:20:40.101441Z"
   },
   "seen_events": {}
 }
