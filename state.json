@@ -669,7 +669,9 @@
     "https://news.google.com/rss/articles/CBMivgFBVV95cUxNcUVlREFfdFVvdmk1OXFEamNOcFVZTGJFX1gxZkhjYjhXNTFnZkJqUmpLLTliVmRCZUNtRGdHSDZ2cVBvRXlLdldZSG1rVmFfMFk5M1dKNnBnVnNnUzZ1NmVSNkRWakkyNktBZmhGbzJwYkh5YTZBekVPY3pyUU9lTXY1WGt4TkhLcHVPTldJb1k3MGVPdzBLcTIyVzNuRUpyRGt5cDJpMV91QzdjcWFtQy1MekMwU3lkRlNXUFNn",
     "https://www.investing.com/news/stock-market-news/chinese-robotics-stock-surge-on-apple-robotics-research-5010497",
     "https://news.google.com/rss/articles/CBMisAFBVV95cUxOSTA2TElMOUVJb2VPUWp2RnhuNWtoOHhncWpKUW9Ob1lEQ19BVUluTWRvRkZTYWJTYlU5RlZNR2F6UmZOcW5GLXlrQVJuMzMxakd2V2M4d1dXRDBCU3FBN182RlFQTjVBbVpTbzQ2cXZzdkk4YUJxZkF4NUVoZXlXR1haVlZIY2lpMnJQeTdFWTFMQkR5QWxiaWtqZUJSSUI5bFpzdGNmUENfU2h4dWIxcg",
-    "https://www.investing.com/news/economy-news/nvidias-outofhour-shares-fall-as-firm-probes-ceo-jensen-huang-5010476"
+    "https://www.investing.com/news/economy-news/nvidias-outofhour-shares-fall-as-firm-probes-ceo-jensen-huang-5010476",
+    "https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html",
+    "https://www.investing.com/news/stock-market-news/nvidia-launches-probe-into-reported-espionage-plot-targeting-ceo-jensen-huang-5010308"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1267,7 +1269,9 @@
     "nvidia's out-of-hour shares fall as firm probes ceo jensen huang - reuters": "Les actions de Nvidia chutent en dehors des heures de cotation alors que l'entreprise mène une enquête sur son PDG, Jensen Huang - Reuters",
     "chinese robotics stock surge on apple robotics research": "Les actions des entreprises chinoises de robotique s'envolent grâce aux recherches d'Apple dans ce domaine",
     "china extends suspensions of 24% tariff on us goods, port fees on us ships for two months - reuters": "La Chine prolonge de deux mois la suspension des droits de douane de 24 % sur les produits américains et des redevances portuaires sur les navires américains - Reuters",
-    "nvidia’s shares slide after-hours as tech giant probes ceo jensen huang": "Les actions de Nvidia reculent en dehors des heures d'ouverture alors que le géant de la technologie mène une enquête sur son PDG, Jensen Huang"
+    "nvidia’s shares slide after-hours as tech giant probes ceo jensen huang": "Les actions de Nvidia reculent en dehors des heures d'ouverture alors que le géant de la technologie mène une enquête sur son PDG, Jensen Huang",
+    "nvidia stock falls 5% as scrutiny turns to jensen huang’s relationship with alleged chinese spy": "Le titre Nvidia recule de 5 % alors que l'attention se porte sur les liens entre Jensen Huang et un espion chinois présumé",
+    "nvidia ceo huang admits to affair; shares drop as board launches investigation": "Le PDG de Nvidia, Huang, reconnaît avoir eu une liaison ; le cours de l'action chute alors que le conseil d'administration ouvre une enquête"
   },
   "seen_titles": {
     "51cbdf53251590b7b7f5b1918b34cf8275d42540676c455f18e1ac299fd708d1": "2026-11-09T01:15:41.564678Z",
@@ -1277,7 +1281,9 @@
     "88d67e2f6c3d14386ef6d45e142fe5e92df3b3263478cb24ea950ba7c50f0de8": "2026-11-09T05:15:38.008915Z",
     "55f04f7896907cedf779af975bacbd633762ede04b4cb586047cff473a9b566f": "2026-11-09T05:50:37.384259Z",
     "495accea6432fe015bcb75ecee8c741b6aad82d5ed4e5cade394c3bc5d3caf82": "2026-11-09T06:15:40.026026Z",
-    "180e809a8c3e4b4f1bb142a75bb95fd97bd16d5138cbaa227f179bd4d9d2808a": "2026-11-09T07:01:06.895628Z"
+    "180e809a8c3e4b4f1bb142a75bb95fd97bd16d5138cbaa227f179bd4d9d2808a": "2026-11-09T07:01:06.895628Z",
+    "fa9eb65f2df7af77fb3780041153a6308a956e3a8ae2692e4228dfffa2c27285": "2026-11-09T09:16:06.320289Z",
+    "7238ab286e8fe37a32c12be83f0f8ba647b8c68f2d3787ebd07f166a338781f7": "2026-11-09T09:16:07.418789Z"
   },
   "seen_events": {}
 }
