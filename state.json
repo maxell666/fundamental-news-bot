@@ -673,7 +673,8 @@
     "https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html",
     "https://www.investing.com/news/stock-market-news/nvidia-launches-probe-into-reported-espionage-plot-targeting-ceo-jensen-huang-5010308",
     "https://www.theguardian.com/business/live/2026/nov/09/nvidia-jensen-huang-scandal-investigation-ai-industry-tech-stocks-recovery-slump-latest-news-updates",
-    "https://www.investing.com/news/stock-market-news/wall-st-futures-mixed-amid-ai-spending-concerns-inflation-data-awaited-5010386"
+    "https://www.investing.com/news/stock-market-news/wall-st-futures-mixed-amid-ai-spending-concerns-inflation-data-awaited-5010386",
+    "https://www.investing.com/news/commodities-news/oil-falls-on-open-as-trump-says-fresh-iran-attacks-unlikely-5010359"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1275,7 +1276,8 @@
     "nvidia stock falls 5% as scrutiny turns to jensen huang’s relationship with alleged chinese spy": "Le titre Nvidia recule de 5 % alors que l'attention se porte sur les liens entre Jensen Huang et un espion chinois présumé",
     "nvidia ceo huang admits to affair; shares drop as board launches investigation": "Le PDG de Nvidia, Huang, reconnaît avoir eu une liaison ; le cours de l'action chute alors que le conseil d'administration ouvre une enquête",
     "nvidia shares fall after ‘honeytrap’ investigation launched, as china denies spying claims – business live": "Les actions de Nvidia chutent après l'ouverture d'une enquête sur un « piège tendu par une femme », tandis que la Chine dément les accusations d'espionnage – actualités économiques en direct",
-    "nasdaq jumps over 2% as wall street rebounds after ai rout, but nvidia excluded": "Le Nasdaq bondit de plus de 2 % alors que Wall Street rebondit après la chute des valeurs liées à l'IA, mais Nvidia fait exception"
+    "nasdaq jumps over 2% as wall street rebounds after ai rout, but nvidia excluded": "Le Nasdaq bondit de plus de 2 % alors que Wall Street rebondit après la chute des valeurs liées à l'IA, mais Nvidia fait exception",
+    "oil falls almost 5% as trump signals restraint on iran": "Le prix du pétrole recule de près de 5 % alors que Trump fait preuve de retenue vis-à-vis de l'Iran"
   },
   "seen_titles": {
     "51cbdf53251590b7b7f5b1918b34cf8275d42540676c455f18e1ac299fd708d1": "2026-11-09T01:15:41.564678Z",
@@ -1289,7 +1291,8 @@
     "fa9eb65f2df7af77fb3780041153a6308a956e3a8ae2692e4228dfffa2c27285": "2026-11-09T09:16:06.320289Z",
     "7238ab286e8fe37a32c12be83f0f8ba647b8c68f2d3787ebd07f166a338781f7": "2026-11-09T09:16:07.418789Z",
     "d5ba588d3d629b7d3e6f224e36842f44554e14e489db47664eb775af17446819": "2026-11-09T13:01:04.690503Z",
-    "e2ed6d30ec0ce5022d70b984149f5a8f5773600475df92acff94bb51e11b1284": "2026-11-09T16:40:40.822265Z"
+    "e2ed6d30ec0ce5022d70b984149f5a8f5773600475df92acff94bb51e11b1284": "2026-11-09T16:40:40.822265Z",
+    "da73efaa0b68c4f92f83e000d7d2d5ae1ad6d674eadee9f622fa950843227bc7": "2026-11-09T18:01:08.203156Z"
   },
   "seen_events": {}
 }
