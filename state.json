@@ -662,7 +662,9 @@
     "https://www.investing.com/news/earnings/berkshire-hathaway-b-earnings-beat-by-455-revenue-topped-estimates-5009895",
     "https://www.investing.com/news/economy-news/ecbs-lagarde-says-inflation-to-stay-high-sees-little-reason-to-alter-rate-course-5009950",
     "https://news.google.com/rss/articles/CBMivgFBVV95cUxPa29SbTRWcFpWdFpiekRVRjRvNmZjM1BnNzhOeVY3ajB5S25PaGgxVFAyTTItcjRDZkRmcHROSkJIZ3lNdXZkaGp0R2hOZE51eHBzR1U3MXlFRXhGOUhzV1pJR0I2RWtUZnRrQU1MVXZaSm1haDUtTHo3NEJvNGJhLU1rM2N4a240NWp2VFh5Vkd5LW1DOTd6emN0S1QyengzS1ZjdE04LVluRGppX19oSkxtVktEcDdoWXVIVk93",
-    "https://www.investing.com/news/stock-market-news/berkshire-hathaway-speeds-up-stock-buybacks-though-profit-falls-5010390"
+    "https://www.investing.com/news/stock-market-news/berkshire-hathaway-speeds-up-stock-buybacks-though-profit-falls-5010390",
+    "https://www.investing.com/news/commodities-news/china-extends-suspension-of-24-tariff-on-us-imports-for-two-months-5010427",
+    "https://www.investing.com/news/stock-market-news/nvidia-falls-about-3-in-afterhours-and-perpetual-futures-trade-5010425"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1253,10 +1255,14 @@
     "berkshire hathaway b earnings beat by $4.55, revenue topped estimates": "Les résultats de Berkshire Hathaway B ont dépassé les prévisions de 4,55 dollars, tandis que le chiffre d'affaires a dépassé les estimations",
     "ecb’s lagarde says inflation to stay high, sees little reason to alter rate course": "Mme Lagarde, de la BCE, estime que l'inflation restera élevée et ne voit guère de raisons de modifier la trajectoire des taux",
     "berkshire hathaway speeds up stock buybacks, though profit falls - reuters": "Berkshire Hathaway accélère ses rachats d'actions malgré une baisse de ses bénéfices - Reuters",
-    "berkshire hathaway speeds up stock buybacks, though profit falls": "Berkshire Hathaway accélère ses rachats d'actions, malgré une baisse de ses bénéfices"
+    "berkshire hathaway speeds up stock buybacks, though profit falls": "Berkshire Hathaway accélère ses rachats d'actions, malgré une baisse de ses bénéfices",
+    "china extends suspension of 24% tariff on us imports for two months": "La Chine prolonge de deux mois la suspension des droits de douane de 24 % sur les importations en provenance des États-Unis",
+    "nvidia falls about 3% in after-hours and perpetual futures trade": "Nvidia recule d'environ 3 % dans les échanges après clôture et sur les contrats à terme perpétuels"
   },
   "seen_titles": {
-    "51cbdf53251590b7b7f5b1918b34cf8275d42540676c455f18e1ac299fd708d1": "2026-11-09T01:15:41.564678Z"
+    "51cbdf53251590b7b7f5b1918b34cf8275d42540676c455f18e1ac299fd708d1": "2026-11-09T01:15:41.564678Z",
+    "53997fb09fbdd383a0e9a69a95146a3109932d3e1d0765f11689e35e3c937fb8": "2026-11-09T03:20:48.422947Z",
+    "5569fc4b223f7f9e9c1d3870a7067f4e8a365c71ed6b9da7a0e2282ed3bb2803": "2026-11-09T03:20:49.488129Z"
   },
   "seen_events": {}
 }
