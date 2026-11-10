@@ -690,7 +690,8 @@
     "https://investinglive.com/news/us-october-core-cpi-vs-0-2-expected/",
     "https://www.investing.com/news/economy-news/boes-lombardelli-sees-risk-that-persistent-inflation-will-crystallise-5015842",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-steady-after-techled-rebound-cpi-in-focus-5013763",
-    "https://www.investing.com/news/stock-market-news/microsoft-stock-falls--as-anthropic-takes-aim-at-excel-and-workplace-software-5016411"
+    "https://www.investing.com/news/stock-market-news/microsoft-stock-falls--as-anthropic-takes-aim-at-excel-and-workplace-software-5016411",
+    "https://www.investing.com/news/economy-news/ecbs-lane-says-rate-decisions-hinge-on-wage-price-spillovers-5016456"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1309,10 +1310,10 @@
     "us october core cpi +0.3% vs +0.2% expected": "IPC sous-jacent américain en octobre : +0,3 % contre +0,2 % prévu",
     "boe’s lombardelli sees risk that persistent inflation will crystallise": "M. Lombardelli, de la Banque d'Angleterre, craint que l'inflation persistante ne se concrétise",
     "wall street opens lower after hot cpi data, hawkish comments from fed’s waller": "Wall Street ouvre en baisse après la publication de chiffres élevés de l'IPC et les déclarations bellicistes de Waller, membre de la Fed",
-    "microsoft stock falls as anthropic takes aim at excel and workplace software": "Le cours de l'action Microsoft recule alors qu'Anthropic s'attaque à Excel et aux logiciels de bureau"
+    "microsoft stock falls as anthropic takes aim at excel and workplace software": "Le cours de l'action Microsoft recule alors qu'Anthropic s'attaque à Excel et aux logiciels de bureau",
+    "ecb’s lane says rate decisions hinge on wage, price spillovers": "M. Lane, de la BCE, affirme que les décisions en matière de taux dépendent des répercussions sur les salaires et les prix"
   },
   "seen_titles": {
-    "da73efaa0b68c4f92f83e000d7d2d5ae1ad6d674eadee9f622fa950843227bc7": "2026-11-09T18:01:08.203156Z",
     "0a0b5830645e45aba07873013adf9d9126bca48a2964a3cda9e3a836eeec3353": "2026-11-09T18:31:25.293061Z",
     "763b09ca46d56a90784e310d131831e360cc72753210f74e936bf64eb4a557b0": "2026-11-09T19:20:38.315666Z",
     "6fe11fe2c5b0c9d43ff587bdf3846719b10033bc9119974112eeb4cc724db0f7": "2026-11-10T01:01:05.748907Z",
@@ -1328,7 +1329,8 @@
     "cec43f2333410005b2e60ff0532d7eae552d592961d2df61d7d8ed629cb50ec6": "2026-11-10T14:05:32.700553Z",
     "ddb59ddfc482307284a0ac304f414afa004e3fa67ff1e8ecf287098a2c901a93": "2026-11-10T14:20:42.030177Z",
     "cf4c592bde335d1fe6aa70f8cbc70984c87905da4e27a731d1973b7c5be33431": "2026-11-10T15:05:33.487969Z",
-    "8c1e59d8b46b3931bb026b9442042e37279ba8b26ae51f35d7302e6dfd5e5aa6": "2026-11-10T17:45:40.887139Z"
+    "8c1e59d8b46b3931bb026b9442042e37279ba8b26ae51f35d7302e6dfd5e5aa6": "2026-11-10T17:45:40.887139Z",
+    "ab4421a7f5d5e60f3f61ebcd51b3c02e93e10a68f1c63a6b35ea289c8cebe727": "2026-11-10T18:05:38.262281Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
