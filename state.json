@@ -687,7 +687,8 @@
     "https://www.theguardian.com/business/2026/nov/10/october-inflation-report",
     "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ",
     "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o",
-    "https://investinglive.com/news/us-october-core-cpi-vs-0-2-expected/"
+    "https://investinglive.com/news/us-october-core-cpi-vs-0-2-expected/",
+    "https://www.investing.com/news/economy-news/boes-lombardelli-sees-risk-that-persistent-inflation-will-crystallise-5015842"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1303,7 +1304,8 @@
     "us inflation rose 0.4% in october as price increases cooled and gas costs dipped": "L'inflation aux États-Unis a augmenté de 0,4 % en octobre, alors que la hausse des prix s'est ralentie et que le coût de l'essence a baissé",
     "s&p 500 futures fall sharply after october inflation data - reuters": "Les contrats à terme sur l'indice S&P 500 chutent fortement après la publication des chiffres de l'inflation d'octobre - Reuters",
     "us inflation higher than expected in october - here's what is happening with prices": "L'inflation aux États-Unis plus élevée que prévu en octobre : voici ce qu'il en est des prix",
-    "us october core cpi +0.3% vs +0.2% expected": "IPC sous-jacent américain en octobre : +0,3 % contre +0,2 % prévu"
+    "us october core cpi +0.3% vs +0.2% expected": "IPC sous-jacent américain en octobre : +0,3 % contre +0,2 % prévu",
+    "boe’s lombardelli sees risk that persistent inflation will crystallise": "M. Lombardelli, de la Banque d'Angleterre, craint que l'inflation persistante ne se concrétise"
   },
   "seen_titles": {
     "e2ed6d30ec0ce5022d70b984149f5a8f5773600475df92acff94bb51e11b1284": "2026-11-09T16:40:40.822265Z",
@@ -1320,7 +1322,8 @@
     "2091fb34fae29b9f2fc9a7b47aafaeab9e7af0bc7e2c62f1dc39c60b234b12fe": "2026-11-10T13:50:41.101186Z",
     "6ba6766d22f493aeba7c52c44339eb254f744598538a2dd4445b816a0e609a71": "2026-11-10T14:01:08.034299Z",
     "b8777cf35a0b726aaef8bc40bfc2cad7bc5010772e26295778d19a846dd50b9b": "2026-11-10T14:05:31.819903Z",
-    "cec43f2333410005b2e60ff0532d7eae552d592961d2df61d7d8ed629cb50ec6": "2026-11-10T14:05:32.700553Z"
+    "cec43f2333410005b2e60ff0532d7eae552d592961d2df61d7d8ed629cb50ec6": "2026-11-10T14:05:32.700553Z",
+    "ddb59ddfc482307284a0ac304f414afa004e3fa67ff1e8ecf287098a2c901a93": "2026-11-10T14:20:42.030177Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
