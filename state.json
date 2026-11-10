@@ -697,7 +697,8 @@
     "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTXo5UzFWVEh5WllQOHNxS1Q2cERxOEM0X1QyN1dPX0R4XzdfT1BpajYxdi0xOEltNWh6cE15Z2ZvZ2dXV0Vwb3NkbWZ1VGQ2M2tvVVVSaWd6clhPcS1XUEU2QXE3c0tlLUhPX0c2emRnWVpwOGtoajlnSS1VRXRNZXFaNEpyVlVwcFVIOUdkT18yQ2t6a1psZGVlOFpiZl90QnVhcmxqQzNxNnlNSEdXcWpjcUdzYUNJSi1hcnl6ZEpUSUU",
     "https://www.investing.com/news/economy-news/feds-bowman-says-still-work-to-do-on-inflation-5016718",
     "https://www.investing.com/news/economy-news/feds-bowman-sees-inflation-as-top-priority-expects-easing-5016712",
-    "https://www.investing.com/news/economy-news/us-treasury-yields-surge-as-hot-cpi-revives-fed-tightening-bets-93CH-5016707"
+    "https://www.investing.com/news/economy-news/us-treasury-yields-surge-as-hot-cpi-revives-fed-tightening-bets-93CH-5016707",
+    "https://www.investing.com/news/economy-news/dollar-sellers-hit-pause-for-us-inflation-data-5013809"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1323,7 +1324,8 @@
     "fed officials open door to a half-percentage-point rate hike as inflation worsens - reuters": "Les responsables de la Fed laissent entrevoir une hausse des taux d'un demi-point de pourcentage face à l'aggravation de l'inflation - Reuters",
     "fed’s bowman says ’still work to do’ on inflation": "Bowman, de la Fed, estime qu’il « reste encore du travail à faire » en matière d’inflation",
     "fed’s bowman sees inflation as top priority, expects easing": "Bowman, membre de la Fed, considère l'inflation comme une priorité absolue et s'attend à un assouplissement monétaire",
-    "us treasury yields surge as hot cpi revives fed tightening bets": "Les rendements des bons du Trésor américain s'envolent alors que l'indice des prix à la consommation (IPC) en forte hausse ravive les anticipations de resserrement monétaire de la Fed"
+    "us treasury yields surge as hot cpi revives fed tightening bets": "Les rendements des bons du Trésor américain s'envolent alors que l'indice des prix à la consommation (IPC) en forte hausse ravive les anticipations de resserrement monétaire de la Fed",
+    "dollar gains after us inflation data reinforces fed rate-hike bets": "Le dollar s'apprécie après la publication des chiffres de l'inflation américaine, qui renforcent les anticipations d'une hausse des taux de la Fed"
   },
   "seen_titles": {
     "6fe11fe2c5b0c9d43ff587bdf3846719b10033bc9119974112eeb4cc724db0f7": "2026-11-10T01:01:05.748907Z",
@@ -1346,7 +1348,8 @@
     "ca6a996201499ef405fd413d3a3651a7e899699672edb844eb2dcb1d893fc451": "2026-11-10T20:40:40.968605Z",
     "abc5ef464a809d9a067edde62a9e72dd4468bd833b45413f196ad712558d73fb": "2026-11-10T20:50:40.878770Z",
     "7073bd382db8068394283bf86ae87f21acfb671cad51a46ec43688eafe20eb13": "2026-11-10T20:50:42.065208Z",
-    "11b8c37e3cc352c7b7480fce6abe75743cb7cad154283de74f32ac18bb4489ff": "2026-11-10T20:50:43.427490Z"
+    "11b8c37e3cc352c7b7480fce6abe75743cb7cad154283de74f32ac18bb4489ff": "2026-11-10T20:50:43.427490Z",
+    "e870417de391354b0ca59b6537b3d5c768643181030c588149c09f16fd0cb273": "2026-11-10T21:10:44.412533Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
