@@ -186,9 +186,11 @@
       "telegram_accepted_at": "2026-11-06T15:00:12.892Z"
     },
     "2026-11-10T13:30:00.000Z": {
+      "first_seen_at": "2026-11-10T13:30:41.990Z",
       "forecast_at": "2026-11-10T13:20:48.884Z",
       "items": [
         {
+          "actual": "0.3%",
           "currency": "USD",
           "forecast": "0.2%",
           "id": 148369,
@@ -196,6 +198,7 @@
           "title": "Core CPI m/m"
         },
         {
+          "actual": "0.4%",
           "currency": "USD",
           "forecast": "0.3%",
           "id": 148339,
@@ -203,8 +206,9 @@
           "title": "CPI m/m"
         }
       ],
+      "reserved_at": "2026-11-10T13:30:42.001Z",
       "scheduled_at": "2026-11-10T13:30:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
