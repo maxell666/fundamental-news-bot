@@ -692,7 +692,8 @@
     "https://www.investing.com/news/stock-market-news/us-stock-futures-steady-after-techled-rebound-cpi-in-focus-5013763",
     "https://www.investing.com/news/stock-market-news/microsoft-stock-falls--as-anthropic-takes-aim-at-excel-and-workplace-software-5016411",
     "https://www.investing.com/news/economy-news/ecbs-lane-says-rate-decisions-hinge-on-wage-price-spillovers-5016456",
-    "https://investinglive.com/central-banks/ecb-s-lane-says-the-bar-for-directional-rate-guidance-is-high/"
+    "https://investinglive.com/central-banks/ecb-s-lane-says-the-bar-for-directional-rate-guidance-is-high/",
+    "https://www.cnbc.com/2026/11/10/alphabet-shares-appear-to-have-bottomed-how-to-play-it-for-a-quick-rebound.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1313,7 +1314,8 @@
     "wall street opens lower after hot cpi data, hawkish comments from fed’s waller": "Wall Street ouvre en baisse après la publication de chiffres élevés de l'IPC et les déclarations bellicistes de Waller, membre de la Fed",
     "microsoft stock falls as anthropic takes aim at excel and workplace software": "Le cours de l'action Microsoft recule alors qu'Anthropic s'attaque à Excel et aux logiciels de bureau",
     "ecb’s lane says rate decisions hinge on wage, price spillovers": "M. Lane, de la BCE, affirme que les décisions en matière de taux dépendent des répercussions sur les salaires et les prix",
-    "ecb’s lane says the bar for directional rate guidance is high": "M. Lane, de la BCE, estime que la barre est haute pour les indications directionnelles sur les taux"
+    "ecb’s lane says the bar for directional rate guidance is high": "M. Lane, de la BCE, estime que la barre est haute pour les indications directionnelles sur les taux",
+    "alphabet shares appear to have bottomed. how to play it for a quick rebound": "Les actions d'Alphabet semblent avoir atteint leur niveau le plus bas. Comment en tirer parti pour profiter d'un rebond rapide ?"
   },
   "seen_titles": {
     "0a0b5830645e45aba07873013adf9d9126bca48a2964a3cda9e3a836eeec3353": "2026-11-09T18:31:25.293061Z",
@@ -1333,7 +1335,8 @@
     "cf4c592bde335d1fe6aa70f8cbc70984c87905da4e27a731d1973b7c5be33431": "2026-11-10T15:05:33.487969Z",
     "8c1e59d8b46b3931bb026b9442042e37279ba8b26ae51f35d7302e6dfd5e5aa6": "2026-11-10T17:45:40.887139Z",
     "ab4421a7f5d5e60f3f61ebcd51b3c02e93e10a68f1c63a6b35ea289c8cebe727": "2026-11-10T18:05:38.262281Z",
-    "95b6ab3eafab99328cbdc6edf3d8171ac3728ba62179596aaf0b3b69a4362ba4": "2026-11-10T18:10:42.576079Z"
+    "95b6ab3eafab99328cbdc6edf3d8171ac3728ba62179596aaf0b3b69a4362ba4": "2026-11-10T18:10:42.576079Z",
+    "241587d20d7244cbebf76cbc5ff4321d9366f01fa3b660b4f4046ccdb7021636": "2026-11-10T18:20:42.674810Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
