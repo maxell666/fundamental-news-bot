@@ -677,7 +677,8 @@
     "https://www.investing.com/news/commodities-news/oil-falls-on-open-as-trump-says-fresh-iran-attacks-unlikely-5010359",
     "https://www.bbc.co.uk/news/articles/c6zxjx01vyleo",
     "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZk1NRW5GMjJ5a0hGVTJGYnhvNTJJZzduNWpsX1BBUzQyZWpCcGROVVlrYWY1N0tETFpzMnNKVU9JTjFtMzVqR1BhN3VIbTZGcUYtSFVnbVFLN2RVUVY3T3VsRzFWYmRZQ2lnQTdVZFZ3eW00Nk9GbGRDS0pDVzFqalgzMHNDX1NNM1hXUWNBVTVZLWM2R0d6TGN0TTlZczctOGc",
-    "https://investinglive.com/news/uk-retail-sales-rise-1-5-best-since-june-but-fuel-costs-and-budget-caution-weigh-0/"
+    "https://investinglive.com/news/uk-retail-sales-rise-1-5-best-since-june-but-fuel-costs-and-budget-caution-weigh-0/",
+    "https://www.investing.com/news/stock-market-news/goldman-sachs-names-top-china-internet-stocks-heading-into-q3-earnings-5014193"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1283,10 +1284,10 @@
     "oil falls almost 5% as trump signals restraint on iran": "Le prix du pétrole recule de près de 5 % alors que Trump fait preuve de retenue vis-à-vis de l'Iran",
     "nvidia shares tumble over investigation into huang's affair with alleged chinese spy": "Le cours de l'action Nvidia s'effondre suite à l'enquête sur la liaison de Huang avec une espionne chinoise présumée",
     "sterling rises versus dollar as market sentiment brightens - reuters": "La livre sterling s'apprécie face au dollar alors que le moral des marchés s'améliore - Reuters",
-    "uk retail sales rise 1.5%, best since june, but fuel costs and budget caution weigh": "Les ventes au détail au Royaume-Uni progressent de 1,5 %, leur meilleure performance depuis juin, mais le coût du carburant et la prudence liée au budget pèsent sur les résultats"
+    "uk retail sales rise 1.5%, best since june, but fuel costs and budget caution weigh": "Les ventes au détail au Royaume-Uni progressent de 1,5 %, leur meilleure performance depuis juin, mais le coût du carburant et la prudence liée au budget pèsent sur les résultats",
+    "goldman sachs names top china internet stocks heading into q3 earnings": "Goldman Sachs désigne les meilleures valeurs Internet chinoises à l'approche de la publication des résultats du troisième trimestre"
   },
   "seen_titles": {
-    "495accea6432fe015bcb75ecee8c741b6aad82d5ed4e5cade394c3bc5d3caf82": "2026-11-09T06:15:40.026026Z",
     "180e809a8c3e4b4f1bb142a75bb95fd97bd16d5138cbaa227f179bd4d9d2808a": "2026-11-09T07:01:06.895628Z",
     "fa9eb65f2df7af77fb3780041153a6308a956e3a8ae2692e4228dfffa2c27285": "2026-11-09T09:16:06.320289Z",
     "7238ab286e8fe37a32c12be83f0f8ba647b8c68f2d3787ebd07f166a338781f7": "2026-11-09T09:16:07.418789Z",
@@ -1295,7 +1296,8 @@
     "da73efaa0b68c4f92f83e000d7d2d5ae1ad6d674eadee9f622fa950843227bc7": "2026-11-09T18:01:08.203156Z",
     "0a0b5830645e45aba07873013adf9d9126bca48a2964a3cda9e3a836eeec3353": "2026-11-09T18:31:25.293061Z",
     "763b09ca46d56a90784e310d131831e360cc72753210f74e936bf64eb4a557b0": "2026-11-09T19:20:38.315666Z",
-    "6fe11fe2c5b0c9d43ff587bdf3846719b10033bc9119974112eeb4cc724db0f7": "2026-11-10T01:01:05.748907Z"
+    "6fe11fe2c5b0c9d43ff587bdf3846719b10033bc9119974112eeb4cc724db0f7": "2026-11-10T01:01:05.748907Z",
+    "c618eb07d3ba171f3575244b613b29d1aa26809601351aa31689b9ac326864e3": "2026-11-10T06:20:42.163331Z"
   },
   "seen_events": {}
 }
