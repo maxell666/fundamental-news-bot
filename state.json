@@ -682,7 +682,8 @@
     "https://www.investing.com/news/earnings/infineon-fy27-revenue-outlook-tops-forecasts-on-ai-demand-cash-flow-disappoints-5014236",
     "https://www.investing.com/news/economy-news/boes-lombardelli-does-not-rule-out-december-rate-hike-she-tells-the-guardian-5014293",
     "https://investinglive.com/central-banks/fed-s-waller-says-a-half-point-rate-hike-in-december-may-be-needed-if-core-cpi-comes-in-hot/",
-    "https://www.investing.com/news/economy-news/fed-to-raise-rates-once-more-in-december-as-inflation-risks-stay-high-reuters-poll-5015306"
+    "https://www.investing.com/news/economy-news/fed-to-raise-rates-once-more-in-december-as-inflation-risks-stay-high-reuters-poll-5015306",
+    "https://www.investing.com/news/stock-market-news/goodrx-stock-rises-on-google-cloud-healthcare-ai-partnership-5015520"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1293,7 +1294,8 @@
     "infineon fy27 revenue outlook tops forecasts on ai demand; cash flow disappoints": "Les prévisions de chiffre d'affaires d'Infineon pour l'exercice 27 dépassent les prévisions grâce à la demande en matière d'IA ; les flux de trésorerie déçoivent",
     "boe’s lombardelli does not rule out december rate hike, she tells the guardian": "Mme Lombardelli, de la Banque d'Angleterre, n'exclut pas une hausse des taux en décembre, a-t-elle déclaré au Guardian",
     "fed's waller says a half-point rate hike in december may be needed if core cpi comes in hot": "M. Waller, de la Fed, estime qu'une hausse des taux d'un demi-point en décembre pourrait s'avérer nécessaire si l'IPC de base s'avère plus élevé que prévu",
-    "fed to raise rates once more in december as inflation risks stay high: reuters poll": "La Fed devrait relever ses taux une nouvelle fois en décembre, les risques d'inflation restant élevés : sondage Reuters"
+    "fed to raise rates once more in december as inflation risks stay high: reuters poll": "La Fed devrait relever ses taux une nouvelle fois en décembre, les risques d'inflation restant élevés : sondage Reuters",
+    "goodrx stock rises on google cloud healthcare ai partnership": "Le cours de l'action GoodRx progresse grâce à un partenariat avec Google Cloud dans le domaine de l'IA appliquée à la santé"
   },
   "seen_titles": {
     "e2ed6d30ec0ce5022d70b984149f5a8f5773600475df92acff94bb51e11b1284": "2026-11-09T16:40:40.822265Z",
@@ -1305,7 +1307,8 @@
     "6431dc570f71656ba6be98d3b9dc35dc0e4f1e60ad6206e8f3260959de499af2": "2026-11-10T06:55:34.743119Z",
     "97a33c57c7e1b6c20f00a119cdf63e3594cf78df85f2e0f9361cfac8465be1c7": "2026-11-10T07:40:45.067730Z",
     "1db27bd19017c6c50ba526c3d3e5e96b118f93c3e33508d409c4231b9e3d80a4": "2026-11-10T10:07:50.518902Z",
-    "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-10T13:01:07.587367Z"
+    "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-10T13:01:07.587367Z",
+    "eff8ecd221b1fcaf0d2eea5d953a291665d4a506b5c81a674b0e5ac20b499438": "2026-11-10T13:40:41.908303Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
