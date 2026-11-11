@@ -699,7 +699,9 @@
     "https://www.investing.com/news/economy-news/feds-bowman-sees-inflation-as-top-priority-expects-easing-5016712",
     "https://www.investing.com/news/economy-news/us-treasury-yields-surge-as-hot-cpi-revives-fed-tightening-bets-93CH-5016707",
     "https://www.investing.com/news/economy-news/dollar-sellers-hit-pause-for-us-inflation-data-5013809",
-    "https://www.investing.com/news/economy-news/investors-boost-odds-of-halfpoint-fed-hike-as-core-cpi-rise-meets-wallers-bar-5016055"
+    "https://www.investing.com/news/economy-news/investors-boost-odds-of-halfpoint-fed-hike-as-core-cpi-rise-meets-wallers-bar-5016055",
+    "https://investinglive.com/central-banks/niesr-sees-uk-inflation-above-boe-target-for-four-years-peaking-at-4-4-in-2027/",
+    "https://www.investing.com/news/economy-news/dollar-gains-traction-as-fed-speakers-warn-of-risks-from-inflation-5017438"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1327,10 +1329,11 @@
     "fed’s bowman sees inflation as top priority, expects easing": "Bowman, membre de la Fed, considère l'inflation comme une priorité absolue et s'attend à un assouplissement monétaire",
     "us treasury yields surge as hot cpi revives fed tightening bets": "Les rendements des bons du Trésor américain s'envolent alors que l'indice des prix à la consommation (IPC) en forte hausse ravive les anticipations de resserrement monétaire de la Fed",
     "dollar gains after us inflation data reinforces fed rate-hike bets": "Le dollar s'apprécie après la publication des chiffres de l'inflation américaine, qui renforcent les anticipations d'une hausse des taux de la Fed",
-    "fed officials open door to a quicker round of rate hikes as inflation worsens": "Les responsables de la Fed laissent entrevoir une accélération du rythme des hausses de taux face à l'aggravation de l'inflation"
+    "fed officials open door to a quicker round of rate hikes as inflation worsens": "Les responsables de la Fed laissent entrevoir une accélération du rythme des hausses de taux face à l'aggravation de l'inflation",
+    "niesr sees uk inflation above boe target for four years, peaking at 4.4% in 2027": "Selon le NIESR, l'inflation au Royaume-Uni devrait rester supérieure à l'objectif de la Banque d'Angleterre pendant quatre ans, pour atteindre un pic de 4,4 % en 2027",
+    "dollar gains traction as fed speakers warn of risks from inflation": "Le dollar se raffermit alors que les responsables de la Fed mettent en garde contre les risques liés à l'inflation"
   },
   "seen_titles": {
-    "6fe11fe2c5b0c9d43ff587bdf3846719b10033bc9119974112eeb4cc724db0f7": "2026-11-10T01:01:05.748907Z",
     "c618eb07d3ba171f3575244b613b29d1aa26809601351aa31689b9ac326864e3": "2026-11-10T06:20:42.163331Z",
     "6431dc570f71656ba6be98d3b9dc35dc0e4f1e60ad6206e8f3260959de499af2": "2026-11-10T06:55:34.743119Z",
     "97a33c57c7e1b6c20f00a119cdf63e3594cf78df85f2e0f9361cfac8465be1c7": "2026-11-10T07:40:45.067730Z",
@@ -1352,7 +1355,9 @@
     "7073bd382db8068394283bf86ae87f21acfb671cad51a46ec43688eafe20eb13": "2026-11-10T20:50:42.065208Z",
     "11b8c37e3cc352c7b7480fce6abe75743cb7cad154283de74f32ac18bb4489ff": "2026-11-10T20:50:43.427490Z",
     "e870417de391354b0ca59b6537b3d5c768643181030c588149c09f16fd0cb273": "2026-11-10T21:10:44.412533Z",
-    "8a79193c5a1881acf2c0784b3e8c57f51b467ef20ad9717ed13bdbc10950f75f": "2026-11-10T23:25:32.789578Z"
+    "8a79193c5a1881acf2c0784b3e8c57f51b467ef20ad9717ed13bdbc10950f75f": "2026-11-10T23:25:32.789578Z",
+    "87d43bec0f5630f30cad3973b641b85f55f2e393121c4f9416a72c6005fd2752": "2026-11-11T01:05:37.420704Z",
+    "0c1b87a14e44be6323e92e1ceceae773e8445b6bf6b33ae18e80b1af97753132": "2026-11-11T01:05:38.266770Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
@@ -1385,6 +1390,13 @@
         "period": "2026-10"
       },
       "base": "inflation:us:headline"
+    },
+    "inflation:uk:headline|5183240853e52c249feadf5d1c854f84c7f68646e91ee88e2d777f6774ccd122": {
+      "sent_at": "2026-11-11T01:05:37.420725Z",
+      "value": {
+        "rate": "4.4"
+      },
+      "base": "inflation:uk:headline"
     }
   }
 }
