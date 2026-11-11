@@ -1348,7 +1348,6 @@
     "fed to raise rates once more in december as inflation risks stay high: reuters poll - reuters": "La Fed devrait relever ses taux une nouvelle fois en décembre, les risques d'inflation restant élevés : sondage Reuters - Reuters"
   },
   "seen_titles": {
-    "2091fb34fae29b9f2fc9a7b47aafaeab9e7af0bc7e2c62f1dc39c60b234b12fe": "2026-11-10T13:50:41.101186Z",
     "6ba6766d22f493aeba7c52c44339eb254f744598538a2dd4445b816a0e609a71": "2026-11-10T14:01:08.034299Z",
     "b8777cf35a0b726aaef8bc40bfc2cad7bc5010772e26295778d19a846dd50b9b": "2026-11-10T14:05:31.819903Z",
     "cec43f2333410005b2e60ff0532d7eae552d592961d2df61d7d8ed629cb50ec6": "2026-11-10T14:05:32.700553Z",
@@ -1375,14 +1374,6 @@
     "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-11T13:05:31.521752Z"
   },
   "seen_events": {
-    "inflation:us:headline|0319cdd6e8c438be5113071c811b105cdda868e02cb92597d745a832e22e0e28": {
-      "sent_at": "2026-11-10T13:50:41.101204Z",
-      "value": {
-        "rate": "0.4",
-        "period": "2026-10"
-      },
-      "base": "inflation:us:headline"
-    },
     "inflation:uk:headline|5183240853e52c249feadf5d1c854f84c7f68646e91ee88e2d777f6774ccd122": {
       "sent_at": "2026-11-11T01:05:37.420725Z",
       "value": {
