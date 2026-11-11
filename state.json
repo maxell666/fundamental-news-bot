@@ -1376,24 +1376,6 @@
     "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-11T13:05:31.521752Z"
   },
   "seen_events": {
-    "inflation:us:core|ef96319909ddc6b38fad2a2c935fbe5c36d84958d41fa70cb9fee17d6a674ad1": {
-      "base": "inflation:us:core",
-      "value": {
-        "rate": "0.3",
-        "frequency": "mom"
-      },
-      "sent_at": "2026-11-10T13:30:44.030Z",
-      "source": "confirmed_structured_result"
-    },
-    "inflation:us:headline|590c1742029d9c4cfd09e754eac143f07d0300f6094d257decf462f2ae2acd8a": {
-      "base": "inflation:us:headline",
-      "value": {
-        "rate": "0.4",
-        "frequency": "mom"
-      },
-      "sent_at": "2026-11-10T13:30:44.030Z",
-      "source": "confirmed_structured_result"
-    },
     "inflation:us:headline|0319cdd6e8c438be5113071c811b105cdda868e02cb92597d745a832e22e0e28": {
       "sent_at": "2026-11-10T13:50:41.101204Z",
       "value": {
