@@ -707,7 +707,8 @@
     "https://www.investing.com/news/economy-news/germanoctober-inflation-confirmed-at-28-5017862",
     "https://www.investing.com/news/stock-market-news/german-inflation-eases-to-28-in-october-from-september-93CH-5018083",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-tick-higher-after-wall-st-slips-on-hot-cpi-nvidia-losses-5017417",
-    "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVUM1V3d2azVfSFlud1E3Z05veEpjMmxwYzhBWkc1NTgxRktLS25sQWVlbWVWUGxCdVBXR3dmbzMxeDNYUzFJVi1aTTZIcWQ0X3kteU55dWdKeEN0ZGhvNlBHc2cwMFY4a1Q3R2VxQS1BdUcwMkRMYlc4VFltaFZxekxGVHg3ZVhhRE92WXNwb3JkMXFKeExZUlppZ2dnaHVmcjJMLTVUM1BXLUVXSlNn"
+    "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVUM1V3d2azVfSFlud1E3Z05veEpjMmxwYzhBWkc1NTgxRktLS25sQWVlbWVWUGxCdVBXR3dmbzMxeDNYUzFJVi1aTTZIcWQ0X3kteU55dWdKeEN0ZGhvNlBHc2cwMFY4a1Q3R2VxQS1BdUcwMkRMYlc4VFltaFZxekxGVHg3ZVhhRE92WXNwb3JkMXFKeExZUlppZ2dnaHVmcjJMLTVUM1BXLUVXSlNn",
+    "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGgwYzFvYzY1cndpc3FZRGZjLXRQTFp0WlktcmQwS2d6T1VhVVRBWkdpclUxd3Bvd1A4bWZOendzNXdhdmdtTnJ6S3AxMVNJN0hUbnRDZEF0NHE5QWtOZFUxc2JuZm1qbklMRjBtb2xmWlVSWVdNckxNSFQ3cnZLeC1KU1lrb2lBTFNKN2J1Uy1OYmRSczRoQmZsZlBtaHZPYzdnM1NSZTR5ODdsbEVV"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1343,10 +1344,10 @@
     "german october inflation confirmed at 2.8%": "L'inflation allemande du mois d'octobre confirmée à 2,8 %",
     "german inflation eases to 2.8% in october from september": "L'inflation allemande recule à 2,8 % en octobre par rapport à septembre",
     "nasdaq futures climb amid upbeat coreweave outlook, anthropic ipo hopes": "Les contrats à terme sur le Nasdaq progressent grâce aux perspectives optimistes de CoreWeave et aux espoirs liés à l'introduction en bourse d'Anthropic",
-    "dollar gains as hot inflation, hawkish fed talk lift rate-hike bets - reuters": "Le dollar s'apprécie alors que la forte inflation et les déclarations bellicistes de la Fed renforcent les anticipations de hausse des taux - Reuters"
+    "dollar gains as hot inflation, hawkish fed talk lift rate-hike bets - reuters": "Le dollar s'apprécie alors que la forte inflation et les déclarations bellicistes de la Fed renforcent les anticipations de hausse des taux - Reuters",
+    "fed to raise rates once more in december as inflation risks stay high: reuters poll - reuters": "La Fed devrait relever ses taux une nouvelle fois en décembre, les risques d'inflation restant élevés : sondage Reuters - Reuters"
   },
   "seen_titles": {
-    "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-10T13:01:07.587367Z",
     "eff8ecd221b1fcaf0d2eea5d953a291665d4a506b5c81a674b0e5ac20b499438": "2026-11-10T13:40:41.908303Z",
     "2091fb34fae29b9f2fc9a7b47aafaeab9e7af0bc7e2c62f1dc39c60b234b12fe": "2026-11-10T13:50:41.101186Z",
     "6ba6766d22f493aeba7c52c44339eb254f744598538a2dd4445b816a0e609a71": "2026-11-10T14:01:08.034299Z",
@@ -1371,14 +1372,10 @@
     "65c539f3c7d48fba73dd3af9680d39d93bc6f2ade1b532f63f0af284d5b04476": "2026-11-11T07:30:57.606320Z",
     "4c8d9b8ab2680640353daf62dd67f2d87fc8bf9c4601f75a89f98b8aefb70eda": "2026-11-11T09:15:45.873121Z",
     "9bb2154ec0c5bd80e7cfda4518d96946652ca7a8e4feaa8ac5fa6c5c2807c137": "2026-11-11T11:40:40.341066Z",
-    "5bc251a20454f1a3d853a962b5113d1af861efe9644f57c247ff3701ee36a138": "2026-11-11T11:55:31.462747Z"
+    "5bc251a20454f1a3d853a962b5113d1af861efe9644f57c247ff3701ee36a138": "2026-11-11T11:55:31.462747Z",
+    "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-11T13:05:31.521752Z"
   },
   "seen_events": {
-    "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-10T13:01:07.587388Z",
-      "value": {},
-      "base": "rates:fed:raise:2026-11-10"
-    },
     "inflation:us:core|ef96319909ddc6b38fad2a2c935fbe5c36d84958d41fa70cb9fee17d6a674ad1": {
       "base": "inflation:us:core",
       "value": {
@@ -1427,6 +1424,11 @@
         "period": "2026-09"
       },
       "base": "inflation:germany:headline"
+    },
+    "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-11-11T13:05:31.521771Z",
+      "value": {},
+      "base": "rates:fed:raise:2026-11-10"
     }
   }
 }
