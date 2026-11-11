@@ -709,7 +709,8 @@
     "https://www.investing.com/news/stock-market-news/us-stock-futures-tick-higher-after-wall-st-slips-on-hot-cpi-nvidia-losses-5017417",
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVUM1V3d2azVfSFlud1E3Z05veEpjMmxwYzhBWkc1NTgxRktLS25sQWVlbWVWUGxCdVBXR3dmbzMxeDNYUzFJVi1aTTZIcWQ0X3kteU55dWdKeEN0ZGhvNlBHc2cwMFY4a1Q3R2VxQS1BdUcwMkRMYlc4VFltaFZxekxGVHg3ZVhhRE92WXNwb3JkMXFKeExZUlppZ2dnaHVmcjJMLTVUM1BXLUVXSlNn",
     "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGgwYzFvYzY1cndpc3FZRGZjLXRQTFp0WlktcmQwS2d6T1VhVVRBWkdpclUxd3Bvd1A4bWZOendzNXdhdmdtTnJ6S3AxMVNJN0hUbnRDZEF0NHE5QWtOZFUxc2JuZm1qbklMRjBtb2xmWlVSWVdNckxNSFQ3cnZLeC1KU1lrb2lBTFNKN2J1Uy1OYmRSczRoQmZsZlBtaHZPYzdnM1NSZTR5ODdsbEVV",
-    "https://www.investing.com/news/economy-news/boes-greene-says-it-is-right-to-proactively-tighten-monetary-policy-stance--ft-5019712"
+    "https://www.investing.com/news/economy-news/boes-greene-says-it-is-right-to-proactively-tighten-monetary-policy-stance--ft-5019712",
+    "https://www.cnbc.com/2026/11/11/nvidia-jensen-huang-affair-employee.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1347,7 +1348,8 @@
     "nasdaq futures climb amid upbeat coreweave outlook, anthropic ipo hopes": "Les contrats à terme sur le Nasdaq progressent grâce aux perspectives optimistes de CoreWeave et aux espoirs liés à l'introduction en bourse d'Anthropic",
     "dollar gains as hot inflation, hawkish fed talk lift rate-hike bets - reuters": "Le dollar s'apprécie alors que la forte inflation et les déclarations bellicistes de la Fed renforcent les anticipations de hausse des taux - Reuters",
     "fed to raise rates once more in december as inflation risks stay high: reuters poll - reuters": "La Fed devrait relever ses taux une nouvelle fois en décembre, les risques d'inflation restant élevés : sondage Reuters - Reuters",
-    "boe’s greene says it is right to proactively tighten monetary policy stance - ft": "M. Greene, de la Banque d'Angleterre, estime qu'il est justifié de resserrer de manière proactive l'orientation de la politique monétaire - FT"
+    "boe’s greene says it is right to proactively tighten monetary policy stance - ft": "M. Greene, de la Banque d'Angleterre, estime qu'il est justifié de resserrer de manière proactive l'orientation de la politique monétaire - FT",
+    "nvidia prepares to oust jensen huang, wsj reports — stock sinks further": "Nvidia s'apprête à évincer Jensen Huang, selon le WSJ — le cours de l'action continue de chuter"
   },
   "seen_titles": {
     "8a79193c5a1881acf2c0784b3e8c57f51b467ef20ad9717ed13bdbc10950f75f": "2026-11-10T23:25:32.789578Z",
@@ -1360,7 +1362,8 @@
     "9bb2154ec0c5bd80e7cfda4518d96946652ca7a8e4feaa8ac5fa6c5c2807c137": "2026-11-11T11:40:40.341066Z",
     "5bc251a20454f1a3d853a962b5113d1af861efe9644f57c247ff3701ee36a138": "2026-11-11T11:55:31.462747Z",
     "7b13fe41de5cbcb5d398b83b50b0a94b5f4007a95bc116699f53cc0bc1347aa9": "2026-11-11T13:05:31.521752Z",
-    "300d2bd00a7e1488e2baed3c61322fa004b8eb4d38ba8f85f9f868be39ed02ac": "2026-11-11T18:50:39.113100Z"
+    "300d2bd00a7e1488e2baed3c61322fa004b8eb4d38ba8f85f9f868be39ed02ac": "2026-11-11T18:50:39.113100Z",
+    "c6c64d94bc6ca8d30e07e72655d88f9084c002d3f66e4fb109f2b88cb7b08d31": "2026-11-11T22:40:50.251060Z"
   },
   "seen_events": {
     "inflation:uk:headline|5183240853e52c249feadf5d1c854f84c7f68646e91ee88e2d777f6774ccd122": {
