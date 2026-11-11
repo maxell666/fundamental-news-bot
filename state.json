@@ -703,7 +703,8 @@
     "https://investinglive.com/central-banks/niesr-sees-uk-inflation-above-boe-target-for-four-years-peaking-at-4-4-in-2027/",
     "https://www.investing.com/news/economy-news/dollar-gains-traction-as-fed-speakers-warn-of-risks-from-inflation-5017438",
     "https://www.investing.com/news/economy-news/feds-paulson-says-more-gradual-rate-hikes-needed-to-curb-inflation-5017499",
-    "https://www.investing.com/news/earnings/siemens-energys-2027-profit-outlook-falls-short-despite-record-year-5017771"
+    "https://www.investing.com/news/earnings/siemens-energys-2027-profit-outlook-falls-short-despite-record-year-5017771",
+    "https://www.investing.com/news/economy-news/germanoctober-inflation-confirmed-at-28-5017862"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1335,7 +1336,8 @@
     "niesr sees uk inflation above boe target for four years, peaking at 4.4% in 2027": "Selon le NIESR, l'inflation au Royaume-Uni devrait rester supérieure à l'objectif de la Banque d'Angleterre pendant quatre ans, pour atteindre un pic de 4,4 % en 2027",
     "dollar gains traction as fed speakers warn of risks from inflation": "Le dollar se raffermit alors que les responsables de la Fed mettent en garde contre les risques liés à l'inflation",
     "fed’s paulson says more, gradual rate hikes needed to curb inflation": "M. Paulson, de la Fed, estime que de nouvelles hausses progressives des taux d'intérêt sont nécessaires pour juguler l'inflation",
-    "siemens energy’s 2027 profit outlook falls short despite record year": "Les prévisions de bénéfices de Siemens Energy pour 2027 restent en deçà des attentes malgré une année record"
+    "siemens energy’s 2027 profit outlook falls short despite record year": "Les prévisions de bénéfices de Siemens Energy pour 2027 restent en deçà des attentes malgré une année record",
+    "german october inflation confirmed at 2.8%": "L'inflation allemande du mois d'octobre confirmée à 2,8 %"
   },
   "seen_titles": {
     "97a33c57c7e1b6c20f00a119cdf63e3594cf78df85f2e0f9361cfac8465be1c7": "2026-11-10T07:40:45.067730Z",
@@ -1361,7 +1363,8 @@
     "87d43bec0f5630f30cad3973b641b85f55f2e393121c4f9416a72c6005fd2752": "2026-11-11T01:05:37.420704Z",
     "0c1b87a14e44be6323e92e1ceceae773e8445b6bf6b33ae18e80b1af97753132": "2026-11-11T01:05:38.266770Z",
     "a35b7ab973b9ff536eb2121e84ab43c709ac7cd98ab91d443e6fc1831914f9f8": "2026-11-11T02:05:41.227982Z",
-    "5c974ec55dfc53a02c221e18eda00077c150e924df2688fc9946555cad7ffa94": "2026-11-11T06:30:56.876309Z"
+    "5c974ec55dfc53a02c221e18eda00077c150e924df2688fc9946555cad7ffa94": "2026-11-11T06:30:56.876309Z",
+    "65c539f3c7d48fba73dd3af9680d39d93bc6f2ade1b532f63f0af284d5b04476": "2026-11-11T07:30:57.606320Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
@@ -1401,6 +1404,14 @@
         "rate": "4.4"
       },
       "base": "inflation:uk:headline"
+    },
+    "inflation:germany:headline|0734f1fa79d189ddf67017cfc388e277446e30f9111f513f10e4ab93217b2eb9": {
+      "sent_at": "2026-11-11T07:30:57.606339Z",
+      "value": {
+        "rate": "2.8",
+        "period": "2026-10"
+      },
+      "base": "inflation:germany:headline"
     }
   }
 }
