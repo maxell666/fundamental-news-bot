@@ -729,7 +729,9 @@
     "https://www.cnbc.com/2026/11/12/in-policy-switch-fed-says-its-october-2028-meeting-will-not-see-a-vote-on-interest-rates.html",
     "https://www.cnbc.com/2026/11/12/in-policy-switch-fed-says-its-october-2027-meeting-will-not-see-a-vote-on-interest-rates.html",
     "https://www.investing.com/news/economy-news/feds-daly-says-more-rate-hikes-likely-needed-to-fight-inflation-5022988",
-    "https://news.google.com/rss/articles/CBMingFBVV95cUxQY01YWkJBY3Roa2hlWkVsbHhpcHplMm5NX09pWEJlMC1rWTY1ZDJoTUh0elc0WTZvdmpDOXJhS04tN2J5Y0N4NmZPdGk0aUhKdVZLT2RMSTk4S2EyZEJMYzY3WnpMMklfRjF3ZEJXZzU3d1VBTmlWS3Y1cllaYURseVQ4Nl93RFVLOXB4M1J6bnM1YVQ5QXBaSDZCOXEwUQ"
+    "https://news.google.com/rss/articles/CBMingFBVV95cUxQY01YWkJBY3Roa2hlWkVsbHhpcHplMm5NX09pWEJlMC1rWTY1ZDJoTUh0elc0WTZvdmpDOXJhS04tN2J5Y0N4NmZPdGk0aUhKdVZLT2RMSTk4S2EyZEJMYzY3WnpMMklfRjF3ZEJXZzU3d1VBTmlWS3Y1cllaYURseVQ4Nl93RFVLOXB4M1J6bnM1YVQ5QXBaSDZCOXEwUQ",
+    "https://www.investing.com/news/economy-news/asian-stocks-fragile-nvidia-plummets-as-board-to-decide-ceos-fate-5020170",
+    "https://www.investing.com/news/commodities-news/oil-prices-dip-on-report-of-more-usiran-diplomacy-plans-5020081"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1387,7 +1389,9 @@
     "in a policy switch, the fed says its october 2028 meeting will not see a vote on interest rates": "Dans le cadre d'un revirement de politique, la Fed annonce qu'aucun vote sur les taux d'intérêt n'aura lieu lors de sa réunion d'octobre 2028",
     "in a policy switch, the fed says its october 2027 meeting will not see a vote on interest rates": "Dans le cadre d'un revirement de politique, la Fed annonce qu'aucun vote sur les taux d'intérêt n'aura lieu lors de sa réunion d'octobre 2027",
     "fed’s daly says more rate hikes likely needed to fight inflation": "M. Daly, de la Fed, estime que de nouvelles hausses des taux seront probablement nécessaires pour lutter contre l'inflation",
-    "equities little changed, nvidia drop offsets lift in energy shares - reuters": "Les actions restent stables : le recul de Nvidia contrebalance la hausse des titres du secteur de l'énergie - Reuters"
+    "equities little changed, nvidia drop offsets lift in energy shares - reuters": "Les actions restent stables : le recul de Nvidia contrebalance la hausse des titres du secteur de l'énergie - Reuters",
+    "wall street ends lower as nvidia ceo resigns; us yields up": "Wall Street termine en baisse après la démission du PDG de Nvidia ; les taux américains en hausse",
+    "brent climbs over 3% as trump says u.s. does not need deal with iran": "Le Brent progresse de plus de 3 % après les déclarations de Trump selon lesquelles les États-Unis n'ont pas besoin d'un accord avec l'Iran"
   },
   "seen_titles": {
     "1fbc7ce3e0799932af040ca3ec4768089af3d366b500723e7107cd4269bdf6fd": "2026-11-11T23:05:32.977532Z",
@@ -1408,7 +1412,9 @@
     "86bc4c944b6b4f060d4c1cb74e1bdf9ba67689e84fbad2662f6b46db1b6dbbb4": "2026-11-12T17:50:38.805759Z",
     "2c8d80df3e6698f4447e3847e1ff3c28de38736f49725d80908dab1af012c79b": "2026-11-12T18:05:32.506278Z",
     "141c014662c03ad1e3965313ad9903c8644afc3ba542a7dec8e04784720fe5a0": "2026-11-12T19:01:09.342757Z",
-    "805f68a4153e14424058373b0f94ca4958c7042f0c8a38b458d4bf624c0a7145": "2026-11-12T20:15:40.374031Z"
+    "805f68a4153e14424058373b0f94ca4958c7042f0c8a38b458d4bf624c0a7145": "2026-11-12T20:15:40.374031Z",
+    "1fa5b12e7a3f1bbb8a40c73e7a5c9cf66ead0fa668a770cda3b9aa0562b9874a": "2026-11-12T22:55:36.487733Z",
+    "522c56ba1ebb3a094b7fba8c5c83ad1d2f468aa2b0d706667cc79a81dcc78f03": "2026-11-12T22:55:37.364118Z"
   },
   "seen_events": {
     "gdp:uk:2026:q3|707c3af5b7e072a0c1464bd4222571ab09eee03b5181c899fce19b80467b9fd8": {
