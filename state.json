@@ -1356,8 +1356,6 @@
     "nvidia shares slide over 7% as report says board preparing to oust ceo huang": "L'action NVIDIA chute de plus de 7 % après la publication d'un article indiquant que le conseil d'administration s'apprêterait à limoger le PDG Huang"
   },
   "seen_titles": {
-    "87d43bec0f5630f30cad3973b641b85f55f2e393121c4f9416a72c6005fd2752": "2026-11-11T01:05:37.420704Z",
-    "0c1b87a14e44be6323e92e1ceceae773e8445b6bf6b33ae18e80b1af97753132": "2026-11-11T01:05:38.266770Z",
     "a35b7ab973b9ff536eb2121e84ab43c709ac7cd98ab91d443e6fc1831914f9f8": "2026-11-11T02:05:41.227982Z",
     "5c974ec55dfc53a02c221e18eda00077c150e924df2688fc9946555cad7ffa94": "2026-11-11T06:30:56.876309Z",
     "65c539f3c7d48fba73dd3af9680d39d93bc6f2ade1b532f63f0af284d5b04476": "2026-11-11T07:30:57.606320Z",
@@ -1371,13 +1369,6 @@
     "009603d5ff5a4aa6dc4754ee7feb709b1d616e77e88df32e941edff3abb572c9": "2026-11-12T00:30:57.380802Z"
   },
   "seen_events": {
-    "inflation:uk:headline|5183240853e52c249feadf5d1c854f84c7f68646e91ee88e2d777f6774ccd122": {
-      "sent_at": "2026-11-11T01:05:37.420725Z",
-      "value": {
-        "rate": "4.4"
-      },
-      "base": "inflation:uk:headline"
-    },
     "inflation:germany:headline|0734f1fa79d189ddf67017cfc388e277446e30f9111f513f10e4ab93217b2eb9": {
       "sent_at": "2026-11-11T07:30:57.606339Z",
       "value": {
