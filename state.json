@@ -714,7 +714,9 @@
     "https://investinglive.com/news/nvidia-stock-plunges-after-hours-as-new-york-times-reports-new-jensen-huang-relationship-allegation/",
     "https://www.investing.com/news/stock-market-news/nvidia-expected-to-oust-jensen-huang---report-5020001",
     "https://www.investing.com/news/earnings/allianz-q3-profit-beats-forecasts-as-asset-management-offsets-catastrophe-losses-5020448",
-    "https://investinglive.com/news/uk-september-monthly-gdp-0-2-vs-0-0-m-m-expected/"
+    "https://investinglive.com/news/uk-september-monthly-gdp-0-2-vs-0-0-m-m-expected/",
+    "https://www.investing.com/news/economy-news/uk-economy-grows-07-in-q3-ons-data-shows-5020475",
+    "https://www.investing.com/news/earnings/siemens-q4-net-profit-rises-32-as-strong-industrial-performance-drives-earnings-5020473"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1357,7 +1359,9 @@
     "nvidia stock plunges after hours as new york times reports new jensen huang relationship allegation": "Le cours de l'action Nvidia s'effondre après la clôture de la Bourse, alors que le New York Times fait état de nouvelles allégations concernant une relation de Jensen Huang",
     "nvidia shares slide over 7% as report says board preparing to oust ceo huang": "L'action NVIDIA chute de plus de 7 % après la publication d'un article indiquant que le conseil d'administration s'apprêterait à limoger le PDG Huang",
     "allianz q3 profit beats forecasts as asset management offsets catastrophe losses": "Le bénéfice d'Allianz au troisième trimestre dépasse les prévisions, la gestion d'actifs compensant les pertes liées aux catastrophes naturelles",
-    "uk september monthly gdp +0.2% vs 0.0% m/m expected": "PIB mensuel du Royaume-Uni en septembre : +0,2 % contre une prévision de 0,0 % en glissement mensuel"
+    "uk september monthly gdp +0.2% vs 0.0% m/m expected": "PIB mensuel du Royaume-Uni en septembre : +0,2 % contre une prévision de 0,0 % en glissement mensuel",
+    "uk economy grows 0.7% in q3, ons data shows": "L'économie britannique a progressé de 0,7 % au troisième trimestre, selon les données de l'ONS",
+    "siemens q4 net profit rises 32% as strong industrial performance drives earnings": "Le bénéfice net de Siemens au quatrième trimestre progresse de 32 %, grâce à la solide performance du secteur industriel qui tire les résultats vers le haut"
   },
   "seen_titles": {
     "65c539f3c7d48fba73dd3af9680d39d93bc6f2ade1b532f63f0af284d5b04476": "2026-11-11T07:30:57.606320Z",
@@ -1370,7 +1374,9 @@
     "1fbc7ce3e0799932af040ca3ec4768089af3d366b500723e7107cd4269bdf6fd": "2026-11-11T23:05:32.977532Z",
     "009603d5ff5a4aa6dc4754ee7feb709b1d616e77e88df32e941edff3abb572c9": "2026-11-12T00:30:57.380802Z",
     "011a4e997fa295d4bb0527cdf1e40a59ed523543564fca7e9b199f91e5eec379": "2026-11-12T06:45:39.676703Z",
-    "a0f4374b1efb81a32a6225f453552c39e7d92e223d58f4aefe0a2c0b96757686": "2026-11-12T07:10:40.630852Z"
+    "a0f4374b1efb81a32a6225f453552c39e7d92e223d58f4aefe0a2c0b96757686": "2026-11-12T07:10:40.630852Z",
+    "8681515a84c77d0edd01c27d0d97d2a0699c005d747b1c57ec46946a5acaf24a": "2026-11-12T07:25:35.346005Z",
+    "d8509e0c0d90e6b2e7ddc111d55f66bb5e3e097ea85101e4b5610a78b642a620": "2026-11-12T07:25:36.287017Z"
   },
   "seen_events": {
     "inflation:germany:headline|0734f1fa79d189ddf67017cfc388e277446e30f9111f513f10e4ab93217b2eb9": {
@@ -1393,6 +1399,13 @@
       "sent_at": "2026-11-11T13:05:31.521771Z",
       "value": {},
       "base": "rates:fed:raise:2026-11-10"
+    },
+    "gdp:uk:2026:q3|707c3af5b7e072a0c1464bd4222571ab09eee03b5181c899fce19b80467b9fd8": {
+      "sent_at": "2026-11-12T07:25:35.346022Z",
+      "value": {
+        "growth": "0.7"
+      },
+      "base": "gdp:uk:2026:q3"
     }
   }
 }
