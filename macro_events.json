@@ -212,9 +212,11 @@
       "telegram_accepted_at": "2026-11-10T13:30:44.030Z"
     },
     "2026-11-12T07:00:00.000Z": {
+      "first_seen_at": "2026-11-12T07:00:30.743Z",
       "forecast_at": "2026-11-12T06:50:50.937Z",
       "items": [
         {
+          "actual": "0.2%",
           "currency": "GBP",
           "forecast": "0.0%",
           "id": 151570,
@@ -222,6 +224,7 @@
           "title": "GDP m/m"
         },
         {
+          "actual": "0.7%",
           "currency": "GBP",
           "forecast": "0.7%",
           "id": 151601,
@@ -229,8 +232,9 @@
           "title": "Prelim GDP q/q"
         }
       ],
+      "reserved_at": "2026-11-12T07:00:30.755Z",
       "scheduled_at": "2026-11-12T07:00:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
