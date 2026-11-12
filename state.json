@@ -719,7 +719,8 @@
     "https://www.investing.com/news/earnings/siemens-q4-net-profit-rises-32-as-strong-industrial-performance-drives-earnings-5020473",
     "https://www.investing.com/news/earnings/munich-re-profit-beats-consensus-as-pc-reinsurance-drives-q3-result-5020551",
     "https://investinglive.com/news/uk-september-gdp-beats-expectations-as-resilient-growth-keeps-boe-december-rate-hike-on-track/",
-    "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+    "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html",
+    "https://www.investing.com/news/stock-market-news/nasdaq-futures-fall-as-nvidia-turmoil-rattles-ai-stocks-5020761"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1367,7 +1368,8 @@
     "siemens q4 net profit rises 32% as strong industrial performance drives earnings": "Le bénéfice net de Siemens au quatrième trimestre progresse de 32 %, grâce à la solide performance du secteur industriel qui tire les résultats vers le haut",
     "munich re profit beats consensus as p&c reinsurance drives q3 result": "Le bénéfice de Munich Re dépasse les prévisions, la réassurance IARD étant le moteur des résultats du troisième trimestre",
     "uk september gdp beats expectations as resilient growth keeps boe december rate hike on track": "Le PIB britannique de septembre dépasse les prévisions, la croissance soutenue confirmant la hausse des taux prévue par la Banque d'Angleterre en décembre",
-    "nvidia stock falls 7% as investors await jensen huang’s fate": "L'action Nvidia recule de 7 % alors que les investisseurs attendent de connaître le sort de Jensen Huang"
+    "nvidia stock falls 7% as investors await jensen huang’s fate": "L'action Nvidia recule de 7 % alors que les investisseurs attendent de connaître le sort de Jensen Huang",
+    "nasdaq futures fall as nvidia turmoil rattles ai stocks": "Les contrats à terme sur le Nasdaq reculent alors que les turbulences chez Nvidia ébranlent les valeurs liées à l'IA"
   },
   "seen_titles": {
     "9bb2154ec0c5bd80e7cfda4518d96946652ca7a8e4feaa8ac5fa6c5c2807c137": "2026-11-11T11:40:40.341066Z",
@@ -1383,7 +1385,8 @@
     "d8509e0c0d90e6b2e7ddc111d55f66bb5e3e097ea85101e4b5610a78b642a620": "2026-11-12T07:25:36.287017Z",
     "1e064fcf41d9ac511db3dd601befc0dea3194988dba78862cb2e7652384c8a30": "2026-11-12T08:10:39.931786Z",
     "f13c4a9665ed1ad6166eb58b6149a6ba69586f0e71a8e21f307c72847563bfc3": "2026-11-12T08:10:40.938960Z",
-    "47b025e601afcb416eea106fecfea70cc32efd62cd669100ea4bf4eb74bbb96d": "2026-11-12T09:10:42.085799Z"
+    "47b025e601afcb416eea106fecfea70cc32efd62cd669100ea4bf4eb74bbb96d": "2026-11-12T09:10:42.085799Z",
+    "e5745a0f895daabdd2eaefc56450e0cf26290e9739dd4bc3cb6e00f8ce9b2a52": "2026-11-12T09:45:39.876234Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-10|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
