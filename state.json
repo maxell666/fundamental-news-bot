@@ -1364,7 +1364,6 @@
     "siemens q4 net profit rises 32% as strong industrial performance drives earnings": "Le bénéfice net de Siemens au quatrième trimestre progresse de 32 %, grâce à la solide performance du secteur industriel qui tire les résultats vers le haut"
   },
   "seen_titles": {
-    "65c539f3c7d48fba73dd3af9680d39d93bc6f2ade1b532f63f0af284d5b04476": "2026-11-11T07:30:57.606320Z",
     "4c8d9b8ab2680640353daf62dd67f2d87fc8bf9c4601f75a89f98b8aefb70eda": "2026-11-11T09:15:45.873121Z",
     "9bb2154ec0c5bd80e7cfda4518d96946652ca7a8e4feaa8ac5fa6c5c2807c137": "2026-11-11T11:40:40.341066Z",
     "5bc251a20454f1a3d853a962b5113d1af861efe9644f57c247ff3701ee36a138": "2026-11-11T11:55:31.462747Z",
@@ -1379,14 +1378,6 @@
     "d8509e0c0d90e6b2e7ddc111d55f66bb5e3e097ea85101e4b5610a78b642a620": "2026-11-12T07:25:36.287017Z"
   },
   "seen_events": {
-    "inflation:germany:headline|0734f1fa79d189ddf67017cfc388e277446e30f9111f513f10e4ab93217b2eb9": {
-      "sent_at": "2026-11-11T07:30:57.606339Z",
-      "value": {
-        "rate": "2.8",
-        "period": "2026-10"
-      },
-      "base": "inflation:germany:headline"
-    },
     "inflation:germany:headline|2ecd455ce96d5c181f7c5af8de1576ff33cd823b461344ce6a93fd21970666e3": {
       "sent_at": "2026-11-11T09:15:45.873136Z",
       "value": {
