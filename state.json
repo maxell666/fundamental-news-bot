@@ -716,7 +716,9 @@
     "https://www.investing.com/news/earnings/allianz-q3-profit-beats-forecasts-as-asset-management-offsets-catastrophe-losses-5020448",
     "https://investinglive.com/news/uk-september-monthly-gdp-0-2-vs-0-0-m-m-expected/",
     "https://www.investing.com/news/economy-news/uk-economy-grows-07-in-q3-ons-data-shows-5020475",
-    "https://www.investing.com/news/earnings/siemens-q4-net-profit-rises-32-as-strong-industrial-performance-drives-earnings-5020473"
+    "https://www.investing.com/news/earnings/siemens-q4-net-profit-rises-32-as-strong-industrial-performance-drives-earnings-5020473",
+    "https://www.investing.com/news/earnings/munich-re-profit-beats-consensus-as-pc-reinsurance-drives-q3-result-5020551",
+    "https://investinglive.com/news/uk-september-gdp-beats-expectations-as-resilient-growth-keeps-boe-december-rate-hike-on-track/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1361,7 +1363,9 @@
     "allianz q3 profit beats forecasts as asset management offsets catastrophe losses": "Le bénéfice d'Allianz au troisième trimestre dépasse les prévisions, la gestion d'actifs compensant les pertes liées aux catastrophes naturelles",
     "uk september monthly gdp +0.2% vs 0.0% m/m expected": "PIB mensuel du Royaume-Uni en septembre : +0,2 % contre une prévision de 0,0 % en glissement mensuel",
     "uk economy grows 0.7% in q3, ons data shows": "L'économie britannique a progressé de 0,7 % au troisième trimestre, selon les données de l'ONS",
-    "siemens q4 net profit rises 32% as strong industrial performance drives earnings": "Le bénéfice net de Siemens au quatrième trimestre progresse de 32 %, grâce à la solide performance du secteur industriel qui tire les résultats vers le haut"
+    "siemens q4 net profit rises 32% as strong industrial performance drives earnings": "Le bénéfice net de Siemens au quatrième trimestre progresse de 32 %, grâce à la solide performance du secteur industriel qui tire les résultats vers le haut",
+    "munich re profit beats consensus as p&c reinsurance drives q3 result": "Le bénéfice de Munich Re dépasse les prévisions, la réassurance IARD étant le moteur des résultats du troisième trimestre",
+    "uk september gdp beats expectations as resilient growth keeps boe december rate hike on track": "Le PIB britannique de septembre dépasse les prévisions, la croissance soutenue confirmant la hausse des taux prévue par la Banque d'Angleterre en décembre"
   },
   "seen_titles": {
     "4c8d9b8ab2680640353daf62dd67f2d87fc8bf9c4601f75a89f98b8aefb70eda": "2026-11-11T09:15:45.873121Z",
@@ -1375,7 +1379,9 @@
     "011a4e997fa295d4bb0527cdf1e40a59ed523543564fca7e9b199f91e5eec379": "2026-11-12T06:45:39.676703Z",
     "a0f4374b1efb81a32a6225f453552c39e7d92e223d58f4aefe0a2c0b96757686": "2026-11-12T07:10:40.630852Z",
     "8681515a84c77d0edd01c27d0d97d2a0699c005d747b1c57ec46946a5acaf24a": "2026-11-12T07:25:35.346005Z",
-    "d8509e0c0d90e6b2e7ddc111d55f66bb5e3e097ea85101e4b5610a78b642a620": "2026-11-12T07:25:36.287017Z"
+    "d8509e0c0d90e6b2e7ddc111d55f66bb5e3e097ea85101e4b5610a78b642a620": "2026-11-12T07:25:36.287017Z",
+    "1e064fcf41d9ac511db3dd601befc0dea3194988dba78862cb2e7652384c8a30": "2026-11-12T08:10:39.931786Z",
+    "f13c4a9665ed1ad6166eb58b6149a6ba69586f0e71a8e21f307c72847563bfc3": "2026-11-12T08:10:40.938960Z"
   },
   "seen_events": {
     "inflation:germany:headline|2ecd455ce96d5c181f7c5af8de1576ff33cd823b461344ce6a93fd21970666e3": {
