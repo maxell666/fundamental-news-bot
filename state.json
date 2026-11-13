@@ -735,7 +735,8 @@
     "https://investinglive.com/central-banks/fed-s-williams-says-inflation-stubbornly-high-and-fed-still-has-work-to-do-on-policy/",
     "https://www.investing.com/news/economy-news/feds-williams-says-central-bank-has-work-to-do-to-get-inflation-back-on-target-5023897",
     "https://www.investing.com/news/stock-market-news/microsoft-says-still-attempting-to-fix-major-outage-hitting-teams-outlook-5024175",
-    "https://www.cnbc.com/2026/11/13/treasury-yields-fed-rates.html"
+    "https://www.cnbc.com/2026/11/13/treasury-yields-fed-rates.html",
+    "https://investinglive.com/news/eurozone-q3-gdp-second-estimate-vs-0-4-q-q-prelim/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1399,7 +1400,8 @@
     "fed’s williams says inflation stubbornly high and fed still has work to do on policy": "M. Williams, de la Fed, estime que l'inflation reste obstinément élevée et que la Fed a encore du travail à accomplir en matière de politique monétaire",
     "fed’s williams says central bank has ’work to do’ to get inflation back on target": "M. Williams, de la Fed, estime que la banque centrale a « du travail à faire » pour ramener l'inflation à son objectif",
     "microsoft says still attempting to fix major outage hitting teams, outlook": "Microsoft indique qu'il tente toujours de résoudre la panne majeure qui touche Teams et Outlook",
-    "treasury yields rise as traders strengthen fed rate hike bets": "Les rendements des bons du Trésor progressent alors que les opérateurs renforcent leurs anticipations d'une hausse des taux par la Fed"
+    "treasury yields rise as traders strengthen fed rate hike bets": "Les rendements des bons du Trésor progressent alors que les opérateurs renforcent leurs anticipations d'une hausse des taux par la Fed",
+    "eurozone q3 gdp second estimate +0.4% vs +0.4% q/q prelim": "Deuxième estimation du PIB de la zone euro au troisième trimestre : +0,4 % contre +0,4 % en glissement trimestriel (chiffre préliminaire)"
   },
   "seen_titles": {
     "2d286eb9e499e05f0df7f848c3040030e1f5fffe76b3908e6de922bc8ceeb5a6": "2026-11-12T10:10:42.251739Z",
@@ -1416,7 +1418,16 @@
     "86ac3a9ed25a73f07d1bbcf2da5824765c6fb25fb97bcc984e8677c165f03fbe": "2026-11-13T01:05:32.323842Z",
     "63a27e5a61d165dc1354d9cc052b3fc5de144b406c813027d6283e40b56be155": "2026-11-13T02:01:10.306556Z",
     "56298b5ca070d227779b44043e84465c53289515d6405b5b7b089e410a549da8": "2026-11-13T05:50:42.572477Z",
-    "98f632f6afe37b21e796f75ddf572b2c4e9349abea387c71ba96d9dc201fc7f1": "2026-11-13T08:45:55.214767Z"
+    "98f632f6afe37b21e796f75ddf572b2c4e9349abea387c71ba96d9dc201fc7f1": "2026-11-13T08:45:55.214767Z",
+    "d20b8ef2ce807e4ab8af77946270643002473462a8f55fd14a3108fca738d281": "2026-11-13T10:10:43.963869Z"
   },
-  "seen_events": {}
+  "seen_events": {
+    "gdp:eurozone:2026:q3|d4319c68f6f6a7d4b55c8ca93048f10da2822822e884328da138b45523a7f09d": {
+      "sent_at": "2026-11-13T10:10:43.963908Z",
+      "value": {
+        "growth": "0.4"
+      },
+      "base": "gdp:eurozone:2026:q3"
+    }
+  }
 }
