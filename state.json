@@ -1400,8 +1400,6 @@
     "microsoft says still attempting to fix major outage hitting teams, outlook": "Microsoft indique qu'il tente toujours de résoudre la panne majeure qui touche Teams et Outlook"
   },
   "seen_titles": {
-    "8681515a84c77d0edd01c27d0d97d2a0699c005d747b1c57ec46946a5acaf24a": "2026-11-12T07:25:35.346005Z",
-    "d8509e0c0d90e6b2e7ddc111d55f66bb5e3e097ea85101e4b5610a78b642a620": "2026-11-12T07:25:36.287017Z",
     "1e064fcf41d9ac511db3dd601befc0dea3194988dba78862cb2e7652384c8a30": "2026-11-12T08:10:39.931786Z",
     "f13c4a9665ed1ad6166eb58b6149a6ba69586f0e71a8e21f307c72847563bfc3": "2026-11-12T08:10:40.938960Z",
     "47b025e601afcb416eea106fecfea70cc32efd62cd669100ea4bf4eb74bbb96d": "2026-11-12T09:10:42.085799Z",
@@ -1421,13 +1419,5 @@
     "63a27e5a61d165dc1354d9cc052b3fc5de144b406c813027d6283e40b56be155": "2026-11-13T02:01:10.306556Z",
     "56298b5ca070d227779b44043e84465c53289515d6405b5b7b089e410a549da8": "2026-11-13T05:50:42.572477Z"
   },
-  "seen_events": {
-    "gdp:uk:2026:q3|707c3af5b7e072a0c1464bd4222571ab09eee03b5181c899fce19b80467b9fd8": {
-      "sent_at": "2026-11-12T07:25:35.346022Z",
-      "value": {
-        "growth": "0.7"
-      },
-      "base": "gdp:uk:2026:q3"
-    }
-  }
+  "seen_events": {}
 }
