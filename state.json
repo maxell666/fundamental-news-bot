@@ -737,7 +737,8 @@
     "https://www.investing.com/news/stock-market-news/microsoft-says-still-attempting-to-fix-major-outage-hitting-teams-outlook-5024175",
     "https://www.cnbc.com/2026/11/13/treasury-yields-fed-rates.html",
     "https://investinglive.com/news/eurozone-q3-gdp-second-estimate-vs-0-4-q-q-prelim/",
-    "https://www.investing.com/news/economy-news/nvidia-inches-higher-premarket-after-stock-slides-following-huang-resignation-5024641"
+    "https://www.investing.com/news/economy-news/nvidia-inches-higher-premarket-after-stock-slides-following-huang-resignation-5024641",
+    "https://www.investing.com/news/economy-news/bank-of-england-to-wait-until-february-to-next-raise-rates-say-economists-reuters-poll-5025433"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1403,7 +1404,8 @@
     "microsoft says still attempting to fix major outage hitting teams, outlook": "Microsoft indique qu'il tente toujours de résoudre la panne majeure qui touche Teams et Outlook",
     "treasury yields rise as traders strengthen fed rate hike bets": "Les rendements des bons du Trésor progressent alors que les opérateurs renforcent leurs anticipations d'une hausse des taux par la Fed",
     "eurozone q3 gdp second estimate +0.4% vs +0.4% q/q prelim": "Deuxième estimation du PIB de la zone euro au troisième trimestre : +0,4 % contre +0,4 % en glissement trimestriel (chiffre préliminaire)",
-    "nvidia rises over 2% premarket after stock slides following huang resignation": "Nvidia progresse de plus de 2 % en pré-ouverture après la chute de son titre suite à la démission de Huang"
+    "nvidia rises over 2% premarket after stock slides following huang resignation": "Nvidia progresse de plus de 2 % en pré-ouverture après la chute de son titre suite à la démission de Huang",
+    "bank of england to wait until february to next raise rates, say economists: reuters poll": "La Banque d'Angleterre attendra février pour procéder à sa prochaine hausse des taux, selon les économistes : sondage Reuters"
   },
   "seen_titles": {
     "18380c7182caa9236525733280acb468f2d7b169cee73390188ef9b4fbedcc2f": "2026-11-12T14:10:40.819026Z",
@@ -1421,7 +1423,8 @@
     "56298b5ca070d227779b44043e84465c53289515d6405b5b7b089e410a549da8": "2026-11-13T05:50:42.572477Z",
     "98f632f6afe37b21e796f75ddf572b2c4e9349abea387c71ba96d9dc201fc7f1": "2026-11-13T08:45:55.214767Z",
     "d20b8ef2ce807e4ab8af77946270643002473462a8f55fd14a3108fca738d281": "2026-11-13T10:10:43.963869Z",
-    "3f37ae7e614502bca276db705f77d2da172523f3351730be1b7aeb1d21410a1e": "2026-11-13T10:30:53.779270Z"
+    "3f37ae7e614502bca276db705f77d2da172523f3351730be1b7aeb1d21410a1e": "2026-11-13T10:30:53.779270Z",
+    "b52bd5823421c2a3f32dba4a71e14349cf3cfbb7e90c7baf8e99bda1abd1cd54": "2026-11-13T13:30:56.848458Z"
   },
   "seen_events": {
     "gdp:eurozone:2026:q3|d4319c68f6f6a7d4b55c8ca93048f10da2822822e884328da138b45523a7f09d": {
@@ -1430,6 +1433,11 @@
         "growth": "0.4"
       },
       "base": "gdp:eurozone:2026:q3"
+    },
+    "rates:boe:raise:2026-11-13|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-11-13T13:30:56.848475Z",
+      "value": {},
+      "base": "rates:boe:raise:2026-11-13"
     }
   }
 }
