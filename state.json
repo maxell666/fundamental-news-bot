@@ -743,7 +743,8 @@
     "https://investinglive.com/news/us-october-ppi-6-5-vs-6-6-expected/",
     "https://www.investing.com/news/economy-news/us-treasury-chief-says-fed-should-not-hike-rates-over-energy-shock-tied-to-iran-war-5025640",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-after-nvidia-ceo-exit-spooks-wall-st-5023780",
-    "https://www.cnbc.com/2026/11/13/nvidia-nvda-stock-jensen-huang-transition.html"
+    "https://www.cnbc.com/2026/11/13/nvidia-nvda-stock-jensen-huang-transition.html",
+    "https://www.cnbc.com/2026/11/13/chicago-feds-goolsbee-says-central-bank-has-definitely-got-work-to-do-on-inflation.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1415,7 +1416,8 @@
     "us october ppi +6.5% vs +6.6% expected": "IPP américain d'octobre : +6,5 % contre +6,6 % attendus",
     "us treasury chief says fed should not hike rates over energy shock tied to iran war": "Le ministre américain des Finances estime que la Fed ne devrait pas relever ses taux en raison du choc énergétique lié à la guerre en Iran",
     "wall street opens higher after ppi data, tentative rebound in nvidia": "Wall Street ouvre en hausse après la publication des chiffres de l'IPP ; rebond timide pour Nvidia",
-    "nvidia stock sinks 2% in fallout from jensen huang resignation": "L'action Nvidia plonge de 2 % dans le sillage de la démission de Jensen Huang"
+    "nvidia stock sinks 2% in fallout from jensen huang resignation": "L'action Nvidia plonge de 2 % dans le sillage de la démission de Jensen Huang",
+    "chicago fed's goolsbee says central bank 'has definitely got work to do' on inflation": "M. Goolsbee, de la Fed de Chicago, estime que la banque centrale « a clairement du pain sur la planche » en matière d'inflation"
   },
   "seen_titles": {
     "d51ed7e407a8735f10ca7b8f9bfe319e6750c5087debce68297be59ead1f7f20": "2026-11-12T15:40:41.276429Z",
@@ -1437,7 +1439,8 @@
     "c317f8f96e96ea2a45ff0f1c3392cc79dc0bca9c4a7082ab3f4ffcc358249bbc": "2026-11-13T14:05:34.389587Z",
     "aaef846b29a37afa233c98ec64e279b6f18ff36f2468c4d8f1e98e2047c8ea34": "2026-11-13T14:30:55.759649Z",
     "282536896cdec44990fdc61ab40111be2c72db0d1ad893010c0932ee8fd3245d": "2026-11-13T14:50:43.318451Z",
-    "3b9beab28d7594cea495caa28d6f6da2a67be854664d034ca24c6b4183a5ff4c": "2026-11-13T14:55:36.508747Z"
+    "3b9beab28d7594cea495caa28d6f6da2a67be854664d034ca24c6b4183a5ff4c": "2026-11-13T14:55:36.508747Z",
+    "5486a8bcd9f9209b933fb513623fbcb12c0f89623ef9b8a47f20c72dd7661ae2": "2026-11-13T15:15:44.981361Z"
   },
   "seen_events": {
     "gdp:eurozone:2026:q3|d4319c68f6f6a7d4b55c8ca93048f10da2822822e884328da138b45523a7f09d": {
