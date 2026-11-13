@@ -739,7 +739,8 @@
     "https://investinglive.com/news/eurozone-q3-gdp-second-estimate-vs-0-4-q-q-prelim/",
     "https://www.investing.com/news/economy-news/nvidia-inches-higher-premarket-after-stock-slides-following-huang-resignation-5024641",
     "https://www.investing.com/news/economy-news/bank-of-england-to-wait-until-february-to-next-raise-rates-say-economists-reuters-poll-5025433",
-    "https://www.investing.com/news/economy-news/bessent-urges-fed-caution-on-raising-rates-amid-energy-supply-shock-5025483"
+    "https://www.investing.com/news/economy-news/bessent-urges-fed-caution-on-raising-rates-amid-energy-supply-shock-5025483",
+    "https://investinglive.com/news/us-october-ppi-6-5-vs-6-6-expected/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1407,7 +1408,8 @@
     "eurozone q3 gdp second estimate +0.4% vs +0.4% q/q prelim": "Deuxième estimation du PIB de la zone euro au troisième trimestre : +0,4 % contre +0,4 % en glissement trimestriel (chiffre préliminaire)",
     "nvidia rises over 2% premarket after stock slides following huang resignation": "Nvidia progresse de plus de 2 % en pré-ouverture après la chute de son titre suite à la démission de Huang",
     "bank of england to wait until february to next raise rates, say economists: reuters poll": "La Banque d'Angleterre attendra février pour procéder à sa prochaine hausse des taux, selon les économistes : sondage Reuters",
-    "bessent urges fed caution on raising rates amid energy supply shock": "Bessent exhorte la Fed à la prudence concernant la hausse des taux dans un contexte de choc sur l'approvisionnement énergétique"
+    "bessent urges fed caution on raising rates amid energy supply shock": "Bessent exhorte la Fed à la prudence concernant la hausse des taux dans un contexte de choc sur l'approvisionnement énergétique",
+    "us october ppi +6.5% vs +6.6% expected": "IPP américain d'octobre : +6,5 % contre +6,6 % attendus"
   },
   "seen_titles": {
     "18380c7182caa9236525733280acb468f2d7b169cee73390188ef9b4fbedcc2f": "2026-11-12T14:10:40.819026Z",
@@ -1427,7 +1429,8 @@
     "d20b8ef2ce807e4ab8af77946270643002473462a8f55fd14a3108fca738d281": "2026-11-13T10:10:43.963869Z",
     "3f37ae7e614502bca276db705f77d2da172523f3351730be1b7aeb1d21410a1e": "2026-11-13T10:30:53.779270Z",
     "b52bd5823421c2a3f32dba4a71e14349cf3cfbb7e90c7baf8e99bda1abd1cd54": "2026-11-13T13:30:56.848458Z",
-    "0daad3f921e24655cb4a6bf26feeed692fa61395e21cc8bcf7408422793fbcfc": "2026-11-13T13:50:38.787574Z"
+    "0daad3f921e24655cb4a6bf26feeed692fa61395e21cc8bcf7408422793fbcfc": "2026-11-13T13:50:38.787574Z",
+    "c317f8f96e96ea2a45ff0f1c3392cc79dc0bca9c4a7082ab3f4ffcc358249bbc": "2026-11-13T14:05:34.389587Z"
   },
   "seen_events": {
     "gdp:eurozone:2026:q3|d4319c68f6f6a7d4b55c8ca93048f10da2822822e884328da138b45523a7f09d": {
