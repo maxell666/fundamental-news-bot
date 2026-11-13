@@ -744,7 +744,8 @@
     "https://www.investing.com/news/economy-news/us-treasury-chief-says-fed-should-not-hike-rates-over-energy-shock-tied-to-iran-war-5025640",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-after-nvidia-ceo-exit-spooks-wall-st-5023780",
     "https://www.cnbc.com/2026/11/13/nvidia-nvda-stock-jensen-huang-transition.html",
-    "https://www.cnbc.com/2026/11/13/chicago-feds-goolsbee-says-central-bank-has-definitely-got-work-to-do-on-inflation.html"
+    "https://www.cnbc.com/2026/11/13/chicago-feds-goolsbee-says-central-bank-has-definitely-got-work-to-do-on-inflation.html",
+    "https://www.investing.com/news/economy-news/feds-collins-says-more-rate-hikes-may-be-needed-soon-5026128"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1417,7 +1418,8 @@
     "us treasury chief says fed should not hike rates over energy shock tied to iran war": "Le ministre américain des Finances estime que la Fed ne devrait pas relever ses taux en raison du choc énergétique lié à la guerre en Iran",
     "wall street opens higher after ppi data, tentative rebound in nvidia": "Wall Street ouvre en hausse après la publication des chiffres de l'IPP ; rebond timide pour Nvidia",
     "nvidia stock sinks 2% in fallout from jensen huang resignation": "L'action Nvidia plonge de 2 % dans le sillage de la démission de Jensen Huang",
-    "chicago fed's goolsbee says central bank 'has definitely got work to do' on inflation": "M. Goolsbee, de la Fed de Chicago, estime que la banque centrale « a clairement du pain sur la planche » en matière d'inflation"
+    "chicago fed's goolsbee says central bank 'has definitely got work to do' on inflation": "M. Goolsbee, de la Fed de Chicago, estime que la banque centrale « a clairement du pain sur la planche » en matière d'inflation",
+    "fed’s collins says more rate hikes may be needed soon": "M. Collins, de la Fed, estime que de nouvelles hausses des taux pourraient s'avérer nécessaires prochainement"
   },
   "seen_titles": {
     "86bc4c944b6b4f060d4c1cb74e1bdf9ba67689e84fbad2662f6b46db1b6dbbb4": "2026-11-12T17:50:38.805759Z",
@@ -1438,7 +1440,8 @@
     "aaef846b29a37afa233c98ec64e279b6f18ff36f2468c4d8f1e98e2047c8ea34": "2026-11-13T14:30:55.759649Z",
     "282536896cdec44990fdc61ab40111be2c72db0d1ad893010c0932ee8fd3245d": "2026-11-13T14:50:43.318451Z",
     "3b9beab28d7594cea495caa28d6f6da2a67be854664d034ca24c6b4183a5ff4c": "2026-11-13T14:55:36.508747Z",
-    "5486a8bcd9f9209b933fb513623fbcb12c0f89623ef9b8a47f20c72dd7661ae2": "2026-11-13T15:15:44.981361Z"
+    "5486a8bcd9f9209b933fb513623fbcb12c0f89623ef9b8a47f20c72dd7661ae2": "2026-11-13T15:15:44.981361Z",
+    "6a2779f26ccb8e47682a4c0a5e7139fe6c627badb2cc5d0a7b23153508358817": "2026-11-13T16:20:42.563458Z"
   },
   "seen_events": {
     "gdp:eurozone:2026:q3|d4319c68f6f6a7d4b55c8ca93048f10da2822822e884328da138b45523a7f09d": {
