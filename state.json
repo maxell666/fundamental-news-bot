@@ -751,7 +751,8 @@
     "https://www.investing.com/news/economy-news/feds-jefferson-says-he-is-taking-his-policy-cues-from-inflation-5026805",
     "https://www.investing.com/news/economy-news/china-us-discuss-tariff-cuts-ahead-of-trumpxi-meeting-next-week-5027233",
     "https://www.investing.com/news/economy-news/boes-greene-says-acting-proactively-now-on-inflation-would-screw-things-up-the-least-5027328",
-    "https://investinglive.com/central-banks/fed-s-daly-in-all-likelihood-we-need-to-raise-rates/"
+    "https://investinglive.com/central-banks/fed-s-daly-in-all-likelihood-we-need-to-raise-rates/",
+    "https://www.investing.com/news/economy-news/feds-collins-says-gradual-rate-hikes-best-to-manage-economic-risks-5027385"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1431,7 +1432,8 @@
     "fed’s jefferson says he is taking his policy cues from inflation": "Jefferson, de la Fed, affirme qu'il oriente sa politique en fonction de l'inflation",
     "china, u.s. discuss tariff cuts ahead of trump-xi meeting next week": "La Chine et les États-Unis discutent de réductions tarifaires avant la rencontre entre Trump et Xi prévue la semaine prochaine",
     "boe’s greene says acting proactively now on inflation would ’screw’ things up the least": "M. Greene, de la Banque d'Angleterre, estime qu'agir dès maintenant de manière proactive face à l'inflation serait la solution la moins « désastreuse »",
-    "fed's daly: in all likelihood, we need to raise rates": "Daly, de la Fed : « Selon toute vraisemblance, nous devrons relever les taux »"
+    "fed's daly: in all likelihood, we need to raise rates": "Daly, de la Fed : « Selon toute vraisemblance, nous devrons relever les taux »",
+    "fed’s collins says gradual rate hikes best to manage economic risks": "M. Collins, de la Fed, estime que des hausses progressives des taux d'intérêt constituent la meilleure solution pour gérer les risques économiques"
   },
   "seen_titles": {
     "6a2779f26ccb8e47682a4c0a5e7139fe6c627badb2cc5d0a7b23153508358817": "2026-11-13T16:20:42.563458Z",
@@ -1440,7 +1442,8 @@
     "411f8ed88bfb584443608b60ab4d2caa88e5f04aaedec066bdbff83244955c86": "2026-11-14T00:25:30.687028Z",
     "cd0e108d7990e9fba5f544884ad532fde94e7d2e5fc007f16a238bb5b365d46d": "2026-11-14T08:55:34.854638Z",
     "41e8775b1bb470c1ccf15f2a69a3a4651de02f2361065ee0a1a2b3fe8d484974": "2026-11-14T13:15:43.286261Z",
-    "60f875f103a9b8dca1c06a2485f5a015d1fa9416d6182336da8bc26d8944b964": "2026-11-14T14:35:31.793728Z"
+    "60f875f103a9b8dca1c06a2485f5a015d1fa9416d6182336da8bc26d8944b964": "2026-11-14T14:35:31.793728Z",
+    "40d7377192e6d22a3cb51943ba1ef2ba1265be5690806c2bdf9fdc37f6df3479": "2026-11-14T15:55:32.900505Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-13|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
