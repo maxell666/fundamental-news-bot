@@ -757,7 +757,8 @@
     "https://www.investing.com/news/economy-news/kansas-city-feds-schmid-says-central-bank-has-work-to-do-on-inflation-5028049",
     "https://investinglive.com/central-banks/ecb-s-nagel-says-another-rate-hike-highly-probable-as-energy-prices-push-inflation/",
     "https://investinglive.com/central-banks/sunday-fed-talk-schmid-says-inflation-would-still-be-near-3-without-energy-fed-has-work-to-do/",
-    "https://investinglive.com/central-banks/icymi-fed-s-jefferson-says-inflation-is-the-key-signal-for-rates-with-pce-still-at-3-6/"
+    "https://investinglive.com/central-banks/icymi-fed-s-jefferson-says-inflation-is-the-key-signal-for-rates-with-pce-still-at-3-6/",
+    "https://www.investing.com/news/economy-news/asian-shares-fall-before-nvidia-earnings-anthropic-ipo-test-tech-rally-5028293"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1443,14 +1444,16 @@
     "kansas city fed’s schmid says central bank has work to do on inflation": "M. Schmid, de la Fed de Kansas City, estime que la banque centrale a encore du travail à faire en matière d'inflation",
     "ecb’s nagel says another rate hike ‘highly probable’ as energy prices push inflation": "M. Nagel, de la BCE, estime qu'une nouvelle hausse des taux est « très probable », les prix de l'énergie faisant grimper l'inflation",
     "sunday fed talk: schmid says inflation would still be near 3% without energy, fed has work to do": "Déclarations de la Fed ce dimanche : M. Schmid estime que l'inflation se maintiendrait autour de 3 % sans tenir compte du secteur de l'énergie, et que la Fed a encore du travail à faire",
-    "icymi: fed’s jefferson says inflation is the key signal for rates, with pce still at 3.6%": "Au cas où vous l’auriez manqué : Jefferson, de la Fed, affirme que l’inflation est l’indicateur clé pour les taux, l’indice PCE se maintenant à 3,6 %"
+    "icymi: fed’s jefferson says inflation is the key signal for rates, with pce still at 3.6%": "Au cas où vous l’auriez manqué : Jefferson, de la Fed, affirme que l’inflation est l’indicateur clé pour les taux, l’indice PCE se maintenant à 3,6 %",
+    "asian shares fall before nvidia earnings, anthropic ipo test tech rally": "Les marchés boursiers asiatiques reculent avant la publication des résultats de Nvidia et l'introduction en bourse d'Anthropic, qui mettent à l'épreuve la reprise du secteur technologique"
   },
   "seen_titles": {
     "7b9c218116208402aa6c27a3310eb4b3c03e6127459618a26411eefd28f4c693": "2026-11-15T02:05:34.819959Z",
     "1f03b814513ff748a9b032bb0ef62f8b28324475139f401bde3c25989130ed23": "2026-11-15T19:20:40.107740Z",
     "8119e86a71495c3816e8807378cb48c22ad74adbe273c7bdd2336d1e1c341100": "2026-11-15T22:20:41.678747Z",
     "574b1917e0ea1e7ac1b76c1da2abf55dbf789b8e61dcee77c38be2fb34543ee1": "2026-11-15T22:20:42.755325Z",
-    "4c2ffbc6801cd5e2e1a11b636be7e345ca994625e99c13d807afc6151909316b": "2026-11-16T01:15:37.541948Z"
+    "4c2ffbc6801cd5e2e1a11b636be7e345ca994625e99c13d807afc6151909316b": "2026-11-16T01:15:37.541948Z",
+    "9dc707eaf0738f35a4df6492ff964774dd58dc7af877f6a10ce844c46211029c": "2026-11-16T02:01:02.402657Z"
   },
   "seen_events": {}
 }
