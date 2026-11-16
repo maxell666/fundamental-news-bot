@@ -762,7 +762,8 @@
     "https://www.investing.com/news/economy-news/stocks-mostly-ease-with-tech-nvidia-concerns-airline-shares-fall-late-in-session-5028294",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-little-changed-as-investors-await-nvidia-earnings-5028292",
     "https://www.cnbc.com/2026/11/16/nvidia-stock-price-jensen-huang.html",
-    "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMDlRdVU0Q0pEbmh3LXhDbjdHeXdsSndzZ24zMkR5eE9aM0NkV2dwY0N3ZjUyc1JZNUJTV0ROZHNsb2ZHVlRuZU1rQ1FZMFpqbTBZX05sWl9GaEFpY1lqRkRId1N1NENMRm9POFRDWW5GSmU2NlZvcFA0OHE3Q1hVNV91Tl82X2xXQVBNNTdvbl9Zam90alZ4WEtrdVh1dG1KWVB3dTR3"
+    "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMDlRdVU0Q0pEbmh3LXhDbjdHeXdsSndzZ24zMkR5eE9aM0NkV2dwY0N3ZjUyc1JZNUJTV0ROZHNsb2ZHVlRuZU1rQ1FZMFpqbTBZX05sWl9GaEFpY1lqRkRId1N1NENMRm9POFRDWW5GSmU2NlZvcFA0OHE3Q1hVNV91Tl82X2xXQVBNNTdvbl9Zam90alZ4WEtrdVh1dG1KWVB3dTR3",
+    "https://www.investing.com/news/stock-market-news/chevron-to-buy-blackstonebacked-oil-producer-for-5-billion-ft-reports-5030814"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1453,7 +1454,8 @@
     "stocks mostly ease with tech, nvidia concerns; airline shares fall late in session": "Les actions reculent pour la plupart sous l'effet des inquiétudes liées au secteur technologique et à Nvidia ; les titres des compagnies aériennes chutent en fin de séance",
     "nasdaq, s&p futures fall with nvidia earnings, anthropic debut looming": "Les contrats à terme sur le Nasdaq et le S&P reculent dans le sillage des résultats de Nvidia et de l'entrée en bourse imminente d'Anthropic",
     "nvidia stock falls nearly 4% as investors price in fallout from jensen huang's resignation": "L'action Nvidia recule de près de 4 %, les investisseurs anticipant les répercussions de la démission de Jensen Huang",
-    "german coalition to cut electricity tax rate, merz says - reuters": "La coalition allemande va réduire le taux de la taxe sur l'électricité, selon M. Merz - Reuters"
+    "german coalition to cut electricity tax rate, merz says - reuters": "La coalition allemande va réduire le taux de la taxe sur l'électricité, selon M. Merz - Reuters",
+    "chevron to buy blackstone-backed oil producer for $5 billion, ft reports": "Chevron s'apprête à racheter un producteur pétrolier soutenu par Blackstone pour 5 milliards de dollars, selon le Financial Times"
   },
   "seen_titles": {
     "8119e86a71495c3816e8807378cb48c22ad74adbe273c7bdd2336d1e1c341100": "2026-11-15T22:20:41.678747Z",
@@ -1463,7 +1465,17 @@
     "7b9c218116208402aa6c27a3310eb4b3c03e6127459618a26411eefd28f4c693": "2026-11-16T02:05:39.071927Z",
     "d83dbc2ee31bcf584d30020abf182ae800c622e807518b2a55ff8c889b7beb6a": "2026-11-16T12:05:32.218712Z",
     "4af0f1c4a1187b14f2cb56008d31b0b34f386cfc5f4f22a0e445c66814a106b7": "2026-11-16T12:45:41.179227Z",
-    "2517352699851ed412dc670f4ce87b5a66b0914989bf10f7d36a0fac86a08953": "2026-11-16T15:10:39.655951Z"
+    "2517352699851ed412dc670f4ce87b5a66b0914989bf10f7d36a0fac86a08953": "2026-11-16T15:10:39.655951Z",
+    "dea26cc2c39f383131ff6906fa593ab09485fef4521b9f3b9433532b8741cb60": "2026-11-16T20:50:39.816075Z"
   },
-  "seen_events": {}
+  "seen_events": {
+    "acquisition:chevron:blackstone backed oil producer:2026-11-16|b0d3cd1664c2007648aa882269505460d84cc880ddd5d36f620f3cace7069792": {
+      "sent_at": "2026-11-16T20:50:39.816083Z",
+      "value": {
+        "amount_billion": "5",
+        "currency": "USD"
+      },
+      "base": "acquisition:chevron:blackstone backed oil producer:2026-11-16"
+    }
+  }
 }
