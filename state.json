@@ -771,7 +771,8 @@
     "https://www.investing.com/news/stock-market-news/european-shares-slip-on-fresh-us-chip-curbs-5031847",
     "https://www.investing.com/news/stock-market-news/nasdaq-opens-higher-in-choppy-trading-nvidia-earnings-in-focus-5033341",
     "https://www.investing.com/news/economy-news/feds-musalem-signals-multiple-rate-hikes-likely-needed-before-spring-2027-5033318",
-    "https://www.bbc.co.uk/news/articles/cvglr977x3z0o"
+    "https://www.bbc.co.uk/news/articles/cvglr977x3z0o",
+    "https://www.investing.com/news/economy-news/us-retail-sales-increase-moderately-in-october-5033051"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1471,7 +1472,8 @@
     "european shares drop on fresh u.s. chip curbs; nvidia awaited": "Les actions européennes reculent face aux nouvelles restrictions américaines sur les puces électroniques ; tous les regards se tournent vers Nvidia",
     "nasdaq opens higher in choppy trading; nvidia earnings in focus": "Le Nasdaq s'ouvre en hausse dans un marché agité ; les résultats de Nvidia sous les projecteurs",
     "fed’s musalem signals multiple rate hikes likely needed before spring 2027": "Musalem, de la Fed, laisse entendre que plusieurs hausses des taux seront probablement nécessaires avant le printemps 2027",
-    "uk sanctions firms over israeli west bank settlements": "Le Royaume-Uni impose des sanctions à des entreprises en raison des colonies israéliennes en Cisjordanie"
+    "uk sanctions firms over israeli west bank settlements": "Le Royaume-Uni impose des sanctions à des entreprises en raison des colonies israéliennes en Cisjordanie",
+    "us retail sales increase moderately; import prices rise above expectations": "Les ventes au détail aux États-Unis enregistrent une hausse modérée ; les prix à l'importation augmentent plus que prévu"
   },
   "seen_titles": {
     "dea26cc2c39f383131ff6906fa593ab09485fef4521b9f3b9433532b8741cb60": "2026-11-16T20:50:39.816075Z",
@@ -1482,7 +1484,8 @@
     "779b3baa8251ba7439beed8cbc0a54b9fec9c2c0dc193521601faccba8ad828f": "2026-11-17T14:30:54.700529Z",
     "cceba19e0a9da1940d5911d7a16467cc34efcd7a888339b68c04c466f03b638a": "2026-11-17T14:50:45.746510Z",
     "e4aa130da973255e79628f105caed2a75a76e4f0233406d469596ae6a37ccfdc": "2026-11-17T14:50:46.651400Z",
-    "11c0003f61aa08e004adecb08e1ec1b733de8e0501cd5f0a205e9945e42d8719": "2026-11-17T15:20:49.058960Z"
+    "11c0003f61aa08e004adecb08e1ec1b733de8e0501cd5f0a205e9945e42d8719": "2026-11-17T15:20:49.058960Z",
+    "706c1c5cf062e2f8a15a5ea5baa3b5610bba65cd9c989217c04380bb7e77fd01": "2026-11-17T15:40:38.881248Z"
   },
   "seen_events": {
     "acquisition:chevron:blackstone backed oil producer:2026-11-16|b0d3cd1664c2007648aa882269505460d84cc880ddd5d36f620f3cace7069792": {
