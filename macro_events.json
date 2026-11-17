@@ -306,6 +306,27 @@
       "scheduled_at": "2026-11-17T07:00:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-17T07:00:42.216Z"
+    },
+    "2026-11-17T13:30:00.000Z": {
+      "forecast_at": "2026-11-17T13:20:52.548Z",
+      "items": [
+        {
+          "currency": "USD",
+          "forecast": "0.4%",
+          "id": 148047,
+          "previous": "0.9%",
+          "title": "Core Retail Sales m/m"
+        },
+        {
+          "currency": "USD",
+          "forecast": "0.1%",
+          "id": 148035,
+          "previous": "0.8%",
+          "title": "Retail Sales m/m"
+        }
+      ],
+      "scheduled_at": "2026-11-17T13:30:00.000Z",
+      "status": "armed"
     }
   }
 }
