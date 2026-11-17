@@ -768,7 +768,9 @@
     "https://investinglive.com/news/uk-september-ilo-unemployment-rate-4-6-vs-4-7-expected/",
     "https://www.cnbc.com/2026/11/17/alberto-musalem-fed-interest-rates.html",
     "https://investinglive.com/news/us-october-advance-retail-sales-0-2-vs-0-2-expected/",
-    "https://www.investing.com/news/stock-market-news/european-shares-slip-on-fresh-us-chip-curbs-5031847"
+    "https://www.investing.com/news/stock-market-news/european-shares-slip-on-fresh-us-chip-curbs-5031847",
+    "https://www.investing.com/news/stock-market-news/nasdaq-opens-higher-in-choppy-trading-nvidia-earnings-in-focus-5033341",
+    "https://www.investing.com/news/economy-news/feds-musalem-signals-multiple-rate-hikes-likely-needed-before-spring-2027-5033318"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1465,7 +1467,9 @@
     "uk september ilo unemployment rate 4.6% vs 4.7% expected": "Au Royaume-Uni, le taux de chômage selon l'OIT s'établit à 4,6 % en septembre, contre 4,7 % attendus",
     "st. louis fed's musalem says four more rate hikes may be needed in coming months": "M. Musalem, de la Fed de Saint-Louis, estime que quatre nouvelles hausses des taux pourraient être nécessaires dans les mois à venir",
     "us october advance retail sales +0.2% vs +0.2% expected": "Chiffre d'affaires préliminaire du commerce de détail aux États-Unis en octobre : +0,2 % contre +0,2 % prévu",
-    "european shares drop on fresh u.s. chip curbs; nvidia awaited": "Les actions européennes reculent face aux nouvelles restrictions américaines sur les puces électroniques ; tous les regards se tournent vers Nvidia"
+    "european shares drop on fresh u.s. chip curbs; nvidia awaited": "Les actions européennes reculent face aux nouvelles restrictions américaines sur les puces électroniques ; tous les regards se tournent vers Nvidia",
+    "nasdaq opens higher in choppy trading; nvidia earnings in focus": "Le Nasdaq s'ouvre en hausse dans un marché agité ; les résultats de Nvidia sous les projecteurs",
+    "fed’s musalem signals multiple rate hikes likely needed before spring 2027": "Musalem, de la Fed, laisse entendre que plusieurs hausses des taux seront probablement nécessaires avant le printemps 2027"
   },
   "seen_titles": {
     "2517352699851ed412dc670f4ce87b5a66b0914989bf10f7d36a0fac86a08953": "2026-11-16T15:10:39.655951Z",
@@ -1474,7 +1478,9 @@
     "f8fecffaa3e6017f9824ee183414dc5513dbb5c04716698e3ee5ce00cbcbbd56": "2026-11-17T07:05:32.875552Z",
     "424abdd234a481537c713f7ef193183a262bac1232527bcf2ebd8c803cd1a3b1": "2026-11-17T13:40:39.731063Z",
     "753ef4c9fdacf26e4764cff9cf7478e7bb27ed1dfc03602b5a40f8687f1d6add": "2026-11-17T14:15:39.982335Z",
-    "779b3baa8251ba7439beed8cbc0a54b9fec9c2c0dc193521601faccba8ad828f": "2026-11-17T14:30:54.700529Z"
+    "779b3baa8251ba7439beed8cbc0a54b9fec9c2c0dc193521601faccba8ad828f": "2026-11-17T14:30:54.700529Z",
+    "cceba19e0a9da1940d5911d7a16467cc34efcd7a888339b68c04c466f03b638a": "2026-11-17T14:50:45.746510Z",
+    "e4aa130da973255e79628f105caed2a75a76e4f0233406d469596ae6a37ccfdc": "2026-11-17T14:50:46.651400Z"
   },
   "seen_events": {
     "acquisition:chevron:blackstone backed oil producer:2026-11-16|b0d3cd1664c2007648aa882269505460d84cc880ddd5d36f620f3cace7069792": {
