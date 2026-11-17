@@ -1480,7 +1480,6 @@
     "fed’s williams says more rate hikes likely needed amid inflation": "M. Williams, de la Fed, estime que de nouvelles hausses des taux d'intérêt seront probablement nécessaires face à l'inflation"
   },
   "seen_titles": {
-    "dea26cc2c39f383131ff6906fa593ab09485fef4521b9f3b9433532b8741cb60": "2026-11-16T20:50:39.816075Z",
     "765333089873e7dd992ae79fc43f7caa8f3a2363f55313d906713d2ab5dcb756": "2026-11-16T22:30:55.848597Z",
     "f8fecffaa3e6017f9824ee183414dc5513dbb5c04716698e3ee5ce00cbcbbd56": "2026-11-17T07:05:32.875552Z",
     "424abdd234a481537c713f7ef193183a262bac1232527bcf2ebd8c803cd1a3b1": "2026-11-17T13:40:39.731063Z",
@@ -1493,14 +1492,5 @@
     "0ebdec2c974e910121cdf313c627c183c959ab209fb508f03b1399b622cca8d9": "2026-11-17T18:01:03.649234Z",
     "0e523f32a1f112e33f8e76c22e04be23af393377a935e7edbd12e8ef29fd5551": "2026-11-17T20:01:07.971512Z"
   },
-  "seen_events": {
-    "acquisition:chevron:blackstone backed oil producer:2026-11-16|b0d3cd1664c2007648aa882269505460d84cc880ddd5d36f620f3cace7069792": {
-      "sent_at": "2026-11-16T20:50:39.816083Z",
-      "value": {
-        "amount_billion": "5",
-        "currency": "USD"
-      },
-      "base": "acquisition:chevron:blackstone backed oil producer:2026-11-16"
-    }
-  }
+  "seen_events": {}
 }
