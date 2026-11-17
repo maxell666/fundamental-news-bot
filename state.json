@@ -775,7 +775,8 @@
     "https://www.investing.com/news/economy-news/us-retail-sales-increase-moderately-in-october-5033051",
     "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw",
     "https://www.investing.com/news/economy-news/feds-williams-says-more-rate-hikes-likely-needed-amid-inflation-5033876",
-    "https://www.investing.com/news/stock-market-news/wall-street-futures-muted-as-nvidia-earnings-loom-amid-ai-jitters-5031353"
+    "https://www.investing.com/news/stock-market-news/wall-street-futures-muted-as-nvidia-earnings-loom-amid-ai-jitters-5031353",
+    "https://www.investing.com/news/earnings/nvidia-quarterly-results-beat-estimates-5033943"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1479,7 +1480,8 @@
     "us retail sales increase moderately; import prices rise above expectations": "Les ventes au détail aux États-Unis enregistrent une hausse modérée ; les prix à l'importation augmentent plus que prévu",
     "wall st falls before nvidia earnings in key ai test; huang says open to return - reuters": "Wall Street recule avant la publication des résultats de Nvidia, un test décisif pour l'IA ; Huang se dit prêt à revenir - Reuters",
     "fed’s williams says more rate hikes likely needed amid inflation": "M. Williams, de la Fed, estime que de nouvelles hausses des taux d'intérêt seront probablement nécessaires face à l'inflation",
-    "wall street slides on nvidia earnings day, s&p 500 posts lowest close since july": "Wall Street recule le jour de la publication des résultats de Nvidia ; le S&P 500 enregistre sa clôture la plus basse depuis juillet"
+    "wall street slides on nvidia earnings day, s&p 500 posts lowest close since july": "Wall Street recule le jour de la publication des résultats de Nvidia ; le S&P 500 enregistre sa clôture la plus basse depuis juillet",
+    "nvidia stock rises after hours as quarterly results, guidance beat estimates": "Le cours de l'action Nvidia progresse en après-bourse, ses résultats trimestriels et ses prévisions ayant dépassé les estimations"
   },
   "seen_titles": {
     "765333089873e7dd992ae79fc43f7caa8f3a2363f55313d906713d2ab5dcb756": "2026-11-16T22:30:55.848597Z",
@@ -1493,7 +1495,8 @@
     "706c1c5cf062e2f8a15a5ea5baa3b5610bba65cd9c989217c04380bb7e77fd01": "2026-11-17T15:40:38.881248Z",
     "0ebdec2c974e910121cdf313c627c183c959ab209fb508f03b1399b622cca8d9": "2026-11-17T18:01:03.649234Z",
     "0e523f32a1f112e33f8e76c22e04be23af393377a935e7edbd12e8ef29fd5551": "2026-11-17T20:01:07.971512Z",
-    "bfff82f3661942792b59e8f0f1fe6cd57acfb22eceea9b5921b1c9bfa5c9acb0": "2026-11-17T21:20:39.993294Z"
+    "bfff82f3661942792b59e8f0f1fe6cd57acfb22eceea9b5921b1c9bfa5c9acb0": "2026-11-17T21:20:39.993294Z",
+    "00819988f79b2d83fc2c38335970e58b0ed5952052e090d594a7b324af26c9e0": "2026-11-17T21:40:38.859584Z"
   },
   "seen_events": {
     "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
@@ -1501,6 +1504,14 @@
       "base": "company:nvidia:earnings",
       "value": {
         "direction": "reported"
+      }
+    },
+    "company:nvidia:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
+      "sent_at": "2026-11-17T21:40:38.859602Z",
+      "base": "company:nvidia:reaction",
+      "value": {
+        "direction": "up",
+        "milestone": 0
       }
     }
   }
