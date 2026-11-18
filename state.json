@@ -782,7 +782,8 @@
     "https://investinglive.com/news/uk-october-cpi-3-6-vs-3-6-y-y-expected/",
     "https://www.bbc.co.uk/news/articles/cmy498kdkx3xo",
     "https://www.investing.com/news/economy-news/nvidia-raises-guidance-anthropic-ipo-in-focus--whats-moving-markets-5035185",
-    "https://www.investing.com/news/economy-news/bank-of-england-sees-inflation-rising-further-by-mid2027--report-93CH-5035170"
+    "https://www.investing.com/news/economy-news/bank-of-england-sees-inflation-rising-further-by-mid2027--report-93CH-5035170",
+    "https://www.investing.com/news/economy-news/nasdaq-futures-jump-as-nvidia-forecast-lifts-ai-trade-ahead-of-anthropic-pricing-5035347"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1493,7 +1494,8 @@
     "uk october cpi +3.6% vs +3.6% y/y expected": "IPC britannique d'octobre : +3,6 % contre +3,6 % en glissement annuel, conformément aux prévisions",
     "higher fuel prices push uk inflation to 3.6%": "La hausse des prix des carburants fait grimper l'inflation au Royaume-Uni à 3,6 %",
     "nvidia raises guidance; anthropic ipo in focus - what’s moving markets": "Nvidia revoit ses prévisions à la hausse ; l'introduction en bourse d'Anthropic sous les projecteurs : ce qui fait bouger les marchés",
-    "bank of england sees inflation rising further by mid-2027 - report": "La Banque d'Angleterre prévoit une nouvelle hausse de l'inflation d'ici mi-2027, selon un rapport"
+    "bank of england sees inflation rising further by mid-2027 - report": "La Banque d'Angleterre prévoit une nouvelle hausse de l'inflation d'ici mi-2027, selon un rapport",
+    "nasdaq futures jump as nvidia forecast lifts ai trade ahead of anthropic pricing": "Les contrats à terme sur le Nasdaq bondissent alors que les prévisions de Nvidia stimulent les échanges liés à l'IA avant l'annonce du prix de l'action d'Anthropic"
   },
   "seen_titles": {
     "424abdd234a481537c713f7ef193183a262bac1232527bcf2ebd8c803cd1a3b1": "2026-11-17T13:40:39.731063Z",
@@ -1512,7 +1514,8 @@
     "0c913fdcd1dc96e7f473bd43fc9a72f18eb7b78381ca538643f30367124dff80": "2026-11-18T07:05:34.128891Z",
     "3e500740ddf09a4816a62af076c569c67521aa1fdff283ef16f3fb20b74b4cb1": "2026-11-18T07:20:38.777716Z",
     "36f9f1f15e07eebe5b1f9ba6309aead1714cec8bc432654f35cd1c88d11cf66e": "2026-11-18T09:20:39.854675Z",
-    "c0f298810081a06876eeea8bf9cf110da0bd5b0780a889794613c306024a59f4": "2026-11-18T09:20:40.998403Z"
+    "c0f298810081a06876eeea8bf9cf110da0bd5b0780a889794613c306024a59f4": "2026-11-18T09:20:40.998403Z",
+    "21b8b90340d15dd867c9a1d524be4e205342f6344eab3c97c0aaa6ce33d5da75": "2026-11-18T10:35:37.139838Z"
   },
   "seen_events": {
     "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
