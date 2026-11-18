@@ -790,7 +790,9 @@
     "https://www.investing.com/news/economy-news/analysisbritains-long-wait-for-2-inflation-tests-public-faith-in-bank-of-england-5036563",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-jump-as-nvidia-earnings-revive-ai-optimism-5034391",
     "https://investinglive.com/central-banks/fed-s-daly-says-inflation-has-been-too-high-for-too-long-as-consumer-spending-holds-up/",
-    "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNLUw0WGdCZWFQMDBna01NRTEzWEQxbHlSU2RHS2FFX0dIdDc5Si1kQjdzRVFpSTRLeThVQ1V5NG01UG1HSGtJNFZOYjI0OHpIbHRvWjdNOFNjZWhhYzFTWVJJVklORUV4YmJoOWhjd1Nhc1hULXVVYncyUmZUQjJwMFh4RGJsSFhhcjlwc2NpVUhNUEdfQXdsekQ1c3AzZVlZcUdSN3ZlTDJUQ3g4WjRlNHhydEJ2OVJTeHpj"
+    "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNLUw0WGdCZWFQMDBna01NRTEzWEQxbHlSU2RHS2FFX0dIdDc5Si1kQjdzRVFpSTRLeThVQ1V5NG01UG1HSGtJNFZOYjI0OHpIbHRvWjdNOFNjZWhhYzFTWVJJVklORUV4YmJoOWhjd1Nhc1hULXVVYncyUmZUQjJwMFh4RGJsSFhhcjlwc2NpVUhNUEdfQXdsekQ1c3AzZVlZcUdSN3ZlTDJUQ3g4WjRlNHhydEJ2OVJTeHpj",
+    "https://www.investing.com/news/economy-news/feds-barr-says-rate-rises-likely-lie-ahead-for-economy-5036832",
+    "https://www.investing.com/news/commodities-news/oil-prices-fall-as-higher-us-crude-stocks-temper-supply-risks-5034544"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1509,7 +1511,9 @@
     "analysis-britain’s long wait for 2% inflation tests public faith in bank of england": "Analyse : la longue attente de la Grande-Bretagne pour atteindre un taux d'inflation de 2 % met à l'épreuve la confiance du public envers la Banque d'Angleterre",
     "dow falls over 600 points, nasdaq seesaws as post-earnings nvidia bounce fades": "Le Dow Jones perd plus de 600 points, le Nasdaq oscille alors que le rebond de Nvidia après la publication de ses résultats s'essouffle",
     "fed’s daly says inflation has been too high for too long as consumer spending holds up": "M. Daly, de la Fed, estime que l'inflation est restée trop élevée pendant trop longtemps, alors que la consommation des ménages se maintient",
-    "nasdaq rises in choppy trade as investors weigh nvidia outlook, anthropic ipo - reuters": "Le Nasdaq progresse dans un marché agité, les investisseurs évaluant les perspectives de Nvidia et l'introduction en bourse d'Anthropic - Reuters"
+    "nasdaq rises in choppy trade as investors weigh nvidia outlook, anthropic ipo - reuters": "Le Nasdaq progresse dans un marché agité, les investisseurs évaluant les perspectives de Nvidia et l'introduction en bourse d'Anthropic - Reuters",
+    "fed’s barr says rate rises likely lie ahead for economy": "M. Barr, de la Fed, estime que des hausses de taux sont probablement à prévoir pour l'économie",
+    "oil prices tumble as traders weigh surplus supply outlook": "Les cours du pétrole s'effondrent alors que les opérateurs évaluent les perspectives d'un excédent de l'offre"
   },
   "seen_titles": {
     "0e523f32a1f112e33f8e76c22e04be23af393377a935e7edbd12e8ef29fd5551": "2026-11-17T20:01:07.971512Z",
@@ -1528,7 +1532,9 @@
     "c0a2860a74da4b8b4ce9349690e938c99de7180f6a38fbbfb3f2c0f85f6aa484": "2026-11-18T15:50:40.260407Z",
     "8c855362805a249944825f23d2a0592844cd58384794470a83da26e82d3463fa": "2026-11-18T16:50:49.687258Z",
     "ab9adc24d3e824d5d4fd99658024318e9d722765f4b47944549d6e13b1dcebea": "2026-11-18T18:10:46.190414Z",
-    "4f51dde69423a5ba8317c515e8b4d5f057a1270adf1cc74a110334ef4ad54ad6": "2026-11-18T18:15:40.161296Z"
+    "4f51dde69423a5ba8317c515e8b4d5f057a1270adf1cc74a110334ef4ad54ad6": "2026-11-18T18:15:40.161296Z",
+    "44bb6ac998815defbac005e233e7c1bc528978b1f2a03a8919dbd33531f23693": "2026-11-18T18:45:41.262688Z",
+    "3ebc6e079d54c7a6bd109a035befd95250281874496f962487bd2942929a4f1e": "2026-11-18T18:45:42.160868Z"
   },
   "seen_events": {
     "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
