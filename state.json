@@ -777,7 +777,8 @@
     "https://www.investing.com/news/economy-news/feds-williams-says-more-rate-hikes-likely-needed-amid-inflation-5033876",
     "https://www.investing.com/news/stock-market-news/wall-street-futures-muted-as-nvidia-earnings-loom-amid-ai-jitters-5031353",
     "https://www.investing.com/news/earnings/nvidia-quarterly-results-beat-estimates-5033943",
-    "https://www.investing.com/news/stock-market-news/nvidia-earnings-beat-estimates-attention-turns-to-call-5034180"
+    "https://www.investing.com/news/stock-market-news/nvidia-earnings-beat-estimates-attention-turns-to-call-5034180",
+    "https://www.investing.com/news/stock-market-news/samsung-electromechanics-shares-jump-on-expanded-nvidia-supply-deal-5034843"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1483,7 +1484,8 @@
     "fed’s williams says more rate hikes likely needed amid inflation": "M. Williams, de la Fed, estime que de nouvelles hausses des taux d'intérêt seront probablement nécessaires face à l'inflation",
     "wall street slides on nvidia earnings day, s&p 500 posts lowest close since july": "Wall Street recule le jour de la publication des résultats de Nvidia ; le S&P 500 enregistre sa clôture la plus basse depuis juillet",
     "nvidia stock rises after hours as quarterly results, guidance beat estimates": "Le cours de l'action Nvidia progresse en après-bourse, ses résultats trimestriels et ses prévisions ayant dépassé les estimations",
-    "nvidia earnings beat estimates; attention turns to call": "Les résultats de Nvidia dépassent les prévisions ; tous les regards se tournent désormais vers la conférence téléphonique"
+    "nvidia earnings beat estimates; attention turns to call": "Les résultats de Nvidia dépassent les prévisions ; tous les regards se tournent désormais vers la conférence téléphonique",
+    "samsung electro-mechanics shares jump on expanded nvidia supply deal": "Les actions de Samsung Electro-Mechanics s'envolent grâce à la prolongation de son contrat d'approvisionnement avec Nvidia"
   },
   "seen_titles": {
     "f8fecffaa3e6017f9824ee183414dc5513dbb5c04716698e3ee5ce00cbcbbd56": "2026-11-17T07:05:32.875552Z",
@@ -1498,7 +1500,8 @@
     "0e523f32a1f112e33f8e76c22e04be23af393377a935e7edbd12e8ef29fd5551": "2026-11-17T20:01:07.971512Z",
     "bfff82f3661942792b59e8f0f1fe6cd57acfb22eceea9b5921b1c9bfa5c9acb0": "2026-11-17T21:20:39.993294Z",
     "00819988f79b2d83fc2c38335970e58b0ed5952052e090d594a7b324af26c9e0": "2026-11-17T21:40:38.859584Z",
-    "64bfe547c2a543f0f0c641b80559e10b39c86149bafe6999674fbc8787c055ae": "2026-11-17T22:15:40.164427Z"
+    "64bfe547c2a543f0f0c641b80559e10b39c86149bafe6999674fbc8787c055ae": "2026-11-17T22:15:40.164427Z",
+    "d8565ff5a69fdd7861e42d8a6d70884f795597ae443c8634b17072e26b3e3445": "2026-11-18T06:40:38.012661Z"
   },
   "seen_events": {
     "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
