@@ -1525,6 +1525,24 @@
       "value": {
         "direction": "beat"
       }
+    },
+    "inflation:uk:headline|a795f451b6332321fdafc3fd6d2da25b3ee4d1fe6b7fc0a8b6242c4ce1ada972": {
+      "base": "inflation:uk:headline",
+      "value": {
+        "rate": "3.6",
+        "frequency": "yoy"
+      },
+      "sent_at": "2026-11-18T07:00:32.649Z",
+      "source": "confirmed_structured_result"
+    },
+    "inflation:uk:core|1a1e2fb7302c5f8c6525a6d1c619d53405f01a1cf8eaa46c9a9ecd4ebb3e31fe": {
+      "base": "inflation:uk:core",
+      "value": {
+        "rate": "2.8",
+        "frequency": "yoy"
+      },
+      "sent_at": "2026-11-18T07:00:32.649Z",
+      "source": "confirmed_structured_result"
     }
   }
 }
