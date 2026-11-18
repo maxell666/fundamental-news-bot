@@ -787,7 +787,8 @@
     "https://www.cnbc.com/2026/11/18/federal-reserve-governor-christopher-waller.html",
     "https://investinglive.com/central-banks/fed-s-waller-calls-for-more-aggressive-action-to-break-psychology-that-3-inflation-is-the-norm/",
     "https://www.investing.com/news/stock-market-news/feds-waller-warns-inflation-is-worsening-floats-50basispoint-december-hike-5035893",
-    "https://www.investing.com/news/economy-news/analysisbritains-long-wait-for-2-inflation-tests-public-faith-in-bank-of-england-5036563"
+    "https://www.investing.com/news/economy-news/analysisbritains-long-wait-for-2-inflation-tests-public-faith-in-bank-of-england-5036563",
+    "https://www.investing.com/news/stock-market-news/us-stock-futures-jump-as-nvidia-earnings-revive-ai-optimism-5034391"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1503,7 +1504,8 @@
     "fed officials set to raise rates again in december, but the future still looks murky": "Les responsables de la Fed s'apprêtent à relever à nouveau les taux en décembre, mais l'avenir reste incertain",
     "fed's waller calls for more aggressive action to break psychology that 3% inflation is the norm": "M. Waller, de la Fed, appelle à des mesures plus énergiques pour briser l'idée reçue selon laquelle une inflation de 3 % serait la norme",
     "fed’s waller warns inflation is worsening, floats 50-basis-point december hike": "Waller, membre de la Fed, met en garde contre une aggravation de l'inflation et évoque une hausse de 50 points de base en décembre",
-    "analysis-britain’s long wait for 2% inflation tests public faith in bank of england": "Analyse : la longue attente de la Grande-Bretagne pour atteindre un taux d'inflation de 2 % met à l'épreuve la confiance du public envers la Banque d'Angleterre"
+    "analysis-britain’s long wait for 2% inflation tests public faith in bank of england": "Analyse : la longue attente de la Grande-Bretagne pour atteindre un taux d'inflation de 2 % met à l'épreuve la confiance du public envers la Banque d'Angleterre",
+    "dow falls over 600 points, nasdaq seesaws as post-earnings nvidia bounce fades": "Le Dow Jones perd plus de 600 points, le Nasdaq oscille alors que le rebond de Nvidia après la publication de ses résultats s'essouffle"
   },
   "seen_titles": {
     "0ebdec2c974e910121cdf313c627c183c959ab209fb508f03b1399b622cca8d9": "2026-11-17T18:01:03.649234Z",
@@ -1520,7 +1522,8 @@
     "f8a47006e054612e0b9ba6f32a51e8d11a00cb4f0319d0433cb038051bbe2ee2": "2026-11-18T12:25:33.045843Z",
     "0ff0cd7d9f77674115fc715f442ddef13af6c273d03721ea0fe195c37db6d5ed": "2026-11-18T13:05:33.116532Z",
     "da4b83927bd19be8f9d0396e58c0a540a3c214e81e4e0f4ef626f44898b9d974": "2026-11-18T13:31:07.491169Z",
-    "c0a2860a74da4b8b4ce9349690e938c99de7180f6a38fbbfb3f2c0f85f6aa484": "2026-11-18T15:50:40.260407Z"
+    "c0a2860a74da4b8b4ce9349690e938c99de7180f6a38fbbfb3f2c0f85f6aa484": "2026-11-18T15:50:40.260407Z",
+    "8c855362805a249944825f23d2a0592844cd58384794470a83da26e82d3463fa": "2026-11-18T16:50:49.687258Z"
   },
   "seen_events": {
     "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
