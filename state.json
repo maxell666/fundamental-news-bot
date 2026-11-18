@@ -794,7 +794,8 @@
     "https://www.investing.com/news/economy-news/feds-barr-says-rate-rises-likely-lie-ahead-for-economy-5036832",
     "https://www.investing.com/news/commodities-news/oil-prices-fall-as-higher-us-crude-stocks-temper-supply-risks-5034544",
     "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html",
-    "https://www.investing.com/news/economy-news/feds-kashkari-says-interest-rates-can-impact-tech-investment-5037179"
+    "https://www.investing.com/news/economy-news/feds-kashkari-says-interest-rates-can-impact-tech-investment-5037179",
+    "https://news.google.com/rss/articles/CBMiowFBVV95cUxQaWVjeHRTNkRreHFmNVBsYkdQeFJjc1htLXA4enJfTEV5clpxOHZRRGdGZXNkZGFzY2FPWUtTMkdCSGZYZXFHMmE5OVFzUDJuc2ZjRGJybkF2MG1pTkxhMFBRam5wdjFNdG5sRGJaaEN5bE1keENqTkJGb2lPeFJQM2Y2NDAtQ3JvSG9pRXExTFpwSE9iandZTFMtcEEtX21xUXM0"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1517,10 +1518,10 @@
     "fed’s barr says rate rises likely lie ahead for economy": "M. Barr, de la Fed, estime que des hausses de taux sont probablement à prévoir pour l'économie",
     "oil prices tumble as traders weigh surplus supply outlook": "Les cours du pétrole s'effondrent alors que les opérateurs évaluent les perspectives d'un excédent de l'offre",
     "fed officials expect more rate hikes, worry about ai impact on inflation, minutes show": "Les responsables de la Fed prévoient de nouvelles hausses des taux et s'inquiètent de l'impact de l'IA sur l'inflation, selon le compte-rendu de la réunion",
-    "fed’s kashkari says interest rates can impact tech investment": "Kashkari, de la Fed, estime que les taux d'intérêt peuvent avoir une incidence sur les investissements dans le secteur technologique"
+    "fed’s kashkari says interest rates can impact tech investment": "Kashkari, de la Fed, estime que les taux d'intérêt peuvent avoir une incidence sur les investissements dans le secteur technologique",
+    "instant view: nvidia earnings beat estimates; attention turns to call - reuters": "En bref : les résultats de Nvidia dépassent les prévisions ; tous les regards se tournent désormais vers la conférence téléphonique - Reuters"
   },
   "seen_titles": {
-    "64bfe547c2a543f0f0c641b80559e10b39c86149bafe6999674fbc8787c055ae": "2026-11-17T22:15:40.164427Z",
     "d8565ff5a69fdd7861e42d8a6d70884f795597ae443c8634b17072e26b3e3445": "2026-11-18T06:40:38.012661Z",
     "0c913fdcd1dc96e7f473bd43fc9a72f18eb7b78381ca538643f30367124dff80": "2026-11-18T07:05:34.128891Z",
     "3e500740ddf09a4816a62af076c569c67521aa1fdff283ef16f3fb20b74b4cb1": "2026-11-18T07:20:38.777716Z",
@@ -1537,16 +1538,10 @@
     "44bb6ac998815defbac005e233e7c1bc528978b1f2a03a8919dbd33531f23693": "2026-11-18T18:45:41.262688Z",
     "3ebc6e079d54c7a6bd109a035befd95250281874496f962487bd2942929a4f1e": "2026-11-18T18:45:42.160868Z",
     "8067c72ff749cf378c85ea387e4b70862ac576d6d133d881c3c7ba0ad9e94391": "2026-11-18T19:05:38.712604Z",
-    "180f8a77705504836b4155c61071352165f64332f9de7ddd93448cf9ea60b617": "2026-11-18T22:10:40.423984Z"
+    "180f8a77705504836b4155c61071352165f64332f9de7ddd93448cf9ea60b617": "2026-11-18T22:10:40.423984Z",
+    "ce4dbeddebecebc6cff99bf207aa3495c3dbd3cf1e14169c8f37bb41a675de09": "2026-11-18T22:15:52.482109Z"
   },
   "seen_events": {
-    "company:nvidia:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
-      "sent_at": "2026-11-17T22:15:40.164445Z",
-      "base": "company:nvidia:earnings",
-      "value": {
-        "direction": "beat"
-      }
-    },
     "inflation:uk:headline|a795f451b6332321fdafc3fd6d2da25b3ee4d1fe6b7fc0a8b6242c4ce1ada972": {
       "base": "inflation:uk:headline",
       "value": {
@@ -1583,6 +1578,13 @@
       "base": "company:nvidia:earnings",
       "value": {
         "direction": "reported"
+      }
+    },
+    "company:nvidia:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
+      "sent_at": "2026-11-18T22:15:52.482129Z",
+      "base": "company:nvidia:earnings",
+      "value": {
+        "direction": "beat"
       }
     }
   }
