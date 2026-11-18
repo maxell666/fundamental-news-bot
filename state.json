@@ -1518,7 +1518,6 @@
     "fed officials expect more rate hikes, worry about ai impact on inflation, minutes show": "Les responsables de la Fed prévoient de nouvelles hausses des taux et s'inquiètent de l'impact de l'IA sur l'inflation, selon le compte-rendu de la réunion"
   },
   "seen_titles": {
-    "bfff82f3661942792b59e8f0f1fe6cd57acfb22eceea9b5921b1c9bfa5c9acb0": "2026-11-17T21:20:39.993294Z",
     "00819988f79b2d83fc2c38335970e58b0ed5952052e090d594a7b324af26c9e0": "2026-11-17T21:40:38.859584Z",
     "64bfe547c2a543f0f0c641b80559e10b39c86149bafe6999674fbc8787c055ae": "2026-11-17T22:15:40.164427Z",
     "d8565ff5a69fdd7861e42d8a6d70884f795597ae443c8634b17072e26b3e3445": "2026-11-18T06:40:38.012661Z",
@@ -1539,13 +1538,6 @@
     "8067c72ff749cf378c85ea387e4b70862ac576d6d133d881c3c7ba0ad9e94391": "2026-11-18T19:05:38.712604Z"
   },
   "seen_events": {
-    "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
-      "sent_at": "2026-11-17T21:20:39.993310Z",
-      "base": "company:nvidia:earnings",
-      "value": {
-        "direction": "reported"
-      }
-    },
     "company:nvidia:reaction|8d4e092b2ee058ce16dd1aaa4be1cb2df90f117eb6fba4fb628b098b28cd909c": {
       "sent_at": "2026-11-17T21:40:38.859602Z",
       "base": "company:nvidia:reaction",
@@ -1591,6 +1583,13 @@
       "sent_at": "2026-11-18T12:25:33.045862Z",
       "value": {},
       "base": "rates:fed:raise:2026-11-18"
+    },
+    "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
+      "sent_at": "2026-11-18T16:50:49.687258Z",
+      "base": "company:nvidia:earnings",
+      "value": {
+        "direction": "reported"
+      }
     }
   }
 }
