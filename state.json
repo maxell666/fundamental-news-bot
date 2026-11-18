@@ -793,7 +793,8 @@
     "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNLUw0WGdCZWFQMDBna01NRTEzWEQxbHlSU2RHS2FFX0dIdDc5Si1kQjdzRVFpSTRLeThVQ1V5NG01UG1HSGtJNFZOYjI0OHpIbHRvWjdNOFNjZWhhYzFTWVJJVklORUV4YmJoOWhjd1Nhc1hULXVVYncyUmZUQjJwMFh4RGJsSFhhcjlwc2NpVUhNUEdfQXdsekQ1c3AzZVlZcUdSN3ZlTDJUQ3g4WjRlNHhydEJ2OVJTeHpj",
     "https://www.investing.com/news/economy-news/feds-barr-says-rate-rises-likely-lie-ahead-for-economy-5036832",
     "https://www.investing.com/news/commodities-news/oil-prices-fall-as-higher-us-crude-stocks-temper-supply-risks-5034544",
-    "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html"
+    "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html",
+    "https://www.investing.com/news/economy-news/feds-kashkari-says-interest-rates-can-impact-tech-investment-5037179"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1515,7 +1516,8 @@
     "nasdaq rises in choppy trade as investors weigh nvidia outlook, anthropic ipo - reuters": "Le Nasdaq progresse dans un marché agité, les investisseurs évaluant les perspectives de Nvidia et l'introduction en bourse d'Anthropic - Reuters",
     "fed’s barr says rate rises likely lie ahead for economy": "M. Barr, de la Fed, estime que des hausses de taux sont probablement à prévoir pour l'économie",
     "oil prices tumble as traders weigh surplus supply outlook": "Les cours du pétrole s'effondrent alors que les opérateurs évaluent les perspectives d'un excédent de l'offre",
-    "fed officials expect more rate hikes, worry about ai impact on inflation, minutes show": "Les responsables de la Fed prévoient de nouvelles hausses des taux et s'inquiètent de l'impact de l'IA sur l'inflation, selon le compte-rendu de la réunion"
+    "fed officials expect more rate hikes, worry about ai impact on inflation, minutes show": "Les responsables de la Fed prévoient de nouvelles hausses des taux et s'inquiètent de l'impact de l'IA sur l'inflation, selon le compte-rendu de la réunion",
+    "fed’s kashkari says interest rates can impact tech investment": "Kashkari, de la Fed, estime que les taux d'intérêt peuvent avoir une incidence sur les investissements dans le secteur technologique"
   },
   "seen_titles": {
     "64bfe547c2a543f0f0c641b80559e10b39c86149bafe6999674fbc8787c055ae": "2026-11-17T22:15:40.164427Z",
@@ -1534,7 +1536,8 @@
     "4f51dde69423a5ba8317c515e8b4d5f057a1270adf1cc74a110334ef4ad54ad6": "2026-11-18T18:15:40.161296Z",
     "44bb6ac998815defbac005e233e7c1bc528978b1f2a03a8919dbd33531f23693": "2026-11-18T18:45:41.262688Z",
     "3ebc6e079d54c7a6bd109a035befd95250281874496f962487bd2942929a4f1e": "2026-11-18T18:45:42.160868Z",
-    "8067c72ff749cf378c85ea387e4b70862ac576d6d133d881c3c7ba0ad9e94391": "2026-11-18T19:05:38.712604Z"
+    "8067c72ff749cf378c85ea387e4b70862ac576d6d133d881c3c7ba0ad9e94391": "2026-11-18T19:05:38.712604Z",
+    "180f8a77705504836b4155c61071352165f64332f9de7ddd93448cf9ea60b617": "2026-11-18T22:10:40.423984Z"
   },
   "seen_events": {
     "company:nvidia:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
