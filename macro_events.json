@@ -360,9 +360,11 @@
       "telegram_accepted_at": "2026-11-18T07:00:32.649Z"
     },
     "2026-11-19T13:30:00.000Z": {
+      "first_seen_at": "2026-11-19T13:30:10.393Z",
       "forecast_at": "2026-11-19T13:20:47.454Z",
       "items": [
         {
+          "actual": "203K",
           "currency": "USD",
           "forecast": "198K",
           "id": 147024,
@@ -370,8 +372,9 @@
           "title": "Unemployment Claims"
         }
       ],
+      "reserved_at": "2026-11-19T13:30:10.397Z",
       "scheduled_at": "2026-11-19T13:30:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
