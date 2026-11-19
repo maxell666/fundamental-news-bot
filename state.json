@@ -1542,7 +1542,6 @@
     "nasdaq rises over 1% at open as anthropic ipo pricing bolsters ai trade": "Le Nasdaq progresse de plus de 1 % à l'ouverture, l'annonce du prix de l'introduction en bourse d'Anthropic stimulant les échanges liés à l'IA"
   },
   "seen_titles": {
-    "8c855362805a249944825f23d2a0592844cd58384794470a83da26e82d3463fa": "2026-11-18T16:50:49.687258Z",
     "ab9adc24d3e824d5d4fd99658024318e9d722765f4b47944549d6e13b1dcebea": "2026-11-18T18:10:46.190414Z",
     "4f51dde69423a5ba8317c515e8b4d5f057a1270adf1cc74a110334ef4ad54ad6": "2026-11-18T18:15:40.161296Z",
     "44bb6ac998815defbac005e233e7c1bc528978b1f2a03a8919dbd33531f23693": "2026-11-18T18:45:41.262688Z",
@@ -1562,13 +1561,6 @@
     "2bf5d90b7da3c61e268b2bd95c271b12212f938b3cba996dfeaa3c182d82e018": "2026-11-19T14:40:39.632893Z"
   },
   "seen_events": {
-    "company:nvidia:earnings|5c06f35086c01749ae7217591390a91916d2810c06500e17b67b40ee753496de": {
-      "sent_at": "2026-11-18T16:50:49.687258Z",
-      "base": "company:nvidia:earnings",
-      "value": {
-        "direction": "reported"
-      }
-    },
     "company:nvidia:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
       "sent_at": "2026-11-18T22:15:52.482129Z",
       "base": "company:nvidia:earnings",
