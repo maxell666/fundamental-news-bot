@@ -1550,7 +1550,6 @@
     "fed’s goolsbee says he sees no clear path back to 2% inflation": "M. Goolsbee, de la Fed, affirme ne voir aucune voie claire pour revenir à un taux d'inflation de 2 %"
   },
   "seen_titles": {
-    "ce4dbeddebecebc6cff99bf207aa3495c3dbd3cf1e14169c8f37bb41a675de09": "2026-11-18T22:15:52.482109Z",
     "a6e327e1caade3e73f14aaf1c51459092c00422762bc45e485ee0ff1bbd8cd44": "2026-11-19T01:50:52.005994Z",
     "68a19df9b137fbe5657e27b7df2decee506914fffc27030a695f3d18881d6402": "2026-11-19T07:01:08.190019Z",
     "3b7a07d5605dc2c69559b52bb0791444588a150aff309ec60933deaefb4a9f3e": "2026-11-19T09:30:51.624725Z",
@@ -1567,13 +1566,6 @@
     "647a677af5ee74d4334c24b15048ec6f00e57c150655f85f65194d23b3905396": "2026-11-19T21:05:29.583683Z"
   },
   "seen_events": {
-    "company:nvidia:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
-      "sent_at": "2026-11-18T22:15:52.482129Z",
-      "base": "company:nvidia:earnings",
-      "value": {
-        "direction": "beat"
-      }
-    },
     "inflation:uk:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
       "sent_at": "2026-11-19T07:01:08.190037Z",
       "value": {},
