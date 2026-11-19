@@ -796,7 +796,8 @@
     "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html",
     "https://www.investing.com/news/economy-news/feds-kashkari-says-interest-rates-can-impact-tech-investment-5037179",
     "https://news.google.com/rss/articles/CBMiowFBVV95cUxQaWVjeHRTNkRreHFmNVBsYkdQeFJjc1htLXA4enJfTEV5clpxOHZRRGdGZXNkZGFzY2FPWUtTMkdCSGZYZXFHMmE5OVFzUDJuc2ZjRGJybkF2MG1pTkxhMFBRam5wdjFNdG5sRGJaaEN5bE1keENqTkJGb2lPeFJQM2Y2NDAtQ3JvSG9pRXExTFpwSE9iandZTFMtcEEtX21xUXM0",
-    "https://www.investing.com/news/stock-market-news/wall-street-futures-climb-ahead-of-anthropics-15-trillion-mega-ipo-5037518"
+    "https://www.investing.com/news/stock-market-news/wall-street-futures-climb-ahead-of-anthropics-15-trillion-mega-ipo-5037518",
+    "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QVW9FYWgxOUQyeFFFdHRIdkVLWDZLem1MWFItOVZmQU1SODEtcEZ1Y3NsOGZXeUtNQVN5cElvSmVoNXFoZDFVZ0NlaHFmcmNuQ2w1SWJENDNNLWVVWHNNQUVXdnV0X1Z5M3E2bnJSSzRQd3FBR1FQMzh0dGRPdw"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1521,7 +1522,8 @@
     "fed officials expect more rate hikes, worry about ai impact on inflation, minutes show": "Les responsables de la Fed prévoient de nouvelles hausses des taux et s'inquiètent de l'impact de l'IA sur l'inflation, selon le compte-rendu de la réunion",
     "fed’s kashkari says interest rates can impact tech investment": "Kashkari, de la Fed, estime que les taux d'intérêt peuvent avoir une incidence sur les investissements dans le secteur technologique",
     "instant view: nvidia earnings beat estimates; attention turns to call - reuters": "En bref : les résultats de Nvidia dépassent les prévisions ; tous les regards se tournent désormais vers la conférence téléphonique - Reuters",
-    "wall street futures climb ahead of anthropic’s $1.5 trillion mega ipo": "Les contrats à terme de Wall Street progressent à l'approche de la méga-introduction en bourse d'Anthropic, évaluée à 1 500 milliards de dollars"
+    "wall street futures climb ahead of anthropic’s $1.5 trillion mega ipo": "Les contrats à terme de Wall Street progressent à l'approche de la méga-introduction en bourse d'Anthropic, évaluée à 1 500 milliards de dollars",
+    "uk inflation rises to one-year high but markets trim rate hike bets - reuters": "L'inflation au Royaume-Uni atteint son plus haut niveau depuis un an, mais les marchés reviennent sur leurs anticipations de hausse des taux - Reuters"
   },
   "seen_titles": {
     "0c913fdcd1dc96e7f473bd43fc9a72f18eb7b78381ca538643f30367124dff80": "2026-11-18T07:05:34.128891Z",
@@ -1541,27 +1543,10 @@
     "8067c72ff749cf378c85ea387e4b70862ac576d6d133d881c3c7ba0ad9e94391": "2026-11-18T19:05:38.712604Z",
     "180f8a77705504836b4155c61071352165f64332f9de7ddd93448cf9ea60b617": "2026-11-18T22:10:40.423984Z",
     "ce4dbeddebecebc6cff99bf207aa3495c3dbd3cf1e14169c8f37bb41a675de09": "2026-11-18T22:15:52.482109Z",
-    "a6e327e1caade3e73f14aaf1c51459092c00422762bc45e485ee0ff1bbd8cd44": "2026-11-19T01:50:52.005994Z"
+    "a6e327e1caade3e73f14aaf1c51459092c00422762bc45e485ee0ff1bbd8cd44": "2026-11-19T01:50:52.005994Z",
+    "68a19df9b137fbe5657e27b7df2decee506914fffc27030a695f3d18881d6402": "2026-11-19T07:01:08.190019Z"
   },
   "seen_events": {
-    "inflation:uk:headline|a795f451b6332321fdafc3fd6d2da25b3ee4d1fe6b7fc0a8b6242c4ce1ada972": {
-      "base": "inflation:uk:headline",
-      "value": {
-        "rate": "3.6",
-        "frequency": "yoy"
-      },
-      "sent_at": "2026-11-18T07:00:32.649Z",
-      "source": "confirmed_structured_result"
-    },
-    "inflation:uk:core|1a1e2fb7302c5f8c6525a6d1c619d53405f01a1cf8eaa46c9a9ecd4ebb3e31fe": {
-      "base": "inflation:uk:core",
-      "value": {
-        "rate": "2.8",
-        "frequency": "yoy"
-      },
-      "sent_at": "2026-11-18T07:00:32.649Z",
-      "source": "confirmed_structured_result"
-    },
     "company:nvidia:guidance|9360e99b75f597e37279c1aaa9974faad33c476d9339bb3557c3c4b3ddd5f52e": {
       "sent_at": "2026-11-18T09:20:39.854696Z",
       "base": "company:nvidia:guidance",
@@ -1588,6 +1573,11 @@
       "value": {
         "direction": "beat"
       }
+    },
+    "inflation:uk:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-11-19T07:01:08.190037Z",
+      "value": {},
+      "base": "inflation:uk:headline"
     }
   }
 }
