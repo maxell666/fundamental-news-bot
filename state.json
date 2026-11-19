@@ -806,7 +806,9 @@
     "https://news.google.com/rss/articles/CBMizAFBVV95cUxOYTM2TVZTRTVjaWp6c2VodVYwVm5MeEFVMXZ0eFctVzZVaU94eGxScWNRMHlQb1ZJRzZ0YXpFekJ6SmJkR2RWcU4wVUNTWkJMU3J0NTFaSmw5clBIYWhFQklMM3NiSzZtV3dWYThROEZIRWlJWmpKWUhaM2w4cGIzMjhjVk5IREJRaHBnVjhpZVRjcWdoMF9MeUhRQXRqUi1RSWJ1LWxVcFVwNUxOVGc1WmQ1N2tKWEhrd2ZpQmxLY0dQdFFUS0p4ZGR5dEY",
     "https://www.investing.com/news/economy-news/feds-jefferson-says-ai-boosting-inflation-productivity-impact-possible-in-the-future-5039268",
     "https://www.investing.com/news/stock-market-news/nasdaq-rises-over-1-at-open-asanthropic-ipo-pricing-bolsters-ai-trade-5039286",
-    "https://www.investing.com/news/stock-market-news/amd-shares-slide-as-report-says-china-links-could-invite-us-scrutiny-5039625"
+    "https://www.investing.com/news/stock-market-news/amd-shares-slide-as-report-says-china-links-could-invite-us-scrutiny-5039625",
+    "https://investinglive.com/news/canada-seeks-interim-u-s-tariff-deal-by-year-end-cbc-reports/",
+    "https://www.investing.com/news/stock-market-news/wall-street-slides-as-anthropics-debut-fails-to-revive-ai-enthusiasm-5039839"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1541,7 +1543,9 @@
     "us sanctions hezbollah-linked charity in push against iran's proxies, treasury says - reuters": "Les États-Unis sanctionnent une organisation caritative liée au Hezbollah dans le cadre de leur lutte contre les mandataires de l'Iran, selon le Trésor américain - Reuters",
     "fed’s jefferson says ai boosting inflation, productivity impact possible ’in the future’": "M. Jefferson, de la Fed, estime que l'IA stimule l'inflation et pourrait avoir un impact sur la productivité « à l'avenir »",
     "nasdaq rises over 1% at open as anthropic ipo pricing bolsters ai trade": "Le Nasdaq progresse de plus de 1 % à l'ouverture, l'annonce du prix de l'introduction en bourse d'Anthropic stimulant les échanges liés à l'IA",
-    "amd shares slide as report says china links could invite us scrutiny": "Les actions d'AMD chutent après la publication d'un rapport indiquant que ses liens avec la Chine pourraient attirer l'attention des autorités américaines"
+    "amd shares slide as report says china links could invite us scrutiny": "Les actions d'AMD chutent après la publication d'un rapport indiquant que ses liens avec la Chine pourraient attirer l'attention des autorités américaines",
+    "canada seeks interim u.s. tariff deal by year-end, cbc reports": "Le Canada cherche à conclure un accord provisoire avec les États-Unis sur les droits de douane d'ici la fin de l'année, selon la CBC",
+    "wall street slides as anthropic’s debut fails to revive ai enthusiasm": "Wall Street recule alors que l'entrée en bourse d'Anthropic ne parvient pas à raviver l'enthousiasme pour l'IA"
   },
   "seen_titles": {
     "180f8a77705504836b4155c61071352165f64332f9de7ddd93448cf9ea60b617": "2026-11-18T22:10:40.423984Z",
@@ -1556,7 +1560,9 @@
     "e60d11a337f9c2c09289d07ccb8ff73df88e96207acdb5d8ad9be81a1263e290": "2026-11-19T14:15:42.961904Z",
     "aa25801b81982f43d2ac705cc9e729d071a7fc79fbba1c785677344236168652": "2026-11-19T14:40:38.181021Z",
     "2bf5d90b7da3c61e268b2bd95c271b12212f938b3cba996dfeaa3c182d82e018": "2026-11-19T14:40:39.632893Z",
-    "efdcd887c73cf451677bc9a209b386b0beffc853a6e9c2e50869b58ea5b70dba": "2026-11-19T17:20:39.229073Z"
+    "efdcd887c73cf451677bc9a209b386b0beffc853a6e9c2e50869b58ea5b70dba": "2026-11-19T17:20:39.229073Z",
+    "7a653ec1f9c6eff9bb8b4c039bf3e5090b2673790fee210360968a19feb7f830": "2026-11-19T20:10:42.322779Z",
+    "ed816a6ea6baaef025b0ac6aae8b487bdcae46f40c5db74e95f70bbc88cb2873": "2026-11-19T20:10:43.416442Z"
   },
   "seen_events": {
     "company:nvidia:earnings|16f2dc4fc06cb8740caa32385caff9bf0bec437a4a2f97c265783cffe3eabcbe": {
