@@ -797,7 +797,8 @@
     "https://www.investing.com/news/economy-news/feds-kashkari-says-interest-rates-can-impact-tech-investment-5037179",
     "https://news.google.com/rss/articles/CBMiowFBVV95cUxQaWVjeHRTNkRreHFmNVBsYkdQeFJjc1htLXA4enJfTEV5clpxOHZRRGdGZXNkZGFzY2FPWUtTMkdCSGZYZXFHMmE5OVFzUDJuc2ZjRGJybkF2MG1pTkxhMFBRam5wdjFNdG5sRGJaaEN5bE1keENqTkJGb2lPeFJQM2Y2NDAtQ3JvSG9pRXExTFpwSE9iandZTFMtcEEtX21xUXM0",
     "https://www.investing.com/news/stock-market-news/wall-street-futures-climb-ahead-of-anthropics-15-trillion-mega-ipo-5037518",
-    "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QVW9FYWgxOUQyeFFFdHRIdkVLWDZLem1MWFItOVZmQU1SODEtcEZ1Y3NsOGZXeUtNQVN5cElvSmVoNXFoZDFVZ0NlaHFmcmNuQ2w1SWJENDNNLWVVWHNNQUVXdnV0X1Z5M3E2bnJSSzRQd3FBR1FQMzh0dGRPdw"
+    "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QVW9FYWgxOUQyeFFFdHRIdkVLWDZLem1MWFItOVZmQU1SODEtcEZ1Y3NsOGZXeUtNQVN5cElvSmVoNXFoZDFVZ0NlaHFmcmNuQ2w1SWJENDNNLWVVWHNNQUVXdnV0X1Z5M3E2bnJSSzRQd3FBR1FQMzh0dGRPdw",
+    "https://www.investing.com/news/stock-market-news/nasdaq-futures-jump-as-anthropics-record-ipo-pricing-fuels-hopes-for-strong-debut-5038156"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1523,7 +1524,8 @@
     "fed’s kashkari says interest rates can impact tech investment": "Kashkari, de la Fed, estime que les taux d'intérêt peuvent avoir une incidence sur les investissements dans le secteur technologique",
     "instant view: nvidia earnings beat estimates; attention turns to call - reuters": "En bref : les résultats de Nvidia dépassent les prévisions ; tous les regards se tournent désormais vers la conférence téléphonique - Reuters",
     "wall street futures climb ahead of anthropic’s $1.5 trillion mega ipo": "Les contrats à terme de Wall Street progressent à l'approche de la méga-introduction en bourse d'Anthropic, évaluée à 1 500 milliards de dollars",
-    "uk inflation rises to one-year high but markets trim rate hike bets - reuters": "L'inflation au Royaume-Uni atteint son plus haut niveau depuis un an, mais les marchés reviennent sur leurs anticipations de hausse des taux - Reuters"
+    "uk inflation rises to one-year high but markets trim rate hike bets - reuters": "L'inflation au Royaume-Uni atteint son plus haut niveau depuis un an, mais les marchés reviennent sur leurs anticipations de hausse des taux - Reuters",
+    "nasdaq futures jump as anthropic’s record ipo pricing fuels hopes for strong debut": "Les contrats à terme sur le Nasdaq bondissent alors que le prix record de l'introduction en bourse d'Anthropic alimente les espoirs d'un démarrage en force"
   },
   "seen_titles": {
     "21b8b90340d15dd867c9a1d524be4e205342f6344eab3c97c0aaa6ce33d5da75": "2026-11-18T10:35:37.139838Z",
@@ -1540,7 +1542,8 @@
     "180f8a77705504836b4155c61071352165f64332f9de7ddd93448cf9ea60b617": "2026-11-18T22:10:40.423984Z",
     "ce4dbeddebecebc6cff99bf207aa3495c3dbd3cf1e14169c8f37bb41a675de09": "2026-11-18T22:15:52.482109Z",
     "a6e327e1caade3e73f14aaf1c51459092c00422762bc45e485ee0ff1bbd8cd44": "2026-11-19T01:50:52.005994Z",
-    "68a19df9b137fbe5657e27b7df2decee506914fffc27030a695f3d18881d6402": "2026-11-19T07:01:08.190019Z"
+    "68a19df9b137fbe5657e27b7df2decee506914fffc27030a695f3d18881d6402": "2026-11-19T07:01:08.190019Z",
+    "3b7a07d5605dc2c69559b52bb0791444588a150aff309ec60933deaefb4a9f3e": "2026-11-19T09:30:51.624725Z"
   },
   "seen_events": {
     "rates:fed:raise:2026-11-18|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
