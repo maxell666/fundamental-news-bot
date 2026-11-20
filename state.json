@@ -809,7 +809,8 @@
     "https://www.investing.com/news/stock-market-news/amd-shares-slide-as-report-says-china-links-could-invite-us-scrutiny-5039625",
     "https://investinglive.com/news/canada-seeks-interim-u-s-tariff-deal-by-year-end-cbc-reports/",
     "https://www.investing.com/news/stock-market-news/wall-street-slides-as-anthropics-debut-fails-to-revive-ai-enthusiasm-5039839",
-    "https://investinglive.com/central-banks/fed-s-goolsbee-says-he-sees-no-clear-path-back-to-2-inflation/"
+    "https://investinglive.com/central-banks/fed-s-goolsbee-says-he-sees-no-clear-path-back-to-2-inflation/",
+    "https://www.investing.com/news/stock-market-news/wall-street-futures-fall-as-anthropic-debut-fails-to-revive-ai-trade-5040450"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1547,7 +1548,8 @@
     "amd shares slide as report says china links could invite us scrutiny": "Les actions d'AMD chutent après la publication d'un rapport indiquant que ses liens avec la Chine pourraient attirer l'attention des autorités américaines",
     "canada seeks interim u.s. tariff deal by year-end, cbc reports": "Le Canada cherche à conclure un accord provisoire avec les États-Unis sur les droits de douane d'ici la fin de l'année, selon la CBC",
     "wall street slides as anthropic’s debut fails to revive ai enthusiasm": "Wall Street recule alors que l'entrée en bourse d'Anthropic ne parvient pas à raviver l'enthousiasme pour l'IA",
-    "fed’s goolsbee says he sees no clear path back to 2% inflation": "M. Goolsbee, de la Fed, affirme ne voir aucune voie claire pour revenir à un taux d'inflation de 2 %"
+    "fed’s goolsbee says he sees no clear path back to 2% inflation": "M. Goolsbee, de la Fed, affirme ne voir aucune voie claire pour revenir à un taux d'inflation de 2 %",
+    "wall street futures fall as anthropic debut fails to revive ai trade": "Les contrats à terme de Wall Street reculent, l'entrée en bourse d'Anthropic n'ayant pas réussi à relancer le secteur de l'IA"
   },
   "seen_titles": {
     "a6e327e1caade3e73f14aaf1c51459092c00422762bc45e485ee0ff1bbd8cd44": "2026-11-19T01:50:52.005994Z",
@@ -1563,7 +1565,8 @@
     "efdcd887c73cf451677bc9a209b386b0beffc853a6e9c2e50869b58ea5b70dba": "2026-11-19T17:20:39.229073Z",
     "7a653ec1f9c6eff9bb8b4c039bf3e5090b2673790fee210360968a19feb7f830": "2026-11-19T20:10:42.322779Z",
     "ed816a6ea6baaef025b0ac6aae8b487bdcae46f40c5db74e95f70bbc88cb2873": "2026-11-19T20:10:43.416442Z",
-    "647a677af5ee74d4334c24b15048ec6f00e57c150655f85f65194d23b3905396": "2026-11-19T21:05:29.583683Z"
+    "647a677af5ee74d4334c24b15048ec6f00e57c150655f85f65194d23b3905396": "2026-11-19T21:05:29.583683Z",
+    "3350ae93a847d62d9ec6d98ac818bf17dea022702ebb0559766dfcd8b8962e88": "2026-11-20T01:25:32.869706Z"
   },
   "seen_events": {
     "inflation:uk:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
