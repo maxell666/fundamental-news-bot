@@ -815,7 +815,8 @@
     "https://investinglive.com/news/uk-october-retail-sales-0-7-vs-0-0-m-m-expected/",
     "https://www.investing.com/news/economy-news/ecbs-santos-pereira-saysenergydriven-inflation-pressures-are-a-concern-5041214",
     "https://www.investing.com/news/stock-market-news/nasdaq-falls-1-at-open-as-anthropic-fails-to-steady-ai-trade-5042084",
-    "https://www.investing.com/news/stock-market-news/treasury-yields-fall-as-bond-market-tracks-risk-assets-not-fed-rhetoric-93CH-5042241"
+    "https://www.investing.com/news/stock-market-news/treasury-yields-fall-as-bond-market-tracks-risk-assets-not-fed-rhetoric-93CH-5042241",
+    "https://www.investing.com/news/economy-news/asian-shares-head-for-worst-week-since-2020-as-ai-trade-gloom-fails-to-abate-5040496"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1559,7 +1560,8 @@
     "uk october retail sales +0.7% vs +0.0% m/m expected": "Ventes au détail au Royaume-Uni en octobre : +0,7 % contre +0,0 % prévu en glissement mensuel",
     "ecb’s santos pereira says energy-driven inflation pressures are a concern": "M. Santos Pereira, de la BCE, estime que les pressions inflationnistes liées à l'énergie sont préoccupantes",
     "nasdaq falls 1% at open as anthropic fails to steady ai trade": "Le Nasdaq recule de 1 % à l'ouverture, Anthropic ne parvenant pas à stabiliser le marché de l'IA",
-    "treasury yields fall as bond market tracks risk assets, not fed rhetoric": "Les rendements des bons du Trésor reculent, le marché obligataire s'alignant sur les actifs à risque plutôt que sur les déclarations de la Fed"
+    "treasury yields fall as bond market tracks risk assets, not fed rhetoric": "Les rendements des bons du Trésor reculent, le marché obligataire s'alignant sur les actifs à risque plutôt que sur les déclarations de la Fed",
+    "tech stocks tumble, treasury yields fall as traders seek refuge": "Les valeurs technologiques s'effondrent et les rendements des bons du Trésor reculent, les investisseurs cherchant à se mettre à l'abri"
   },
   "seen_titles": {
     "efdcd887c73cf451677bc9a209b386b0beffc853a6e9c2e50869b58ea5b70dba": "2026-11-19T17:20:39.229073Z",
@@ -1571,7 +1573,8 @@
     "0d8395d2b02a92516cc5ba969765befdb63acea551c6518520d6fac26663c7ce": "2026-11-20T08:15:48.853441Z",
     "62affa5b9790bc2c9fb016e51ea7cb725c92aad39862b1fc7e5a3af1b12fb3e4": "2026-11-20T11:10:43.318152Z",
     "18abed8dad3270809755f65cf1491eff29d8731a8f76903a59d3c770a33679b0": "2026-11-20T15:01:24.052944Z",
-    "193e8e3283aa8192ba1115dc1b93536f81414b821712e5d03f75e7d5ec50baad": "2026-11-20T16:20:42.033277Z"
+    "193e8e3283aa8192ba1115dc1b93536f81414b821712e5d03f75e7d5ec50baad": "2026-11-20T16:20:42.033277Z",
+    "2b4ff790438793d38ed61555bc0aa2962ac35da3b790694d2028b785ae9f913a": "2026-11-20T17:01:02.698921Z"
   },
   "seen_events": {}
 }
