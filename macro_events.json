@@ -378,9 +378,11 @@
       "telegram_accepted_at": "2026-11-19T13:30:12.384Z"
     },
     "2026-11-20T07:00:00.000Z": {
+      "first_seen_at": "2026-11-20T07:00:20.283Z",
       "forecast_at": "2026-11-20T06:55:37.644Z",
       "items": [
         {
+          "actual": "0.7%",
           "currency": "GBP",
           "forecast": "0.0%",
           "id": 151612,
@@ -388,8 +390,9 @@
           "title": "Retail Sales m/m"
         }
       ],
+      "reserved_at": "2026-11-20T07:00:20.287Z",
       "scheduled_at": "2026-11-20T07:00:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
