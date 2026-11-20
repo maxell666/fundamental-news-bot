@@ -1552,7 +1552,6 @@
     "wall street futures fall as anthropic debut fails to revive ai trade": "Les contrats à terme de Wall Street reculent, l'entrée en bourse d'Anthropic n'ayant pas réussi à relancer le secteur de l'IA"
   },
   "seen_titles": {
-    "68a19df9b137fbe5657e27b7df2decee506914fffc27030a695f3d18881d6402": "2026-11-19T07:01:08.190019Z",
     "3b7a07d5605dc2c69559b52bb0791444588a150aff309ec60933deaefb4a9f3e": "2026-11-19T09:30:51.624725Z",
     "7e9cac23fe722cf3476134c3941a277858f95c3628ec90766a6c5e715f5538f0": "2026-11-19T12:01:17.983639Z",
     "70fefe0c0086e4a4ff6f421c225e4968736173ff74f8190f03a663ba6a95b360": "2026-11-19T12:20:40.359079Z",
@@ -1567,11 +1566,5 @@
     "647a677af5ee74d4334c24b15048ec6f00e57c150655f85f65194d23b3905396": "2026-11-19T21:05:29.583683Z",
     "3350ae93a847d62d9ec6d98ac818bf17dea022702ebb0559766dfcd8b8962e88": "2026-11-20T01:25:32.869706Z"
   },
-  "seen_events": {
-    "inflation:uk:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-19T07:01:08.190037Z",
-      "value": {},
-      "base": "inflation:uk:headline"
-    }
-  }
+  "seen_events": {}
 }
