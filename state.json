@@ -816,7 +816,9 @@
     "https://www.investing.com/news/economy-news/ecbs-santos-pereira-saysenergydriven-inflation-pressures-are-a-concern-5041214",
     "https://www.investing.com/news/stock-market-news/nasdaq-falls-1-at-open-as-anthropic-fails-to-steady-ai-trade-5042084",
     "https://www.investing.com/news/stock-market-news/treasury-yields-fall-as-bond-market-tracks-risk-assets-not-fed-rhetoric-93CH-5042241",
-    "https://www.investing.com/news/economy-news/asian-shares-head-for-worst-week-since-2020-as-ai-trade-gloom-fails-to-abate-5040496"
+    "https://www.investing.com/news/economy-news/asian-shares-head-for-worst-week-since-2020-as-ai-trade-gloom-fails-to-abate-5040496",
+    "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdGVGbWc5MzZvYkJfQTdMMHBzZllhb3dnNzYydUFXOEpWOHNuRVppNnkyVEdldnp0Z1pMX3B1NlNOVGpPOTJFTE1qcTNFUFJOZjRoQTNfbk5DcUZmZ3dlN1MtUXRMblp4MFNPdnR6d1BjRUxXbkI4RHdLSm82MDJiRFVOQVJ6MGhRSEhYdEQtYVB6RVdoZjBvbWg5Z1BZY0Jrbno4THFVdUg5MEhIQml0TEJLWQ",
+    "https://news.google.com/rss/articles/CBMivAFBVV95cUxOY0VmbDFSZy1pMm1jZlE3SG1PMDdjcHdmZnp3WWFQbTBSSHBndDktSEhpRFB4MkRYZUhTQXFhNm9YY0pwNlczMkxtOF9ZMVA2R1VHN2k1MmE3VkN6d292amFiX1JKUUxVcmN4NmxFTGYwbkhlakpkeTZ4eE5yRkxxTTlubE9PUU1jWmtrZVF6RjhiMWhhYmp2Q29Ucy1aMm13T0F0WTMwSGRBZWdQV3pyRjlZRm9pUEVnV0EzQQ"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1561,10 +1563,11 @@
     "ecb’s santos pereira says energy-driven inflation pressures are a concern": "M. Santos Pereira, de la BCE, estime que les pressions inflationnistes liées à l'énergie sont préoccupantes",
     "nasdaq falls 1% at open as anthropic fails to steady ai trade": "Le Nasdaq recule de 1 % à l'ouverture, Anthropic ne parvenant pas à stabiliser le marché de l'IA",
     "treasury yields fall as bond market tracks risk assets, not fed rhetoric": "Les rendements des bons du Trésor reculent, le marché obligataire s'alignant sur les actifs à risque plutôt que sur les déclarations de la Fed",
-    "tech stocks tumble, treasury yields fall as traders seek refuge": "Les valeurs technologiques s'effondrent et les rendements des bons du Trésor reculent, les investisseurs cherchant à se mettre à l'abri"
+    "tech stocks tumble, treasury yields fall as traders seek refuge": "Les valeurs technologiques s'effondrent et les rendements des bons du Trésor reculent, les investisseurs cherchant à se mettre à l'abri",
+    "amd shares slide as report says china links could invite us scrutiny - reuters": "Les actions d'AMD chutent après la publication d'un article indiquant que ses liens avec la Chine pourraient attirer l'attention des autorités américaines - Reuters",
+    "nasdaq falls as anthropic fails to rekindle ai optimism - reuters": "Le Nasdaq recule alors qu'Anthropic ne parvient pas à raviver l'optimisme autour de l'IA - Reuters"
   },
   "seen_titles": {
-    "efdcd887c73cf451677bc9a209b386b0beffc853a6e9c2e50869b58ea5b70dba": "2026-11-19T17:20:39.229073Z",
     "7a653ec1f9c6eff9bb8b4c039bf3e5090b2673790fee210360968a19feb7f830": "2026-11-19T20:10:42.322779Z",
     "ed816a6ea6baaef025b0ac6aae8b487bdcae46f40c5db74e95f70bbc88cb2873": "2026-11-19T20:10:43.416442Z",
     "647a677af5ee74d4334c24b15048ec6f00e57c150655f85f65194d23b3905396": "2026-11-19T21:05:29.583683Z",
@@ -1574,7 +1577,9 @@
     "62affa5b9790bc2c9fb016e51ea7cb725c92aad39862b1fc7e5a3af1b12fb3e4": "2026-11-20T11:10:43.318152Z",
     "18abed8dad3270809755f65cf1491eff29d8731a8f76903a59d3c770a33679b0": "2026-11-20T15:01:24.052944Z",
     "193e8e3283aa8192ba1115dc1b93536f81414b821712e5d03f75e7d5ec50baad": "2026-11-20T16:20:42.033277Z",
-    "2b4ff790438793d38ed61555bc0aa2962ac35da3b790694d2028b785ae9f913a": "2026-11-20T17:01:02.698921Z"
+    "2b4ff790438793d38ed61555bc0aa2962ac35da3b790694d2028b785ae9f913a": "2026-11-20T17:01:02.698921Z",
+    "efdcd887c73cf451677bc9a209b386b0beffc853a6e9c2e50869b58ea5b70dba": "2026-11-20T17:25:30.498681Z",
+    "fb3f5cfa8b1b6ea9049d7cdb81cfa69e46b4e37272259ae9124fdd80ff8bb053": "2026-11-20T17:25:31.587212Z"
   },
   "seen_events": {}
 }
