@@ -824,7 +824,8 @@
     "https://www.investing.com/news/economy-news/feds-cook-says-september-rate-hike-likely-insufficient-to-curb-price-pressures-5042348",
     "https://www.investing.com/news/stock-market-news/nvidia-shares-fall-10-as-report-of-sec-accounting-probe-adds-to-pressure-5042464",
     "https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html",
-    "https://www.investing.com/news/stock-market-news/nasdaq-plunges-5-a-day-after-anthropic-debut-but-investors-still-believe-in-ai-5042641"
+    "https://www.investing.com/news/stock-market-news/nasdaq-plunges-5-a-day-after-anthropic-debut-but-investors-still-believe-in-ai-5042641",
+    "https://www.investing.com/news/economy-news/us-treasury-sanctions-iranian-trustees-collecting-oil-revenues-5042737"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1577,7 +1578,8 @@
     "fed’s cook says september rate hike likely insufficient to curb price pressures": "M. Cook, de la Fed, estime que la hausse des taux prévue en septembre ne suffira probablement pas à freiner les pressions sur les prix",
     "nvidia shares fall 10% as report of sec accounting probe adds to pressure": "Les actions de Nvidia chutent de 10 % alors que les informations faisant état d'une enquête comptable de la SEC accentuent la pression",
     "nvidia stock plunges 12%, rides longest weekly losing streak since 2008 financial crisis": "L'action Nvidia s'effondre de 12 % et enregistre sa plus longue série de baisses hebdomadaires depuis la crise financière de 2008",
-    "nasdaq plunges 5% a day after anthropic debut, but investors still believe in ai": "Le Nasdaq plonge de 5 % au lendemain de l'entrée en bourse d'Anthropic, mais les investisseurs continuent de croire en l'IA"
+    "nasdaq plunges 5% a day after anthropic debut, but investors still believe in ai": "Le Nasdaq plonge de 5 % au lendemain de l'entrée en bourse d'Anthropic, mais les investisseurs continuent de croire en l'IA",
+    "us treasury sanctions iranian ’trustees’ collecting oil revenues": "Le Trésor américain impose des sanctions à des « administrateurs » iraniens chargés de percevoir les recettes pétrolières"
   },
   "seen_titles": {
     "3350ae93a847d62d9ec6d98ac818bf17dea022702ebb0559766dfcd8b8962e88": "2026-11-20T01:25:32.869706Z",
@@ -1594,7 +1596,8 @@
     "0c047021d73c2eb8c3a4b0fd3b5088da4568f2b250b3ea814945556bbb98efdf": "2026-11-20T18:10:36.965364Z",
     "d00f9acaf520b3830dc826efd9416ccefd014cdafbe0c1020e4aae440ff9dda2": "2026-11-20T19:30:54.604071Z",
     "03ce21e41c2d66853d770e1550586fcd82e333e458117c5b1b6ddd37cf8aae01": "2026-11-20T19:55:38.283172Z",
-    "631d5ad6524af457709fd62a783d198a83eb7ee4eafae9ffb0572d9b1e755ea8": "2026-11-20T21:40:49.309025Z"
+    "631d5ad6524af457709fd62a783d198a83eb7ee4eafae9ffb0572d9b1e755ea8": "2026-11-20T21:40:49.309025Z",
+    "2ee86ffbe7fe732bf853a6881838af47c9a308c34d6096c78a45fb2c88f1fdf5": "2026-11-20T22:15:43.273349Z"
   },
   "seen_events": {}
 }
