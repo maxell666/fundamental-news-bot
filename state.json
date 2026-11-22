@@ -825,7 +825,8 @@
     "https://www.investing.com/news/stock-market-news/nvidia-shares-fall-10-as-report-of-sec-accounting-probe-adds-to-pressure-5042464",
     "https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html",
     "https://www.investing.com/news/stock-market-news/nasdaq-plunges-5-a-day-after-anthropic-debut-but-investors-still-believe-in-ai-5042641",
-    "https://www.investing.com/news/economy-news/us-treasury-sanctions-iranian-trustees-collecting-oil-revenues-5042737"
+    "https://www.investing.com/news/economy-news/us-treasury-sanctions-iranian-trustees-collecting-oil-revenues-5042737",
+    "https://www.investing.com/news/stock-market-news/swiss-inflation-accelerates-as-snb-signals-concern-over-broader-price-pressures-5043822"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1579,8 +1580,17 @@
     "nvidia shares fall 10% as report of sec accounting probe adds to pressure": "Les actions de Nvidia chutent de 10 % alors que les informations faisant état d'une enquête comptable de la SEC accentuent la pression",
     "nvidia stock plunges 12%, rides longest weekly losing streak since 2008 financial crisis": "L'action Nvidia s'effondre de 12 % et enregistre sa plus longue série de baisses hebdomadaires depuis la crise financière de 2008",
     "nasdaq plunges 5% a day after anthropic debut, but investors still believe in ai": "Le Nasdaq plonge de 5 % au lendemain de l'entrée en bourse d'Anthropic, mais les investisseurs continuent de croire en l'IA",
-    "us treasury sanctions iranian ’trustees’ collecting oil revenues": "Le Trésor américain impose des sanctions à des « administrateurs » iraniens chargés de percevoir les recettes pétrolières"
+    "us treasury sanctions iranian ’trustees’ collecting oil revenues": "Le Trésor américain impose des sanctions à des « administrateurs » iraniens chargés de percevoir les recettes pétrolières",
+    "swiss inflation accelerates as snb signals concern over broader price pressures": "L'inflation suisse s'accélère alors que la BNS fait part de ses inquiétudes face à une montée générale des pressions sur les prix"
   },
-  "seen_titles": {},
-  "seen_events": {}
+  "seen_titles": {
+    "788cf787e0ee771966a27ccb7b3ca0ae10db399df0a092aba9ca123c80e933a6": "2026-11-22T09:01:02.368966Z"
+  },
+  "seen_events": {
+    "inflation:switzerland:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
+      "sent_at": "2026-11-22T09:01:02.368995Z",
+      "value": {},
+      "base": "inflation:switzerland:headline"
+    }
+  }
 }
