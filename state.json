@@ -827,7 +827,8 @@
     "https://www.investing.com/news/stock-market-news/nasdaq-plunges-5-a-day-after-anthropic-debut-but-investors-still-believe-in-ai-5042641",
     "https://www.investing.com/news/economy-news/us-treasury-sanctions-iranian-trustees-collecting-oil-revenues-5042737",
     "https://www.investing.com/news/stock-market-news/swiss-inflation-accelerates-as-snb-signals-concern-over-broader-price-pressures-5043822",
-    "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSjZLZW5ua05hQkRTLVhvZnNHZnpUM05mT3ZxNl9FUUoyMEhMN0gtTUVfT0Zhb0g2eUxaeHlvZWlIWXNTVGlSMlczMHdBUERvRjVsQVZVSW92MlFESWlmTGxVaWM2aXYwZ0NtUTlna3k4ZkV2S0k4YkhVOFRjaWRrcmhZeWg5NHpQaW9pRGIybUFpalV3U2lzdlZ5QzYteENUSWpWdm90SXNFWVU4OWxBaGx3"
+    "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSjZLZW5ua05hQkRTLVhvZnNHZnpUM05mT3ZxNl9FUUoyMEhMN0gtTUVfT0Zhb0g2eUxaeHlvZWlIWXNTVGlSMlczMHdBUERvRjVsQVZVSW92MlFESWlmTGxVaWM2aXYwZ0NtUTlna3k4ZkV2S0k4YkhVOFRjaWRrcmhZeWg5NHpQaW9pRGIybUFpalV3U2lzdlZ5QzYteENUSWpWdm90SXNFWVU4OWxBaGx3",
+    "https://www.investing.com/news/stock-market-news/wall-street-futures-jump-after-major-indexes-enter-correction-territory-5044226"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1583,11 +1584,13 @@
     "nasdaq plunges 5% a day after anthropic debut, but investors still believe in ai": "Le Nasdaq plonge de 5 % au lendemain de l'entrée en bourse d'Anthropic, mais les investisseurs continuent de croire en l'IA",
     "us treasury sanctions iranian ’trustees’ collecting oil revenues": "Le Trésor américain impose des sanctions à des « administrateurs » iraniens chargés de percevoir les recettes pétrolières",
     "swiss inflation accelerates as snb signals concern over broader price pressures": "L'inflation suisse s'accélère alors que la BNS fait part de ses inquiétudes face à une montée générale des pressions sur les prix",
-    "yemen's houthis say they attacked saudi rabigh oil refinery - reuters": "Les Houthis du Yémen affirment avoir attaqué la raffinerie de pétrole saoudienne de Rabigh - Reuters"
+    "yemen's houthis say they attacked saudi rabigh oil refinery - reuters": "Les Houthis du Yémen affirment avoir attaqué la raffinerie de pétrole saoudienne de Rabigh - Reuters",
+    "wall street futures jump after major indexes enter correction territory": "Les contrats à terme de Wall Street bondissent après que les principaux indices sont entrés en phase de correction"
   },
   "seen_titles": {
     "788cf787e0ee771966a27ccb7b3ca0ae10db399df0a092aba9ca123c80e933a6": "2026-11-22T09:01:02.368966Z",
-    "04d21a1efc1cc841b81717eba424579fd85e78a5d8fab83fdb14f49f5438c87b": "2026-11-22T19:50:50.202334Z"
+    "04d21a1efc1cc841b81717eba424579fd85e78a5d8fab83fdb14f49f5438c87b": "2026-11-22T19:50:50.202334Z",
+    "0e7e8197eec20d157c0bc44c312056f8dbbc4e107bd85e91e7612e50f6dc31d8": "2026-11-23T01:40:44.838484Z"
   },
   "seen_events": {
     "inflation:switzerland:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
