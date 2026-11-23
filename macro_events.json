@@ -420,6 +420,27 @@
       "scheduled_at": "2026-11-23T08:15:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-23T08:15:33.429Z"
+    },
+    "2026-11-23T08:30:00.000Z": {
+      "forecast_at": "2026-11-23T08:20:58.490Z",
+      "items": [
+        {
+          "currency": "EUR",
+          "forecast": "54.1",
+          "id": 147681,
+          "previous": "54.2",
+          "title": "German Flash Manufacturing PMI"
+        },
+        {
+          "currency": "EUR",
+          "forecast": "52.4",
+          "id": 147682,
+          "previous": "51.7",
+          "title": "German Flash Services PMI"
+        }
+      ],
+      "scheduled_at": "2026-11-23T08:30:00.000Z",
+      "status": "armed"
     }
   }
 }
