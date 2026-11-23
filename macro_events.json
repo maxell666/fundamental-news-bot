@@ -394,6 +394,27 @@
       "scheduled_at": "2026-11-20T07:00:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-20T07:00:21.867Z"
+    },
+    "2026-11-23T08:15:00.000Z": {
+      "forecast_at": "2026-11-23T08:05:39.761Z",
+      "items": [
+        {
+          "currency": "EUR",
+          "forecast": "49.8",
+          "id": 147679,
+          "previous": "49.3",
+          "title": "French Flash Manufacturing PMI"
+        },
+        {
+          "currency": "EUR",
+          "forecast": "47.4",
+          "id": 147680,
+          "previous": "48.4",
+          "title": "French Flash Services PMI"
+        }
+      ],
+      "scheduled_at": "2026-11-23T08:15:00.000Z",
+      "status": "armed"
     }
   }
 }
