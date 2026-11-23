@@ -1590,16 +1590,9 @@
     "yemen's houthis claim attacks on saudi oil refinery as trump warns of new strikes next year": "Les Houthis du Yémen revendiquent des attaques contre une raffinerie de pétrole saoudienne, tandis que Trump met en garde contre de nouvelles frappes l'année prochaine"
   },
   "seen_titles": {
-    "788cf787e0ee771966a27ccb7b3ca0ae10db399df0a092aba9ca123c80e933a6": "2026-11-22T09:01:02.368966Z",
     "04d21a1efc1cc841b81717eba424579fd85e78a5d8fab83fdb14f49f5438c87b": "2026-11-22T19:50:50.202334Z",
     "0e7e8197eec20d157c0bc44c312056f8dbbc4e107bd85e91e7612e50f6dc31d8": "2026-11-23T01:40:44.838484Z",
     "6724e66450289fd38df19adbd7cbc9e8c6d4dae0c2d7be9347e8527265fed0a4": "2026-11-23T03:45:42.410014Z"
   },
-  "seen_events": {
-    "inflation:switzerland:headline|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-22T09:01:02.368995Z",
-      "value": {},
-      "base": "inflation:switzerland:headline"
-    }
-  }
+  "seen_events": {}
 }
