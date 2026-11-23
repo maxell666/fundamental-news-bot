@@ -448,9 +448,11 @@
       "telegram_accepted_at": "2026-11-23T08:30:43.377Z"
     },
     "2026-11-23T09:00:00.000Z": {
+      "first_seen_at": "2026-11-23T09:00:31.077Z",
       "forecast_at": "2026-11-23T08:50:59.009Z",
       "items": [
         {
+          "actual": "52.9",
           "currency": "EUR",
           "forecast": "52.7",
           "id": 147684,
@@ -458,6 +460,7 @@
           "title": "Flash Manufacturing PMI"
         },
         {
+          "actual": "51.2",
           "currency": "EUR",
           "forecast": "51.8",
           "id": 147683,
@@ -465,8 +468,9 @@
           "title": "Flash Services PMI"
         }
       ],
+      "reserved_at": "2026-11-23T09:00:31.079Z",
       "scheduled_at": "2026-11-23T09:00:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
