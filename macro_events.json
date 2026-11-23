@@ -444,7 +444,8 @@
       ],
       "reserved_at": "2026-11-23T08:30:41.198Z",
       "scheduled_at": "2026-11-23T08:30:00.000Z",
-      "status": "send_pending"
+      "status": "completed",
+      "telegram_accepted_at": "2026-11-23T08:30:43.377Z"
     }
   }
 }
