@@ -847,7 +847,8 @@
     "https://investinglive.com/central-banks/fed-s-williams-won-t-rule-out-back-to-back-rate-hikes-as-data-drives-the-path/",
     "https://www.investing.com/news/stock-market-news/ny-feds-williams-says-high-inflation-necessitates-more-rate-hikes-93CH-5046727",
     "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWk01SnRnY1hzWHBOdlQ5eGdldmlIQkd5QUM4SFJ5S3Z5YWtVQnlYWVp3LXlqajM1QTA5UTBBSFNrOFdjVGdWME54WUJYdFRGUXJDYlVmUDFETjlITTZtYkFiWW9IcU9sVTM0R0otbjlmMXNCdC1HSEVNOXJMaDlIMC1YUnFBUDZNMXh6RlRwMVM5MDFRTy1YQXc3U21zYU0",
-    "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html"
+    "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html",
+    "https://www.investing.com/news/stock-market-news/china-southern-airlines-unit-to-buy-50-boeing-7378-aircraft-5047529"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1623,7 +1624,8 @@
     "fed's williams won't rule out back-to-back rate hikes as data drives the path": "M. Williams, de la Fed, n'exclut pas deux hausses consécutives des taux, les données déterminant la trajectoire",
     "ny fed’s williams says high inflation necessitates more rate hikes": "M. Williams, de la Fed de New York, estime que la forte inflation nécessite de nouvelles hausses des taux d'intérêt",
     "dollar climbs as renewed ai euphoria fuels fed hike bets - reuters": "Le dollar s'apprécie alors que le regain d'euphorie autour de l'IA alimente les anticipations d'une hausse des taux de la Fed - Reuters",
-    "nvidia shares fall over 3% in premarket after huang comeback rally": "Les actions de Nvidia chutent de plus de 3 % en pré-ouverture après le rebond lié au retour de Huang"
+    "nvidia shares fall over 3% in premarket after huang comeback rally": "Les actions de Nvidia chutent de plus de 3 % en pré-ouverture après le rebond lié au retour de Huang",
+    "china southern airlines unit to buy 50 boeing 737-8 aircraft at $7.4 billion list price": "Une filiale de China Southern Airlines va acquérir 50 Boeing 737-8 pour un prix catalogue de 7,4 milliards de dollars"
   },
   "seen_titles": {
     "7d447918cbb87cf406c408ae9f5996357fa2a134db6e42c1994f4b554a2e2e9e": "2026-11-23T12:10:44.584146Z",
@@ -1641,7 +1643,17 @@
     "40f34372bbfe7caf62bc22a40b9b91cc734695e963bb949bd5815b2216203ca4": "2026-11-24T00:10:41.183554Z",
     "d6eade5237ee2a9f9319e981a7da5e08845fd88b74251ad2df52c85ccbc0302b": "2026-11-24T00:15:53.416138Z",
     "e16db8f9bdbe93885f664f07fec844b2a09b84cffdf0f696c99719768f89372e": "2026-11-24T02:45:40.478971Z",
-    "3a2e673f6830c9164394206d071e916e2105185474ac69fc09ffed04b2359c4d": "2026-11-24T09:30:58.494948Z"
+    "3a2e673f6830c9164394206d071e916e2105185474ac69fc09ffed04b2359c4d": "2026-11-24T09:30:58.494948Z",
+    "4b24f22b4fce4ad2ae59c96a60252405ef1c6ddb6b42439a7bebfdad84a80fc5": "2026-11-24T12:01:04.584740Z"
   },
-  "seen_events": {}
+  "seen_events": {
+    "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
+      "sent_at": "2026-11-24T12:01:04.584757Z",
+      "value": {
+        "amount_billion": "7.4",
+        "currency": "USD"
+      },
+      "base": "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24"
+    }
+  }
 }
