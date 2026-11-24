@@ -526,9 +526,11 @@
       "telegram_accepted_at": "2026-11-23T14:45:22.963Z"
     },
     "2026-11-24T15:00:00.000Z": {
+      "first_seen_at": "2026-11-24T15:00:20.422Z",
       "forecast_at": "2026-11-24T14:50:52.860Z",
       "items": [
         {
+          "actual": "103.3",
           "currency": "USD",
           "forecast": "92.4",
           "id": 146888,
@@ -536,8 +538,9 @@
           "title": "CB Consumer Confidence"
         }
       ],
+      "reserved_at": "2026-11-24T15:00:20.426Z",
       "scheduled_at": "2026-11-24T15:00:00.000Z",
-      "status": "armed"
+      "status": "send_pending"
     }
   }
 }
