@@ -850,7 +850,8 @@
     "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html",
     "https://www.investing.com/news/stock-market-news/china-southern-airlines-unit-to-buy-50-boeing-7378-aircraft-5047529",
     "https://www.theguardian.com/business/live/2026/nov/24/jensen-huang-nvidia-stock-markets-ai-trade-us-political-backlash-donald-trump-latest-news-updates",
-    "https://www.investing.com/news/economy-news/wall-st-futures-dip-as-chip-stocks-cool-after-nvidiafueled-rally-5047567"
+    "https://www.investing.com/news/economy-news/wall-st-futures-dip-as-chip-stocks-cool-after-nvidiafueled-rally-5047567",
+    "https://www.investing.com/news/economy-news/bank-of-englands-greene-says-uk-needs-faster-rate-hikes-5048365"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1629,7 +1630,8 @@
     "nvidia shares fall over 3% in premarket after huang comeback rally": "Les actions de Nvidia chutent de plus de 3 % en pré-ouverture après le rebond lié au retour de Huang",
     "china southern airlines unit to buy 50 boeing 737-8 aircraft at $7.4 billion list price": "Une filiale de China Southern Airlines va acquérir 50 Boeing 737-8 pour un prix catalogue de 7,4 milliards de dollars",
     "nvidia shares fall in premarket trading as jensen huang’s return sparks us political backlash – business live": "Les actions de Nvidia chutent en pré-ouverture, le retour de Jensen Huang suscitant une levée de boucliers politique aux États-Unis – actualités économiques en direct",
-    "nasdaq futures drop as ai stocks cool after nvidia-fueled rally": "Les contrats à terme sur le Nasdaq reculent alors que les valeurs liées à l'IA marquent une pause après un rebond alimenté par Nvidia"
+    "nasdaq futures drop as ai stocks cool after nvidia-fueled rally": "Les contrats à terme sur le Nasdaq reculent alors que les valeurs liées à l'IA marquent une pause après un rebond alimenté par Nvidia",
+    "bank of england’s greene says uk needs faster rate hikes": "M. Greene, de la Banque d'Angleterre, estime que le Royaume-Uni a besoin de hausses de taux plus rapides"
   },
   "seen_titles": {
     "7f5ee0262012dcf20a241ed8ec04d05ab0ed5e2eee86dd6149ca933c9ec2cc67": "2026-11-23T14:10:42.461748Z",
@@ -1649,7 +1651,8 @@
     "3a2e673f6830c9164394206d071e916e2105185474ac69fc09ffed04b2359c4d": "2026-11-24T09:30:58.494948Z",
     "4b24f22b4fce4ad2ae59c96a60252405ef1c6ddb6b42439a7bebfdad84a80fc5": "2026-11-24T12:01:04.584740Z",
     "6d7ca578dcb3ed249bbef099c355a81d4acae9c4174d51c135d4b0e0ac4087a6": "2026-11-24T12:40:41.693357Z",
-    "475880df4facb168d2a80e411924f7215e69afcc7de6da89477e27b0e5135647": "2026-11-24T13:01:11.344464Z"
+    "475880df4facb168d2a80e411924f7215e69afcc7de6da89477e27b0e5135647": "2026-11-24T13:01:11.344464Z",
+    "2e7c7e3a966ea2cdfbc87fde2151cb724d1d9666b33302437909c425af7661c7": "2026-11-24T13:55:37.151191Z"
   },
   "seen_events": {
     "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
