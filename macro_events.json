@@ -524,6 +524,20 @@
       "scheduled_at": "2026-11-23T14:45:00.000Z",
       "status": "completed",
       "telegram_accepted_at": "2026-11-23T14:45:22.963Z"
+    },
+    "2026-11-24T15:00:00.000Z": {
+      "forecast_at": "2026-11-24T14:50:52.860Z",
+      "items": [
+        {
+          "currency": "USD",
+          "forecast": "92.4",
+          "id": 146888,
+          "previous": "91.7",
+          "title": "CB Consumer Confidence"
+        }
+      ],
+      "scheduled_at": "2026-11-24T15:00:00.000Z",
+      "status": "armed"
     }
   }
 }
