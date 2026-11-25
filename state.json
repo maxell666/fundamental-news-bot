@@ -868,7 +868,11 @@
     "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdUdBTGhVT2V5cDcydUZMX2NTdTkxVDBJSHdCMUgwNXBibGhQc28zdktpLXA2dGVUYzRzV3hpMld1U29KempSNUswd2dNYVdITlFxV2NycEkwbnlpZkdPSDNicVRKM3NCU2l0M0hoWU13UTZkbTAtX2JFempxaUtFbjdTZGMxT2lXM2g3dkR4cy1UYnVfZ09kOWpTNGxtUEZZOTRPaXhENlZ6OGt2ZF94d0RCVjdOSldfc0E",
     "https://www.investing.com/news/stock-market-news/wall-st-futures-fall-after-sp-500-nasdaq-end-lower-inflation-data-eyed-5049469",
     "https://www.investing.com/news/economy-news/treasury-yields-fall-in-bull-steepening-as-growth-fears-drive-haven-demand-ahead-of-pce-data-93CH-5050530",
-    "https://www.bbc.co.uk/news/articles/c893r9ke5p97o"
+    "https://www.bbc.co.uk/news/articles/c893r9ke5p97o",
+    "https://www.investing.com/news/economy-news/us-inflation-rises-further-in-october-5050840",
+    "https://www.investing.com/news/economy-news/us-weekly-jobless-claims-fall-more-than-expected-5050841",
+    "https://investinglive.com/news/us-gdp-2nd-estimate-for-the-3rd-quarter-3-5-vs-3-5-estimate/",
+    "https://investinglive.com/news/us-october-pce-core-inflation-m-m-vs-0-3-expected/"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1665,7 +1669,11 @@
     "nasdaq futures slide over 2% as ai losses deepen; inflation data in focus - reuters": "Les contrats à terme sur le Nasdaq reculent de plus de 2 % alors que les pertes dans le secteur de l'IA s'aggravent ; les chiffres de l'inflation au centre de l'attention - Reuters",
     "nasdaq futures fall 3% amid tech selloff, u.s. tariff reports": "Les contrats à terme sur le Nasdaq reculent de 3 % dans un contexte de vente massive dans le secteur technologique et d'informations concernant les droits de douane américains",
     "treasury yields fall in bull steepening as growth fears drive haven demand ahead of pce data": "Les rendements des bons du Trésor reculent dans un contexte de « bull steepening », alors que les craintes liées à la croissance stimulent la demande de valeurs refuges avant la publication des données sur l'indice PCE",
-    "us announces new tariffs on host of countries including china": "Les États-Unis annoncent de nouveaux droits de douane à l'encontre de nombreux pays, dont la Chine"
+    "us announces new tariffs on host of countries including china": "Les États-Unis annoncent de nouveaux droits de douane à l'encontre de nombreux pays, dont la Chine",
+    "us inflation rises further in october": "L'inflation aux États-Unis continue de progresser en octobre",
+    "us weekly jobless claims fall more than expected": "Le nombre hebdomadaire de demandes d'allocations chômage aux États-Unis recule plus que prévu",
+    "us gdp 2nd estimate for the 3rd quarter 4.3% vs 3.5 estimate": "Deuxième estimation du PIB américain pour le troisième trimestre : 4,3 % contre une estimation de 3,5 %",
+    "us october pce core inflation +0.3% m/m vs +0.3% expected": "Inflation sous-jacente PCE aux États-Unis en octobre : +0,3 % en glissement mensuel contre +0,3 % prévu"
   },
   "seen_titles": {
     "0b90deaa30d8137e5b98615f3db18ab3c38744a52fd464bbc8a03f7b654351c5": "2026-11-24T14:40:41.177270Z",
@@ -1684,7 +1692,11 @@
     "e508fb9249e4eb1499cbe94569989ed8e9314b8c56df533981d39a3ed172d8c2": "2026-11-25T11:45:38.164287Z",
     "fe9374ceee306a58a392584c2dc562cf259bfc3e718204274b153ce12d5bc8f0": "2026-11-25T12:30:55.840238Z",
     "a74dfa512b486c936b47923b35e5c8ab8be28feed58e00b5bacfb47b9f38fb32": "2026-11-25T12:50:39.713351Z",
-    "92d1c2fc59ba2993f991513f9844ac39d37ac2e1456689f2eaf5f3c46235c58a": "2026-11-25T13:20:47.228421Z"
+    "92d1c2fc59ba2993f991513f9844ac39d37ac2e1456689f2eaf5f3c46235c58a": "2026-11-25T13:20:47.228421Z",
+    "889403f6f05a69becf65889e2b758b35710743e36621a2f64e45c4c1e6e44d87": "2026-11-25T14:10:41.792890Z",
+    "d70d454133cad111c516d6eafee8a3ef7cdf84be9ac3e6dd72c04fa8cbb3851c": "2026-11-25T14:10:42.997268Z",
+    "200727d8e610a64c703e44d1a7c26079ba7620e086f72c341413716fde42b6d2": "2026-11-25T14:10:44.325104Z",
+    "81402b372fc4ed6932944cf44720165a23f7401767bde6ee15880e6b5719ec85": "2026-11-25T14:10:45.809523Z"
   },
   "seen_events": {
     "acquisition:china s xiamen airlines:50 boeing jets:2026-11-25|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
@@ -1694,6 +1706,20 @@
         "currency": "USD"
       },
       "base": "acquisition:china s xiamen airlines:50 boeing jets:2026-11-25"
+    },
+    "inflation:us:headline|83a9ab49a6133ab7aa6b4cfbe2443e5e6a671b34572575173e8315fc2d93e7d8": {
+      "sent_at": "2026-11-25T14:10:41.792899Z",
+      "value": {
+        "period": "2026-10"
+      },
+      "base": "inflation:us:headline"
+    },
+    "gdp:us:2026:q3|25b79e3b36b55668501b101bc245b81bc22450c376eae38042f602c6beb1d94d": {
+      "sent_at": "2026-11-25T14:10:44.325115Z",
+      "value": {
+        "growth": "4.3"
+      },
+      "base": "gdp:us:2026:q3"
     }
   }
 }
