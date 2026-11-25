@@ -855,7 +855,8 @@
     "https://www.investing.com/news/stock-market-news/us-stock-futures-steady-after-nvidialed-wall-street-rally-5046750",
     "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo",
     "https://news.google.com/rss/articles/CBMigwFBVV95cUxPVGQ3cVhHXzJBLXEybDVWX21xeWcxbUVEOHA1ZV9IU0lacEM2a3dKbmFLSGk2Y1MwLXk0OVFzWV8yT1JNQ3FnX3hWNGxidEZvbDZwTl8tdjNoUDV6MU45ZnJSa3lSMnZJNXdwWk5VRUFOYzJlTk11TmZaS1hocXhPVUE4bw",
-    "https://www.investing.com/news/stock-market-news/nvidia-shares-fall-by-6-following-huang-return-rally-5048533"
+    "https://www.investing.com/news/stock-market-news/nvidia-shares-fall-by-6-following-huang-return-rally-5048533",
+    "https://www.cnbc.com/2026/11/25/china-xiamen-boeing-deal.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1639,7 +1640,8 @@
     "u.s. stocks slide at the open a day after wall street’s explosive rally": "Les actions américaines reculent à l'ouverture, au lendemain d'une remontée fulgurante à Wall Street",
     "nvidia shares slide as trump's role in jensen huang's comeback questioned by us politicians": "Les actions de Nvidia chutent alors que le rôle de Trump dans le retour de Jensen Huang est remis en question par des responsables politiques américains",
     "us stocks slide as nvidia rally fizzles out, dollar falls - reuters": "Les actions américaines reculent alors que la remontée de Nvidia s'essouffle ; le dollar recule - Reuters",
-    "nvidia stock falls nearly 6% after huang’s return sparks best day in over 23 years": "L'action Nvidia recule de près de 6 % après que le retour de Huang a déclenché la meilleure journée boursière depuis plus de 23 ans"
+    "nvidia stock falls nearly 6% after huang’s return sparks best day in over 23 years": "L'action Nvidia recule de près de 6 % après que le retour de Huang a déclenché la meilleure journée boursière depuis plus de 23 ans",
+    "china’s xiamen airlines to buy 50 boeing jets in $7.4 billion deal": "La compagnie aérienne chinoise Xiamen Airlines va acquérir 50 avions Boeing dans le cadre d'un contrat de 7,4 milliards de dollars"
   },
   "seen_titles": {
     "3a2e673f6830c9164394206d071e916e2105185474ac69fc09ffed04b2359c4d": "2026-11-24T09:30:58.494948Z",
@@ -1650,7 +1652,8 @@
     "0b90deaa30d8137e5b98615f3db18ab3c38744a52fd464bbc8a03f7b654351c5": "2026-11-24T14:40:41.177270Z",
     "33d57661d9877ee61219eb4d900b8329a9dd23e04307cf17a714c2608718925d": "2026-11-24T17:20:49.348507Z",
     "59319d159c01bc1fa3df22caede3069a71bafd8401abc1e012fbe8bab0c9d4ac": "2026-11-24T18:10:39.242652Z",
-    "32ac27521e25e720ec212829d74e51d3e9d38877fc993bcd9aee1183caab2891": "2026-11-24T22:10:42.414331Z"
+    "32ac27521e25e720ec212829d74e51d3e9d38877fc993bcd9aee1183caab2891": "2026-11-24T22:10:42.414331Z",
+    "fa8638abc3ac6f1adffd72dd72cada6333fac91a336d47e5f05f53d74a10f8da": "2026-11-25T04:05:40.432076Z"
   },
   "seen_events": {
     "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
@@ -1660,6 +1663,14 @@
         "currency": "USD"
       },
       "base": "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24"
+    },
+    "acquisition:china s xiamen airlines:50 boeing jets:2026-11-25|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
+      "sent_at": "2026-11-25T04:05:40.432097Z",
+      "value": {
+        "amount_billion": "7.4",
+        "currency": "USD"
+      },
+      "base": "acquisition:china s xiamen airlines:50 boeing jets:2026-11-25"
     }
   }
 }
