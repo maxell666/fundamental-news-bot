@@ -857,7 +857,8 @@
     "https://news.google.com/rss/articles/CBMigwFBVV95cUxPVGQ3cVhHXzJBLXEybDVWX21xeWcxbUVEOHA1ZV9IU0lacEM2a3dKbmFLSGk2Y1MwLXk0OVFzWV8yT1JNQ3FnX3hWNGxidEZvbDZwTl8tdjNoUDV6MU45ZnJSa3lSMnZJNXdwWk5VRUFOYzJlTk11TmZaS1hocXhPVUE4bw",
     "https://www.investing.com/news/stock-market-news/nvidia-shares-fall-by-6-following-huang-return-rally-5048533",
     "https://www.cnbc.com/2026/11/25/china-xiamen-boeing-deal.html",
-    "https://investinglive.com/news/germany-q3-final-gdp-0-1-vs-0-2-q-q-prelim/"
+    "https://investinglive.com/news/germany-q3-final-gdp-0-1-vs-0-2-q-q-prelim/",
+    "https://www.investing.com/news/economy-news/dollar-takes-breather-ahead-of-us-data-on-fed-path-aussie-jumps-on-cpi-5049486"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1643,7 +1644,8 @@
     "us stocks slide as nvidia rally fizzles out, dollar falls - reuters": "Les actions américaines reculent alors que la remontée de Nvidia s'essouffle ; le dollar recule - Reuters",
     "nvidia stock falls nearly 6% after huang’s return sparks best day in over 23 years": "L'action Nvidia recule de près de 6 % après que le retour de Huang a déclenché la meilleure journée boursière depuis plus de 23 ans",
     "china’s xiamen airlines to buy 50 boeing jets in $7.4 billion deal": "La compagnie aérienne chinoise Xiamen Airlines va acquérir 50 avions Boeing dans le cadre d'un contrat de 7,4 milliards de dollars",
-    "germany q3 final gdp +0.1% vs +0.2% q/q prelim": "Allemagne : PIB définitif du troisième trimestre +0,1 % contre +0,2 % en glissement trimestriel (chiffres préliminaires)"
+    "germany q3 final gdp +0.1% vs +0.2% q/q prelim": "Allemagne : PIB définitif du troisième trimestre +0,1 % contre +0,2 % en glissement trimestriel (chiffres préliminaires)",
+    "dollar rallies before key inflation reading; aussie and sterling slump": "Le dollar se redresse avant la publication d'un indicateur clé de l'inflation ; le dollar australien et la livre sterling s'effondrent"
   },
   "seen_titles": {
     "3a2e673f6830c9164394206d071e916e2105185474ac69fc09ffed04b2359c4d": "2026-11-24T09:30:58.494948Z",
@@ -1656,7 +1658,8 @@
     "59319d159c01bc1fa3df22caede3069a71bafd8401abc1e012fbe8bab0c9d4ac": "2026-11-24T18:10:39.242652Z",
     "32ac27521e25e720ec212829d74e51d3e9d38877fc993bcd9aee1183caab2891": "2026-11-24T22:10:42.414331Z",
     "fa8638abc3ac6f1adffd72dd72cada6333fac91a336d47e5f05f53d74a10f8da": "2026-11-25T04:05:40.432076Z",
-    "9af1d584511118b76cf9c13bfca661c426c1bdb4be97f13bdf7eb4c87d002f12": "2026-11-25T07:15:39.415509Z"
+    "9af1d584511118b76cf9c13bfca661c426c1bdb4be97f13bdf7eb4c87d002f12": "2026-11-25T07:15:39.415509Z",
+    "cc4197af1521b2e6e68b5afbd0a8be501f10ae32a0948d0cb69485802efdfb13": "2026-11-25T07:25:32.814480Z"
   },
   "seen_events": {
     "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
