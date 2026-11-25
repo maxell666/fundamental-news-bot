@@ -860,7 +860,8 @@
     "https://investinglive.com/news/germany-q3-final-gdp-0-1-vs-0-2-q-q-prelim/",
     "https://www.investing.com/news/economy-news/dollar-takes-breather-ahead-of-us-data-on-fed-path-aussie-jumps-on-cpi-5049486",
     "https://www.cnbc.com/2026/11/25/treasury-yields-bonds-inflation.html",
-    "https://www.investing.com/news/stock-market-news/european-shares-rise-on-consumer-boost-markets-await-us-tariffs-inflation-5049970"
+    "https://www.investing.com/news/stock-market-news/european-shares-rise-on-consumer-boost-markets-await-us-tariffs-inflation-5049970",
+    "https://www.cnbc.com/2026/11/25/ukraine-putin-russia-oil-refinery-attacks.html"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1649,7 +1650,8 @@
     "germany q3 final gdp +0.1% vs +0.2% q/q prelim": "Allemagne : PIB définitif du troisième trimestre +0,1 % contre +0,2 % en glissement trimestriel (chiffres préliminaires)",
     "dollar rallies before key inflation reading; aussie and sterling slump": "Le dollar se redresse avant la publication d'un indicateur clé de l'inflation ; le dollar australien et la livre sterling s'effondrent",
     "treasury yields fall as investors await key inflation signal": "Les rendements des bons du Trésor reculent alors que les investisseurs attendent un indicateur clé de l'inflation",
-    "european shares rise on consumer boost; markets await us tariffs, inflation": "Les actions européennes progressent grâce à la bonne tenue de la consommation ; les marchés attendent les droits de douane américains et les chiffres de l'inflation"
+    "european shares rise on consumer boost; markets await us tariffs, inflation": "Les actions européennes progressent grâce à la bonne tenue de la consommation ; les marchés attendent les droits de douane américains et les chiffres de l'inflation",
+    "ukraine tells putin to ‘stop complaining’ over oil refinery attacks as russia promises retaliation": "L'Ukraine demande à Poutine de « cesser de se plaindre » des attaques contre les raffineries de pétrole, tandis que la Russie promet des représailles"
   },
   "seen_titles": {
     "3a2e673f6830c9164394206d071e916e2105185474ac69fc09ffed04b2359c4d": "2026-11-24T09:30:58.494948Z",
@@ -1665,7 +1667,8 @@
     "9af1d584511118b76cf9c13bfca661c426c1bdb4be97f13bdf7eb4c87d002f12": "2026-11-25T07:15:39.415509Z",
     "cc4197af1521b2e6e68b5afbd0a8be501f10ae32a0948d0cb69485802efdfb13": "2026-11-25T07:25:32.814480Z",
     "adac39453fde137330129042db7d69bf6586ffe2928fcc963877060974331ec8": "2026-11-25T07:55:33.364141Z",
-    "1894757869d7b2aaf80af2d8d10c1506665c5b49061fcdb91d35091eb6294f91": "2026-11-25T08:50:40.351588Z"
+    "1894757869d7b2aaf80af2d8d10c1506665c5b49061fcdb91d35091eb6294f91": "2026-11-25T08:50:40.351588Z",
+    "557b5c8b40370d6fea0bbbf980736f2d55419b2545bda73505c3ff03bf1d7e4d": "2026-11-25T09:30:56.564915Z"
   },
   "seen_events": {
     "acquisition:china southern airlines unit:50 boeing 737 8 aircraft:2026-11-24|c6e38c1e1ae9608c74b2ff2368a806418873b673b2697c3ed13d648a65cfd6ad": {
