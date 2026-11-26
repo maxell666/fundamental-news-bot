@@ -1696,10 +1696,6 @@
     "dollar rally pauses for thanksgiving - reuters": "La remontée du dollar marque une pause pour Thanksgiving - Reuters"
   },
   "seen_titles": {
-    "889403f6f05a69becf65889e2b758b35710743e36621a2f64e45c4c1e6e44d87": "2026-11-25T14:10:41.792890Z",
-    "d70d454133cad111c516d6eafee8a3ef7cdf84be9ac3e6dd72c04fa8cbb3851c": "2026-11-25T14:10:42.997268Z",
-    "200727d8e610a64c703e44d1a7c26079ba7620e086f72c341413716fde42b6d2": "2026-11-25T14:10:44.325104Z",
-    "81402b372fc4ed6932944cf44720165a23f7401767bde6ee15880e6b5719ec85": "2026-11-25T14:10:45.809523Z",
     "fcf4a7abffe94b0909dbe602ff68a3ae23a410cadbf1fa53ce226b64f2fa04ee": "2026-11-25T14:50:46.072116Z",
     "cd3521ca3f0a9e3aaf180512c2c030c772e42488ac006d0d026cf70376bb0547": "2026-11-25T15:10:54.480373Z",
     "13435a6e5aea87b5568adb04d9827e030b92932310568656006566df3a52b0e4": "2026-11-25T15:40:51.987636Z",
@@ -1711,20 +1707,5 @@
     "0968903a5559c1431c2e7779db9208075fb738317d27af6055e29a59c7707f65": "2026-11-26T09:10:42.337209Z",
     "c4120196613ea1e451fe4636f242673ce26255bf4c59e217ea03fa90a03ea9a7": "2026-11-26T13:55:42.436530Z"
   },
-  "seen_events": {
-    "inflation:us:headline|83a9ab49a6133ab7aa6b4cfbe2443e5e6a671b34572575173e8315fc2d93e7d8": {
-      "sent_at": "2026-11-25T14:10:41.792899Z",
-      "value": {
-        "period": "2026-10"
-      },
-      "base": "inflation:us:headline"
-    },
-    "gdp:us:2026:q3|25b79e3b36b55668501b101bc245b81bc22450c376eae38042f602c6beb1d94d": {
-      "sent_at": "2026-11-25T14:10:44.325115Z",
-      "value": {
-        "growth": "4.3"
-      },
-      "base": "gdp:us:2026:q3"
-    }
-  }
+  "seen_events": {}
 }
