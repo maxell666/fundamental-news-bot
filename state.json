@@ -891,7 +891,8 @@
     "https://www.investing.com/news/stock-market-news/wall-st-futures-surge-as-investors-return-from-holiday-5053052",
     "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-in-holidaythinned-trade-tech-rebound-in-focus-5052775",
     "https://www.investing.com/news/stock-market-news/goldman-sachs-sees-us-gdp-at-24-in-2027-with-lower-inflation-93CH-5053340",
-    "https://www.investing.com/news/economy-news/ecb-may-have-to-raise-rates-further-as-inflation-stays-above-3-5053495"
+    "https://www.investing.com/news/economy-news/ecb-may-have-to-raise-rates-further-as-inflation-stays-above-3-5053495",
+    "https://www.investing.com/news/stock-market-news/us-stocks-open-higher-as-battered-ai-shares-claw-back-losses-5053592"
   ],
   "translations": {
     "trump wants new fed chair to be 'totally independent'": "Trump veut que le nouveau président de la Fed soit \"totalement indépendant\".",
@@ -1711,7 +1712,8 @@
     "nasdaq futures surge as investors pile back into battered ai stocks": "Les contrats à terme sur le Nasdaq s'envolent alors que les investisseurs se ruent à nouveau sur les valeurs de l'IA, qui avaient été malmenées",
     "wall street futures surge toward best week in months on nvidia lifeline": "Les contrats à terme de Wall Street s'envolent, en passe de connaître leur meilleure semaine depuis des mois grâce au coup de pouce de Nvidia",
     "goldman sachs sees us gdp at 2.4% in 2027 with lower inflation": "Goldman Sachs prévoit un PIB américain de 2,4 % en 2027, avec une inflation en baisse",
-    "ecb may have to raise rates further as inflation stays above 3%": "La BCE pourrait être contrainte de relever encore ses taux, l'inflation restant supérieure à 3 %"
+    "ecb may have to raise rates further as inflation stays above 3%": "La BCE pourrait être contrainte de relever encore ses taux, l'inflation restant supérieure à 3 %",
+    "us stocks open higher as battered ai shares claw back losses": "Les marchés boursiers américains ouvrent en hausse alors que les titres du secteur de l'IA, fortement malmenés, regagnent du terrain"
   },
   "seen_titles": {
     "e2cad52c96d0223f594ac2266eb81d655cac727aff83b47552fa4035c8825df7": "2026-11-26T18:10:43.445543Z",
@@ -1722,7 +1724,8 @@
     "9376207f96f48af7c933b279373a06ae051a7d58b6f2889cf9f64ca8697cb220": "2026-11-27T10:05:37.148700Z",
     "8088083fa57cc17d8e10e5d0648c2e0fd8547900d1773ec1a472e540f3ec3b16": "2026-11-27T11:05:37.182993Z",
     "4ab460f49911be390ee17be173f82fd88447288d81e91195fe22ff85d240ffe8": "2026-11-27T11:45:42.415833Z",
-    "1894f26d6b6baefaa14f4243d0cb31e15cc43a02fbe653677de281ce3821e036": "2026-11-27T13:30:57.426519Z"
+    "1894f26d6b6baefaa14f4243d0cb31e15cc43a02fbe653677de281ce3821e036": "2026-11-27T13:30:57.426519Z",
+    "8e6632a3adda02cabf834933b7a733ff176f3080067e5efd03771e2125fa0db8": "2026-11-27T14:50:49.425272Z"
   },
   "seen_events": {
     "rates:ecb:raise:2026-11-27|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
