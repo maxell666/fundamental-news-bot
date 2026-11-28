@@ -1720,16 +1720,9 @@
     "ecb officials signal further rate hikes as inflation remains elevated": "Les responsables de la BCE laissent entrevoir de nouvelles hausses des taux alors que l'inflation reste élevée"
   },
   "seen_titles": {
-    "1894f26d6b6baefaa14f4243d0cb31e15cc43a02fbe653677de281ce3821e036": "2026-11-27T13:30:57.426519Z",
     "8e6632a3adda02cabf834933b7a733ff176f3080067e5efd03771e2125fa0db8": "2026-11-27T14:50:49.425272Z",
     "1cb10ef03a7953e7a7a263c51cc740ead4d504dab4d69016b642d55aabecc534": "2026-11-27T18:15:41.769896Z",
     "c76cfc6ac833f04abddb425c6364c92a4df74010711bf31f4f9935d03fea8b6c": "2026-11-28T02:15:08.157010Z"
   },
-  "seen_events": {
-    "rates:ecb:raise:2026-11-27|44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a": {
-      "sent_at": "2026-11-27T13:30:57.426538Z",
-      "value": {},
-      "base": "rates:ecb:raise:2026-11-27"
-    }
-  }
+  "seen_events": {}
 }
